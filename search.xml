@@ -1181,7 +1181,7 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
-      <title><![CDATA[nginx安装]]></title>
+      <title><![CDATA[nvm管理]]></title>
       <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nvm%E7%AE%A1%E7%90%86/</url>
       <content type="html"><![CDATA[<pre><code>git clone https://github.com/creationix/nvm.git ~/.nvm
 </code></pre><p>然后打开 ~/.bashrc ,  ~/.profile , or  ~/.zshrc这三个文件，在其中添加：</p>

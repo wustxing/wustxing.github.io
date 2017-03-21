@@ -1015,7 +1015,7 @@ export PATH=$NODE_HOME/bin:$PATH
     <link href="http://blog.ypintao.com/2014/06/07/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
     <id>http://blog.ypintao.com/2014/06/07/技术/Linux/linux基本命令/基本命令/</id>
     <published>2014-06-06T16:00:00.000Z</published>
-    <updated>2017-03-21T10:10:23.859Z</updated>
+    <updated>2017-03-21T10:10:24.001Z</updated>
     
     <content type="html"><![CDATA[<h1 id="useradd-dev-创建用户"><a href="#useradd-dev-创建用户" class="headerlink" title="useradd dev #创建用户"></a>useradd dev #创建用户</h1><h1 id="passwd-dev-修改密码"><a href="#passwd-dev-修改密码" class="headerlink" title="passwd dev #修改密码"></a>passwd dev #修改密码</h1><p>更改用户 dev 的密码 。<br>新的 密码：<br>重新输入新的 密码：<br>passwd：所有的身份验证令牌已经成功更新。<br>chmod -v u+w /etc/sudoers<br>“/etc/sudoers” 的权限模式保留为0640 (rw-r—–)  <a id="more"></a></p>
 <p>  解决方法：</p>
