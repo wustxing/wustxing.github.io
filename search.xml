@@ -191,6 +191,12 @@ linux
   
     
     <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://blog.ypintao.com/reading/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://blog.ypintao.com/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我是熊星。欢迎来到我的个人技术博客。</p>
@@ -219,12 +225,6 @@ linux
 </li>
 </ul>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://blog.ypintao.com/reading/index.html</url>
-      <content type="html"></content>
     </entry>
     
   
