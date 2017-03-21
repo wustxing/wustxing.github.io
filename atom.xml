@@ -61,14 +61,14 @@ linux
     <link href="http://blog.ypintao.com/2014/06/02/hexo%E6%B5%8B%E8%AF%95/markdown%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"/>
     <id>http://blog.ypintao.com/2014/06/02/hexo测试/markdown常用命令总结/</id>
     <published>2014-06-02T05:00:00.000Z</published>
-    <updated>2017-03-21T07:59:15.310Z</updated>
+    <updated>2017-03-21T08:00:47.990Z</updated>
     
     <content type="html"><![CDATA[<p>Markdown语法</p>
 <p>1、分段： 两个回车</p>
 <p>2、换行 两个空格 + 回车</p>
 <p>3、标题 # ~ ###### 井号的个数表示几级标题，即Markdown可以表示一级标题到六级标题</p>
 <p>4、引用 &gt;</p>
-<p>5、列表 * ， + ， - ， 1. ，选其中之一，注意后面有个空格</p>
+<p>5、列表 * ， + ， - ， 1. ，选其中之一，注意后面有个空格<a id="more"></a></p>
 <p>6、代码区块 四个空格 开头</p>
 <p>7、链接 <a href="链接地址">文字</a></p>
 <p>8、图片 <img src="图片地址" alt="图片说明"> ，图片地址可以是本地路劲，也可以是网络地址</p>
@@ -86,7 +86,7 @@ linux
 &lt;p&gt;2、换行 两个空格 + 回车&lt;/p&gt;
 &lt;p&gt;3、标题 # ~ ###### 井号的个数表示几级标题，即Markdown可以表示一级标题到六级标题&lt;/p&gt;
 &lt;p&gt;4、引用 &amp;gt;&lt;/p&gt;
-&lt;p&gt;5、列表
+&lt;p&gt;5、列表 * ， + ， - ， 1. ，选其中之一，注意后面有个空格
     
     </summary>
     
