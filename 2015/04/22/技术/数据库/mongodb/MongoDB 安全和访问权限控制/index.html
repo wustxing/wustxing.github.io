@@ -1,0 +1,776 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>MongoDB 安全和访问权限控制 | Blog</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="MongoDB的访问控制能够有效保证数据库的安全，访问控制是指绑定Application监听的IP地址，设置监听端口，使用账户和密码登录一，访问控制的参数">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="MongoDB 安全和访问权限控制"/>
+    <meta property="og:site_name" content="wustxing"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oluvshunx.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">熊星</p>
+                        <p class="desc">.Net/Web前端/全栈/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/test/">
+                    test <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/生活/">
+                    生活 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/生活/面试/">
+                    面试 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/随笔/">
+                    随笔 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/随笔/文章/">
+                    文章 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Linux/">
+                    Linux <span class="right">14 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/node开发工具/">
+                    node开发工具 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/基本命令/">
+                    基本命令 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/Dock/">
+                    Dock <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/环境安装/">
+                    环境安装 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/开发环境/">
+                    开发环境 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/web前端/">
+                    web前端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/gulp/">
+                    gulp <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后端/">
+                    后端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后端/Node/">
+                    Node <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/工具/">
+                    工具 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/工具/Git/">
+                    Git <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/mongodb/">
+                    mongodb <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/编程语言/">
+                    编程语言 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/编程语言/Node/">
+                    Node <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/数据库/">数据库</a><a class="breadcrumb" href="/categories/数据库/mongodb/">mongodb</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>MongoDB 安全和访问权限控制</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2015-04-21T16:00:00.000Z"><a href="/2015/04/22/技术/数据库/mongodb/MongoDB 安全和访问权限控制/">2015-04-22</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/mongodb/" class="chip pink lighten-1">mongodb</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>MongoDB的访问控制能够有效保证数据库的安全，访问控制是指绑定Application监听的IP地址，设置监听端口，使用账户和密码登录<br>一，访问控制的参数<a id="more"></a><br>1，绑定IP地址<br>mongod 参数：–bind_ip <ip address=""><br>默认值是所有的IP地址都能访问，该参数指定MongoDB对外提供服务的绑定IP地址，用于监听客户端 Application的连接，客户端只能使用绑定的IP地址才能访问mongod，其他IP地址是无法访问的。<br>2，设置监听端口<br>mongod 参数：–port <port><br>MongoDB 默认监听的端口是27017，该参数显式指定MongoDB实例监听的TCP 端口，只有当客户端Application连接的端口和MongoDB实例监听的端口一致时，才能连接到MongoDB实例。<br>3，启用用户验证<br>mongod 参数：–auth<br>默认值是不需要验证，即 –noauth，该参数启用用户访问权限控制；当mongod 使用该参数启动时，MongoDB会验证客户端连接的账户和密码，以确定其是否有访问的权限。如果认证不通过，那么客户端不能访问MongoDB的数据库。<br>Enables authorization to control user’s access to database resources and operations. When authorization is enabled, MongoDB requires all clients to authenticate themselves first in order to determine the access for the client.<br>4，权限认证<br>mongo 参数：–username <username>, -u <username><br>mongo 参数：–password <password>, -p <password><br>mongo 参数：–authenticationDatabase <dbname>  指定创建User的数据库；在特定的数据库中创建User，该DB就是User的authentication database。<br>在连接mongo时，使用参数 –authenticationDatabase，会认证 -u 和 -p 参数指定的账户和密码。如果没有指定验证数据库，mongo使用连接字符串中指定的DB作为验证数据块。<br>二，基于角色的访问控制（Role-Based Access Control）<br>角色是授予User在指定资源上执行指定操作的权限，MongoDB官方手册对角色的定义是：<br>A role grants privileges to perform the specified actions on resource.<br>MongoDB为了方便管理员管理权限，在DB级别上预先定义了内置角色；如果用户需要对权限进行更为细致的管理，MongoDB允许用户创建自定义的角色，能够在集合级别上控制User能够执行的操作。<br>MongoDB使用角色（Role）授予User访问资源的权限，Role决定User能够访问的数据库资源和执行的操作。一个User能够被授予一个或多个Role，如果User没有被授予Role，那么就没有访问MongoDB系统的权限。<br>A user is granted one or more roles that determine the user’s access to database resources and operations. Outside of role assignments, the user has no access to the system.<br>1，内置角色（Built-In Roles）<br>内置角色是MongoDB预定义的角色，操作的资源是在DB级别上。MongoDB拥有一个SuperUser的角色：root，拥有最大权限，能够在系统的所有资源上执行任意操作。<br>数据库用户角色（Database User Roles）：<br>read：授予User只读数据的权限<br>readWrite：授予User读写数据的权限<br>数据库管理角色（Database Administration Roles）：<br>dbAdmin：在当前dB中执行管理操作<br>dbOwner：在当前DB中执行任意操作<br>userAdmin：在当前DB中管理User<br>备份和还原角色（Backup and Restoration Roles）：<br>backup<br>restore<br>跨库角色（All-Database Roles）：<br>readAnyDatabase：授予在所有数据库上读取数据的权限<br>readWriteAnyDatabase：授予在所有数据库上读写数据的权限<br>userAdminAnyDatabase：授予在所有数据库上管理User的权限<br>dbAdminAnyDatabase：授予管理所有数据库的权限<br>集群管理角色（Cluster Administration Roles）：<br>clusterAdmin：授予管理集群的最高权限<br>clusterManager：授予管理和监控集群的权限，A user with this role can access the config and local databases, which are used in sharding and replication, respectively.<br>clusterMonitor：授予监控集群的权限，对监控工具具有readonly的权限<br>hostManager：管理Server<br>2，用户自定义的角色（User-Defined Roles）<br>内置角色只能控制User在DB级别上执行的操作，管理员可以创建自定义角色，控制用户在集合级别（Collection-Level）上执行的操作，即，控制User在当前DB的特定集合上执行特定的操作。<br>在创建角色时，必须明确Role的四个特性：<br>Scope：角色作用的范围，创建在Admin中的角色，能够在其他DB中使用；在其他DB中创建的角色，只能在当前DB中使用；<br>Resource：角色控制的资源，表示授予在该资源上执行特定操作的权限；<br>Privilege Actions：定义了User能够在资源上执行的操作，系统定义Action是：Privilege Actions；<br>Inherit：角色能够继承其他角色权限<br>2.1 角色作用的范围（Scope）<br>在admin 数据库中创建的角色，Scope是全局的，能够在admin，其他DB和集群中使用，并且能够继承其他DB的Role；而在非admin中创建的角色，Scope是当前数据库，只能在当前DB中使用，只能继承当前数据库的角色。<br>A role created in the admin database can include privileges that apply to the admin database, other databases or to the cluster resource, and can inherit from roles in other databases as well as the admin database. Except for roles created in the admin database, a role can only include privileges that apply to its database and can only inherit from other roles in its database.<br>2.2 权限的操作（Privilege actions）<br>MongoDB的权限包由：资源（Resource）和操作（Action）两部分组成，Privilege Actions 定义User能够在资源上执行的操作，例如：MongoDB在文档级别（Document-Level）上执行的读写操作（Query and Write Actions）列表是：<br>find<br>insert<br>remove<br>update<br>3，创建角色<br>使用db.CreateRole()在当前DB中创建角色，创建的语法示例如下：<br>复制代码<br>use admin<br>db.createRole(<br>   {<br>     role: “new_role”,<br>     privileges: [<br>       { resource: { cluster: true }, actions: [ “addShard” ] },<br>       { resource: { db: “config”, collection: “” }, actions: [ “find”, “update”, “insert”, “remove” ] },<br>       { resource: { db: “users”, collection: “usersCollection” }, actions: [ “update”, “insert”, “remove” ] },<br>       { resource: { db: “”, collection: “” }, actions: [ “find” ] }<br>     ],<br>     roles: [<br>       { role: “read”, db: “admin” }<br>     ]<br>   },<br>   { w: “majority” , wtimeout: 5000 }<br>)<br>复制代码<br>在roles数组中，指定被继承的role，即，新建的new_role从roles数组中继承权限：<br>如果被继承的role在当前DB中，定义的格式是：roles:[“role”]；<br>如果被继承的role不在当前DB中，需要使用doc，指定该role所在的DB，定义的格式是：roles:[{role:”role_name”, db:”db_name”}]；<br>4，自定义角色管理函数<br>db.createRole() ：Creates a role and specifies its privileges.<br>db.updateRole() ：Updates a user-defined role.<br>db.dropRole() ：Deletes a user-defined role.<br>db.dropAllRoles() ：Deletes all user-defined roles associated with a database.<br>db.grantPrivilegesToRole() ：Assigns privileges to a user-defined role.<br>db.revokePrivilegesFromRole() ：Removes the specified privileges from a user-defined role.<br>db.grantRolesToRole() ：Specifies roles from which a user-defined role inherits privileges.<br>db.revokeRolesFromRole() ：Removes inherited roles from a role.<br>db.getRole() ：Returns information for the specified role.<br>db.getRoles() ：Returns information for all the user-defined roles in a database.<br>三，管理用户和权限<br>1，创建用户<br>复制代码<br>use db_name<br>db.createUser(<br>{<br>    user: “user_name”,<br>    pwd: “user_pwd”,<br>    roles: [   { role: “clusterAdmin”, db: “admin” },<br>               { role: “readAnyDatabase”, db: “admin” },<br>               “readWrite”<br>           ]<br>}<br>)<br>复制代码<br>为新建的User，授予一个或多个角色，通过roles数组来实现：<br>如果role存在于当前DB中，roles的格式：roles:[“role”]；<br>如果role不存在于当前DB中，roles的格式：roles:[Role:”role_name”, db:”db_name”]；<br>2，权限认证（Authenticate）<br>mongo连接到mongod，有两种权限认证的方式：<br>在连接时认证用户访问的权限，mongo 使用参数 –authenticationDatabase <dbname> 指定认证数据库；<br>在连接后，认证用户访问的权限，mongo 没有使用参数 –authenticationDatabase <dbname>，在连接到mongod之后，切换到验证数据库（authentication database）中，使用db.auth() 验证User是否有权限访问当前数据库；<br>use db_name<br>db.auth(“user_name”, “user_pwd” )<br>3，用户管理函数<br>db.auth() ：Authenticates a user to a database.<br>db.createUser() ：Creates a new user.<br>db.updateUser() ：Updates user data.<br>db.changeUserPassword() ：Changes an existing user’s password.<br>db.dropAllUsers() ：Deletes all users associated with a database.<br>db.dropUser() ：Removes a single user.<br>db.grantRolesToUser() ：Grants a role and its privileges to a user.<br>db.revokeRolesFromUser() ：Removes a role from a user.<br>db.getUser() ：Returns information about the specified user.<br>db.getUsers() ：Returns information about all users associated with a database.</dbname></dbname></dbname></password></password></username></username></port></ip></p>
+
+                
+<p class="pink-link-context">
+    <a href="/2015/04/24/技术/数据库/mongodb/mongodb索引/" rel="next" title="MongoDB索引">
+    上一篇：MongoDB索引
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2015/04/01/技术/web前端/gulp/gulp入门/" rel="next" title="git入门">
+    下一篇：git入门
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2015/04/22/技术/数据库/mongodb/MongoDB 安全和访问权限控制/" data-title="MongoDB 安全和访问权限控制" data-url="http://blog.ypintao.com/2015/04/22/技术/数据库/mongodb/MongoDB 安全和访问权限控制/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'wustxingblog'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/2100494272" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/wustxing" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <div class="site-visitors-container white-text">
+                    <span>
+                        <i class="fa fa-user"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+                    </span>
+                    <span>&nbsp;|&nbsp;</span>
+                    <span>
+                        <i class="fa fa-eye"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+                    </span>
+                </div>
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.ypintao.com/" target="_blank">wustxing技术博客</a>
+                
+                    <a class="social-link" href="http://blackmack.github.io/" target="_blank">创姐的博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=61306871" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>

@@ -43,6 +43,941 @@ linux
     </entry>
     
     <entry>
+      <title><![CDATA[程序员面试谈薪资的6大技巧]]></title>
+      <url>http://blog.ypintao.com/2016/02/21/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E8%B0%88%E8%96%AA%E8%B5%84%E7%9A%846%E5%A4%A7%E6%8A%80%E5%B7%A7/</url>
+      <content type="html"><![CDATA[<p>面试官： 在我们这儿工作，您希望有什么样的薪资待遇？  </p>
+<p>提示：了解该公司所在地区、所属行业、公司规模等信息，你的薪水要求应该在该公司所在地 区、行业、公司规模相应的薪水范围之内。尽可能提供一个你期望的薪水范围，而不是具体的 薪金数。 求职者：其实工资并不是我决定工作机会的唯一因素，如果您一定要我回答这个问题，只能说我希望以我所受的教育背景及工作经验，我希望我的工资不低于年薪50,000元。<a id="more"></a></p>
+<p>面试官： 你认为每年加薪的幅度是多少？</p>
+<p>提示：通常, 比较可靠的回答是: 你希望收入的增长和生活水平的提高保持一致。你还应该提 到，你的业绩将是加薪的主要因素。 求职者：总体来说，取决于我个人的业绩和公司的业绩（盈利状况）。但一般而言，至少和生 活水平的提高保持一致。</p>
+<p>面试官： 你上一份工作的收入是多少？  </p>
+<p>提示：有时候面试人员希望得到一个比较明确的答案。记住，在陈述你的收入时，要把你的整个福利收入也加在上面。在有的公司福利收入可以使你的年收入增加30%或更多。求职者：我过去的三年内一直在ABC公司工作，我是大学一毕业就在这个公司的，当时并没有管理经验。这三年中，我积累了很多管理和财务方面的技巧。现在ABC公司给我的薪水是非常富有竞争性的。</p>
+<p>面试官： 你愿意降低你的标准吗？  </p>
+<p>提示：如果这确实是你非常希望得到的工作，那么，你应该考虑在开始时工资有所降低。应强 调你可以把工作做得很好，并设法了解公司调整你薪水的时间。另外，对你能够接受的最低数 额应心里有数，但千万不要把这个数字告诉给面试人员。求职者：由于我对该职位非常感兴趣，我可以考虑接受低一些的薪水，你也需要时间让我证明 我的能力。我相信我可以干得十分出色，如果我能证明我的能力，你是否会考虑对我的薪水作 一些调整呢，比如说，在三个月后。</p>
+<p>面试官： 你认为我们提供给你的薪水如何？  </p>
+<p>提示：在回答这个问题之前，首先确定这是否是正式聘用的工资数额，也许面试人只是想了解你的工资要求。如果是正式聘用的工资数额，你要确定自己是否能够接受这个数额。在西方国 家，多数雇主希望你能跟他们进一步商量；而在亚洲国家，则相反。如果这个数目大大低于你的期望，可以有技巧性地询问其它的福利项目是怎样的。求职者：这个数字跟我期望的非常接近，不过我的期望值要稍高些。您是否可以提供一个大致的薪资范围？</p>
+<p>面试官： 能否告诉我，你的工资调整纪录？  </p>
+<p>提示：在这个问题中，面试人员只是想知道是否你一直原职不变，或者说是否你不断得到晋升的机会。所以，尽量避免提供薪资具体数额，除非他们要求。求职者：三年来，我一直在ABC公司工作，曾得到两次职务提升。ABC公司每年薪资调整的幅度不是太大，但由于我的工作总是十分优秀，每年的薪资调整都接近调整的最高水平。我目前的 工资已比我开始工作的第一年提高近40%。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 生活 </category>
+            
+            <category> 面试 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于libuv]]></title>
+      <url>http://blog.ypintao.com/2015/07/21/%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/Node%20Express/%E5%85%B3%E4%BA%8Elibuv/</url>
+      <content type="html"><![CDATA[<p>首先介绍下libuv，libuv 是一个高性能事件驱动的程序库，封装了 Windows 和 Unix 平台一些底层特性，为开发者提供了统一的 API。libuv 采用了 异步 (asynchronous), 事件驱动 (event-driven)的编程风格, <a id="more"></a>其主要任务是为开人员提供了一套事件循环和基于I/O(或其他活动)通知的回调函数, libuv 提供了一套核心的工具集, 例如定时器, 非阻塞网络编程的支持, 异步访问文件系统, 子进程以及其他功能。 可见nodejs的一切异步操作都是基于libuv来实现的，有了它的这些api我们也就可以编写出异步的nodejs模块了。<br>最好结合github上的test和liuv.h来看，更加容易弄懂 中文版的libuv手册：<a href="http://forhappy.github.io/uvbook/index.html" target="_blank" rel="external">http://forhappy.github.io/uvbook/index.html</a> libuv项目地址：<a href="https://github.com/joyent/libuv" target="_blank" rel="external">https://github.com/joyent/libuv</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 后端 </category>
+            
+            <category> Node </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Node </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[备份，删除mongodb数据库释放空间]]></title>
+      <url>http://blog.ypintao.com/2015/04/30/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/%E5%A4%87%E4%BB%BD%EF%BC%8C%E5%88%A0%E9%99%A4mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8A%E6%94%BE%E7%A9%BA%E9%97%B4/</url>
+      <content type="html"><![CDATA[<p>所以介绍用db.copyDatabase可以备份复制数据的方法。<br>1.db.copyDatabase(“from”,”to”,”127.0.0.1:16161”);复制出一个新的to数据库。这个已经是最小数据占用的数据。会在数据目录下产生to的相关数据文件。<br>2.将所有程序的配置从from库改为to库。测试无误。<br>3.这时可以删除from库。方法。use from 后 db.dropDatabase()<a id="more"></a>。这个方法的好处是可以时间将磁盘上的数据删除掉。节省出很大的空间。</p>
+<p>禁止数据库预分配空间<br>在启动数据库时可以选择noprealloc参数，禁止数据库预分配空间，但会影响到插入效率。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+            <category> mongodb </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[程序员如何提高影响力]]></title>
+      <url>http://blog.ypintao.com/2015/04/28/%E7%94%9F%E6%B4%BB/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E5%BD%B1%E5%93%8D%E5%8A%9B/</url>
+      <content type="html"><![CDATA[<p>影响力，让梦想离你更近。<br>试想一下，有一天你开发了一个新的语言。它比现有的某某主流软件，运行效率将提高了50%，开发效率提高了100%。接着，你在github上 release了0.1，但是由于出现某个开发难题，你需要别人的帮助。而这时，你找不到有效的途径去找到那些真正会用它的人。接着出现了一个新的语言可 以达到一样的效果，而这个项目就死于腹中，我记得mruby刚刚只写了一个README.md的时候，就获得了上千个star。<br>如何提高影响力，为自己代言<a id="more"></a></p>
+<p>每个人都可以是一个品牌，对于一个程序员来说，我们的ID就是我们的品牌。而构成品牌的有多个要素:<br>博客<br>Github<br>Weibo(or Twitter)<br>StackOverflow(or SegmentFault, Zhihu)<br>等等。<br>搭建一个跨平台的平台</p>
+<p>连接各个平台的核心是我们的ID。<br>第一个平台指的是不同的网站，如我们的博客、Github、知乎等等，第二个平台指的是我们的影响力。<br>So，在开始的时候我们需要有一个统一的ID，来标识我们的身份:我是谁，你在xx网站上看到的那个xx就是我。刚开始的时候，我在CSDN、 Github上的ID(gmszone)和我的博客的域名(Phodal)是不一样的，因为当时的域名(gmszone.com)握在别人的手上，于是我 便想办法将两个ID改了过来（ps: github提供迁移)。<br>于是，这时就可以开始使用跨平台的平台了。<br>构建平台</p>
+<p>小博客也会有成长的一天。<br>对于像我这样一个个默默无闻地人来说，用户可能会有下面几种不同的方法来知道我:<br>live example<br>用户 -&gt; 搜索{谷歌,百度,必应} -&gt; 博客 -&gt; {Weibo,Github}<br>用户 -&gt; 微博 -&gt; {Github, 博客}<br>用户 —&gt; Github -&gt; 博客<br>用户 -&gt; {知乎, SegmentFault} -&gt; {Weibo,Github,博客}<br>博客</p>
+<p>刚开始在CSDN上写博客的时候，一开始的访问量很少，慢慢地就多了。有一天发现这样的博客不是自己想要的，于是建了自己的博客，一开始的流量是 0。像CSDN这样的网站推荐一些文章到首页，如果能这样便是幸运的。在经历大半年的几乎零流量之后，开始慢慢增长了。到了今天，一共有470篇博客(有 一些是出于测试SEO目的写成多篇文章)。一天的PageView大平均有五百左右，主要来源是搜索引擎，百度200左右，谷歌50左右，必应10左右。<br>用户故事</p>
+<p>对于一个程序员来说，必须在某种程度上熟悉怎么搜索自己想要的内容，即关键字。如我们想要知道如何在OpenWRT OS上用Python，那么我们会搜索OpenWRT Python。于是，这个时候我们博客的标题带有OpenWRT Python，那么我们可能就中奖了。<br>故事，告诉我们好的标题很重要。重复这个主题也很重要，会有一个更好的排名。至于，如何更好地排到第一，就是SEO(搜索引擎优化)的话题了。<br>笔记</p>
+<p>一开始要写一个博客是比较难的，没有流量、没有评论。所以，一个好的切入点是: 笔记。最好是那种网上很少的内容的笔记，虽说很多人不愿意去做这个，但是这是一个很好的方向。<br>一个技术博客里面的内容应该是两种类型:<br>技术<br>理论<br>技术型可以带来流量，理论型的可以带来评论。理想的话，两者会相辅相成的，但是在我们刚处于学习期的时候。那么那些Note，可以给我们带来一些流量，也带来一些信心。如果，只是想着一开始我就只写一些长篇大论的话，那么只是就是拿了80%的时间做了20%的事。<br>以用户搜索的过程来说，用户是有目的的进行搜索。换句话说，在我们日常工作的时候，我们只关心和我们工作相关的内容。而在受众来，正常情况下，技术型的博文、笔记可以带来流量的主要原因是: 大部分人都是初学者。<br>70 percent<br>理论性的内容，更适合更高级别的开发者，这样的受众较少。<br>上头条</p>
+<p>而在今天有其他的平台，可以借用来推销自己的:<br>开发者头条<br>极客头条<br>掘金稀土<br>…<br>网上的IT新闻、博客都是互相Copy，对于一些软文(如本文)来说。这也是期触及率高的原因，通常来说这样可以带来大量的流量。记得在原文中留个原文链接，附张图片(自己博客的图片)来保证:Google把原文指向你的博客，而不是免费为别人打工。<br>提升</p>
+<p>除了是一个很好的展示平台，也是一个很好的测试平台。作为一个Web Developer，测试过<br>Nginx Log分析(~600M)<br>New Relic<br>SEO<br>AutoComplete<br>重构网站<br>…<br>Github</p>
+<p>将自己尝试的不同技术栈的内容丢到Github上，加上适当地文档、博客，就变成了一个很好的Demo。然而，不止于此，越来越多地人开始在Github寻找人才，因为他们乐于付出，也乐于分离。曾经因为Github上的项目:<br>申请WebStorm开源License<br>Review英文版书籍<br>…(有些不方便透露)<br>而在Github上的项目其实不仅仅只有一些库:<br>库和框架: 和jQuery<br>系统: 如Linux、hhvm、docker<br>配置集: 如dotfiles<br>辅助工具: 如oh-my-zsh<br>工具: 如Homewbrew和Bower<br>资料收集: 如free programming books，You-Dont-Know-JS，Font-Awesome<br>其他:简历如Resume，博客<br>所以，可以尝试不同的切入点使用Github。<br>在某种程度上来说，一个人在Gihub上的粉丝数量会帮助他的项目在初期获取更多的人气。这样就有助于其下一步开展项目，当然也会在某种程度上更好看Blabla。<br>提升</p>
+<p>之前写过一篇《如何通过github提升自己》中说到了一些细节，大致上还是那些东西，Github与Trello、Travis-CI、Coveralls、SauceLabs、Code Climate，配合得很好。已经可以接近于我们在一些项目上用到的功能，因此拿他们搭建一个好的开发环境完全不是问题。<br>Travis CI:支持Node.js、Python、Ruby、PHP等二十几种语言，也支持MySQL、PostgreSQL、MongoDB、Redis等数据库。<br>Coveralls:可以用来查看代码的测试覆盖率。<br>SauceLabs:可以用来跑Selenium功能测试等等<br>Code Climate:查看代码的坏味道。<br>在我们试着去保证测试覆盖率、代码质量等等的时候，我们就可以学到一些知识，如使用不同语言测试框架的Mock、Stub、FakeServer等等。<br>扩大影响力</p>
+<p>上面的两部分属于打造平台部分，而如Weibo、知乎等则属于扩大影响力。<br>在某种时候，博客、Github都更像是个人的平台。如Weibo、知乎、SegmentFault、CSDN等等的开发者社区，也可以为自己的博 客、Github带来流量，而这一些都是互相促进的。如果我们在其中的一个网站上表现得很好的话，那么在另外一个网站上我们也很容易聚集同样的粉丝。如， 我最常用的一个作法是: 将自己写得相对比较好的一些博客复制到CSDN、SegemntFault、图灵社区等等，并适当地推到CSDN首页、开发者头条等等。<br>由于写作的开发人员是有限的，所以通常在某某头条上的推荐，会成为某博客园上的新闻，接着会有成群接队的小站开始Copy。同时，这些文章又会推到 他们的微博上，接着还可能是微信平台。毕竟，对于大部分的网络来说，大部分的流量是流向他们的网站的，所以他们不太会在乎其中的外链等等。故而，通常来 说: 不是某某东西突然火了，而是突然没有别的新闻了。通常来说一个好的作法是，试着将你的博客分享到微博上，然后@那些愿意帮你分享的平台。这样，你可以有更 多的阅读、更多的粉丝，当然好的内容是前提。<br>其中还有若干其它的好处:<br>更大的曝光率，会带来更多的机会<br>更有机会参与一些未公开互联网产品的试用<br>各种精美小礼物<br>翻译、出版机会<br>TODO</p>
+<p>只需要简单地几步就可以开始提高我们的影响力:<br>在不同的网站上使用一个ID<br>创建一个博客<br>开始创作内容、提交代码、分享<br>持续Impact</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 生活 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MongoDB索引]]></title>
+      <url>http://blog.ypintao.com/2015/04/24/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/mongodb%E7%B4%A2%E5%BC%95/</url>
+      <content type="html"><![CDATA[<p>一、索引基础：<br>    MongoDB的索引几乎与传统的关系型数据库一模一样，这其中也包括一些基本的优化技巧。下面是创建索引的命令：</p>
+<pre><code>&gt; db.test.ensureIndex({&quot;username&quot;:1})
+可以通过下面的名称查看索引是否已经成功建立：
+&gt; db.test.getIndexes()
+删除索引的命令是：
+&gt; db.test.dropIndex({&quot;username&quot;:1})
+在MongoDB中，我们同样可以创建复合索引，如：&lt;!--more--&gt;
+-- 数字1表示username键的索引按升序存储，-1表示age键的索引按照降序方式存储。
+&gt; db.test.ensureIndex({&quot;username&quot;:1, &quot;age&quot;:-1})
+该索引被创建后，基于username和age的查询将会用到该索引，或者是基于username的查询也会用到该索引，但是只是基于age的查询将不 会用到该复合索引。因此可以说，如果想用到复合索引，必须在查询条件中包含复合索引中的前N个索引列。然而如果查询条件中的键值顺序和复合索引中的创建顺 序不一致的话，MongoDB可以智能的帮助我们调整该顺序，以便使复合索引可以为查询所用。如：
+&gt; db.test.find({&quot;age&quot;: 30, &quot;username&quot;: &quot;stephen&quot;})
+对于上面示例中的查询条件，MongoDB在检索之前将会动态的调整查询条件文档的顺序，以使该查询可以用到刚刚创建的复合索引。
+我们可以为内嵌文档创建索引，其规则和普通文档没有任何差别，如：
+&gt; db.test.ensureIndex({&quot;comments.date&quot;:1})
+对于上面创建的索引，MongoDB都会根据索引的keyname和索引方向为新创建的索引自动分配一个索引名，下面的命令可以在创建索引时为其指定索引名，如：
+&gt; db.test.ensureIndex({&quot;username&quot;:1},{&quot;name&quot;:&quot;testindex&quot;})    
+随着集合的增长，需要针对查询中大量的排序做索引。如果没有对索引的键调用sort，MongoDB需要将所有数据提取到内存并排序。因此在做无索引排序时，如果数据量过大以致无法在内存中进行排序，此时MongoDB将会报错。
+</code></pre><p>二、唯一索引：<br>    在缺省情况下创建的索引均不是唯一索引。下面的示例将创建唯一索引，如：</p>
+<pre><code>&gt; db.test.ensureIndex({&quot;userid&quot;:1},{&quot;unique&quot;:true})
+如果再次插入userid重复的文档时，MongoDB将报错，以提示插入重复键，如：
+&gt; db.test.insert({&quot;userid&quot;:5})
+&gt; db.test.insert({&quot;userid&quot;:5})
+E11000 duplicate key error index: test.test.$userid_1  dup key: { : 5.0 }    
+如果插入的文档中不包含userid键，那么该文档中该键的值为null，如果多次插入类似的文档，MongoDB将会报出同样的错误，如：
+&gt; db.test.insert({&quot;userid1&quot;:5})
+&gt; db.test.insert({&quot;userid1&quot;:5})
+E11000 duplicate key error index: test.test.$userid_1  dup key: { : null }        
+如果在创建唯一索引时已经存在了重复项，我们可以通过下面的命令帮助我们在创建唯一索引时消除重复文档，仅保留发现的第一个文档，如：
+--先删除刚刚创建的唯一索引。
+&gt; db.test.dropIndex({&quot;userid&quot;:1}) 
+--插入测试数据，以保证集合中有重复键存在。
+&gt; db.test.remove()
+&gt; db.test.insert({&quot;userid&quot;:5})
+&gt; db.test.insert({&quot;userid&quot;:5})    
+--创建唯一索引，并消除重复数据。
+&gt; db.test.ensureIndex({&quot;userid&quot;:1},{&quot;unique&quot;:true,&quot;dropDups&quot;:true})    
+--查询结果确认，重复的键确实在创建索引时已经被删除。
+&gt; db.test.find()
+{ &quot;_id&quot; : ObjectId(&quot;4fe823c180144abd15acd52e&quot;), &quot;userid&quot; : 5 }    
+
+我们同样可以创建复合唯一索引，即保证复合键值唯一即可。如：
+&gt; db.test.ensureIndex({&quot;userid&quot;:1,&quot;age&quot;:1},{&quot;unique&quot;:true})    
+</code></pre><p>三、使用explain：<br>    explain是非常有用的工具，会帮助你获得查询方面诸多有用的信息。只要对游标调用该方法，就可以得到查询细节。explain会返回一个文档，而不是游标本身。如：</p>
+<pre><code>&gt; db.test.find().explain()
+{
+    &quot;cursor&quot; : &quot;BasicCursor&quot;,
+    &quot;nscanned&quot; : 1,
+    &quot;nscannedObjects&quot; : 1,
+    &quot;n&quot; : 1,
+    &quot;millis&quot; : 0,
+    &quot;nYields&quot; : 0,
+    &quot;nChunkSkips&quot; : 0,
+    &quot;isMultiKey&quot; : false,
+    &quot;indexBounds&quot; : {
+
+    }    
+}
+explain会返回查询使用的索引情况，耗时和扫描文档数的统计信息。
+&quot;cursor&quot;:&quot;BasicCursor&quot;表示没有使用索引。
+&quot;nscanned&quot;:1 表示查询了多少个文档。
+&quot;n&quot;:1 表示返回的文档数量。
+&quot;millis&quot;:0 表示整个查询的耗时。
+</code></pre><p>四、索引管理：<br>    system.indexes集合中包含了每个索引的详细信息，因此可以通过下面的命令查询已经存在的索引，如：</p>
+<pre><code>&gt; db.system.indexes.find()
+如果在为已有数据的文档创建索引时，可以执行下面的命令，以使MongoDB在后台创建索引，这样的创建时就不会阻塞其他操作。但是相比而言，以阻塞方式创建索引，会使整个创建过程效率更高，但是在创建时MongoDB将无法接收其他的操作。
+&gt; db.test.ensureIndex({&quot;username&quot;:1},{&quot;background&quot;:true})
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+            <category> mongodb </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MongoDB 安全和访问权限控制]]></title>
+      <url>http://blog.ypintao.com/2015/04/22/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/MongoDB%20%E5%AE%89%E5%85%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
+      <content type="html"><![CDATA[<p>MongoDB的访问控制能够有效保证数据库的安全，访问控制是指绑定Application监听的IP地址，设置监听端口，使用账户和密码登录<br>一，访问控制的参数<a id="more"></a><br>1，绑定IP地址<br>mongod 参数：–bind_ip <ip address=""><br>默认值是所有的IP地址都能访问，该参数指定MongoDB对外提供服务的绑定IP地址，用于监听客户端 Application的连接，客户端只能使用绑定的IP地址才能访问mongod，其他IP地址是无法访问的。<br>2，设置监听端口<br>mongod 参数：–port <port><br>MongoDB 默认监听的端口是27017，该参数显式指定MongoDB实例监听的TCP 端口，只有当客户端Application连接的端口和MongoDB实例监听的端口一致时，才能连接到MongoDB实例。<br>3，启用用户验证<br>mongod 参数：–auth<br>默认值是不需要验证，即 –noauth，该参数启用用户访问权限控制；当mongod 使用该参数启动时，MongoDB会验证客户端连接的账户和密码，以确定其是否有访问的权限。如果认证不通过，那么客户端不能访问MongoDB的数据库。<br>Enables authorization to control user’s access to database resources and operations. When authorization is enabled, MongoDB requires all clients to authenticate themselves first in order to determine the access for the client.<br>4，权限认证<br>mongo 参数：–username <username>, -u <username><br>mongo 参数：–password <password>, -p <password><br>mongo 参数：–authenticationDatabase <dbname>  指定创建User的数据库；在特定的数据库中创建User，该DB就是User的authentication database。<br>在连接mongo时，使用参数 –authenticationDatabase，会认证 -u 和 -p 参数指定的账户和密码。如果没有指定验证数据库，mongo使用连接字符串中指定的DB作为验证数据块。<br>二，基于角色的访问控制（Role-Based Access Control）<br>角色是授予User在指定资源上执行指定操作的权限，MongoDB官方手册对角色的定义是：<br>A role grants privileges to perform the specified actions on resource.<br>MongoDB为了方便管理员管理权限，在DB级别上预先定义了内置角色；如果用户需要对权限进行更为细致的管理，MongoDB允许用户创建自定义的角色，能够在集合级别上控制User能够执行的操作。<br>MongoDB使用角色（Role）授予User访问资源的权限，Role决定User能够访问的数据库资源和执行的操作。一个User能够被授予一个或多个Role，如果User没有被授予Role，那么就没有访问MongoDB系统的权限。<br>A user is granted one or more roles that determine the user’s access to database resources and operations. Outside of role assignments, the user has no access to the system.<br>1，内置角色（Built-In Roles）<br>内置角色是MongoDB预定义的角色，操作的资源是在DB级别上。MongoDB拥有一个SuperUser的角色：root，拥有最大权限，能够在系统的所有资源上执行任意操作。<br>数据库用户角色（Database User Roles）：<br>read：授予User只读数据的权限<br>readWrite：授予User读写数据的权限<br>数据库管理角色（Database Administration Roles）：<br>dbAdmin：在当前dB中执行管理操作<br>dbOwner：在当前DB中执行任意操作<br>userAdmin：在当前DB中管理User<br>备份和还原角色（Backup and Restoration Roles）：<br>backup<br>restore<br>跨库角色（All-Database Roles）：<br>readAnyDatabase：授予在所有数据库上读取数据的权限<br>readWriteAnyDatabase：授予在所有数据库上读写数据的权限<br>userAdminAnyDatabase：授予在所有数据库上管理User的权限<br>dbAdminAnyDatabase：授予管理所有数据库的权限<br>集群管理角色（Cluster Administration Roles）：<br>clusterAdmin：授予管理集群的最高权限<br>clusterManager：授予管理和监控集群的权限，A user with this role can access the config and local databases, which are used in sharding and replication, respectively.<br>clusterMonitor：授予监控集群的权限，对监控工具具有readonly的权限<br>hostManager：管理Server<br>2，用户自定义的角色（User-Defined Roles）<br>内置角色只能控制User在DB级别上执行的操作，管理员可以创建自定义角色，控制用户在集合级别（Collection-Level）上执行的操作，即，控制User在当前DB的特定集合上执行特定的操作。<br>在创建角色时，必须明确Role的四个特性：<br>Scope：角色作用的范围，创建在Admin中的角色，能够在其他DB中使用；在其他DB中创建的角色，只能在当前DB中使用；<br>Resource：角色控制的资源，表示授予在该资源上执行特定操作的权限；<br>Privilege Actions：定义了User能够在资源上执行的操作，系统定义Action是：Privilege Actions；<br>Inherit：角色能够继承其他角色权限<br>2.1 角色作用的范围（Scope）<br>在admin 数据库中创建的角色，Scope是全局的，能够在admin，其他DB和集群中使用，并且能够继承其他DB的Role；而在非admin中创建的角色，Scope是当前数据库，只能在当前DB中使用，只能继承当前数据库的角色。<br>A role created in the admin database can include privileges that apply to the admin database, other databases or to the cluster resource, and can inherit from roles in other databases as well as the admin database. Except for roles created in the admin database, a role can only include privileges that apply to its database and can only inherit from other roles in its database.<br>2.2 权限的操作（Privilege actions）<br>MongoDB的权限包由：资源（Resource）和操作（Action）两部分组成，Privilege Actions 定义User能够在资源上执行的操作，例如：MongoDB在文档级别（Document-Level）上执行的读写操作（Query and Write Actions）列表是：<br>find<br>insert<br>remove<br>update<br>3，创建角色<br>使用db.CreateRole()在当前DB中创建角色，创建的语法示例如下：<br>复制代码<br>use admin<br>db.createRole(<br>   {<br>     role: “new_role”,<br>     privileges: [<br>       { resource: { cluster: true }, actions: [ “addShard” ] },<br>       { resource: { db: “config”, collection: “” }, actions: [ “find”, “update”, “insert”, “remove” ] },<br>       { resource: { db: “users”, collection: “usersCollection” }, actions: [ “update”, “insert”, “remove” ] },<br>       { resource: { db: “”, collection: “” }, actions: [ “find” ] }<br>     ],<br>     roles: [<br>       { role: “read”, db: “admin” }<br>     ]<br>   },<br>   { w: “majority” , wtimeout: 5000 }<br>)<br>复制代码<br>在roles数组中，指定被继承的role，即，新建的new_role从roles数组中继承权限：<br>如果被继承的role在当前DB中，定义的格式是：roles:[“role”]；<br>如果被继承的role不在当前DB中，需要使用doc，指定该role所在的DB，定义的格式是：roles:[{role:”role_name”, db:”db_name”}]；<br>4，自定义角色管理函数<br>db.createRole() ：Creates a role and specifies its privileges.<br>db.updateRole() ：Updates a user-defined role.<br>db.dropRole() ：Deletes a user-defined role.<br>db.dropAllRoles() ：Deletes all user-defined roles associated with a database.<br>db.grantPrivilegesToRole() ：Assigns privileges to a user-defined role.<br>db.revokePrivilegesFromRole() ：Removes the specified privileges from a user-defined role.<br>db.grantRolesToRole() ：Specifies roles from which a user-defined role inherits privileges.<br>db.revokeRolesFromRole() ：Removes inherited roles from a role.<br>db.getRole() ：Returns information for the specified role.<br>db.getRoles() ：Returns information for all the user-defined roles in a database.<br>三，管理用户和权限<br>1，创建用户<br>复制代码<br>use db_name<br>db.createUser(<br>{<br>    user: “user_name”,<br>    pwd: “user_pwd”,<br>    roles: [   { role: “clusterAdmin”, db: “admin” },<br>               { role: “readAnyDatabase”, db: “admin” },<br>               “readWrite”<br>           ]<br>}<br>)<br>复制代码<br>为新建的User，授予一个或多个角色，通过roles数组来实现：<br>如果role存在于当前DB中，roles的格式：roles:[“role”]；<br>如果role不存在于当前DB中，roles的格式：roles:[Role:”role_name”, db:”db_name”]；<br>2，权限认证（Authenticate）<br>mongo连接到mongod，有两种权限认证的方式：<br>在连接时认证用户访问的权限，mongo 使用参数 –authenticationDatabase <dbname> 指定认证数据库；<br>在连接后，认证用户访问的权限，mongo 没有使用参数 –authenticationDatabase <dbname>，在连接到mongod之后，切换到验证数据库（authentication database）中，使用db.auth() 验证User是否有权限访问当前数据库；<br>use db_name<br>db.auth(“user_name”, “user_pwd” )<br>3，用户管理函数<br>db.auth() ：Authenticates a user to a database.<br>db.createUser() ：Creates a new user.<br>db.updateUser() ：Updates user data.<br>db.changeUserPassword() ：Changes an existing user’s password.<br>db.dropAllUsers() ：Deletes all users associated with a database.<br>db.dropUser() ：Removes a single user.<br>db.grantRolesToUser() ：Grants a role and its privileges to a user.<br>db.revokeRolesFromUser() ：Removes a role from a user.<br>db.getUser() ：Returns information about the specified user.<br>db.getUsers() ：Returns information about all users associated with a database.</dbname></dbname></dbname></password></password></username></username></port></ip></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 数据库 </category>
+            
+            <category> mongodb </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> mongodb </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git入门]]></title>
+      <url>http://blog.ypintao.com/2015/04/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/gulp/gulp%E5%85%A5%E9%97%A8/</url>
+      <content type="html"><![CDATA[<h3 id="你仅仅需要知道的5个gulp命令"><a href="#你仅仅需要知道的5个gulp命令" class="headerlink" title="你仅仅需要知道的5个gulp命令"></a>你仅仅需要知道的5个gulp命令<a id="more"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(name, fn)这个你应经见过了</div><div class="line">gulp.run(tasks...)尽可能多的并行运行多个task</div><div class="line">gulp.watch(glob, fn)当glob内容发生改变时，执行fn</div><div class="line">gulp.src(glob)返回一个可读的stream</div><div class="line">gulp.dest(glob)返回一个可写的stream</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> gulp </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> gulp </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[forever用途]]></title>
+      <url>http://blog.ypintao.com/2015/03/24/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/forever%E7%94%A8%E9%80%94/</url>
+      <content type="html"><![CDATA[<p>Github地址：<a href="https://github.com/nodejitsu/forever" target="_blank" rel="external">https://github.com/nodejitsu/forever</a><br>forever用途<br>forever的用途就是帮我们更好的管理我们node App服务，本质上就是在forever进程之下，创建一个node app的子进程。<br>比如，你有一个基于express的或者其他的一些个应用那么，它将会很方便你更新和操作你的服务，并且保证你服务能持续运行。<a id="more"></a><br>更好的一点就是每次更改文件，它都可以帮你自动重启服务而不需要手动重启。<br>安装forever<br>复制代码 代码如下:</p>
+<p>// 记得加-g，forever要求安装到全局环境下</p>
+<blockquote>
+<p>sudo npm install forever -g</p>
+</blockquote>
+<p>forever使用说明</p>
+<p>启动相关</p>
+<p>复制代码 代码如下:</p>
+<p>// 1. 简单的启动</p>
+<blockquote>
+<p>forever start app.js<br>// 2. 指定forever信息输出文件，当然，默认它会放到~/.forever/forever.log<br>forever start -l forever.log app.js<br>// 3. 指定app.js中的日志信息和错误日志输出文件，<br>//  -o 就是console.log输出的信息，-e 就是console.error输出的信息<br>forever start -o out.log -e err.log app.js<br>// 4. 追加日志，forever默认是不能覆盖上次的启动日志，<br>//  所以如果第二次启动不加-a，则会不让运行<br>forever start -l forever.log -a app.js<br>// 5. 监听当前文件夹下的所有文件改动<br>forever start -w app.js<br>文件改动监听并自动重启</p>
+</blockquote>
+<p>复制代码 代码如下:</p>
+<p>// 1. 监听当前文件夹下的所有文件改动（不太建议这样）</p>
+<blockquote>
+<p>forever start -w app.js</p>
+</blockquote>
+<p>显示所有运行的服务<br>复制代码 代码如下:</p>
+<blockquote>
+<p>forever list</p>
+</blockquote>
+<p>停止操作<br>复制代码 代码如下:<br>// 1. 停止所有运行的node App</p>
+<blockquote>
+<p>forever stopall<br>// 2. 停止其中一个node App<br>forever stop app.js<br>// 当然还可以这样<br>// forever list 找到对应的id，然后：<br>forever stop [id]<br>重启操作<br>重启操作跟停止操作保持一致。<br>复制代码 代码如下:<br>// 1. 启动所有<br>forever restartall<br>开发和线上建议配置<br>复制代码 代码如下:</p>
+</blockquote>
+<p>// 开发环境下</p>
+<blockquote>
+<p>NODE_ENV=development forever start -l forever.log -e err.log -a app.js<br>// 线上环境下<br>NODE_ENV=production forever start -l ~/.forever/forever.log -e ~/.forever/err.log -w -a app.js</p>
+</blockquote>
+<p>上面加上NODE_ENV为了让app.js辨认当前是什么环境用的。不加它可能就不知道哦？<br>一些注意点<br>有可能你需要使用unix下的crontab（定时任务）<br>这个时候需要注意配置好环境变量。<br>复制代码 代码如下:</p>
+<blockquote>
+<p>SHELL=/bin/sh<br>PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> node开发工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> node开发工具 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git创建服务器]]></title>
+      <url>http://blog.ypintao.com/2015/03/22/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E5%85%B7/Git/git%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      <content type="html"><![CDATA[<p>##创建git服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo git init --bare nodeweb.git</div><div class="line"></div><div class="line">sudo chown -R git:git nodeweb.git</div></pre></td></tr></table></figure></p>
+<p>git添加忽略文件 <a id="more"></a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工具 </category>
+            
+            <category> Git </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[docker to mysql]]></title>
+      <url>http://blog.ypintao.com/2015/03/20/%E6%8A%80%E6%9C%AF/Linux/Dock/docker%20to%20mysql/</url>
+      <content type="html"><![CDATA[<p>1、安装Docker，可以参考下面的连接，这里不细说。<br>Ubuntu 15.04下安装Docker  <a href="http://www.linuxidc.com/Linux/2015-07/120444.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-07/120444.htm</a><br>Docker安装应用(CentOS 6.5_x64) <a href="http://www.linuxidc.com/Linux/2014-07/104595.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-07/104595.htm</a> <a id="more"></a><br>在Ubuntu Trusty 14.04 (LTS) (64-bit)安装Docker <a href="http://www.linuxidc.com/Linux/2014-10/108184.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-10/108184.htm</a><br>Docker安装应用(CentOS 6.5_x64) <a href="http://www.linuxidc.com/Linux/2014-07/104595.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-07/104595.htm</a><br>Ubuntu 14.04安装Docker  <a href="http://www.linuxidc.com/linux/2014-08/105656.htm" target="_blank" rel="external">http://www.linuxidc.com/linux/2014-08/105656.htm</a><br>阿里云CentOS 6.5 模板上安装 Docker <a href="http://www.linuxidc.com/Linux/2014-11/109107.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-11/109107.htm</a><br>2、进入Linux后，使用Docker命令下载MySQL，命令如：<br>      docker pull mysql:5.7<br>运行该命令后，则会显示以下日志：<br>  5.7: Pulling from mysql<br>  4c8cbfd2973e: Pull complete<br>  60c52dbe9d91: Pull complete<br>  c2b0136be90f: Pull complete<br>  273cd71eacf0: Pull complete<br>  543ff72402d8: Pull complete<br>  f928e22e58b0: Pull complete<br>  2d1023ecaed4: Pull complete<br>  059dbbef4dd8: Pull complete<br>  ac0ee0367a32: Pull complete<br>  a9057a689e83: Pull complete<br>  5191ddfc3b01: Pull complete<br>  6e2ce31eb835: Pull complete<br>  099dc92e9b15: Pull complete<br>  7b4030a6b20b: Pull complete<br>  fdb9c2185fc2: Already exists<br>  mysql:5.7: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be    relied on to provide security.<br>  Digest: sha256:d00f3f3cd30d0e8ad9bdf8ba61729ee1a4b6fe84a0fbb95f07dc2668a4cb5d08<br>  Status: Downloaded newer image for mysql:5.7<br>下载需要一段时间，下载完毕后，启动Docker容器。<br>3、先查看本机都有哪些镜像，命令如下：docker images<br>然后会打印出以下日志：<br>  REPOSITORY          TAG                IMAGE ID            CREATED            VIRTUAL SIZE<br>  mysql              5.7                fdb9c2185fc2        9 days ago          321.9 MB<br>  csphere/csphere    0.11.2              6d983828b938        8 weeks ago        112 MB<br>4、然后启动我们的mysql的docker容器，命令如下：<br>  docker run –name db001 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mytest -d mysql:5.7<br>注意，这里的容器名字叫：db001，mysql的root用户密码是：mytest，映射宿主机子的端口3306到容器的端口3306，仓库名mysql和标签(tag）唯一确定了要指定的镜像，其实如果这里只有一个mysql也有必要要tag，执行该命令返回的结果是：<br>a40c6e58afbda0199111a2a2ef0af7e8dd9be057a610ca5f4f30aa782a5d9155<br>5、查看已经运行的的所有容器，命令如：docker ps<br>返回的结果是：<br>  CONTAINER ID        IMAGE                    COMMAND                CREATED            STATUS              PORTS                                      NAMES<br>  a40c6e58afbd        mysql:5.7                “/entrypoint.sh mysq  12 seconds ago      Up 12 seconds      0.0.0.0:3306-&gt;3306/tcp                      db001<br>  512013f5bd3a        csphere/csphere:0.11.2  “/bin/csphere-init -  10 days ago        Up 10 days                                                      csphere-agent<br>  631a4f91b2fb        csphere/csphere:0.11.2  “/bin/csphere-init -  10 days ago        Up 10 days          8086/tcp, 27017/tcp,    0.0.0.0:1016-&gt;80/tcp  csphere-controller<br>使用mysql的工具，比如navicat连接成功。<br>这里我们没有制作自己的镜像，直接使用了网上已有的，开始是从docker pull dl.dockerpool.com:5000/mysql:5.7路径上pull myql镜像，结果没有成功，所以直接使用了上边说的docker pull mysql:5.7，没有什么技术含量，给入门的同学用吧。<br>配置 Docker 镜像下载的本地 mirror 服务  <a href="http://www.linuxidc.com/Linux/2015-07/120061.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-07/120061.htm</a><br>在 Docker 中使用 MySQL <a href="http://www.linuxidc.com/Linux/2014-01/95354.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-01/95354.htm</a></p>
+<p>数据库文件  备份 方法<br>docker inspect mysql-container-id</p>
+<p>找到里面的volume字段 有显示挂载的host路径</p>
+<p>然后题主就可以备份数据了！</p>
+<p>进入容器<br>docker exec -it 02891060202b /bin/bash</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> Dock </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Dock </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[面试笔记]]></title>
+      <url>http://blog.ypintao.com/2015/03/02/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0node/</url>
+      <content type="html"><![CDATA[<p>ES6有哪些新特性？<br>参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato r器, Map/Set, Promise</p>
+<ol>
+<li>你对ES6的个人看法？<br>参考答案：ES6必火！从软件工程角度来看，以前真的很弱，不适合做大型应用，很容易导致烂尾工程。ES6就相当于当年的Java5,是历史性的发展，从此我们可以用js做大型项目了。事实上，各大主流浏览器现在已经支持大部分新特性了，后端的Node.js更是可以直接使用ES6的绝大多数语法。</li>
+</ol>
+<ol>
+<li>常用js类定义的方法有哪些？<br>参考答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.<br>代码演示<br>1) 构造函数方法定义类<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    this.name = &apos;michaelqin&apos;;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName = function()&#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person = new Person();</div><div class="line">person.sayName();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2) 对象创建方法定义类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var Person = &#123;</div><div class="line">    name: &apos;michaelqin&apos;,</div><div class="line">    sayName: function()&#123; alert(this.name); &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var person = Object.create(Person);</div><div class="line">person.sayName();</div></pre></td></tr></table></figure></p>
+<ol>
+<li>js类继承的方法有哪些<br>参考答案：原型链法，属性复制法和构造器应用法. 另外，由于每个对象可以是一个类，这些方法也可以用于对象类的继承．<br>代码演示<br>1) 原型链法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;&#125;</div><div class="line">Person.prototype = Animal.prototype; // 人继承自动物</div><div class="line">Person.prototype.constructor = &apos;Person&apos;; // 更新构造函数为人</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2) 属性复制法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;&#125;</div><div class="line"></div><div class="line">for(prop in Animal.prototype) &#123;</div><div class="line">    Person.prototype[prop] = Animal.prototype[prop];</div><div class="line">&#125; // 复制动物的所有属性到人量边</div><div class="line">Person.prototype.constructor = &apos;Person&apos;; // 更新构造函数为人</div></pre></td></tr></table></figure></p>
+<p>3) 构造器应用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;</div><div class="line">    Animal.call(this); // apply, call, bind方法都可以．细微区别，后面会提到．</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>js类多重继承的实现方法是怎么样的?<br>参考答案：就是类继承里边的属性复制法来实现．因为当所有父类的prototype属性被复制后，子类自然拥有类似行为和属性．</li>
+<li><p>js里的作用域是什么样子的？<br>参考答案：大多数语言里边都是块作作用域，以{}进行限定，js里边不是．js里边叫函数作用域，就是一个变量在全函数里有效．比如有个变量p1在函数最后一行定义，第一行也有效，但是值是undefined.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var globalVar = &apos;global var&apos;;</div><div class="line"></div><div class="line">function test() &#123;</div><div class="line">    alert(globalVar); // undefined, 因为globalVar在本函数内被重定义了，导致全局失效，这里使用函数内的变量值，可是此时还没定义</div><div class="line">    var globalVar = &apos;overrided var&apos;; //　globalVar在本函数内被重定义</div><div class="line">    alert(globalVar);　// overrided var</div><div class="line">&#125;</div><div class="line">alert(globalVar); // global var，使用全局变量</div></pre></td></tr></table></figure>
+</li>
+<li><p>js里边的this指的是什么?<br>参考答案: this指的是对象本身，而不是构造函数．<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName() &#123; alert(this.name); &#125;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.name = &apos;michaelqin&apos;;</div><div class="line">person1.sayName(); // michaelqin</div></pre></td></tr></table></figure>
+</li>
+<li><p>apply, call和bind有什么区别?<br>参考答案：三者都可以把一个函数应用到其他对象上，注意不是自身对象．apply,call是直接执行函数调用，bind是绑定，执行需要再次调用．apply和call的区别是apply接受数组作为参数，而call是接受逗号分隔的无限多个参数列表，<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName() &#123; alert(this.name); &#125;</div><div class="line"></div><div class="line">var obj = &#123;name: &apos;michaelqin&apos;&#125;; // 注意这是一个普通对象，它不是Person的实例</div><div class="line">1) apply</div><div class="line">Person.prototype.sayName.apply(obj, [param1, param2, param3]);</div><div class="line"></div><div class="line">2) call</div><div class="line">Person.prototype.sayName.call(obj, param1, param2, param3);</div><div class="line"></div><div class="line">3) bind</div><div class="line">var sn = Person.prototype.sayName.bind(obj);    </div><div class="line">sn([param1, param2, param3]); // bind需要先绑定，再执行 </div><div class="line">sn(param1, param2, param3); // bind需要先绑定，再执行</div></pre></td></tr></table></figure>
+</li>
+<li><p>caller, callee和arguments分别是什么?<br>参考答案: caller,callee之间的关系就像是employer和employee之间的关系，就是调用与被调用的关系，二者返回的都是函数对象引用．arguments是函数的所有参数列表，它是一个类数组的变量．<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function parent(param1, param2, param3) &#123;</div><div class="line">    child(param1, param2, param3);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function child() &#123;</div><div class="line">    console.log(arguments); // &#123; &apos;0&apos;: &apos;mqin1&apos;, &apos;1&apos;: &apos;mqin2&apos;, &apos;2&apos;: &apos;mqin3&apos; &#125;</div><div class="line">    console.log(arguments.callee); // [Function: child]</div><div class="line">    console.log(child.caller); // [Function: parent]</div><div class="line">&#125;</div><div class="line"></div><div class="line">parent(&apos;mqin1&apos;, &apos;mqin2&apos;, &apos;mqin3&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>什么是闭包，闭包有哪些用处?<br>参考答案: 闭包这个术语，无论中文翻译还是英文解释都太２Ｂ了，我必须骂人，因为它什么其实都不是．非要讲它是什么的话，两个字函数，更多字嵌套函数的父子自我引用关系．所有函数都是闭包．通俗的说，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包．全局函数的作用域范围就是全局，所以无须讨论．更多的应用其实是在内嵌函数，这就会涉及到内嵌作用域，或者叫作用域链．说到内嵌，其实就是父子引用关系(父函数包含子函数，子函数因为函数作用域又引用父函数，这它妈不是死结吗？所以叫闭包），这就会带来另外一个问题，什么时候引用结束？如果不结束，就会一直占用内存，引起内存泄漏．好吧，不用的时候就引用设为空，死结就解开了．</p>
+</li>
+<li>defineProperty, hasOwnProperty, isEnumerable都是做什么用的？<br>参考答案：Object.defineProperty(obj, prop, descriptor)用来给对象定义属性,有value,writable,configurable,enumerable,set/get等.hasOwnProerty用于检查某一属性是不是存在于对象本身，继承来的父亲的属性不算．isEnumerable用来检测某一属性是否可遍历，也就是能不能用for..in循环来取到.</li>
+<li><p>js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等<br>参考答案：<br>1) 单例：　任意对象都是单例，无须特别处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name: &apos;michaelqin&apos;, age: 30&#125;;</div></pre></td></tr></table></figure>
+<p>2) 工厂: 就是同样形式参数返回不同的实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person() &#123; this.name = &apos;Person1&apos;; &#125;</div><div class="line">function Animal() &#123; this.name = &apos;Animal1&apos;; &#125;</div><div class="line"></div><div class="line">function Factory() &#123;&#125;</div><div class="line">Factory.prototype.getInstance = function(className) &#123;</div><div class="line">    return eval(&apos;new &apos; + className + &apos;()&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var factory = new Factory();</div><div class="line">var obj1 = factory.getInstance(&apos;Person&apos;);</div><div class="line">var obj2 = factory.getInstance(&apos;Animal&apos;);</div><div class="line">console.log(obj1.name); // Person1</div><div class="line">console.log(obj2.name); // Animal1</div></pre></td></tr></table></figure>
+<p>3) 代理: 就是新建个类调用老类的接口,包一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function Person() &#123; &#125;</div><div class="line">Person.prototype.sayName = function() &#123; console.log(&apos;michaelqin&apos;); &#125;</div><div class="line">Person.prototype.sayAge = function() &#123; console.log(30); &#125;</div><div class="line"></div><div class="line">function PersonProxy() &#123; </div><div class="line">    this.person = new Person();</div><div class="line">    var that = this;</div><div class="line">    this.callMethod = function(functionName) &#123;</div><div class="line">        console.log(&apos;before proxy:&apos;, functionName);</div><div class="line">        that.person[functionName](); // 代理</div><div class="line">        console.log(&apos;after proxy:&apos;, functionName);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var pp = new PersonProxy();</div><div class="line">pp.callMethod(&apos;sayName&apos;); // 代理调用Person的方法sayName()</div><div class="line">pp.callMethod(&apos;sayAge&apos;); // 代理调用Person的方法sayAge()</div></pre></td></tr></table></figure>
+<p>4) 观察者: 就是事件模式，比如按钮的onclick这样的应用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">function Publisher() &#123;</div><div class="line">    this.listeners = [];</div><div class="line">&#125;</div><div class="line">Publisher.prototype = &#123;</div><div class="line">    &apos;addListener&apos;: function(listener) &#123;</div><div class="line">        this.listeners.push(listener);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    &apos;removeListener&apos;: function(listener) &#123;</div><div class="line">        delete this.listeners[listener];</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    &apos;notify&apos;: function(obj) &#123;</div><div class="line">        for(var i = 0; i &lt; this.listeners.length; i++) &#123;</div><div class="line">            var listener = this.listeners[i];</div><div class="line">            if (typeof listener !== &apos;undefined&apos;) &#123;</div><div class="line">                listener.process(obj);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;; // 发布者</div><div class="line"></div><div class="line">function Subscriber() &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">Subscriber.prototype = &#123;</div><div class="line">    &apos;process&apos;: function(obj) &#123;</div><div class="line">        console.log(obj);</div><div class="line">    &#125;</div><div class="line">&#125;;　// 订阅者</div><div class="line"></div><div class="line"></div><div class="line">var publisher = new Publisher();</div><div class="line">publisher.addListener(new Subscriber());</div><div class="line">publisher.addListener(new Subscriber());</div><div class="line">publisher.notify(&#123;name: &apos;michaelqin&apos;, ageo: 30&#125;); // 发布一个对象到所有订阅者</div><div class="line">publisher.notify(&apos;2 subscribers will both perform process&apos;); // 发布一个字符串到所有订阅者</div></pre></td></tr></table></figure>
+</li>
+<li><p>列举数组相关的常用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: push/pop, shift/unshift, split/join, slice/splice/concat, sort/reverse, map/reduce, forEach, filter</div></pre></td></tr></table></figure>
+</li>
+<li><p>列举字符串相关的常用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: indexOf/lastIndexOf/charAt, split/match/test, slice/substring/substr, toLowerCase/toUpperCase</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>node核心内置类库(事件，流，文件，网络等)</p>
+<p>node概览</p>
+<ol>
+<li>为什么要用node?<br>参考答案: 总结起来node有以下几个特点:简单强大，轻量可扩展．简单体现在node使用的是javascript,json来进行编码，人人都会；强大体现在非阻塞IO,可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；轻量体现在node本身既是代码，又是服务器，前后端使用统一语言;可扩展体现在可以轻松应对多实例，多服务器架构，同时有海量的第三方应用组件．</li>
+<li><p>node的构架是什么样子的?<br>参考答案: 主要分为三层，应用app &gt;&gt; V8及node内置架构 &gt;&gt; 操作系统. V8是node运行的环境，可以理解为node虚拟机．node内置架构又可分为三层: 核心模块(javascript实现) &gt;&gt; c++绑定 &gt;&gt; libuv + CAes + http.</p>
+</li>
+<li><p>node有哪些核心模块?<br>参考答案: EventEmitter, Stream, FS, Net和全局对象<br>node全局对象</p>
+</li>
+<li><p>node有哪些全局对象?<br>参考答案: process, console, Buffer和exports</p>
+</li>
+<li>process有哪些常用方法?<br>参考答案: process.stdin, process.stdout, process.stderr, process.on, process.env, process.argv, process.arch, process.platform, process.exit</li>
+<li>console有哪些常用方法?<br>参考答案: console.log/console.info, console.error/console.warning, console.time/console.timeEnd, console.trace, console.table</li>
+<li>node有哪些定时功能?<br>参考答案: setTimeout/clearTimeout, setInterval/clearInterval, setImmediate/clearImmediate, process.nextTick</li>
+<li><p>node中的事件循环是什么样子的?<br>参考答案: event loop其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列．但是请务必注意，这一个事件队列的循环，一次只执行一个事件，然后下一次循环再执行一个事件．这是由于javascript的单线程机制导致的，如果一次循环多个事件，就可能会阻塞其它代码的执行．异步执行的叫IO events, setImmediate是在当前队列立即执行,setTimout/setInterval是把执行定时到到后面的队列，process.nextTick是在当前执行完，下次遍历前执行．所以总体顺序是: IO events &gt;&gt; setImmediate &gt;&gt; setTimeout/setInterval(注册事件) &gt;&gt; process.nextTick.</p>
+</li>
+<li><p>node中的Buffer如何应用?<br>参考答案: Buffer是用来处理二进制数据的，比如图片，mp3,数据库文件等.Buffer支持各种编码解码，二进制字符串互转．<br>EventEmitter</p>
+</li>
+<li><p>什么是EventEmitter?<br>参考答案: EventEmitter是node中一个实现观察者模式的类，主要功能是监听和发射消息，用于处理多模块交互问题.</p>
+</li>
+<li><p>如何实现一个EventEmitter?<br>参考答案: 主要分三步：定义一个子类，调用构造函数，继承EventEmitter<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;);</div><div class="line">var EventEmitter = require(&apos;events&apos;).EventEmitter;</div><div class="line"></div><div class="line">function MyEmitter() &#123;</div><div class="line">    EventEmitter.call(this);</div><div class="line">&#125; // 构造函数</div><div class="line"></div><div class="line">util.inherits(MyEmitter, EventEmitter); // 继承</div><div class="line"></div><div class="line">var em = new MyEmitter();</div><div class="line">em.on(&apos;hello&apos;, function(data) &#123;</div><div class="line">    console.log(&apos;收到事件hello的数据:&apos;, data);</div><div class="line">&#125;); // 接收事件，并打印到控制台</div><div class="line">em.emit(&apos;hello&apos;, &apos;EventEmitter传递消息真方便!&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>EventEmitter有哪些典型应用?<br>参考答案: 1) 模块间传递消息 2) 回调函数内外传递消息 3) 处理流数据，因为流是在EventEmitter基础上实现的. 4) 观察者模式发射触发机制相关应用</p>
+</li>
+<li><p>怎么捕获EventEmitter的错误事件?<br>参考答案: 监听error事件即可．如果有多个EventEmitter,也可以用domain来统一处理错误事件.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var domain = require(&apos;domain&apos;);</div><div class="line">var myDomain = domain.create();</div><div class="line">myDomain.on(&apos;error&apos;, function(err)&#123;</div><div class="line">    console.log(&apos;domain接收到的错误事件:&apos;, err);</div><div class="line">&#125;); // 接收事件并打印</div><div class="line">myDomain.run(function()&#123;</div><div class="line">    var emitter1 = new MyEmitter();</div><div class="line">    emitter1.emit(&apos;error&apos;, &apos;错误事件来自emitter1&apos;);</div><div class="line">    emitter2 = new MyEmitter();</div><div class="line">    emitter2.emit(&apos;error&apos;, &apos;错误事件来自emitter2&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>EventEmitter中的newListenser事件有什么用处?<br>参考答案: newListener可以用来做事件机制的反射，特殊应用，事件管理等．当任何on事件添加到EventEmitter时，就会触发newListener事件，基于这种模式，我们可以做很多自定义处理.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var emitter3 = new MyEmitter();</div><div class="line">emitter3.on(&apos;newListener&apos;, function(name, listener) &#123;</div><div class="line">    console.log(&quot;新事件的名字:&quot;, name);</div><div class="line">    console.log(&quot;新事件的代码:&quot;, listener);</div><div class="line">    setTimeout(function()&#123; console.log(&quot;我是自定义延时处理机制&quot;); &#125;, 1000);</div><div class="line">&#125;);</div><div class="line">emitter3.on(&apos;hello&apos;, function()&#123;</div><div class="line">    console.log(&apos;hello　node&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Stream</p>
+<ol>
+<li>什么是Stream?<br>参考答案: stream是基于事件EventEmitter的数据管理模式．由各种不同的抽象接口组成，主要包括可写，可读，可读写，可转换等几种类型．</li>
+<li>Stream有什么好处?<br>参考答案: 非阻塞式数据处理提升效率，片断处理节省内存，管道处理方便可扩展等.</li>
+<li>Stream有哪些典型应用?<br>参考答案: 文件，网络，数据转换，音频视频等.</li>
+<li>怎么捕获Stream的错误事件?<br>参考答案: 监听error事件，方法同EventEmitter.</li>
+<li>有哪些常用Stream,分别什么时候使用?<br>参考答案: Readable为可被读流，在作为输入数据源时使用；Writable为可被写流,在作为输出源时使用；Duplex为可读写流,它作为输出源接受被写入，同时又作为输入源被后面的流读出．Transform机制和Duplex一样，都是双向流，区别时Transfrom只需要实现一个函数_transfrom(chunk, encoding, callback);而Duplex需要分别实现_read(size)函数和_write(chunk, encoding, callback)函数.</li>
+<li>实现一个Writable Stream?<br>参考答案: 三步走:1)构造函数call Writable 2)　继承Writable 3) 实现_write(chunk, encoding, callback)函数<br>代码演示<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Writable = require(&apos;stream&apos;).Writable;</div><div class="line">var util = require(&apos;util&apos;);</div><div class="line"></div><div class="line">function MyWritable(options) &#123;</div><div class="line">    Writable.call(this, options);</div><div class="line">&#125; // 构造函数</div><div class="line">util.inherits(MyWritable, Writable); // 继承自Writable</div><div class="line">MyWritable.prototype._write = function(chunk, encoding, callback) &#123;</div><div class="line">    console.log(&quot;被写入的数据是:&quot;, chunk.toString()); // 此处可对写入的数据进行处理</div><div class="line">    callback();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为输出源</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>文件系统</p>
+<ol>
+<li>内置的fs模块架构是什么样子的?<br>参考答案: fs模块主要由下面几部分组成: 1) POSIX文件Wrapper,对应于操作系统的原生文件操作 2) 文件流 fs.createReadStream和fs.createWriteStream 3) 同步文件读写,fs.readFileSync和fs.writeFileSync 4) 异步文件读写, fs.readFile和fs.writeFile</li>
+<li>读写一个文件有多少种方法?<br>参考答案: 总体来说有四种: 1) POSIX式低层读写 2) 流式读写 3) 同步文件读写 4) 异步文件读写</li>
+<li>怎么读取json配置文件?<br>参考答案: 主要有两种方式，第一种是利用node内置的require(‘data.json’)机制，直接得到js对象; 第二种是读入文件入内容，然后用JSON.parse(content)转换成js对象．二者的区别是require机制情况下，如果多个模块都加载了同一个json文件，那么其中一个改变了js对象，其它跟着改变，这是由node模块的缓存机制造成的，只有一个js模块对象; 第二种方式则可以随意改变加载后的js变量，而且各模块互不影响，因为他们都是独立的，是多个js对象.</li>
+<li><p>fs.watch和fs.watchFile有什么区别，怎么应用?<br>参考答案: 二者主要用来监听文件变动．fs.watch利用操作系统原生机制来监听，可能不适用网络文件系统; fs.watchFile则是定期检查文件状态变更，适用于网络文件系统，但是相比fs.watch有些慢，因为不是实时机制．<br>网络</p>
+</li>
+<li><p>node的网络模块架构是什么样子的?<br>参考答案: node全面支持各种网络服务器和客户端，包括tcp, http/https, tcp, udp, dns, tls/ssl等.</p>
+</li>
+<li>node是怎样支持https,tls的?<br>参考答案: 主要实现以下几个步骤即可: 1) openssl生成公钥私钥 2) 服务器或客户端使用https替代http 3) 服务器或客户端加载公钥私钥证书</li>
+<li>实现一个简单的http服务器?<br>参考答案: 经典又很没毛意义的一个题目．思路是加载http模块，创建服务器，监听端口.<br>代码演示<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;); // 加载http模块</div><div class="line"></div><div class="line">http.createServer(function(req, res) &#123;</div><div class="line">    res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/html&apos;&#125;); // 200代表状态成功, 文档类型是给浏览器识别用的</div><div class="line">    res.write(&apos;&lt;meta charset=&quot;UTF-8&quot;&gt; &lt;h1&gt;我是标题啊！&lt;/h1&gt; &lt;font color=&quot;red&quot;&gt;这么原生，初级的服务器，下辈子能用着吗?!&lt;/font&gt;&apos;); // 返回给客户端的html数据</div><div class="line">    res.end(); // 结束输出流</div><div class="line">&#125;).listen(3000); // 绑定3ooo, 查看效果请访问 http://localhost:3000</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>child-process</p>
+<ol>
+<li>为什么需要child-process?<br>参考答案: node是异步非阻塞的，这对高并发非常有效．可是我们还有其它一些常用需求，比如和操作系统shell命令交互，调用可执行文件，创建子进程进行阻塞式访问或高CPU计算等，child-process就是为满足这些需求而生的．child-process顾名思义，就是把node阻塞的工作交给子进程去做．</li>
+<li>exec,execFile,spawn和fork都是做什么用的?<br>参考答案: exec可以用操作系统原生的方式执行各种命令，如管道 cat ab.txt | grep hello; execFile是执行一个文件; spawn是流式和操作系统进行交互; fork是两个node程序(javascript)之间时行交互.</li>
+<li><p>实现一个简单的命令行交互程序?<br>参考答案: 那就用spawn吧.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var cp = require(&apos;child_process&apos;);</div><div class="line"></div><div class="line">var child = cp.spawn(&apos;echo&apos;, [&apos;你好&apos;, &quot;钩子&quot;]); // 执行命令</div><div class="line">child.stdout.pipe(process.stdout); // child.stdout是输入流，process.stdout是输出流</div><div class="line">// 这句的意思是将子进程的输出作为当前程序的输入流，然后重定向到当前程序的标准输出，即控制台</div></pre></td></tr></table></figure>
+</li>
+<li><p>两个node程序之间怎样交互?<br>参考答案: 用fork嘛，上面讲过了．原理是子程序用process.on, process.send，父程序里用child.on,child.send进行交互.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">1) fork-parent.js</div><div class="line">var cp = require(&apos;child_process&apos;);</div><div class="line">var child = cp.fork(&apos;./fork-child.js&apos;);</div><div class="line">child.on(&apos;message&apos;, function(msg)&#123;</div><div class="line">    console.log(&apos;老爸从儿子接受到数据:&apos;, msg);</div><div class="line">&#125;);</div><div class="line">child.send(&apos;我是你爸爸，送关怀来了!&apos;);</div><div class="line"></div><div class="line">2) fork-child.js</div><div class="line">process.on(&apos;message&apos;, function(msg)&#123;</div><div class="line">    console.log(&quot;儿子从老爸接收到的数据:&quot;, msg);</div><div class="line">    process.send(&quot;我不要关怀，我要银民币！&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>怎样让一个js文件变得像linux命令一样可执行?<br>参考答案: 1) 在myCommand.js文件头部加入 #!/usr/bin/env node 2) chmod命令把js文件改为可执行即可 3) 进入文件目录，命令行输入myComand就是相当于node myComand.js了</p>
+</li>
+<li><p>child-process和process的stdin,stdout,stderror是一样的吗?<br>参考答案: 概念都是一样的，输入，输出，错误，都是流．区别是在父程序眼里，子程序的stdout是输入流，stdin是输出流．<br>node高级话题(异步，部署，性能调优，异常调试等)</p>
+</li>
+<li><p>node中的异步和同步怎么理解<br>参考答案: node是单线程的，异步是通过一次次的循环事件队列来实现的．同步则是说阻塞式的IO,这在高并发环境会是一个很大的性能问题，所以同步一般只在基础框架的启动时使用，用来加载配置文件，初始化程序什么的．</p>
+</li>
+<li>有哪些方法可以进行异步流程的控制?<br>参考答案: 1) 多层嵌套回调 2)　为每一个回调写单独的函数，函数里边再回调 3) 用第三方框架比方async, q, promise等</li>
+<li>怎样绑定node程序到80端口?<br>参考答案: 多种方式 1) sudo 2) apache/nginx代理 3) 用操作系统的firewall iptables进行端口重定向</li>
+<li>有哪些方法可以让node程序遇到错误后自动重启?<br>参考答案: 1) runit 2) forever 3) nohup npm start &amp;</li>
+<li>怎样充分利用多个CPU?<br>参考答案: 一个CPU运行一个node实例</li>
+<li>怎样调节node执行单元的内存大小?<br>参考答案: 用–max-old-space-size 和 –max-new-space-size 来设置 v8 使用内存的上限</li>
+<li>程序总是崩溃，怎样找出问题在哪里?<br>参考答案: 1) node –prof 查看哪些函数调用次数多 2) memwatch和heapdump获得内存快照进行对比，查找内存溢出</li>
+<li>有哪些常用方法可以防止程序崩溃?<br>参考答案: 1) try-catch-finally 2) EventEmitter/Stream error事件处理 3) domain统一控制 4) jshint静态检查 5) jasmine/mocha进行单元测试</li>
+<li><p>怎样调试node程序?<br>参考答案: node –debug app.js 和node-inspector<br>常用知名第三方类库(Async, Express等)</p>
+</li>
+<li><p>async都有哪些常用方法，分别是怎么用?<br>参考答案: async是一个js类库，它的目的是解决js中异常流程难以控制的问题．async不仅适用在node.js里，浏览器中也可以使用． </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">1) async.parallel并行执行完多个函数后，调用结束函数</div><div class="line">    async.parallel([</div><div class="line">        function()&#123; ... &#125;,</div><div class="line">        function()&#123; ... &#125;</div><div class="line">    ], callback);</div><div class="line">2) async.series串行执行完多个函数后，调用结束函数</div><div class="line">    async.series([</div><div class="line">        function()&#123; ... &#125;,</div><div class="line">        function()&#123; ... &#125;</div><div class="line">    ]);</div><div class="line">3) async.waterfall依次执行多个函数，后一个函数以前面函数的结果作为输入参数</div><div class="line">    async.waterfall([</div><div class="line">        function(callback) &#123;</div><div class="line">            callback(null, &apos;one&apos;, &apos;two&apos;);</div><div class="line">        &#125;,</div><div class="line">        function(arg1, arg2, callback) &#123;</div><div class="line">          // arg1 now equals &apos;one&apos; and arg2 now equals &apos;two&apos; </div><div class="line">            callback(null, &apos;three&apos;);</div><div class="line">        &#125;,</div><div class="line">        function(arg1, callback) &#123;</div><div class="line">            // arg1 now equals &apos;three&apos; </div><div class="line">            callback(null, &apos;done&apos;);</div><div class="line">        &#125;</div><div class="line">    ], function (err, result) &#123;</div><div class="line">        // result now equals &apos;done&apos; </div><div class="line">    &#125;);</div><div class="line">4) async.map异步执行多个数组，返回结果数组</div><div class="line">    async.map([&apos;file1&apos;,&apos;file2&apos;,&apos;file3&apos;], fs.stat, function(err, results)&#123;</div><div class="line">        // results is now an array of stats for each file </div><div class="line">    &#125;);</div><div class="line">5) async.filter异步过滤多个数组，返回结果数组</div><div class="line">    async.filter([&apos;file1&apos;,&apos;file2&apos;,&apos;file3&apos;], fs.exists, function(results)&#123;</div><div class="line">        // results now equals an array of the existing files </div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>express项目的目录大致是什么样子的<br>参考答案: app.js, package.json, bin/www, public, routes, views.</p>
+</li>
+<li>express常用函数<br>参考答案: express.Router路由组件,app.get路由定向，app.configure配置，app.set设定参数,app.use使用中间件</li>
+<li>express中如何获取路由的参数<br>参考答案: /users/:name使用req.params.name来获取; req.body.username则是获得表单传入参数username; express路由支持常用通配符 ?, +, *, and ()</li>
+<li><p>express response有哪些常用方法<br>参考答案: res.download() 弹出文件下载<br>res.end() 结束response<br>res.json() 返回json<br>res.jsonp() 返回jsonp<br>res.redirect() 重定向请求<br>res.render() 渲染模板<br>res.send() 返回多种形式数据<br>res.sendFile 返回文件<br>res.sendStatus() 返回状态<br>其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</p>
+</li>
+<li><p>mongodb有哪些常用优化措施<br>参考答案: 类似传统数据库，索引和分区．</p>
+</li>
+<li>mongoose是什么？有支持哪些特性?<br>参考答案: mongoose是mongodb的文档映射模型．主要由Schema, Model和Instance三个方面组成．Schema就是定义数据类型，Model就是把Schema和js类绑定到一起，Instance就是一个对象实例．常见mongoose操作有,save, update, find. findOne, findById, static方法等．</li>
+<li><p>redis支持哪些功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: set/get, mset/hset/hmset/hmget/hgetall/hkeys, sadd/smembers, publish/subscribe, expire</div></pre></td></tr></table></figure>
+</li>
+<li><p>redis最简单的应用<br>参考答案:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var redis = require(&quot;redis&quot;),</div><div class="line">    client = redis.createClient();</div><div class="line"></div><div class="line">client.set(&quot;foo_rand000000000000&quot;, &quot;some fantastic value&quot;);</div><div class="line">client.get(&quot;foo_rand000000000000&quot;, function (err, reply) &#123;</div><div class="line">    console.log(reply.toString());</div><div class="line">&#125;);</div><div class="line">client.end();</div></pre></td></tr></table></figure>
+</li>
+<li><p>apache,nginx有什么区别?<br>参考答案: 二者都是代理服务器，功能类似．apache应用简单，相当广泛．nginx在分布式，静态转发方面比较有优势．<br>常用前端技术(Html5, CSS3, JQuery等)</p>
+</li>
+<li><p>Html5有哪些比较实用新功能<br>参考答案: File API支持本地文件操作; Canvans/SVG支持绘图; 拖拽功能支持; 本地存储支持; 表单多属性验证支持; 原生音频视频支持等</p>
+</li>
+<li>CSS3/JQuery有哪些学常见选择器<br>参考答案: id, 元素，属性, 值，父子兄弟, 序列等</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 生活 </category>
+            
+            <category> 面试 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[快速搭建 Node.js 开发环境以及加速 npm]]></title>
+      <url>http://blog.ypintao.com/2015/02/20/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%20Node.js%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E5%8A%A0%E9%80%9Fnpm/</url>
+      <content type="html"><![CDATA[<p>快速搭建 Node.js 开发环境以及加速 npm </p>
+<p>在公交车上刷微博，还是有很多同学在咨询: </p>
+<p>如何快速搭建 node 开发环境<br>npm 超慢<br>github 无法打开的问题 </p>
+<p>于是我觉得应该写一篇文章解答所有这些起步问题，让新同学也能顺顺利利入门。<br>快速搭建 Node.js 开发环境 <a id="more"></a></p>
+<p>如果你想长期做 node 开发, 或者想快速更新 node 版本, 或者想快速切换 node 版本, 那么在非 Windows(如 osx, linux) 环境下, 请使用 nvm 来安装你的 node 开发环境, 保持系统的干净. </p>
+<p>如果你使用 Windows 做开发, 那么你可以使用 nvmw 来替代 nvm<br>osx, linux 环境 </p>
+<p>如果你是 windows 环境开发, 请跳过这里, 直接查看下一章.<br>git clone nvm </p>
+<p>直接从 github clone nvm 到本地, 这里假设大家都使用 ~/git 目录存放 git 项目: </p>
+<p>$ cd ~/git<br>$ git clone <a href="https://github.com/creationix/nvm.git" target="_blank" rel="external">https://github.com/creationix/nvm.git</a></p>
+<p>配置终端启动时自动执行 source ~/git/nvm/nvm.sh, 在 ~/.bashrc, ~/.bash_profile, ~/.profile, 或者 ~/.zshrc 文件添加以下命令: </p>
+<p>source ~/git/nvm/nvm.sh </p>
+<p>重新打开你的终端, 输入 nvm </p>
+<p>$ nvm </p>
+<p>Node Version Manager </p>
+<p>Usage:<br>nvm help Show this message<br>nvm –version Print out the latest released version of nvm<br>nvm install [-s] <version> Download and install a <version>, [-s] from source<br>nvm uninstall <version> Uninstall a version<br>nvm use <version> Modify PATH to use <version><br>nvm run <version> [<args>] Run <version> with <args> as arguments<br>nvm current Display currently activated version<br>nvm ls List installed versions<br>nvm ls <version> List versions matching a given description<br>nvm ls-remote List remote versions available for install<br>nvm deactivate Undo effects of NVM on current shell<br>nvm alias [<pattern>] Show all aliases beginning with <pattern><br>nvm alias <name> <version> Set an alias named <name> pointing to <version><br>nvm unalias <name> Deletes the alias named <name><br>nvm copy-packages <version> Install global NPM packages contained in <version> to current version </version></version></name></name></version></name></version></name></pattern></pattern></version></args></version></args></version></version></version></version></version></version></p>
+<p>Example:<br>nvm install v0.10.24 Install a specific version number<br>nvm use 0.10 Use the latest available 0.10.x release<br>nvm run 0.10.24 myApp.js Run myApp.js using node v0.10.24<br>nvm alias default 0.10.24 Set default node version on a shell </p>
+<p>Note:<br>to remove, delete or uninstall nvm - just remove ~/.nvm, ~/.npm and ~/.bower folders </p>
+<p>通过 nvm 安装任意版本的 node </p>
+<p>nvm 默认是从 <a href="http://nodejs.org/dist/" target="_blank" rel="external">http://nodejs.org/dist/</a> 下载的, 国外服务器, 必然很慢, 好在 nvm 以及支持从镜像服务器下载包, 于是我们可以方便地从七牛的 node dist 镜像下载: </p>
+<p>$ NVM_NODEJS_ORG_MIRROR=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a> nvm install 0.11.11 </p>
+<p>于是你就会看到一段非常快速进度条: </p>
+<p>######################################################################## 100.0%<br>Now using node v0.11.11 </p>
+<p>如果你不想每次都输入环境变量 NVM_NODEJS_ORG_MIRROR, 那么我建议你加入到 .bashrc 文件中: </p>
+<h1 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h1><p>export NVM_NODEJS_ORG_MIRROR=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a><br>source ~/git/nvm/nvm.sh </p>
+<p>然后你可以继续非常方便地安装各个版本的 node 了, 你可以查看一下你当前已经安装的版本: </p>
+<p>$ nvm ls<br>nvm<br>v0.8.26<br>v0.10.26<br>v0.11.11<br>-&gt; v0.11.12 </p>
+<p>windows 环境<br>git clone nvmw </p>
+<p>直接从 github clone nvmw 到本地, 这里假设大家都使用 d:\git 目录存放 git 项目: </p>
+<p>$ d:<br>$ cd git<br>$ git clone <a href="https://github.com/hakobera/nvmw.git" target="_blank" rel="external">https://github.com/hakobera/nvmw.git</a></p>
+<p>设置 d:\git\nvmw 目录到你的 PATH 环境变量中: </p>
+<p>set “PATH=d:\git\nvmw;%PATH%” </p>
+<p>重新打开你的终端, 输入 nvmw </p>
+<p>$ nvmw </p>
+<p>Usage:<br>nvmw help Show this message<br>nvmw install [version] Download and install a [version]<br>nvmw uninstall [version] Uninstall a [version]<br>nvmw use [version] Modify PATH to use [version]<br>nvmw ls List installed versions </p>
+<p>Example:<br>nvmw install v0.6.0 Install a specific version number<br>nvmw use v0.6.0 Use the specific version </p>
+<p>通过 nvmw 安装任意版本的 node </p>
+<p>nvmw 默认是从 <a href="http://nodejs.org/dist/" target="_blank" rel="external">http://nodejs.org/dist/</a> 下载的, 国外服务器, 必然很慢, 好在 nvmw 以及支持从镜像服务器下载包, 于是我们可以方便地从七牛的 node dist 镜像下载: </p>
+<p>$ set “NVMW_NODEJS_ORG_MIRROR=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a>“<br>$ nvmw install 0.11.11 </p>
+<p>于是你就会看到一段非常快速进度条: </p>
+<p>######################################################################## 100.0%<br>Now using node v0.11.11 </p>
+<p>如果你不想每次都输入环境变量 NVMW_NODEJS_ORG_MIRROR, 那么我建议你在全局环境变量中增加它. </p>
+<p>然后你可以继续非常方便地安装各个版本的 node 了, 你可以查看一下你当前已经安装的版本: </p>
+<p>$ nvmw ls </p>
+<p>v0.10.26<br>v0.11.12<br>Current: v0.11.12 </p>
+<p>到此, 无论是 windows 环境, 还是 osx, linux 环境, 都能快速安装多个版本的 node 了.<br>使用 cnpm 加速 npm </p>
+<p>同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> : </p>
+<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> install koa </p>
+<p>于是屏幕又哗啦哗啦地一大片输出: </p>
+<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a href="https://registry.npm.taobao.org/koa" target="_blank" rel="external">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a href="https://registry.npm.taobao.org/koa" target="_blank" rel="external">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a href="https://registry.npm.taobao.org/negotiator" target="_blank" rel="external">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a href="https://registry.npm.taobao.org/keygrip" target="_blank" rel="external">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0) </p>
+<p>但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli: </p>
+<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> install cnpm -g </p>
+<p>通过 cnpm 命令行, 你可以快速同步任意模块: </p>
+<p>$ cnpm sync koa connect mocha </p>
+<p>呃, 我就是不想安装 cnpm cli 怎么办? 哈哈, 早就想到你会这么懒了, 于是我们还有一个 web 页面: </p>
+<p>例如我想马上同步 koa, 直接打开浏览器: <a href="https://npm.taobao.org/sync/koa" target="_blank" rel="external">https://npm.taobao.org/sync/koa</a></p>
+<p>或者你是命令行控, 通过 open 命令打开: </p>
+<p>$ open <a href="https://npm.taobao.org/sync/koa" target="_blank" rel="external">https://npm.taobao.org/sync/koa</a></p>
+<p>如果你安装的模块依赖了 C++ 模块, 需要编译, 肯定会通过 node-gyp 来编译, node-gyp 在第一次编译的时候, 需要依赖 node 源代码, 于是又会去 node dist 下载, 于是大家又会吐槽, 怎么 npm 安装这么慢… </p>
+<p>好吧, 于是又要提到 –disturl 参数, 通过七牛的镜像来下载: </p>
+<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> –disturl=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a> install microtime </p>
+<p>再次要提到 cnpm cli, 它已经默认将 –registry 和 –disturl 都配置好了, 谁用谁知道 . 写到这里, 就更快疑惑那些不想安装 cnpm cli 又吐槽 npm 慢的同学是基于什么考虑不在本地安装一个 cnpm 呢?<br>github 好慢 </p>
+<p>好了, 看到这里大家应该对 node 和 npm 已经没有速度慢的问题了. </p>
+<p>github 慢, 或者说是它的资源 host 被堵而已, 大家可以通过简单的 hosts 映射解决: </p>
+<p>185.31.16.184 github.global.ssl.fastly.net</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> node开发工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> node开发工具 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[node  forever安装pm2]]></title>
+      <url>http://blog.ypintao.com/2015/01/20/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/node%20%20forever%E5%AE%89%E8%A3%85pm2/</url>
+      <content type="html"><![CDATA[<p>但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以在js中作为api使用。<br>$ sudo npm install forever -g   #安装<br>$ forever start app.js          #启动<br>$ forever stop app.js           #关闭<br>$ forever start -l forever.log -o out.log -e err.log app.js   #输出日志和错误</p>
+<p>alinode    <a href="http://alinode.aliyun.com/dashboard/apps/30" target="_blank" rel="external">http://alinode.aliyun.com/dashboard/apps/30</a></p>
+<p>forever命令行的中文解释<a id="more"></a></p>
+<p>子命令actions：<br>start:启动守护进程<br>stop:停止守护进程<br>stopall:停止所有的forever进程<br>restart:重启守护进程<br>restartall:重启所有的foever进程<br>list:列表显示forever进程<br>config:列出所有的用户配置项<br>set <key> <val>: 设置用户配置项<br>clear <key>: 清楚用户配置项<br>logs: 列出所有forever进程的日志<br>logs <script|index>: 显示最新的日志<br>columns add <col>: 自定义指标到forever list<br>columns rm <col>: 删除forever list的指标<br>columns set<cols>: 设置所有的指标到forever list<br>cleanlogs: 删除所有的forever历史日志<br>配置参数options：<br>-m MAX: 运行指定脚本的次数<br>-l LOGFILE: 输出日志到LOGFILE<br>-o OUTFILE: 输出控制台信息到OUTFILE<br>-e ERRFILE: 输出控制台错误在ERRFILE<br>-p PATH: 根目录<br>-c COMMAND: 执行命令，默认是node<br>-a, –append: 合并日志<br>-f, –fifo: 流式日志输出<br>-n, –number: 日志打印行数<br>–pidFile: pid文件<br>–sourceDir: 源代码目录<br>–minUptime: 最小spinn更新时间(ms)<br>–spinSleepTime: 两次spin间隔时间<br>–colors: 控制台输出着色<br>–plain: –no-colors的别名，控制台输出无色<br>-d, –debug: debug模式<br>-v, –verbose: 打印详细输出<br>-s, –silent: 不打印日志和错误信息<br>-w, –watch: 监控文件改变<br>–watchDirectory: 监控顶级目录<br>–watchIgnore: 通过模式匹配忽略监控<br>-h, –help: 命令行帮助信息</cols></script|index></key></val></key></p>
+<ol>
+<li>forever服务器管理</li>
+</ol>
+<p>创建一个web项目(express3+ejs)，使用forever管理服务器。<br>安装express3</p>
+<p>~ D:\workspace\javascript&gt;express -e nodejs-forever<br>~ D:\workspace\javascript&gt;cd nodejs-forever &amp;&amp; npm install<br>通过forever启动应用</p>
+<p>~ D:\workspace\javascript\nodejs-forever&gt;forever start app.js<br>warn:    –minUptime not set. Defaulting to: 1000ms<br>warn:    –spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms<br>info:    Forever processing file: app.js<br>打开浏览器: <a href="http://localhost:3000，可以看到web界面" target="_blank" rel="external">http://localhost:3000，可以看到web界面</a><br>在win下面查看forever状态</p>
+<p>~ D:\workspace\javascript\nodejs-forever&gt;forever list<br>info:    No forever processes running</p>
+<p>~ D:\workspace\javascript\nodejs-forever&gt;forever stop app.js<br>error:   Forever cannot find process with index: app.js<br>我们发现forever的程序，工作不对了！！程序明明是运行状态，通过list确看不到。接下来，切换成Linux Ubuntu继续测试。</p>
+<ol>
+<li>forever在Ubuntu进行服务器管理</li>
+</ol>
+<p>Linux的系统环境<br>Linux: Ubuntu 12.04.2 64bit Server<br>Node: v0.11.2<br>Npm: 1.2.21<br>初始化项目：安装命令不解释了</p>
+<p>~ cd /home/conan/nodejs<br>~ express -e nodejs-forever<br>~ cd nodejs-forever &amp;&amp; npm install<br>~ sudo npm install forever -g<br>启动forever</p>
+<p>~ forever start app.js<br>warn:    –minUptime not set. Defaulting to: 1000ms<br>warn:    –spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms<br>info:    Forever processing file: app.js<br>查看node服务器状态</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile                       uptime<br>data:    [0] L2tY /usr/local/bin/node app.js 18276   18279 /home/conan/.forever/L2tY.log 0:0:0:37.792</p>
+<h1 id="系统进程"><a href="#系统进程" class="headerlink" title="系统进程"></a>系统进程</h1><p>~ ps -aux|grep node<br>Warning: bad ps syntax, perhaps a bogus ‘-‘? See <a href="http://procps.sf.net/faq.html" target="_blank" rel="external">http://procps.sf.net/faq.html</a><br>conan    18296  0.5  1.1 597696 23776 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18299  0.4  0.8 630340 18392 ?        Sl   15:48   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js</p>
+<h1 id="端口占用"><a href="#端口占用" class="headerlink" title="端口占用"></a>端口占用</h1><p>~ netstat -nltp|grep node<br>tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      18299/node<br>停止服务器</p>
+<p>~ forever stop app.js<br>info:    Forever stopped process:<br>data:        uid  command             script forever pid   logfile                       uptime<br>[0] L2tY /usr/local/bin/node app.js 18276   18279 /home/conan/.forever/L2tY.log 0:0:0:45.621<br>我们看到在Linux Ubuntu环境中是正常的。</p>
+<ol>
+<li>模拟服务器宕机</li>
+</ol>
+<p>两种测试方案：</p>
+<ol>
+<li>用Linux命令，直接杀死node进程</li>
+<li>在应用中，模拟异常退出<br>1). 用Linux命令，直接杀死node进程</li>
+</ol>
+<h1 id="查看node进程，PID-18299"><a href="#查看node进程，PID-18299" class="headerlink" title="查看node进程，PID=18299"></a>查看node进程，PID=18299</h1><p>~ ps -aux|grep node</p>
+<p>conan    18296  0.0  1.1 597696 23776 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18299  0.0  0.8 630340 18392 ?        Sl   15:48   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18315  0.0  0.0  13584   956 pts/5    R+   15:52   0:00 grep –color=auto node</p>
+<h1 id="杀死PID-19299"><a href="#杀死PID-19299" class="headerlink" title="杀死PID=19299"></a>杀死PID=19299</h1><p>~ kill -9 18299</p>
+<h1 id="再看node进程，node自动重启，新的PID-18324"><a href="#再看node进程，node自动重启，新的PID-18324" class="headerlink" title="再看node进程，node自动重启，新的PID=18324"></a>再看node进程，node自动重启，新的PID=18324</h1><p>~ ps -aux|grep node</p>
+<p>conan    18296  0.0  1.1 597696 23916 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18316  2.6  0.8 630340 18412 ?        Sl   15:52   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18324  0.0  0.0  13584   956 pts/5    R+   15:52   0:00 grep –color=auto node<br>我们看到看杀死node进程，forever会帮助我们，重启node。<br>杀死forever的monitor</p>
+<p>~ kill -9  18296<br>~ ps -aux|grep node</p>
+<p>conan    18316  0.0  0.9 630340 18644 ?        Sl   15:52   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18333  0.0  0.0  13584   952 pts/5    S+   15:57   0:00 grep –color=auto node</p>
+<h1 id="再杀死node进程"><a href="#再杀死node进程" class="headerlink" title="再杀死node进程"></a>再杀死node进程</h1><p>~ kill -9 18316<br>~ ps -aux|grep node</p>
+<p>conan    18336  0.0  0.0  13584   956 pts/5    S+   15:58   0:00 grep –color=auto node<br>我们尝试杀死了forever的monitor，monitor程序没有自动重启，然后再杀死node进程后，node也不会自动重启了。<br>2). 在应用中，模拟异常退出<br>修改文件：app.js</p>
+<p>~ vi app.js</p>
+<p>//..<br>http.createServer(app).listen(app.get(‘port’), function(){<br>  console.log(new Date());<br>  console.log(‘Express server listening on port ‘ + app.get(‘port’));<br>});</p>
+<p>setTimeout(function(){<br>  console.log(new Date());<br>  throw new Error(‘App is error from inner!’);<br>},10*1000);<br>通过node命令启动</p>
+<p>~ node app.js<br>Thu Sep 26 2013 16:08:44 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:08:54 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>10秒后，由于内部错误， node进程挂掉了。<br>通过forever命令启动</p>
+<p>~ mkdir logs<br>~ chmod 777 -R logs<br>~ forever -p . -l ./logs/access.log -e ./logs/error.log start app.js</p>
+<h1 id="检查错误日志"><a href="#检查错误日志" class="headerlink" title="检查错误日志"></a>检查错误日志</h1><p>~ cat logs/access.log ls<br>Thu Sep 26 2013 16:15:02 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:12 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 1 time<br>Thu Sep 26 2013 16:15:13 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:23 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 2 time<br>Thu Sep 26 2013 16:15:23 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:33 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 3 time<br>Thu Sep 26 2013 16:15:33 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:43 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 4 time<br>我们发现每10秒种，node内部挂掉，然后再被forever重启！！<br>通过list我们手动刷新几次也可以看到pid是变的。</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18579 logs/access.log 0:0:0:7.211</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18579 logs/access.log 0:0:0:8.921</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18604 logs/access.log 0:0:0:0.177</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18604 logs/access.log 0:0:0:2.206<br>这样forever就帮助我们完成了，几项比较重要服务器管理功能：“启动/停止命令简单”，“支持热部署”，“宕机重启”，“监控界面和日志”。<br>比起upstart管理，省略了配置脚本的步骤(/etc/init/nodejs-xx.conf)。其他的功能，还要更近一步的使用才知道。</p>
+<ol>
+<li>开发环境和生产环境的启动配置</li>
+</ol>
+<p>开发环境</p>
+<p>~ cd /home/conan/nodejs/nodejs-forever/<br>~ forever -p . -l ./logs/access.log -e ./logs/error.log -a -w start app.js<br>生产环境</p>
+<p>~ export LOG=/var/log/nodejs/project<br>~ export PID=/var/log/nodejs/project/forever.pid<br>~ export APP_PATH=/home/conan/nodejs/nodejs-forever<br>~ export APP=$APP_PATH/app.js</p>
+<p>~ forever -p $APP_PATH -l $LOG/access.log -e $LOG/error.log -o $LOG/out.log -a –pidFile $PID start $AP</p>
+<p>================================================================</p>
+<h1 id="pm2的详解-充分利用cpu核心数"><a href="#pm2的详解-充分利用cpu核心数" class="headerlink" title="pm2的详解 充分利用cpu核心数"></a>pm2的详解 充分利用cpu核心数</h1><p>pm2 是一个带有负载均衡功能的Node应用的进程管理器.<br>当你要把你的独立代码利用全部的服务器上的所有CPU，并保证进程永远都活着，0秒的重载， PM2是完美的。它非常适合IaaS结构，但不要把它用于PaaS方案（随后将开发Paas的解决方案）.</p>
+<p>备注：SaaS、PaaS和IaaS是云服务模式。<br>        SaaS 软件即服务，例如Google的 Gmail 邮箱服务.面向应用型用户.<br>        PaaS 平台即服务.例如Google的GAE,面向开发型用户<br>        IaaS  基础架构即服务,例如亚马逊的AWS，IaaS对于不知道新推出的应用程序/网站会有多成功的创业公司来说非常有用<br>      请参考 云服务模式：SaaS、PaaS和IaaS，哪一种适合你？</p>
+<p>主要特性：</p>
+<p>内建负载均衡（使用Node cluster 集群模块）<br>后台运行<br>0秒停机重载，我理解大概意思是维护升级的时候不需要停机.<br>具有Ubuntu和CentOS 的启动脚本<br>停止不稳定的进程（避免无限循环）<br>控制台检测<br>提供 HTTP API<br>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</p>
+<p>测试过Nodejs v0.11 v0.10 v0.8版本，兼容CoffeeScript,基于Linux 和MacOS.</p>
+<p>安装<br>npm install -g pm2</p>
+<p>用法<br>$ npm install pm2 -g     # 命令行安装 pm2<br>$ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js </p>
+<pre><code># 也可以把&apos;max&apos; 参数传递给 start
+# 正确的进程数目依赖于Cpu的核心数目
+</code></pre><p>$ pm2 start app.js –name my-api # 命名进程<br>$ pm2 list               # 显示所有进程状态<br>$ pm2 monit              # 监视所有进程<br>$ pm2 logs               #  显示所有进程日志<br>$ pm2 stop all           # 停止所有进程<br>$ pm2 restart all        # 重启所有进程<br>$ pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)<br>$ pm2 stop 0             # 停止指定的进程<br>$ pm2 restart 0          # 重启指定的进程<br>$ pm2 startup            # 产生 init 脚本 保持进程活着<br>$ pm2 web                # 运行健壮的 computer API endpoint (<a href="http://localhost:9615" target="_blank" rel="external">http://localhost:9615</a>)<br>$ pm2 delete 0           # 杀死指定的进程<br>$ pm2 delete all         # 杀死全部进程</p>
+<p>运行进程的不同方式：<br>$ pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目<br>$ pm2 start app.js -i 3      # 启动3个进程<br>$ pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster<br>$ pm2 start app.js -x – -a 23   # 用fork模式启动 app.js 并且传递参数 (-a 23)<br>$ pm2 start app.js –name serverone  # 启动一个进程并把它命名为 serverone<br>$ pm2 stop serverone       # 停止 serverone 进程<br>$ pm2 start app.json        # 启动进程, 在 app.json里设置选项<br>$ pm2 start app.js -i max – -a 23                   #在–之后给 app.js 传递参数<br>$ pm2 start app.js -i max -e err.log -o out.log  # 启动 并 生成一个配置文件<br>你也可以执行用其他语言编写的app  ( fork 模式):<br>$ pm2 start my-bash-script.sh    -x –interpreter bash<br>$ pm2 start my-python-script.py -x –interpreter python</p>
+<p>0秒停机重载:<br>这项功能允许你重新载入代码而不用失去请求连接。<br>注意：<br>仅能用于web应用<br>运行于Node 0.11.x版本<br>运行于 cluster 模式（默认模式）<br>$ pm2 reload all</p>
+<p>CoffeeScript:<br>$ pm2 start my_app.coffee  #这就是全部</p>
+<p>PM2准备好为产品级服务了吗？<br>只需在你的服务器上测试<br>$ git clone <a href="https://github.com/Unitech/pm2.git" target="_blank" rel="external">https://github.com/Unitech/pm2.git</a><br>$ cd pm2<br>$ npm install  # 或者 npm install –dev ，如果devDependencies 没有安装<br>$ npm test</p>
+<p>pm2 list<br>列出由pm2管理的所有进程信息，还会显示一个进程会被启动多少次，因为没处理的异常。</p>
+<p>pm2 monit<br>监视每个node进程的CPU和内存的使用情况。</p>
+<p><a href="https://cnodejs.org/topic/563f6e708e90ab7c391e9f71" target="_blank" rel="external">https://cnodejs.org/topic/563f6e708e90ab7c391e9f71</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> node开发工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> node开发工具 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[修改阿里云CentOS Linux服务器的主机名]]></title>
+      <url>http://blog.ypintao.com/2014/08/20/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E4%BF%AE%E6%94%B9%E9%98%BF%E9%87%8C%E4%BA%91CentOS%20Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D/</url>
+      <content type="html"><![CDATA[<p>阿里云主机的默认主机名是为AY开头的随机名称，如何修改为易于区分的友好名称呢？请看下面的操作步骤：</p>
+<ol>
+<li>vi /etc/hosts<br>i键，修改主机名，esc键，:x键保存退出<a id="more"></a></li>
+<li>vi /etc/sysconfig/network<br>i键，修改主机名(HOSTNAME=)，esc键，:x键保存退出</li>
+<li>输入以下命令：<br>hostname 新主机名<br>然后用ssh重新登录，就会显示新的主机名。<br>更新：<br>后来发现一个更简单的方法：<br>hostnamectl set-hostname 新主机名</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 基本命令 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基本命令 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[配置环境变量]]></title>
+      <url>http://blog.ypintao.com/2014/08/18/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+      <content type="html"><![CDATA[<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><p>   设置CentOS防火墙开放端口方法如下：<br>   打开iptables的配置文件：<br>   vi /etc/sysconfig/iptables<br><a id="more"></a></p>
+<h2 id="配置NODE-HOME"><a href="#配置NODE-HOME" class="headerlink" title="配置NODE_HOME"></a>配置NODE_HOME</h2><pre><code>#vi /etc/profile
+设置nodejs环境变量，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 一行的上面添加如下内容:
+
+#set for nodejs
+export NODE_HOME=/usr/local/src/node-v0.12.3
+export PATH=$NODE_HOME/bin:$PATH
+
+:wq保存并退出，编译/etc/profile 使配置生效
+
+#source /etc/profile
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 基本命令 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基本命令 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[linux系统信息]]></title>
+      <url>http://blog.ypintao.com/2014/07/27/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
+      <content type="html"><![CDATA[<p>linux系统信息</p>
+<h1 id="uname-a-查看内核-操作系统-CPU信息"><a href="#uname-a-查看内核-操作系统-CPU信息" class="headerlink" title="uname -a # 查看内核/操作系统/CPU信息"></a>uname -a # 查看内核/操作系统/CPU信息</h1><h1 id="head-n-1-etc-issue-查看操作系统版本"><a href="#head-n-1-etc-issue-查看操作系统版本" class="headerlink" title="head -n 1 /etc/issue # 查看操作系统版本"></a>head -n 1 /etc/issue # 查看操作系统版本</h1><h1 id="cat-proc-cpuinfo-查看CPU信息"><a href="#cat-proc-cpuinfo-查看CPU信息" class="headerlink" title="cat /proc/cpuinfo # 查看CPU信息"></a>cat /proc/cpuinfo # 查看CPU信息</h1><h1 id="hostname-查看计算机名"><a href="#hostname-查看计算机名" class="headerlink" title="hostname # 查看计算机名"></a>hostname # 查看计算机名</h1><h1 id="lspci-tv-列出所有PCI设备"><a href="#lspci-tv-列出所有PCI设备" class="headerlink" title="lspci -tv # 列出所有PCI设备"></a>lspci -tv # 列出所有PCI设备</h1><h1 id="lsusb-tv-列出所有USB设备"><a href="#lsusb-tv-列出所有USB设备" class="headerlink" title="lsusb -tv # 列出所有USB设备"></a>lsusb -tv # 列出所有USB设备</h1><h1 id="lsmod-列出加载的内核模块"><a href="#lsmod-列出加载的内核模块" class="headerlink" title="lsmod # 列出加载的内核模块 "></a>lsmod # 列出加载的内核模块 <a id="more"></a></h1><h1 id="env-查看环境变量"><a href="#env-查看环境变量" class="headerlink" title="env # 查看环境变量"></a>env # 查看环境变量</h1><h1 id="arch-显示机器的处理器架构-1"><a href="#arch-显示机器的处理器架构-1" class="headerlink" title="arch 显示机器的处理器架构(1)"></a>arch 显示机器的处理器架构(1)</h1><h1 id="uname-m-显示机器的处理器架构-2"><a href="#uname-m-显示机器的处理器架构-2" class="headerlink" title="uname -m 显示机器的处理器架构(2)"></a>uname -m 显示机器的处理器架构(2)</h1><h1 id="uname-r-显示正在使用的内核版本"><a href="#uname-r-显示正在使用的内核版本" class="headerlink" title="uname -r 显示正在使用的内核版本"></a>uname -r 显示正在使用的内核版本</h1><h1 id="dmidecode-q-显示硬件系统部件"><a href="#dmidecode-q-显示硬件系统部件" class="headerlink" title="dmidecode -q 显示硬件系统部件"></a>dmidecode -q 显示硬件系统部件</h1><h1 id="hdparm-i-dev-hda-罗列一个磁盘的架构特性"><a href="#hdparm-i-dev-hda-罗列一个磁盘的架构特性" class="headerlink" title="hdparm -i /dev/hda 罗列一个磁盘的架构特性"></a>hdparm -i /dev/hda 罗列一个磁盘的架构特性</h1><h1 id="hdparm-tT-dev-sda-在磁盘上执行测试性读取操作"><a href="#hdparm-tT-dev-sda-在磁盘上执行测试性读取操作" class="headerlink" title="hdparm -tT /dev/sda 在磁盘上执行测试性读取操作"></a>hdparm -tT /dev/sda 在磁盘上执行测试性读取操作</h1><h1 id="cat-proc-interrupts-显示中断"><a href="#cat-proc-interrupts-显示中断" class="headerlink" title="cat /proc/interrupts 显示中断"></a>cat /proc/interrupts 显示中断</h1><h1 id="cat-proc-meminfo-校验内存使用"><a href="#cat-proc-meminfo-校验内存使用" class="headerlink" title="cat /proc/meminfo 校验内存使用"></a>cat /proc/meminfo 校验内存使用</h1><h1 id="cat-proc-swaps-显示哪些swap被使用"><a href="#cat-proc-swaps-显示哪些swap被使用" class="headerlink" title="cat /proc/swaps 显示哪些swap被使用"></a>cat /proc/swaps 显示哪些swap被使用</h1><h1 id="cat-proc-version-显示内核的版本"><a href="#cat-proc-version-显示内核的版本" class="headerlink" title="cat /proc/version 显示内核的版本"></a>cat /proc/version 显示内核的版本</h1><h1 id="cat-proc-net-dev-显示网络适配器及统计"><a href="#cat-proc-net-dev-显示网络适配器及统计" class="headerlink" title="cat /proc/net/dev 显示网络适配器及统计"></a>cat /proc/net/dev 显示网络适配器及统计</h1><h1 id="cat-proc-mounts-显示已加载的文件系统"><a href="#cat-proc-mounts-显示已加载的文件系统" class="headerlink" title="cat /proc/mounts 显示已加载的文件系统"></a>cat /proc/mounts 显示已加载的文件系统</h1><h1 id="lspci-tv-罗列-PCI-设备"><a href="#lspci-tv-罗列-PCI-设备" class="headerlink" title="lspci -tv 罗列 PCI 设备"></a>lspci -tv 罗列 PCI 设备</h1><h1 id="lsusb-tv-显示-USB-设备"><a href="#lsusb-tv-显示-USB-设备" class="headerlink" title="lsusb -tv 显示 USB 设备"></a>lsusb -tv 显示 USB 设备</h1><h1 id="date-显示系统日期"><a href="#date-显示系统日期" class="headerlink" title="date 显示系统日期"></a>date 显示系统日期</h1><h1 id="cal-2007-显示2007年的日历表"><a href="#cal-2007-显示2007年的日历表" class="headerlink" title="cal 2007 显示2007年的日历表"></a>cal 2007 显示2007年的日历表</h1><h1 id="date-041217002007-00-设置日期和时间-–-月日时分年-秒"><a href="#date-041217002007-00-设置日期和时间-–-月日时分年-秒" class="headerlink" title="date 041217002007.00 设置日期和时间 – 月日时分年.秒"></a>date 041217002007.00 设置日期和时间 – 月日时分年.秒</h1><h1 id="clock-w-将时间修改保存到-BIOS"><a href="#clock-w-将时间修改保存到-BIOS" class="headerlink" title="clock -w 将时间修改保存到 BIOS"></a>clock -w 将时间修改保存到 BIOS</h1><p>系统的关机、重启以及登出 </p>
+<h1 id="shutdown-h-now-关闭系统-1"><a href="#shutdown-h-now-关闭系统-1" class="headerlink" title="shutdown -h now 关闭系统(1)"></a>shutdown -h now 关闭系统(1)</h1><h1 id="init-0-关闭系统-2"><a href="#init-0-关闭系统-2" class="headerlink" title="init 0 关闭系统(2)"></a>init 0 关闭系统(2)</h1><h1 id="telinit-0-关闭系统-3"><a href="#telinit-0-关闭系统-3" class="headerlink" title="telinit 0 关闭系统(3)"></a>telinit 0 关闭系统(3)</h1><h1 id="shutdown-h-hours-minutes-amp-按预定时间关闭系统"><a href="#shutdown-h-hours-minutes-amp-按预定时间关闭系统" class="headerlink" title="shutdown -h hours:minutes &amp; 按预定时间关闭系统"></a>shutdown -h hours:minutes &amp; 按预定时间关闭系统</h1><h1 id="shutdown-c-取消按预定时间关闭系统"><a href="#shutdown-c-取消按预定时间关闭系统" class="headerlink" title="shutdown -c 取消按预定时间关闭系统"></a>shutdown -c 取消按预定时间关闭系统</h1><h1 id="shutdown-r-now-重启-1"><a href="#shutdown-r-now-重启-1" class="headerlink" title="shutdown -r now 重启  (1)"></a>shutdown -r now 重启  (1)</h1><h1 id="reboot-重启-2"><a href="#reboot-重启-2" class="headerlink" title="reboot 重启  (2)"></a>reboot 重启  (2)</h1><h1 id="logout-注销"><a href="#logout-注销" class="headerlink" title="logout 注销"></a>logout 注销</h1><p>如何查看linux系统资源</p>
+<h1 id="free-m-查看内存使用量和交换区使用量"><a href="#free-m-查看内存使用量和交换区使用量" class="headerlink" title="free -m # 查看内存使用量和交换区使用量"></a>free -m # 查看内存使用量和交换区使用量</h1><h1 id="df-h-查看各分区使用情况"><a href="#df-h-查看各分区使用情况" class="headerlink" title="df -h # 查看各分区使用情况"></a>df -h # 查看各分区使用情况</h1><h1 id="du-sh-lt-目录名-gt-查看指定目录的大小"><a href="#du-sh-lt-目录名-gt-查看指定目录的大小" class="headerlink" title="du -sh &lt;目录名&gt; # 查看指定目录的大小"></a>du -sh &lt;目录名&gt; # 查看指定目录的大小</h1><h1 id="grep-MemTotal-proc-meminfo-查看内存总量"><a href="#grep-MemTotal-proc-meminfo-查看内存总量" class="headerlink" title="grep MemTotal /proc/meminfo # 查看内存总量"></a>grep MemTotal /proc/meminfo # 查看内存总量</h1><h1 id="grep-MemFree-proc-meminfo-查看空闲内存量"><a href="#grep-MemFree-proc-meminfo-查看空闲内存量" class="headerlink" title="grep MemFree /proc/meminfo # 查看空闲内存量"></a>grep MemFree /proc/meminfo # 查看空闲内存量</h1><h1 id="uptime-查看系统运行时间、用户数、负载"><a href="#uptime-查看系统运行时间、用户数、负载" class="headerlink" title="uptime # 查看系统运行时间、用户数、负载"></a>uptime # 查看系统运行时间、用户数、负载</h1><h1 id="cat-proc-loadavg-查看系统负载"><a href="#cat-proc-loadavg-查看系统负载" class="headerlink" title="cat /proc/loadavg # 查看系统负载"></a>cat /proc/loadavg # 查看系统负载</h1><p>如何查看linux磁盘和分区</p>
+<h1 id="mount-column-t-查看挂接的分区状态"><a href="#mount-column-t-查看挂接的分区状态" class="headerlink" title="mount | column -t # 查看挂接的分区状态"></a>mount | column -t # 查看挂接的分区状态</h1><h1 id="fdisk-l-查看所有分区"><a href="#fdisk-l-查看所有分区" class="headerlink" title="fdisk -l # 查看所有分区"></a>fdisk -l # 查看所有分区</h1><h1 id="swapon-s-查看所有交换分区"><a href="#swapon-s-查看所有交换分区" class="headerlink" title="swapon -s # 查看所有交换分区"></a>swapon -s # 查看所有交换分区</h1><h1 id="hdparm-i-dev-hda-查看磁盘参数-仅适用于IDE设备"><a href="#hdparm-i-dev-hda-查看磁盘参数-仅适用于IDE设备" class="headerlink" title="hdparm -i /dev/hda # 查看磁盘参数(仅适用于IDE设备)"></a>hdparm -i /dev/hda # 查看磁盘参数(仅适用于IDE设备)</h1><h1 id="dmesg-grep-IDE-查看启动时IDE设备检测状况"><a href="#dmesg-grep-IDE-查看启动时IDE设备检测状况" class="headerlink" title="dmesg | grep IDE # 查看启动时IDE设备检测状况"></a>dmesg | grep IDE # 查看启动时IDE设备检测状况</h1><p>查看网络配置的命令</p>
+<h1 id="ifconfig-查看所有网络接口的属性"><a href="#ifconfig-查看所有网络接口的属性" class="headerlink" title="ifconfig # 查看所有网络接口的属性"></a>ifconfig # 查看所有网络接口的属性</h1><h1 id="iptables-L-查看防火墙设置"><a href="#iptables-L-查看防火墙设置" class="headerlink" title="iptables -L # 查看防火墙设置"></a>iptables -L # 查看防火墙设置</h1><h1 id="route-n-查看路由表"><a href="#route-n-查看路由表" class="headerlink" title="route -n # 查看路由表"></a>route -n # 查看路由表</h1><h1 id="netstat-lntp-查看所有监听端口"><a href="#netstat-lntp-查看所有监听端口" class="headerlink" title="netstat -lntp # 查看所有监听端口"></a>netstat -lntp # 查看所有监听端口</h1><h1 id="netstat-antp-查看所有已经建立的连接"><a href="#netstat-antp-查看所有已经建立的连接" class="headerlink" title="netstat -antp # 查看所有已经建立的连接"></a>netstat -antp # 查看所有已经建立的连接</h1><h1 id="netstat-s-查看网络统计信息"><a href="#netstat-s-查看网络统计信息" class="headerlink" title="netstat -s # 查看网络统计信息"></a>netstat -s # 查看网络统计信息</h1><p>查看linux进程</p>
+<h1 id="ps-ef-查看所有进程"><a href="#ps-ef-查看所有进程" class="headerlink" title="ps -ef # 查看所有进程"></a>ps -ef # 查看所有进程</h1><h1 id="top-实时显示进程状态"><a href="#top-实时显示进程状态" class="headerlink" title="top # 实时显示进程状态"></a>top # 实时显示进程状态</h1><p>查看用户的命令</p>
+<h1 id="w-查看活动用户"><a href="#w-查看活动用户" class="headerlink" title="w # 查看活动用户"></a>w # 查看活动用户</h1><h1 id="id-lt-用户名-gt-查看指定用户信息"><a href="#id-lt-用户名-gt-查看指定用户信息" class="headerlink" title="id &lt;用户名&gt; # 查看指定用户信息"></a>id &lt;用户名&gt; # 查看指定用户信息</h1><h1 id="last-查看用户登录日志"><a href="#last-查看用户登录日志" class="headerlink" title="last # 查看用户登录日志"></a>last # 查看用户登录日志</h1><h1 id="cut-d-f1-etc-passwd-查看系统所有用户"><a href="#cut-d-f1-etc-passwd-查看系统所有用户" class="headerlink" title="cut -d: -f1 /etc/passwd # 查看系统所有用户"></a>cut -d: -f1 /etc/passwd # 查看系统所有用户</h1><h1 id="cut-d-f1-etc-group-查看系统所有组"><a href="#cut-d-f1-etc-group-查看系统所有组" class="headerlink" title="cut -d: -f1 /etc/group # 查看系统所有组"></a>cut -d: -f1 /etc/group # 查看系统所有组</h1><h1 id="crontab-l-查看当前用户的计划任务"><a href="#crontab-l-查看当前用户的计划任务" class="headerlink" title="crontab -l # 查看当前用户的计划任务"></a>crontab -l # 查看当前用户的计划任务</h1><p>查看系统服务的命令</p>
+<h1 id="chkconfig-–list-列出所有系统服务"><a href="#chkconfig-–list-列出所有系统服务" class="headerlink" title="chkconfig –list # 列出所有系统服务"></a>chkconfig –list # 列出所有系统服务</h1><h1 id="chkconfig-–list-grep-on-列出所有启动的系统服务"><a href="#chkconfig-–list-grep-on-列出所有启动的系统服务" class="headerlink" title="chkconfig –list | grep on # 列出所有启动的系统服务"></a>chkconfig –list | grep on # 列出所有启动的系统服务</h1><p>安装程序的命令</p>
+<h1 id="rpm-qa-查看所有安装的软件包"><a href="#rpm-qa-查看所有安装的软件包" class="headerlink" title="rpm -qa # 查看所有安装的软件包"></a>rpm -qa # 查看所有安装的软件包</h1><p>获取帮助的命令</p>
+<h1 id="man-lt-命令-gt-获得命令帮助"><a href="#man-lt-命令-gt-获得命令帮助" class="headerlink" title="man &lt;命令&gt; #获得命令帮助"></a>man &lt;命令&gt; #获得命令帮助</h1>]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 基本命令 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基本命令 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[redis安装]]></title>
+      <url>http://blog.ypintao.com/2014/06/27/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/redis%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>[root@infa ~]# wget <a href="http://download.redis.io/releases/redis-2.8.12.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-2.8.12.tar.gz</a><br>tar xzf redis-2.8.12.tar.gz<br>[root@infa ~]# tar xzf redis-2.8.12.tar.gz<br>[root@infa ~]# cd redis-2.8.12<br>[root@infa redis-2.8.12]# ls<br>00-RELEASENOTES  BUGS  CONTRIBUTING  COPYING  deps  INSTALL  Makefile  MANIFESTO  README  redis.conf  runtest  runtest-sentinel  sentinel.conf  src  tests  utils<br>[root@infa redis-2.8.12]# make<br>但是这样子编译会报错，貌似是因为系统的原因； <a id="more"></a><br>报错如下：</p>
+<p>解决方法，就是加上编译参数设置，如下：<br>[root@infa redis-2.8.12]# make CFLAGS=”-march=i686”<br>编译成功；<br>启动并运行redis：<br>[root@infa redis-2.8.12]# src/redis-server</p>
+<p>[root@infa redis-2.8.12]# src/redis-cli<br>127.0.0.1:6379&gt; set name chenzhou<br>OK<br>127.0.0.1:6379&gt; get name<br>“chenzhou”<br>127.0.0.1:6379&gt; </p>
+<p>附2：把Redis作为Linux服务开机启动<br>这里只提供一种最简单的方式，最好的是通过编写开机启动脚本来做。<br>如果要开机启动redis，我们需要把redis设置为daemon后台启动（如果不设置为后台启动，则linux启动后图形界面会卡在一个空白的页面），而redis只有1个启动参数，就是redis的配置文件路径。redis的默认配置文件redis.conf位于redis的安装目录下。我们可以把该文件copy到/etc目录下<br>Shell代码<br>1[root@localhost redis-2.6.14]# cp redis.conf /etc/<br>redis的默认配置文件中daemonize参数的值为no，代表为非后台启动，所以我们需要把该参数的值修改为yes。至于其它的参数在这里就不详细说了，具体可以参见：<a href="http://blog.csdn.net/htofly/article/details/7686436修改完daemonize参数之后，redis就能够通过daemon方式启动了，那么下一步就是把redis加入到linux开机启动服务配置中了，具体步骤如下：" target="_blank" rel="external">http://blog.csdn.net/htofly/article/details/7686436修改完daemonize参数之后，redis就能够通过daemon方式启动了，那么下一步就是把redis加入到linux开机启动服务配置中了，具体步骤如下：</a><br>使用VI编辑器打开Linux开机启动服务配置文件/etc/rc.local，并在其中加入下面的一行代码：<br>Shell代码<br>2/usr/local/redis-2.6.14/src/redis-server /etc/redis.conf<br>编辑完后保存，然后重启系统就OK了。<br>停止Redis服务：<br>Shell代码<br>3src/redis-cli shutdown  </p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 开发环境 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 开发环境 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MongoDB安装]]></title>
+      <url>http://blog.ypintao.com/2014/06/17/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/mongoDb%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>1、下载MongoDB（64位）</p>
+<blockquote>
+<p><a href="http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz" target="_blank" rel="external">http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz</a><br>或<br><a href="http://pan.baidu.com/s/1mgyRB8c" target="_blank" rel="external">http://pan.baidu.com/s/1mgyRB8c</a></p>
+</blockquote>
+<p>2、安装MongoDB（安装到/usr/local）<a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">tar zxvf mongodb-linux-x86_64-2.4.9.tgz</div><div class="line">mv mongodb-linux-x86_64-2.4.9 mongodb</div><div class="line">cd mongodb</div><div class="line">mkdir db</div><div class="line">mkdir logs</div><div class="line">cd bin</div><div class="line">vi mongodb.conf</div><div class="line"></div><div class="line">dbpath=/usr/local/mongodb/db</div><div class="line">logpath=/usr/local/mongodb/logs/mongodb.log</div><div class="line">port=27017</div><div class="line">fork=true</div><div class="line">nohttpinterface=true</div></pre></td></tr></table></figure></p>
+<p>3、重新绑定mongodb的配置文件地址和访问IP<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --bind_ip localhost -f /usr/local/mongodb/bin/mongodb.conf</div></pre></td></tr></table></figure></p>
+<p>4、开机自动启动mongodb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/rc.d/rc.local</div><div class="line">/usr/local/mongodb/bin/mongod --config /usr/local/mongodb/bin/mongodb.conf</div></pre></td></tr></table></figure></p>
+<p>5、重启一下系统测试下能不能自启</p>
+<h1 id="进入mongodb的shell模式"><a href="#进入mongodb的shell模式" class="headerlink" title="进入mongodb的shell模式"></a>进入mongodb的shell模式</h1><p>/usr/local/mongodb/bin/mongo</p>
+<h1 id="查看数据库列表"><a href="#查看数据库列表" class="headerlink" title="查看数据库列表"></a>查看数据库列表</h1><p>show dbs</p>
+<h1 id="当前db版本"><a href="#当前db版本" class="headerlink" title="当前db版本"></a>当前db版本</h1><p>db.version();<br>db.auth(“theadmin”, “anadminpassword”)</p>
+<p>以配置形式启动<br>./mongod -f /opt/mongodb/bin/mongodb.conf<br>用admin停止<br>./mongo<br>use amdin<br>db.shutdownServer();</p>
+<p>不能用kill -9停止<br>正常停止方法:</p>
+<h1 id="ps-aux-grep-mongod"><a href="#ps-aux-grep-mongod" class="headerlink" title="ps aux | grep mongod"></a>ps aux | grep mongod</h1><h1 id="kill-2-PID"><a href="#kill-2-PID" class="headerlink" title="kill  -2 PID"></a>kill  -2 PID</h1><p>或</p>
+<h1 id="home-local-mongodb-bin-mongo-port-20000"><a href="#home-local-mongodb-bin-mongo-port-20000" class="headerlink" title="/home/local/mongodb/bin/mongo -port 20000"></a>/home/local/mongodb/bin/mongo -port 20000</h1><blockquote>
+<p>use  admin<br>db.shutdownServer(); </p>
+</blockquote>
+<p>–dbpath<br>$ ./mongdb –dbpath /mongodb/<br>把数据存储位置指向一个自己的目录/mongodb/</p>
+<p>修改默认端口：</p>
+<p>–port<br>$ ./mongdb –port 20111<br>把服务端口修改为20111，这个一方面是为了安全，使用默认端口容易被一些恶意的人发现做手脚</p>
+<p>启动后台服务:</p>
+<p>–fork<br>在后台开启Mongdb服务<br>在使用这个方式启动的时候要注意两点：<br>1、该功能只在1.1之后的版本才可以使用。<br>2、另外通过这个方式在后台启动，如果在启动的时候像–dbpath 那样使用 –logpath 输出日志时候日志输出目录也要自己创建。<br>如：<br>$ ./mongod –fork –logpath /var/log/mongodb.log –logappend<br>解析最后–logappend,以追加的方式创建日志防止把之前的日志删除了</p>
+<p>Mongodb的关闭:</p>
+<p>前台运行:</p>
+<p>如果没有使用–fork，直接可以前台退出终端关闭。通过这种方式，Mongodb将会自己做清理退出，把没有写好的数据写完成，并最终关闭数据文件。要注意的是这个过程会持续到所有操作都完成。</p>
+<p>后台运行:</p>
+<p>如果使用–fork在后台运行mongdb服务，那么就要通过向服务器发送shutdownServer()消息来关闭。</p>
+<p>1、普通命令：<br>$ ./mongod</p>
+<blockquote>
+<p>use admin<br>db.shutdownServer()</p>
+</blockquote>
+<p>要注意的是，这个命令只允许在本地，或是一个经过认证的客户端。</p>
+<p>2、如果这是一个主从式的复制集群，在1.9.1版本后将按下面的步骤来关闭<br>检查从Mongodb的数据更新时间<br>如果所有的从Mongodb和主的时间差都超过10，这个时候不会关闭mongodb（在这种情况下面，我们可以通过配置timeoutSecs的方式来让从Mongodb完成数据的更新）<br>如果其中有一个从Mongodb与主服务时间差在10秒内，那么主服务器将会关闭，并且等待从Mongodb更新完成并关闭。<br>3、如果没有up-to-date 从Mongodb且你想强制关闭服务，可以通过添加force:true;命令如下：</p>
+<blockquote>
+<p>db.adminCommand({shutdown : 1, force : true})<br>//or<br>db.shutdownServer({force : true})</p>
+</blockquote>
+<p>4、指定特定超时时间的关闭服务器，命令同上，另外加上一个timeoutsec:参数</p>
+<blockquote>
+<p>db.adminCommand(shutdown : 1, force : true, timeoutsec : 5)<br>//or<br>db.shutdownServer({force : true, timeoutsec : 5})</p>
+</blockquote>
+<p>Mongodb开机启动</p>
+<p>在/etc/rc.local文件末尾添加下面的代码</p>
+<p>#add mongodb service<br>rm -rf /data/mongodb_data/* &amp;&amp; /usr/local/mongodb/bin/mongod –dbpath=/data/mongdb_data/ –logpath=/data/mongdb_log/mongodb.log –logappend &amp;</p>
+<p>查看数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; db.stats();</div><div class="line">&#123;</div><div class="line">  &quot;db&quot; : &quot;test&quot;,        //当前数据库</div><div class="line">  &quot;collections&quot; : 3,      //当前数据库多少表</div><div class="line">  &quot;objects&quot; : 4,        //当前数据库所有表多少条数据</div><div class="line">  &quot;avgObjSize&quot; : 51,      //每条数据的平均大小</div><div class="line">  &quot;dataSize&quot; : 204,      //所有数据的总大小</div><div class="line">  &quot;storageSize&quot; : 16384,    //所有数据占的磁盘大小</div><div class="line">  &quot;numExtents&quot; : 3,</div><div class="line">  &quot;indexes&quot; : 1,        //索引数</div><div class="line">  &quot;indexSize&quot; : 8176,     //索引大小</div><div class="line">  &quot;fileSize&quot; : 201326592,   //预分配给数据库的文件大小</div><div class="line">  &quot;nsSizeMB&quot; : 16,</div><div class="line">  &quot;dataFileVersion&quot; : &#123;</div><div class="line">    &quot;major&quot; : 4,</div><div class="line">    &quot;minor&quot; : 5</div><div class="line">  &#125;,</div><div class="line">  &quot;ok&quot; : 1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2,查看数据库表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; db.posts.stats();</div><div class="line">&#123;</div><div class="line">  &quot;ns&quot; : &quot;test.posts&quot;,</div><div class="line">  &quot;count&quot; : 1,</div><div class="line">  &quot;size&quot; : 56,</div><div class="line">  &quot;avgObjSize&quot; : 56,</div><div class="line">  &quot;storageSize&quot; : 8192,</div><div class="line">  &quot;numExtents&quot; : 1,</div><div class="line">  &quot;nindexes&quot; : 1,</div><div class="line">  &quot;lastExtentSize&quot; : 8192,</div><div class="line">  &quot;paddingFactor&quot; : 1,</div><div class="line">  &quot;systemFlags&quot; : 1,</div><div class="line">  &quot;userFlags&quot; : 0,</div><div class="line">  &quot;totalIndexSize&quot; : 8176,</div><div class="line">  &quot;indexSizes&quot; : &#123;</div><div class="line">    &quot;_id_&quot; : 8176</div><div class="line">  &#125;,</div><div class="line">  &quot;ok&quot; : 1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 环境安装 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 环境安装 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[基本命令]]></title>
+      <url>http://blog.ypintao.com/2014/06/07/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<h1 id="useradd-dev-创建用户"><a href="#useradd-dev-创建用户" class="headerlink" title="useradd dev #创建用户"></a>useradd dev #创建用户</h1><h1 id="passwd-dev-修改密码"><a href="#passwd-dev-修改密码" class="headerlink" title="passwd dev #修改密码"></a>passwd dev #修改密码</h1><p>更改用户 dev 的密码 。<br>新的 密码：<br>重新输入新的 密码：<br>passwd：所有的身份验证令牌已经成功更新。<br>chmod -v u+w /etc/sudoers<br>“/etc/sudoers” 的权限模式保留为0640 (rw-r—–)  <a id="more"></a></p>
+<p>  解决方法：</p>
+<p>1.查找被占用的端口</p>
+<p>netstat -tln<br>netstat -tln | grep 8060</p>
+<p>netstat -tln 查看端口使用情况，而netstat -tln | grep 8060则是只查看端口8060的使用情况</p>
+<p>2.查看端口属于哪个程序？端口被哪个进程占用</p>
+<p>lsof -i:8060</p>
+<p> COMMAND   PID   USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME<br>java    20804   root   36u  IPv6 35452317      0t0  TCP *:pcsync-https (LISTEN)</p>
+<p>3.杀掉占用端口的进程  根据pid杀掉</p>
+<p>kill -9 进程id<br>kill -9 20804</p>
+<p>wget 访问https报错解决方法<br>一般我们远程调用下载文件直接用wget就可以，一般文件路径类型是http。如果有遇到是https就会下载出错，稍微不注意的新手朋友可能还认为是数据源出现问题。因为大脑不好用，所以刚才在有遇到这样问题的时候老左就顺带做一个记录，以便下次遇到这样的问题，以及有遇到同类问题的网友可以参照使用。<br>wget-err-https<br>出现的错误大同小异类似上面的界面演示一样。其实我们仔细根据提示可以解决问题，只需要在wget后面加上–no-check-certificate就可以，需要一个认证下载指令而已。<br>比如我们可以修改成：<br>wget –no-check-certificate <a href="https://我们下载文件路径" target="_blank" rel="external">https://我们下载文件路径</a></p>
+<p>关机命令<br>　 1.shutdown<br>   shutdown命令安全地将系统关机。 有些用户会使用直接断掉电源的方式来关闭linux，<br>这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能<br>会导致进程的数据丢失;#65104;使系统处于不稳定的状态&amp;;#65104;甚至在有的系统中会损坏硬件设备。<br>    而在系统关机前使用shutdown命令;#65104;系统管理员会通知所有登录的用户系统将要关闭。<br>并且login指令会被冻结;#65104;即新的用户不能再登录。直接关机或者延迟一定的时间才关机<br>都是可能的;#65104;还可能重启。这是由所有进程〔process〕都会收到系统所送达的信号〔signal〕<br>决定的。这让像vi之类的程序有时间储存目前正在编辑的文档;#65104;而像处理邮件〔mail〕和<br>新闻〔news〕的程序则可以正常地离开等等。<br>    shutdown执行它的工作是送信号〔signal〕给init程序;#65104;要求它改变runlevel。<br>Runlevel 0被用来停机〔halt〕;#65104;runlevel 6是用来重新激活〔reboot〕系统&amp;;#65104;<br>而runlevel 1则是被用来让系统进入管理工作可以进行的状态;#65108;这是预设的&amp;;#65104;假定没有-h也<br>没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些<br>动作;#65104;你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。<br>　　 shutdown 参数说明:<br>　　 [-t] 在改变到其它runlevel之前;#65104;告诉init多久以后关机。<br>　　 [-r] 重启计算器。<br>　　 [-k] 并不真正关机;#65104;只是送警告信号给每位登录者〔login〕。<br>　　 [-h] 关机后关闭电源〔halt〕。<br>　　 [-n] 不用init;#65104;而是自己来关机。不鼓励使用这个选项&amp;;#65104;而且该选项所产生的后果往<br>往不总是你所预期得到的。<br>　　 [-c] cancel current process取消目前正在执行的关机程序。所以这个选项当然没有<br>时间参数;#65104;但是可以输入一个用来解释的讯息&amp;;#65104;而这信息将会送到每位使用者。<br>　　 [-f] 在重启计算器〔reboot〕时忽略fsck。<br>     [-F] 在重启计算器〔reboot〕时强迫fsck。<br>　　 [-time] 设定关机〔shutdown〕前的时间。 </p>
+<p>2.halt—-最简单的关机命令<br>　　 其实halt就是调用shutdown -h。halt执行时;#65104;杀死应用进程&amp;;#65104;执行sync系统调用&amp;;#65104;<br>文件系统写操作完成后就会停止内核。<br>　　 参数说明:<br>　　 [-n] 防止sync系统调用;#65104;它用在用fsck修补根分区之后&amp;;#65104;以阻止内核用老版本的超<br>级块〔superblock〕覆盖修补过的超级块。<br>　　 [-w] 并不是真正的重启或关机;#65104;只是写wtmp〔/var/log/wtmp〕纪录。<br>　　 [-d] 不写wtmp纪录〔已包含在选项[-n]中〕。<br>　　 [-f] 没有调用shutdown而强制关机或重启。<br>　　 [-i] 关机〔或重启〕前;#65104;关掉所有的网络接口。<br>　　 [-p] 该选项为缺省选项。就是关机时调用poweroff。<br>　　<br>3.reboot<br>    reboot的工作过程差不多跟halt一样;#65104;不过它是引发主机重启&amp;;#65104;而halt是关机。它<br>    的参数与halt相差不多。<br>4.init<br>   init是所有进程的祖先;#65104;它的进程号始终为1&amp;;#65104;所以发送TERM信号给init会终止所有的<br>   用户进程;#65105;守护进程等。shutdown 就是使用这种机制。init定义了8个运行级别(runlevel)，<br>   init 0为关机;#65104;init 1为重启。关于init可以长篇大论&amp;;#65104;这里就不再叙述。另外还有<br>   telinit命令可以改变init的运行级别;#65104;比如&amp;;#65104;telinit -iS可使系统进入单用户模式&amp;;#65104;<br>   并且得不到使用shutdown时的信息和等待时间</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 基本命令 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 基本命令 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[markdown常用命令总结]]></title>
       <url>http://blog.ypintao.com/2014/06/02/hexo%E6%B5%8B%E8%AF%95/markdown%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>Markdown语法</p>
@@ -77,7 +1012,7 @@ linux
     
     <entry>
       <title><![CDATA[nodejs资源中文导航]]></title>
-      <url>http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/nodejs%E8%B5%84%E6%BA%90%E4%B8%AD%E6%96%87%E5%AF%BC%E8%88%AA/</url>
+      <url>http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E8%B5%84%E6%BA%90%E4%B8%AD%E6%96%87%E5%AF%BC%E8%88%AA/</url>
       <content type="html"><![CDATA[<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>· <a href="http://www.nodejs.org/" target="_blank" rel="external">Nodejs主页</a><br>· <a href="http://www.infoq.com/cn/articles/what-is-nodejs" target="_blank" rel="external">Infoq深入浅出Node.js系列(进阶必读)</a><a id="more"></a><br>· <a href="http://docs.cnodejs.net/cman/" target="_blank" rel="external">Node.js中文文档</a><br>· <a href="http://deadhorse.me/nodejs/2012/10/08/c_addon_in_nodejs_node_gyp.html" target="_blank" rel="external">Node.js C++ addon编写实战系列</a><br>· <a href="https://nodejsmodules.org/" target="_blank" rel="external">热门node.js模块排行榜，方便找出你想要的模块</a><br>· <a href="http://cnodejs.org/topic/518b679763e9f8a5424406e9" target="_blank" rel="external">nodejs多线程，真正的非阻塞</a><br>· <a href="http://cnodejs.org/topic/5189ff4f63e9f8a54207f60c" target="_blank" rel="external">浅析nodejs的buffer类</a><br>· <a href="http://cnodejs.org/topic/519ceb5263e9f8a542c19764" target="_blank" rel="external">利用libuv编写异步多线程的addon实例</a></p>
 <h2 id="模块导航"><a href="#模块导航" class="headerlink" title="模块导航"></a>模块导航</h2><h2 id="web服务器框架"><a href="#web服务器框架" class="headerlink" title="web服务器框架"></a>web服务器框架</h2><h3 id="最流行的web框架Express"><a href="#最流行的web框架Express" class="headerlink" title="最流行的web框架Express"></a>最流行的web框架Express</h3><p>· <a href="http://expressjs.com/" target="_blank" rel="external">Express主页</a><br>· <a href="http://cnodejs.org/topic/51c3ef9f73c638f37058e6bc" target="_blank" rel="external">加装涡轮,提速expressjs</a><br>· <a href="http://cnodejs.org/topic/4fce14e0e5e72c25180b51d1" target="_blank" rel="external">给connect的static模块加上url路径前缀</a><br>· <a href="http://cnodejs.org/topic/515535485dff253b374288da" target="_blank" rel="external">研究nodeclub登陆验证逻辑的一些心得</a><br>· <a href="http://www.csser.com/board/4f77e6f996ca600f78000936" target="_blank" rel="external">Express.js中文入门指引手册</a><br>· <a href="http://cnodejs.org/topic/51a2f562776b2e7f035f2850" target="_blank" rel="external">Connect架构初探for新手</a></p>
 <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="Mysql老牌关系型数据库"><a href="#Mysql老牌关系型数据库" class="headerlink" title="Mysql老牌关系型数据库"></a>Mysql老牌关系型数据库</h3><p>· <a href="https://github.com/felixge/node-mysql" target="_blank" rel="external">主页</a><br>· <a href="https://github.com/felixge/node-mysql" target="_blank" rel="external">mysql处理BIGINT里面的一个坑</a><br>· <a href="http://cnodejs.org/topic/51676ac26d38277306fe7c85" target="_blank" rel="external">使用node-mysql中的连接池</a><br>· <a href="http://cnodejs.org/topic/516b77e86d382773064266df" target="_blank" rel="external">mysql自动断开解决办法</a></p>
@@ -98,14 +1033,16 @@ linux
       
         <categories>
             
-            <category> nodejs </category>
+            <category> 编程语言 </category>
+            
+            <category> Node </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> nodejs </tag>
+            <tag> Node </tag>
             
         </tags>
         
@@ -136,7 +1073,7 @@ linux
     
     <entry>
       <title><![CDATA[nodejs多线程，真正的非阻塞]]></title>
-      <url>http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E/</url>
+      <url>http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E/</url>
       <content type="html"><![CDATA[<p>node从他推出至今，充满赞美和饱受诟病的都是其单线程模型，所有的任务都在一个线程中完成（I/O等例外），优势的地方自然是免去了频繁切换线程的开销，以及减少资源互抢的问题等等，但是当nodejs面对cpu密集型模型的时候就力不从心了。尽管node拥有异步机制，可以把一些耗时算法丢入eventloop等待下个事件循环再做，但是因为其任然是单线程模型，所以终究会造成阻塞。<a id="more"></a></p>
 <p>先解释一下两个名词，Fibers 和 Threads。<br>Fibers 又称纤程，可以理解为协同程序，类似py和lua都有这样的模型。使用Fibers可以避免对资源的互抢，减少cpu和内存的消耗，但是Fibers并不能够真正的并行执行，同一时刻只有一个Fibers在执行，如果在其中一个Fibers中执行过多的cpu操作或者写了个死循环，则整个主程序将卡死住。node中的异步事件循环模型就有点象这个。</p>
 <p>Threads 又称线程，他可以在同一时刻并行的执行，他们共享主进程的内存，在其中某一时刻某一个threads锁死了，是不会影响主线程以及其他线程的执行。但是为了实现这个模型，我们不得不消耗更多的内存和cpu为线程切换的开销，同时也存在可能多个线程对同一内存单元进行读写而造成程序崩溃的问题。</p>
@@ -156,14 +1093,16 @@ linux
       
         <categories>
             
-            <category> nodejs </category>
+            <category> 编程语言 </category>
+            
+            <category> Node </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> nodejs </tag>
+            <tag> Node </tag>
             
         </tags>
         
@@ -212,6 +1151,171 @@ linux
         <tags>
             
             <tag> 心情 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[python安装]]></title>
+      <url>http://blog.ypintao.com/2014/05/24/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/python%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>在Linux CentOS 6.6上安装Python 2.7.9</p>
+<p>CentOS 6.6自带的是Python 2.6.6，而编译llvm需要Python 2.7以上。<br>checking for python… /usr/bin/python<br>checking for python &gt;= 2.7… not found<br>configure: error: found python 2.6.6 (/usr/bin/python); required &gt;= 2.7<br>yum中最新的也是Python 2.6.6，只能下载Python 2.7.9的源代码自己编译安装。 <a id="more"></a><br>操作步骤如下：<br>1）安装devtoolset<br>yum groupinstall “Development tools”<br>2）安装编译Python需要的包包<br>yum install zlib-devel<br>yum install bzip2-devel<br>yum install openssl-devel<br>yum install ncurses-devel<br>yum install sqlite-devel<br>3）下载并解压Python 2.7.9的源代码<br>cd /opt<br>wget –no-check-certificate <a href="https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz" target="_blank" rel="external">https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz</a><br>tar xf Python-2.7.9.tar.xz<br>cd Python-2.7.9<br>4）编译与安装Python 2.7.9<br>./configure –prefix=/usr/local<br>make &amp;&amp; make altinstall<br>5）将python命令指向Python 2.7.9<br>ln -s /usr/local/bin/python2.7 /usr/local/bin/python<br>6）检查Python版本<br>sh<br>sh-4.1# python -V<br>Python 2.7.9</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 开发环境 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 开发环境 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[nginx安装]]></title>
+      <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nvm%E7%AE%A1%E7%90%86/</url>
+      <content type="html"><![CDATA[<pre><code>git clone https://github.com/creationix/nvm.git ~/.nvm
+</code></pre><p>然后打开 ~/.bashrc ,  ~/.profile , or  ~/.zshrc这三个文件，在其中添加：</p>
+<blockquote>
+<p>source ~/.nvm/nvm.sh</p>
+</blockquote>
+<p>然后用nvm安装相应版本号的node：</p>
+<blockquote>
+<p>nvm install (node的版本号)</p>
+</blockquote>
+<p>这样就会安转杂/home目录下。 <a id="more"></a></p>
+<p>查看已安装的版本：</p>
+<blockquote>
+<p>$ nvm ls</p>
+</blockquote>
+<p>查看可以安装的版本：</p>
+<blockquote>
+<p>$ nvm ls-remote</p>
+</blockquote>
+<p>安装指定的版本：</p>
+<blockquote>
+<p>$ nvm install <version></version></p>
+</blockquote>
+<p>指定的版本将会直接安装在 nvm 程序所在的目录下。<br>删除指定的版本：</p>
+<blockquote>
+<p>$ nvm uninstall <version></version></p>
+</blockquote>
+<p>使用选定的版本：</p>
+<blockquote>
+<p>$ nvm use<version></version></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 开发环境 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 开发环境 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[nginx安装]]></title>
+      <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nginx%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>sudo apt-get install libpcre3-dev libssl-dev openssl</p>
+</blockquote>
+<p>缺少的库直接补上 <a id="more"></a></p>
+<p>###（2）源代码安装<br>      下载地址：<a href="http://nginx.org/download/" target="_blank" rel="external">http://nginx.org/download/</a><br>      我这里下载的是 nginx-1.3.9.tar.gz，安装过程很简单，如下：<br>      $./configure<br>      $make<br>      $make install<br>      安装成功之后，nginx放置在/usr/local/nginx目录下，主要的配置文件为conf目录下的nginx.conf，<br>nginx的启动文件在sbin目录下的nginx文件。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 开发环境 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 开发环境 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java开发环境详解]]></title>
+      <url>http://blog.ypintao.com/2014/05/11/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/CentOS%206.5%20%E6%90%AD%E5%BB%BA%20Java%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<p>一、安装jdk</p>
+<p>1.查看Linux自带的JDK是否已安装</p>
+<p>java –version<br>如果出现openjdk，最好还是先卸载掉openjdk,在安装sun公司的jdk.<br>2.查看jdk信息</p>
+<p>rpm -qa|grep java<br>3.卸载OpenJDK，执行以下操作： <a id="more"></a></p>
+<p>rpm -e –nodeps tzdata-java-2012c-1.el6.noarch<br>rpm -e –nodeps java-1.7.0-openjdk-1.7.0.45-1.45.1.11.1.el6.x86_64<br>4.新建java安装目录</p>
+<p>mkdir /usr/java<br>5.将之前下载的jdk解压缩并安装</p>
+<p>tar -zxvf  jdk-7u71-linux-i586.tar.gz<br>6.在profile文件中加入java环境变量</p>
+<p>vi /etc/profile  </p>
+<p>export JAVA_HOME=/usr/java/jdk1.7.0_71<br>export CLASSPATH=.:%JAVA_HOME%/lib/dt.jar:%JAVA_HOME%/lib/tools.jar<br>export PATH=$PATH:$JAVA_HOME/bin<br>7.使文件立即生效</p>
+<p>source /etc/profile     //或者reboot<br>8.检测是否安装成功</p>
+<p>java -version<br>二、安装Tomcat</p>
+<p>1.将下载好的tomcat.tar.gz上传到/var/local下面（路径可以自己随便选），然后解压</p>
+<p>tar -zxvf  apache-tomcat-7.0.57.tar.gz<br>2.将上传的tomcat移到一个目录下并改名称</p>
+<p>mv apache-tomcat-7.0.57 /<br>mv apache-tomcat-7.0.57 tomcat7<br>3.启动tomcat</p>
+<p>./startup.sh<br>启动完直接访问tomcat默认地址<br>4.无法访问时，关闭防火墙</p>
+<p>service iptables stop<br>5.设置开机自启动</p>
+<p>第一种方法：在/etc/rs.local下增加tomcat和java_home环境变量<br>vi /etc/rs.local  </p>
+<p>JAVA_HOME=/usr/java/jdk1.7.0_71<br>export JAVA_HOME<br>/tomcat7/bin/startup.sh<br>这里有点要说明，rc.local先于/etc/profile执行，所以会得不到JAVA环境变量，所以在startup.sh前加入代码JAVA_HOME</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 开发环境 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 开发环境 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git安装]]></title>
+      <url>http://blog.ypintao.com/2014/04/11/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E5%85%B7/Git/git%E5%AE%89%E8%A3%85/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> 工具 </category>
+            
+            <category> Git </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Git </tag>
             
         </tags>
         

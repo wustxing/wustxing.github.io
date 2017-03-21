@@ -1,0 +1,928 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>面试笔记 | Blog</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="ES6有哪些新特性？参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato r器, Map/Set, Promise
+
+你对ES6的个人看法？参考答案：ES6必火！从软件工程角度来看，以前真的很弱，不适">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="面试笔记"/>
+    <meta property="og:site_name" content="wustxing"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oluvshunx.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">熊星</p>
+                        <p class="desc">.Net/Web前端/全栈/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/test/">
+                    test <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/生活/">
+                    生活 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/生活/面试/">
+                    面试 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/随笔/">
+                    随笔 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/随笔/文章/">
+                    文章 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Linux/">
+                    Linux <span class="right">14 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/node开发工具/">
+                    node开发工具 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/基本命令/">
+                    基本命令 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/Dock/">
+                    Dock <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/环境安装/">
+                    环境安装 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/开发环境/">
+                    开发环境 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/web前端/">
+                    web前端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/gulp/">
+                    gulp <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后端/">
+                    后端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后端/Node/">
+                    Node <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/工具/">
+                    工具 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/工具/Git/">
+                    Git <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/mongodb/">
+                    mongodb <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/编程语言/">
+                    编程语言 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/编程语言/Node/">
+                    Node <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/生活/">生活</a><a class="breadcrumb" href="/categories/生活/面试/">面试</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>面试笔记</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2015-03-01T16:00:00.000Z"><a href="/2015/03/02/生活/面试/面试笔记node/">2015-03-02</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/生活/" class="chip pink lighten-1">生活</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>ES6有哪些新特性？<br>参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato r器, Map/Set, Promise</p>
+<ol>
+<li>你对ES6的个人看法？<br>参考答案：ES6必火！从软件工程角度来看，以前真的很弱，不适合做大型应用，很容易导致烂尾工程。ES6就相当于当年的Java5,是历史性的发展，从此我们可以用js做大型项目了。事实上，各大主流浏览器现在已经支持大部分新特性了，后端的Node.js更是可以直接使用ES6的绝大多数语法。</li>
+</ol>
+<ol>
+<li>常用js类定义的方法有哪些？<br>参考答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.<br>代码演示<br>1) 构造函数方法定义类<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    this.name = &apos;michaelqin&apos;;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName = function()&#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person = new Person();</div><div class="line">person.sayName();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2) 对象创建方法定义类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var Person = &#123;</div><div class="line">    name: &apos;michaelqin&apos;,</div><div class="line">    sayName: function()&#123; alert(this.name); &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var person = Object.create(Person);</div><div class="line">person.sayName();</div></pre></td></tr></table></figure></p>
+<ol>
+<li>js类继承的方法有哪些<br>参考答案：原型链法，属性复制法和构造器应用法. 另外，由于每个对象可以是一个类，这些方法也可以用于对象类的继承．<br>代码演示<br>1) 原型链法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;&#125;</div><div class="line">Person.prototype = Animal.prototype; // 人继承自动物</div><div class="line">Person.prototype.constructor = &apos;Person&apos;; // 更新构造函数为人</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2) 属性复制法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;&#125;</div><div class="line"></div><div class="line">for(prop in Animal.prototype) &#123;</div><div class="line">    Person.prototype[prop] = Animal.prototype[prop];</div><div class="line">&#125; // 复制动物的所有属性到人量边</div><div class="line">Person.prototype.constructor = &apos;Person&apos;; // 更新构造函数为人</div></pre></td></tr></table></figure></p>
+<p>3) 构造器应用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;</div><div class="line">    Animal.call(this); // apply, call, bind方法都可以．细微区别，后面会提到．</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>js类多重继承的实现方法是怎么样的?<br>参考答案：就是类继承里边的属性复制法来实现．因为当所有父类的prototype属性被复制后，子类自然拥有类似行为和属性．</li>
+<li><p>js里的作用域是什么样子的？<br>参考答案：大多数语言里边都是块作作用域，以{}进行限定，js里边不是．js里边叫函数作用域，就是一个变量在全函数里有效．比如有个变量p1在函数最后一行定义，第一行也有效，但是值是undefined.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var globalVar = &apos;global var&apos;;</div><div class="line"></div><div class="line">function test() &#123;</div><div class="line">    alert(globalVar); // undefined, 因为globalVar在本函数内被重定义了，导致全局失效，这里使用函数内的变量值，可是此时还没定义</div><div class="line">    var globalVar = &apos;overrided var&apos;; //　globalVar在本函数内被重定义</div><div class="line">    alert(globalVar);　// overrided var</div><div class="line">&#125;</div><div class="line">alert(globalVar); // global var，使用全局变量</div></pre></td></tr></table></figure>
+</li>
+<li><p>js里边的this指的是什么?<br>参考答案: this指的是对象本身，而不是构造函数．<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName() &#123; alert(this.name); &#125;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.name = &apos;michaelqin&apos;;</div><div class="line">person1.sayName(); // michaelqin</div></pre></td></tr></table></figure>
+</li>
+<li><p>apply, call和bind有什么区别?<br>参考答案：三者都可以把一个函数应用到其他对象上，注意不是自身对象．apply,call是直接执行函数调用，bind是绑定，执行需要再次调用．apply和call的区别是apply接受数组作为参数，而call是接受逗号分隔的无限多个参数列表，<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName() &#123; alert(this.name); &#125;</div><div class="line"></div><div class="line">var obj = &#123;name: &apos;michaelqin&apos;&#125;; // 注意这是一个普通对象，它不是Person的实例</div><div class="line">1) apply</div><div class="line">Person.prototype.sayName.apply(obj, [param1, param2, param3]);</div><div class="line"></div><div class="line">2) call</div><div class="line">Person.prototype.sayName.call(obj, param1, param2, param3);</div><div class="line"></div><div class="line">3) bind</div><div class="line">var sn = Person.prototype.sayName.bind(obj);    </div><div class="line">sn([param1, param2, param3]); // bind需要先绑定，再执行 </div><div class="line">sn(param1, param2, param3); // bind需要先绑定，再执行</div></pre></td></tr></table></figure>
+</li>
+<li><p>caller, callee和arguments分别是什么?<br>参考答案: caller,callee之间的关系就像是employer和employee之间的关系，就是调用与被调用的关系，二者返回的都是函数对象引用．arguments是函数的所有参数列表，它是一个类数组的变量．<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function parent(param1, param2, param3) &#123;</div><div class="line">    child(param1, param2, param3);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function child() &#123;</div><div class="line">    console.log(arguments); // &#123; &apos;0&apos;: &apos;mqin1&apos;, &apos;1&apos;: &apos;mqin2&apos;, &apos;2&apos;: &apos;mqin3&apos; &#125;</div><div class="line">    console.log(arguments.callee); // [Function: child]</div><div class="line">    console.log(child.caller); // [Function: parent]</div><div class="line">&#125;</div><div class="line"></div><div class="line">parent(&apos;mqin1&apos;, &apos;mqin2&apos;, &apos;mqin3&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>什么是闭包，闭包有哪些用处?<br>参考答案: 闭包这个术语，无论中文翻译还是英文解释都太２Ｂ了，我必须骂人，因为它什么其实都不是．非要讲它是什么的话，两个字函数，更多字嵌套函数的父子自我引用关系．所有函数都是闭包．通俗的说，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包．全局函数的作用域范围就是全局，所以无须讨论．更多的应用其实是在内嵌函数，这就会涉及到内嵌作用域，或者叫作用域链．说到内嵌，其实就是父子引用关系(父函数包含子函数，子函数因为函数作用域又引用父函数，这它妈不是死结吗？所以叫闭包），这就会带来另外一个问题，什么时候引用结束？如果不结束，就会一直占用内存，引起内存泄漏．好吧，不用的时候就引用设为空，死结就解开了．</p>
+</li>
+<li>defineProperty, hasOwnProperty, isEnumerable都是做什么用的？<br>参考答案：Object.defineProperty(obj, prop, descriptor)用来给对象定义属性,有value,writable,configurable,enumerable,set/get等.hasOwnProerty用于检查某一属性是不是存在于对象本身，继承来的父亲的属性不算．isEnumerable用来检测某一属性是否可遍历，也就是能不能用for..in循环来取到.</li>
+<li><p>js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等<br>参考答案：<br>1) 单例：　任意对象都是单例，无须特别处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name: &apos;michaelqin&apos;, age: 30&#125;;</div></pre></td></tr></table></figure>
+<p>2) 工厂: 就是同样形式参数返回不同的实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person() &#123; this.name = &apos;Person1&apos;; &#125;</div><div class="line">function Animal() &#123; this.name = &apos;Animal1&apos;; &#125;</div><div class="line"></div><div class="line">function Factory() &#123;&#125;</div><div class="line">Factory.prototype.getInstance = function(className) &#123;</div><div class="line">    return eval(&apos;new &apos; + className + &apos;()&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var factory = new Factory();</div><div class="line">var obj1 = factory.getInstance(&apos;Person&apos;);</div><div class="line">var obj2 = factory.getInstance(&apos;Animal&apos;);</div><div class="line">console.log(obj1.name); // Person1</div><div class="line">console.log(obj2.name); // Animal1</div></pre></td></tr></table></figure>
+<p>3) 代理: 就是新建个类调用老类的接口,包一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function Person() &#123; &#125;</div><div class="line">Person.prototype.sayName = function() &#123; console.log(&apos;michaelqin&apos;); &#125;</div><div class="line">Person.prototype.sayAge = function() &#123; console.log(30); &#125;</div><div class="line"></div><div class="line">function PersonProxy() &#123; </div><div class="line">    this.person = new Person();</div><div class="line">    var that = this;</div><div class="line">    this.callMethod = function(functionName) &#123;</div><div class="line">        console.log(&apos;before proxy:&apos;, functionName);</div><div class="line">        that.person[functionName](); // 代理</div><div class="line">        console.log(&apos;after proxy:&apos;, functionName);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var pp = new PersonProxy();</div><div class="line">pp.callMethod(&apos;sayName&apos;); // 代理调用Person的方法sayName()</div><div class="line">pp.callMethod(&apos;sayAge&apos;); // 代理调用Person的方法sayAge()</div></pre></td></tr></table></figure>
+<p>4) 观察者: 就是事件模式，比如按钮的onclick这样的应用.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">function Publisher() &#123;</div><div class="line">    this.listeners = [];</div><div class="line">&#125;</div><div class="line">Publisher.prototype = &#123;</div><div class="line">    &apos;addListener&apos;: function(listener) &#123;</div><div class="line">        this.listeners.push(listener);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    &apos;removeListener&apos;: function(listener) &#123;</div><div class="line">        delete this.listeners[listener];</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    &apos;notify&apos;: function(obj) &#123;</div><div class="line">        for(var i = 0; i &lt; this.listeners.length; i++) &#123;</div><div class="line">            var listener = this.listeners[i];</div><div class="line">            if (typeof listener !== &apos;undefined&apos;) &#123;</div><div class="line">                listener.process(obj);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;; // 发布者</div><div class="line"></div><div class="line">function Subscriber() &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">Subscriber.prototype = &#123;</div><div class="line">    &apos;process&apos;: function(obj) &#123;</div><div class="line">        console.log(obj);</div><div class="line">    &#125;</div><div class="line">&#125;;　// 订阅者</div><div class="line"></div><div class="line"></div><div class="line">var publisher = new Publisher();</div><div class="line">publisher.addListener(new Subscriber());</div><div class="line">publisher.addListener(new Subscriber());</div><div class="line">publisher.notify(&#123;name: &apos;michaelqin&apos;, ageo: 30&#125;); // 发布一个对象到所有订阅者</div><div class="line">publisher.notify(&apos;2 subscribers will both perform process&apos;); // 发布一个字符串到所有订阅者</div></pre></td></tr></table></figure>
+</li>
+<li><p>列举数组相关的常用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: push/pop, shift/unshift, split/join, slice/splice/concat, sort/reverse, map/reduce, forEach, filter</div></pre></td></tr></table></figure>
+</li>
+<li><p>列举字符串相关的常用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: indexOf/lastIndexOf/charAt, split/match/test, slice/substring/substr, toLowerCase/toUpperCase</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>node核心内置类库(事件，流，文件，网络等)</p>
+<p>node概览</p>
+<ol>
+<li>为什么要用node?<br>参考答案: 总结起来node有以下几个特点:简单强大，轻量可扩展．简单体现在node使用的是javascript,json来进行编码，人人都会；强大体现在非阻塞IO,可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；轻量体现在node本身既是代码，又是服务器，前后端使用统一语言;可扩展体现在可以轻松应对多实例，多服务器架构，同时有海量的第三方应用组件．</li>
+<li><p>node的构架是什么样子的?<br>参考答案: 主要分为三层，应用app &gt;&gt; V8及node内置架构 &gt;&gt; 操作系统. V8是node运行的环境，可以理解为node虚拟机．node内置架构又可分为三层: 核心模块(javascript实现) &gt;&gt; c++绑定 &gt;&gt; libuv + CAes + http.</p>
+</li>
+<li><p>node有哪些核心模块?<br>参考答案: EventEmitter, Stream, FS, Net和全局对象<br>node全局对象</p>
+</li>
+<li><p>node有哪些全局对象?<br>参考答案: process, console, Buffer和exports</p>
+</li>
+<li>process有哪些常用方法?<br>参考答案: process.stdin, process.stdout, process.stderr, process.on, process.env, process.argv, process.arch, process.platform, process.exit</li>
+<li>console有哪些常用方法?<br>参考答案: console.log/console.info, console.error/console.warning, console.time/console.timeEnd, console.trace, console.table</li>
+<li>node有哪些定时功能?<br>参考答案: setTimeout/clearTimeout, setInterval/clearInterval, setImmediate/clearImmediate, process.nextTick</li>
+<li><p>node中的事件循环是什么样子的?<br>参考答案: event loop其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列．但是请务必注意，这一个事件队列的循环，一次只执行一个事件，然后下一次循环再执行一个事件．这是由于javascript的单线程机制导致的，如果一次循环多个事件，就可能会阻塞其它代码的执行．异步执行的叫IO events, setImmediate是在当前队列立即执行,setTimout/setInterval是把执行定时到到后面的队列，process.nextTick是在当前执行完，下次遍历前执行．所以总体顺序是: IO events &gt;&gt; setImmediate &gt;&gt; setTimeout/setInterval(注册事件) &gt;&gt; process.nextTick.</p>
+</li>
+<li><p>node中的Buffer如何应用?<br>参考答案: Buffer是用来处理二进制数据的，比如图片，mp3,数据库文件等.Buffer支持各种编码解码，二进制字符串互转．<br>EventEmitter</p>
+</li>
+<li><p>什么是EventEmitter?<br>参考答案: EventEmitter是node中一个实现观察者模式的类，主要功能是监听和发射消息，用于处理多模块交互问题.</p>
+</li>
+<li><p>如何实现一个EventEmitter?<br>参考答案: 主要分三步：定义一个子类，调用构造函数，继承EventEmitter<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;);</div><div class="line">var EventEmitter = require(&apos;events&apos;).EventEmitter;</div><div class="line"></div><div class="line">function MyEmitter() &#123;</div><div class="line">    EventEmitter.call(this);</div><div class="line">&#125; // 构造函数</div><div class="line"></div><div class="line">util.inherits(MyEmitter, EventEmitter); // 继承</div><div class="line"></div><div class="line">var em = new MyEmitter();</div><div class="line">em.on(&apos;hello&apos;, function(data) &#123;</div><div class="line">    console.log(&apos;收到事件hello的数据:&apos;, data);</div><div class="line">&#125;); // 接收事件，并打印到控制台</div><div class="line">em.emit(&apos;hello&apos;, &apos;EventEmitter传递消息真方便!&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>EventEmitter有哪些典型应用?<br>参考答案: 1) 模块间传递消息 2) 回调函数内外传递消息 3) 处理流数据，因为流是在EventEmitter基础上实现的. 4) 观察者模式发射触发机制相关应用</p>
+</li>
+<li><p>怎么捕获EventEmitter的错误事件?<br>参考答案: 监听error事件即可．如果有多个EventEmitter,也可以用domain来统一处理错误事件.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var domain = require(&apos;domain&apos;);</div><div class="line">var myDomain = domain.create();</div><div class="line">myDomain.on(&apos;error&apos;, function(err)&#123;</div><div class="line">    console.log(&apos;domain接收到的错误事件:&apos;, err);</div><div class="line">&#125;); // 接收事件并打印</div><div class="line">myDomain.run(function()&#123;</div><div class="line">    var emitter1 = new MyEmitter();</div><div class="line">    emitter1.emit(&apos;error&apos;, &apos;错误事件来自emitter1&apos;);</div><div class="line">    emitter2 = new MyEmitter();</div><div class="line">    emitter2.emit(&apos;error&apos;, &apos;错误事件来自emitter2&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>EventEmitter中的newListenser事件有什么用处?<br>参考答案: newListener可以用来做事件机制的反射，特殊应用，事件管理等．当任何on事件添加到EventEmitter时，就会触发newListener事件，基于这种模式，我们可以做很多自定义处理.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var emitter3 = new MyEmitter();</div><div class="line">emitter3.on(&apos;newListener&apos;, function(name, listener) &#123;</div><div class="line">    console.log(&quot;新事件的名字:&quot;, name);</div><div class="line">    console.log(&quot;新事件的代码:&quot;, listener);</div><div class="line">    setTimeout(function()&#123; console.log(&quot;我是自定义延时处理机制&quot;); &#125;, 1000);</div><div class="line">&#125;);</div><div class="line">emitter3.on(&apos;hello&apos;, function()&#123;</div><div class="line">    console.log(&apos;hello　node&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Stream</p>
+<ol>
+<li>什么是Stream?<br>参考答案: stream是基于事件EventEmitter的数据管理模式．由各种不同的抽象接口组成，主要包括可写，可读，可读写，可转换等几种类型．</li>
+<li>Stream有什么好处?<br>参考答案: 非阻塞式数据处理提升效率，片断处理节省内存，管道处理方便可扩展等.</li>
+<li>Stream有哪些典型应用?<br>参考答案: 文件，网络，数据转换，音频视频等.</li>
+<li>怎么捕获Stream的错误事件?<br>参考答案: 监听error事件，方法同EventEmitter.</li>
+<li>有哪些常用Stream,分别什么时候使用?<br>参考答案: Readable为可被读流，在作为输入数据源时使用；Writable为可被写流,在作为输出源时使用；Duplex为可读写流,它作为输出源接受被写入，同时又作为输入源被后面的流读出．Transform机制和Duplex一样，都是双向流，区别时Transfrom只需要实现一个函数_transfrom(chunk, encoding, callback);而Duplex需要分别实现_read(size)函数和_write(chunk, encoding, callback)函数.</li>
+<li>实现一个Writable Stream?<br>参考答案: 三步走:1)构造函数call Writable 2)　继承Writable 3) 实现_write(chunk, encoding, callback)函数<br>代码演示<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Writable = require(&apos;stream&apos;).Writable;</div><div class="line">var util = require(&apos;util&apos;);</div><div class="line"></div><div class="line">function MyWritable(options) &#123;</div><div class="line">    Writable.call(this, options);</div><div class="line">&#125; // 构造函数</div><div class="line">util.inherits(MyWritable, Writable); // 继承自Writable</div><div class="line">MyWritable.prototype._write = function(chunk, encoding, callback) &#123;</div><div class="line">    console.log(&quot;被写入的数据是:&quot;, chunk.toString()); // 此处可对写入的数据进行处理</div><div class="line">    callback();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为输出源</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>文件系统</p>
+<ol>
+<li>内置的fs模块架构是什么样子的?<br>参考答案: fs模块主要由下面几部分组成: 1) POSIX文件Wrapper,对应于操作系统的原生文件操作 2) 文件流 fs.createReadStream和fs.createWriteStream 3) 同步文件读写,fs.readFileSync和fs.writeFileSync 4) 异步文件读写, fs.readFile和fs.writeFile</li>
+<li>读写一个文件有多少种方法?<br>参考答案: 总体来说有四种: 1) POSIX式低层读写 2) 流式读写 3) 同步文件读写 4) 异步文件读写</li>
+<li>怎么读取json配置文件?<br>参考答案: 主要有两种方式，第一种是利用node内置的require(‘data.json’)机制，直接得到js对象; 第二种是读入文件入内容，然后用JSON.parse(content)转换成js对象．二者的区别是require机制情况下，如果多个模块都加载了同一个json文件，那么其中一个改变了js对象，其它跟着改变，这是由node模块的缓存机制造成的，只有一个js模块对象; 第二种方式则可以随意改变加载后的js变量，而且各模块互不影响，因为他们都是独立的，是多个js对象.</li>
+<li><p>fs.watch和fs.watchFile有什么区别，怎么应用?<br>参考答案: 二者主要用来监听文件变动．fs.watch利用操作系统原生机制来监听，可能不适用网络文件系统; fs.watchFile则是定期检查文件状态变更，适用于网络文件系统，但是相比fs.watch有些慢，因为不是实时机制．<br>网络</p>
+</li>
+<li><p>node的网络模块架构是什么样子的?<br>参考答案: node全面支持各种网络服务器和客户端，包括tcp, http/https, tcp, udp, dns, tls/ssl等.</p>
+</li>
+<li>node是怎样支持https,tls的?<br>参考答案: 主要实现以下几个步骤即可: 1) openssl生成公钥私钥 2) 服务器或客户端使用https替代http 3) 服务器或客户端加载公钥私钥证书</li>
+<li>实现一个简单的http服务器?<br>参考答案: 经典又很没毛意义的一个题目．思路是加载http模块，创建服务器，监听端口.<br>代码演示<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;); // 加载http模块</div><div class="line"></div><div class="line">http.createServer(function(req, res) &#123;</div><div class="line">    res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/html&apos;&#125;); // 200代表状态成功, 文档类型是给浏览器识别用的</div><div class="line">    res.write(&apos;&lt;meta charset=&quot;UTF-8&quot;&gt; &lt;h1&gt;我是标题啊！&lt;/h1&gt; &lt;font color=&quot;red&quot;&gt;这么原生，初级的服务器，下辈子能用着吗?!&lt;/font&gt;&apos;); // 返回给客户端的html数据</div><div class="line">    res.end(); // 结束输出流</div><div class="line">&#125;).listen(3000); // 绑定3ooo, 查看效果请访问 http://localhost:3000</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>child-process</p>
+<ol>
+<li>为什么需要child-process?<br>参考答案: node是异步非阻塞的，这对高并发非常有效．可是我们还有其它一些常用需求，比如和操作系统shell命令交互，调用可执行文件，创建子进程进行阻塞式访问或高CPU计算等，child-process就是为满足这些需求而生的．child-process顾名思义，就是把node阻塞的工作交给子进程去做．</li>
+<li>exec,execFile,spawn和fork都是做什么用的?<br>参考答案: exec可以用操作系统原生的方式执行各种命令，如管道 cat ab.txt | grep hello; execFile是执行一个文件; spawn是流式和操作系统进行交互; fork是两个node程序(javascript)之间时行交互.</li>
+<li><p>实现一个简单的命令行交互程序?<br>参考答案: 那就用spawn吧.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var cp = require(&apos;child_process&apos;);</div><div class="line"></div><div class="line">var child = cp.spawn(&apos;echo&apos;, [&apos;你好&apos;, &quot;钩子&quot;]); // 执行命令</div><div class="line">child.stdout.pipe(process.stdout); // child.stdout是输入流，process.stdout是输出流</div><div class="line">// 这句的意思是将子进程的输出作为当前程序的输入流，然后重定向到当前程序的标准输出，即控制台</div></pre></td></tr></table></figure>
+</li>
+<li><p>两个node程序之间怎样交互?<br>参考答案: 用fork嘛，上面讲过了．原理是子程序用process.on, process.send，父程序里用child.on,child.send进行交互.<br>代码演示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">1) fork-parent.js</div><div class="line">var cp = require(&apos;child_process&apos;);</div><div class="line">var child = cp.fork(&apos;./fork-child.js&apos;);</div><div class="line">child.on(&apos;message&apos;, function(msg)&#123;</div><div class="line">    console.log(&apos;老爸从儿子接受到数据:&apos;, msg);</div><div class="line">&#125;);</div><div class="line">child.send(&apos;我是你爸爸，送关怀来了!&apos;);</div><div class="line"></div><div class="line">2) fork-child.js</div><div class="line">process.on(&apos;message&apos;, function(msg)&#123;</div><div class="line">    console.log(&quot;儿子从老爸接收到的数据:&quot;, msg);</div><div class="line">    process.send(&quot;我不要关怀，我要银民币！&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>怎样让一个js文件变得像linux命令一样可执行?<br>参考答案: 1) 在myCommand.js文件头部加入 #!/usr/bin/env node 2) chmod命令把js文件改为可执行即可 3) 进入文件目录，命令行输入myComand就是相当于node myComand.js了</p>
+</li>
+<li><p>child-process和process的stdin,stdout,stderror是一样的吗?<br>参考答案: 概念都是一样的，输入，输出，错误，都是流．区别是在父程序眼里，子程序的stdout是输入流，stdin是输出流．<br>node高级话题(异步，部署，性能调优，异常调试等)</p>
+</li>
+<li><p>node中的异步和同步怎么理解<br>参考答案: node是单线程的，异步是通过一次次的循环事件队列来实现的．同步则是说阻塞式的IO,这在高并发环境会是一个很大的性能问题，所以同步一般只在基础框架的启动时使用，用来加载配置文件，初始化程序什么的．</p>
+</li>
+<li>有哪些方法可以进行异步流程的控制?<br>参考答案: 1) 多层嵌套回调 2)　为每一个回调写单独的函数，函数里边再回调 3) 用第三方框架比方async, q, promise等</li>
+<li>怎样绑定node程序到80端口?<br>参考答案: 多种方式 1) sudo 2) apache/nginx代理 3) 用操作系统的firewall iptables进行端口重定向</li>
+<li>有哪些方法可以让node程序遇到错误后自动重启?<br>参考答案: 1) runit 2) forever 3) nohup npm start &amp;</li>
+<li>怎样充分利用多个CPU?<br>参考答案: 一个CPU运行一个node实例</li>
+<li>怎样调节node执行单元的内存大小?<br>参考答案: 用–max-old-space-size 和 –max-new-space-size 来设置 v8 使用内存的上限</li>
+<li>程序总是崩溃，怎样找出问题在哪里?<br>参考答案: 1) node –prof 查看哪些函数调用次数多 2) memwatch和heapdump获得内存快照进行对比，查找内存溢出</li>
+<li>有哪些常用方法可以防止程序崩溃?<br>参考答案: 1) try-catch-finally 2) EventEmitter/Stream error事件处理 3) domain统一控制 4) jshint静态检查 5) jasmine/mocha进行单元测试</li>
+<li><p>怎样调试node程序?<br>参考答案: node –debug app.js 和node-inspector<br>常用知名第三方类库(Async, Express等)</p>
+</li>
+<li><p>async都有哪些常用方法，分别是怎么用?<br>参考答案: async是一个js类库，它的目的是解决js中异常流程难以控制的问题．async不仅适用在node.js里，浏览器中也可以使用． </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">1) async.parallel并行执行完多个函数后，调用结束函数</div><div class="line">    async.parallel([</div><div class="line">        function()&#123; ... &#125;,</div><div class="line">        function()&#123; ... &#125;</div><div class="line">    ], callback);</div><div class="line">2) async.series串行执行完多个函数后，调用结束函数</div><div class="line">    async.series([</div><div class="line">        function()&#123; ... &#125;,</div><div class="line">        function()&#123; ... &#125;</div><div class="line">    ]);</div><div class="line">3) async.waterfall依次执行多个函数，后一个函数以前面函数的结果作为输入参数</div><div class="line">    async.waterfall([</div><div class="line">        function(callback) &#123;</div><div class="line">            callback(null, &apos;one&apos;, &apos;two&apos;);</div><div class="line">        &#125;,</div><div class="line">        function(arg1, arg2, callback) &#123;</div><div class="line">          // arg1 now equals &apos;one&apos; and arg2 now equals &apos;two&apos; </div><div class="line">            callback(null, &apos;three&apos;);</div><div class="line">        &#125;,</div><div class="line">        function(arg1, callback) &#123;</div><div class="line">            // arg1 now equals &apos;three&apos; </div><div class="line">            callback(null, &apos;done&apos;);</div><div class="line">        &#125;</div><div class="line">    ], function (err, result) &#123;</div><div class="line">        // result now equals &apos;done&apos; </div><div class="line">    &#125;);</div><div class="line">4) async.map异步执行多个数组，返回结果数组</div><div class="line">    async.map([&apos;file1&apos;,&apos;file2&apos;,&apos;file3&apos;], fs.stat, function(err, results)&#123;</div><div class="line">        // results is now an array of stats for each file </div><div class="line">    &#125;);</div><div class="line">5) async.filter异步过滤多个数组，返回结果数组</div><div class="line">    async.filter([&apos;file1&apos;,&apos;file2&apos;,&apos;file3&apos;], fs.exists, function(results)&#123;</div><div class="line">        // results now equals an array of the existing files </div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>express项目的目录大致是什么样子的<br>参考答案: app.js, package.json, bin/www, public, routes, views.</p>
+</li>
+<li>express常用函数<br>参考答案: express.Router路由组件,app.get路由定向，app.configure配置，app.set设定参数,app.use使用中间件</li>
+<li>express中如何获取路由的参数<br>参考答案: /users/:name使用req.params.name来获取; req.body.username则是获得表单传入参数username; express路由支持常用通配符 ?, +, *, and ()</li>
+<li><p>express response有哪些常用方法<br>参考答案: res.download() 弹出文件下载<br>res.end() 结束response<br>res.json() 返回json<br>res.jsonp() 返回jsonp<br>res.redirect() 重定向请求<br>res.render() 渲染模板<br>res.send() 返回多种形式数据<br>res.sendFile 返回文件<br>res.sendStatus() 返回状态<br>其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</p>
+</li>
+<li><p>mongodb有哪些常用优化措施<br>参考答案: 类似传统数据库，索引和分区．</p>
+</li>
+<li>mongoose是什么？有支持哪些特性?<br>参考答案: mongoose是mongodb的文档映射模型．主要由Schema, Model和Instance三个方面组成．Schema就是定义数据类型，Model就是把Schema和js类绑定到一起，Instance就是一个对象实例．常见mongoose操作有,save, update, find. findOne, findById, static方法等．</li>
+<li><p>redis支持哪些功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: set/get, mset/hset/hmset/hmget/hgetall/hkeys, sadd/smembers, publish/subscribe, expire</div></pre></td></tr></table></figure>
+</li>
+<li><p>redis最简单的应用<br>参考答案:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var redis = require(&quot;redis&quot;),</div><div class="line">    client = redis.createClient();</div><div class="line"></div><div class="line">client.set(&quot;foo_rand000000000000&quot;, &quot;some fantastic value&quot;);</div><div class="line">client.get(&quot;foo_rand000000000000&quot;, function (err, reply) &#123;</div><div class="line">    console.log(reply.toString());</div><div class="line">&#125;);</div><div class="line">client.end();</div></pre></td></tr></table></figure>
+</li>
+<li><p>apache,nginx有什么区别?<br>参考答案: 二者都是代理服务器，功能类似．apache应用简单，相当广泛．nginx在分布式，静态转发方面比较有优势．<br>常用前端技术(Html5, CSS3, JQuery等)</p>
+</li>
+<li><p>Html5有哪些比较实用新功能<br>参考答案: File API支持本地文件操作; Canvans/SVG支持绘图; 拖拽功能支持; 本地存储支持; 表单多属性验证支持; 原生音频视频支持等</p>
+</li>
+<li>CSS3/JQuery有哪些学常见选择器<br>参考答案: id, 元素，属性, 值，父子兄弟, 序列等</li>
+</ol>
+
+                
+<p class="pink-link-context">
+    <a href="/2015/03/20/技术/Linux/Dock/docker to mysql/" rel="next" title="docker to mysql">
+    上一篇：docker to mysql
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2015/02/20/技术/Linux/node开发工具/快速搭建 Node.js 开发环境以及加速npm/" rel="next" title="快速搭建 Node.js 开发环境以及加速 npm">
+    下一篇：快速搭建 Node.js 开发环境以及加速 npm
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2015/03/02/生活/面试/面试笔记node/" data-title="面试笔记" data-url="http://blog.ypintao.com/2015/03/02/生活/面试/面试笔记node/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'wustxingblog'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/2100494272" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/wustxing" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <div class="site-visitors-container white-text">
+                    <span>
+                        <i class="fa fa-user"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+                    </span>
+                    <span>&nbsp;|&nbsp;</span>
+                    <span>
+                        <i class="fa fa-eye"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+                    </span>
+                </div>
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.ypintao.com/" target="_blank">wustxing技术博客</a>
+                
+                    <a class="social-link" href="http://blackmack.github.io/" target="_blank">创姐的博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=61306871" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
