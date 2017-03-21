@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>wustxing</title>
+  <subtitle>Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.ypintao.com/"/>
+  <updated>2017-03-21T05:49:47.658Z</updated>
+  <id>http://blog.ypintao.com/</id>
+  
+  <author>
+    <name>wustxing</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客重新起航</title>
+    <link href="http://blog.ypintao.com/2017/03/21/%E9%9A%8F%E7%AC%94/%E5%8D%9A%E5%AE%A2%E4%BB%8E%E6%96%B0%E8%B5%B7%E8%88%AA/"/>
+    <id>http://blog.ypintao.com/2017/03/21/随笔/博客从新起航/</id>
+    <published>2017-03-20T16:00:00.000Z</published>
+    <updated>2017-03-21T05:49:47.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近家里一直断网来着，所以有了这个，嘿嘿。其实，觉得有些东西还是记下来靠谱，至少学习得留下一些印记吧，不知不觉毕业5年了，在这5年里，技术的广度算是摸的差不多了，就像很多公司跻身于这大大互联网一样，我跻身于这浩浩荡荡的程序员的世界，写过桌面应用，做过paas平台，倒腾过数据库，慢慢的也算是见过一些场面了。<a id="more"></a></p>
+<p>其实写下这篇文章的目的是为了先给自己总结下，然后分个类别。以后玩东西的时候也好往相应的类别下面丢东西。<br>目前熟练使用的东西大概有：</p>
+<h3 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h3><pre><code>.Net MVC
+Node Express
+</code></pre><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><pre><code>angularjs
+ionic
+WPF
+winform
+</code></pre><h3 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h3><pre><code>gulp
+requirejs
+</code></pre><h3 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h3><pre><code>jenkins
+</code></pre><h3 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h3><pre><code>git
+</code></pre><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><pre><code>mysql
+sqlserver
+mongodb
+</code></pre><h3 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h3><pre><code>windos
+linux
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近家里一直断网来着，所以有了这个，嘿嘿。其实，觉得有些东西还是记下来靠谱，至少学习得留下一些印记吧，不知不觉毕业5年了，在这5年里，技术的广度算是摸的差不多了，就像很多公司跻身于这大大互联网一样，我跻身于这浩浩荡荡的程序员的世界，写过桌面应用，做过paas平台，倒腾过数据库，慢慢的也算是见过一些场面了。
+    
+    </summary>
+    
+      <category term="生活" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="T" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/T/"/>
+    
+    
+      <category term="心情" scheme="http://blog.ypintao.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs资源中文导航</title>
+    <link href="http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/nodejs%E8%B5%84%E6%BA%90%E4%B8%AD%E6%96%87%E5%AF%BC%E8%88%AA/"/>
+    <id>http://blog.ypintao.com/2014/06/01/技术/nodejs资源中文导航/</id>
+    <published>2014-06-01T05:57:33.000Z</published>
+    <updated>2017-03-20T16:03:37.810Z</updated>
+    
+    <content type="html"><![CDATA[<p>##Node.js<br>·<a href="http://www.nodejs.org/" target="_blank" rel="external">Nodejs主页</a><br>·<a href="http://www.infoq.com/cn/articles/what-is-nodejs" target="_blank" rel="external">Infoq深入浅出Node.js系列(进阶必读)</a><a id="more"></a><br>·<a href="http://docs.cnodejs.net/cman/" target="_blank" rel="external">Node.js中文文档</a><br>·<a href="http://deadhorse.me/nodejs/2012/10/08/c_addon_in_nodejs_node_gyp.html" target="_blank" rel="external">Node.js C++ addon编写实战系列</a><br>·<a href="https://nodejsmodules.org/" target="_blank" rel="external">热门node.js模块排行榜，方便找出你想要的模块</a><br>·<a href="http://cnodejs.org/topic/518b679763e9f8a5424406e9" target="_blank" rel="external">nodejs多线程，真正的非阻塞</a><br>·<a href="http://cnodejs.org/topic/5189ff4f63e9f8a54207f60c" target="_blank" rel="external">浅析nodejs的buffer类</a><br>·<a href="http://cnodejs.org/topic/519ceb5263e9f8a542c19764" target="_blank" rel="external">利用libuv编写异步多线程的addon实例</a></p>
+<p>##模块导航</p>
+<p>##web服务器框架</p>
+<p>###最流行的web框架Express<br>·<a href="http://expressjs.com/" target="_blank" rel="external">Express主页</a><br>·<a href="http://cnodejs.org/topic/51c3ef9f73c638f37058e6bc" target="_blank" rel="external">加装涡轮,提速expressjs</a><br>·<a href="http://cnodejs.org/topic/4fce14e0e5e72c25180b51d1" target="_blank" rel="external">给connect的static模块加上url路径前缀</a><br>·<a href="http://cnodejs.org/topic/515535485dff253b374288da" target="_blank" rel="external">研究nodeclub登陆验证逻辑的一些心得</a><br>·<a href="http://www.csser.com/board/4f77e6f996ca600f78000936" target="_blank" rel="external">Express.js中文入门指引手册</a><br>·<a href="http://cnodejs.org/topic/51a2f562776b2e7f035f2850" target="_blank" rel="external">Connect架构初探for新手</a></p>
+<p>##数据库</p>
+<p>###Mysql老牌关系型数据库<br>·<a href="https://github.com/felixge/node-mysql" target="_blank" rel="external">主页</a><br>·<a href="https://github.com/felixge/node-mysql" target="_blank" rel="external">mysql处理BIGINT里面的一个坑</a><br>·<a href="http://cnodejs.org/topic/51676ac26d38277306fe7c85" target="_blank" rel="external">使用node-mysql中的连接池</a><br>·<a href="http://cnodejs.org/topic/516b77e86d382773064266df" target="_blank" rel="external">mysql自动断开解决办法</a></p>
+<p>###Mongodb<br>·<a href="https://github.com/mongodb/node-mongodb-native" target="_blank" rel="external">node-mongodb-native</a><br>·<a href="https://github.com/LearnBoost/mongoose" target="_blank" rel="external">mongoose</a><br>·<a href="http://cnodejs.org/topic/51508570604b3d512113f1b3" target="_blank" rel="external">如何使用mongoose对一个100万+的mongodb的表进行遍历操作</a><br>·<a href="http://cnodejs.org/topic/5190d61263e9f8a542acd83b" target="_blank" rel="external">[技术讨论]mongodb驱动的正确使用方法</a></p>
+<p>##异步流程处理</p>
+<p>###async<br>·<a href="https://github.com/caolan/async" target="_blank" rel="external">主页</a><br>·<a href="http://freewind.me/blog/20120518/932.html" target="_blank" rel="external">Async中文详解</a></p>
+<p>###eventproxy<br>·<a href="https://github.com/JacksonTian/eventproxy" target="_blank" rel="external">主页</a></p>
+<p>##Redis内存键值数据库<br>·<a href="https://github.com/mranney/node_redis" target="_blank" rel="external">node_redis</a></p>
+<p>##Pomelo 网易出品的网页游戏框架<br>·<a href="https://github.com/NetEase/pomelo" target="_blank" rel="external">pomelo</a><br>·<a href="http://www.infoq.com/cn/articles/game-server-development-1" target="_blank" rel="external">Infoq深入浅出node.js游戏服务器开发</a></p>
+<p>##网页模板引擎<br>·<a href="http://cnodejs.org/topic/50e70edfa7e6c6171a1d70fa" target="_blank" rel="external">WEB模板jade、ejs、handlebars 万行代码解释效率比较，jade完败</a><br>·<a href="http://cnodejs.org/topic/4f16442ccae1f4aa27001109" target="_blank" rel="external">Javascript模板引擎性能对比及几点优化</a><br>·<a href="http://cnodejs.org/topic/51c2c2e373c638f3703f4929" target="_blank" rel="external">让 ejs 更加快 | Let ejs faster with options._with = false</a><br>·<a href="http://www.csser.com/board/4fddc4f0b28ed7d857001674" target="_blank" rel="external">EJS快速入门教程</a></p>
+<p>##图片处理<br>·<a href="http://cnodejs.org/topic/512b9fecdf9e9fcc580eb248" target="_blank" rel="external">Nodejs跨平台轻量级图片编解码库【增加Jpeg质量调整】</a><br>·<a href="http://cnodejs.org/topic/50f90d8edf9e9fcc58a5ee0b" target="_blank" rel="external">node-ccap模块生成captcha验证码</a><br>·<a href="http://cnodejs.org/topic/4f939c84407edba2143c12f7" target="_blank" rel="external">使用nodejs将html5 canvas base64编码图片保存为文件</a></p>
+<p>##运维<br>·<a href="http://deadhorse.me/nodejs/2013/04/13/exception_and_domain.html" target="_blank" rel="external">Node.js 异步异常的处理与domain模块解析</a><br>·<a href="http://cnodejs.org/topic/50463565329c5139760c34a1" target="_blank" rel="external">关于XSS（跨站脚本攻击）和CSRF(跨站请求伪造)</a><br>·<a href="http://cnodejs.org/topic/51cc49e973c638f37042f7b4" target="_blank" rel="external">forever 替代工具 pm2 的介绍</a><br>·<a href="http://cnodejs.org/topic/51c562d673c638f3707bb8cc" target="_blank" rel="external">upstart封装mongodb应用为系统服务</a><br>·<a href="http://se77en.cc/2013/06/27/goodbye-node-forever-hello-pm2-translation/" target="_blank" rel="external">告别node-forever,拥抱PM2</a><br>·<a href="http://cnodejs.org/topic/5059ce39fd37ea6b2f07e1a3" target="_blank" rel="external">阿里云主机Nginx下配置NodeJS、Express和Forever</a></p>
+<p>##性能测试<br>·<a href="http://snoopyxdy.blog.163.com/blog/static/6011744020117315192204/" target="_blank" rel="external">多核单服务器各种配置和业务压力下的node.js性能测试  </a><br>·<a href="http://snoopyxdy.blog.163.com/blog/static/60117440201183101319257/" target="_blank" rel="external">巅峰对决：node.js和php性能测试</a></p>
+<p>##经验分享<br>·<a href="http://www.csdn.net/article/2012-05-03/2805296" target="_blank" rel="external">程序员如何说服老板采用Node.js？</a><br>·<a href="http://www.csdn.net/article/2012-08-21/2808861" target="_blank" rel="external">百万级并发 Node.js也能行</a><br>·<a href="http://www.csdn.net/article/2013-05-20/2815364-how-ebays-first-node-js-application-were-built" target="_blank" rel="external">看eBay如何评价他们的Node.js首次尝鲜</a><br>·<a href="http://www.csdn.net/article/2012-07-30/2807863" target="_blank" rel="external">SDCC讲师专访：淘宝朴灵谈Node.js</a><br>·<a href="http://www.linuxeden.com/html/news/20130109/134241.html" target="_blank" rel="external">QCon北京2013 Node.js专题出品人朴灵专访</a><br>·<a href="http://ittechnical.sinaapp.com/category/node-js/" target="_blank" rel="external">一个周末掌握IT前沿技术之node.js篇</a><br>·<a href="http://cnodejs.org/topic/515b009a6d38277306192e4e" target="_blank" rel="external">用node+express搭建多人博客教程系列</a><br>·<a href="http://www.infoq.com/cn/news/2011/11/tyq-nodejs-static-file-server" target="_blank" rel="external">Node.js静态文件服务器实战</a><br>·<a href="http://cnodejs.org/topic/51ce18bb73c638f3706ca7bb#51ce818c73c638f3707422e6" target="_blank" rel="external">人人和微博登录模块的实现</a></p>
+<p>##开源案例手机Cnode的开源项目</p>
+<p>###社交类<br>·<a href="https://github.com/cnodejs/nodeclub/" target="_blank" rel="external">Cnodejs 最活跃的Node.js社区</a><br>·<a href="http://cnodejs.org/topic/50f8bbfedf9e9fcc58a015ab" target="_blank" rel="external">晓知 个人博客</a><br>·<a href="https://github.com/willerce/canku" target="_blank" rel="external">使用Nodejs编写多人订餐系统</a><br>·<a href="http://cnodejs.org/topic/517b4be16d38277306984a81" target="_blank" rel="external">NodeJS写的WebQQ</a><br>·<a href="http://cnodejs.org/topic/51be6c2960af11cd33604776" target="_blank" rel="external">Yblog 博客程序</a><br>·<a href="http://cnodejs.org/topic/5023eeb9f767cc9a51032f68" target="_blank" rel="external">noderce博客程序</a></p>
+<p>###工具类<br>·<a href="https://github.com/node-webot/wechat" target="_blank" rel="external">wechat微信中间件</a><br>·<a href="http://cnodejs.org/topic/51cb771973c638f3701acecd" target="_blank" rel="external">深度遍历目录/列出目录下所有文件</a><br>·<a href="https://github.com/sumory/lincell" target="_blank" rel="external">lincell发布0.1.1版本，一行命令创建IDE</a><br>·<a href="http://cnodejs.org/topic/5058962f8ea56b5e7806b2a3" target="_blank" rel="external">HTML标签XSS过滤模块</a><br>·<a href="https://github.com/leizongmin/node-segment" target="_blank" rel="external">基于Node.js的中文分词模块</a><br>·<a href="http://cnodejs.org/topic/51c044ee57628b975f088c7a" target="_blank" rel="external">纯真IP库lib-qqwry</a><br>·<a href="http://cnodejs.org/topic/51ae41d7555d34c678ab4cce" target="_blank" rel="external">豆瓣SDK</a></p>
+<p>###商业应用<br>·<a href="http://mofang.taobao.com/" target="_blank" rel="external">淘宝数据魔方</a><br>·<a href="http://shu.taobao.com/" target="_blank" rel="external">淘宝指数</a><br>·<a href="">淘宝时光机</a><br>·<a href="http://www.diandian.com/" target="_blank" rel="external">点点网</a><br>·<a href="http://huaban.com/" target="_blank" rel="external">花瓣网</a><br>·<a href="http://xueqiu.com/" target="_blank" rel="external">雪球网</a><br>·<a href="">小米手机抢购</a><br>·<a href="">网易pomelo消息推送系统</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##Node.js&lt;br&gt;·&lt;a href=&quot;http://www.nodejs.org/&quot;&gt;Nodejs主页&lt;/a&gt;&lt;br&gt;·&lt;a href=&quot;http://www.infoq.com/cn/articles/what-is-nodejs&quot;&gt;Infoq深入浅出Node.js系列(进阶必读)&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://blog.ypintao.com/categories/nodejs/"/>
+    
+    
+      <category term="nodejs" scheme="http://blog.ypintao.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://blog.ypintao.com/2014/06/01/hexo%E6%B5%8B%E8%AF%95/hello-world/"/>
+    <id>http://blog.ypintao.com/2014/06/01/hexo测试/hello-world/</id>
+    <published>2014-06-01T05:46:59.000Z</published>
+    <updated>2017-03-20T16:02:35.390Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.
+    
+    </summary>
+    
+    
+      <category term="test" scheme="http://blog.ypintao.com/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs多线程，真正的非阻塞</title>
+    <link href="http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E/"/>
+    <id>http://blog.ypintao.com/2014/06/01/技术/nodejs多线程，真正的非阻塞/</id>
+    <published>2014-06-01T05:46:59.000Z</published>
+    <updated>2017-03-20T16:02:40.010Z</updated>
+    
+    <content type="html"><![CDATA[<p>node从他推出至今，充满赞美和饱受诟病的都是其单线程模型，所有的任务都在一个线程中完成（I/O等例外），优势的地方自然是免去了频繁切换线程的开销，以及减少资源互抢的问题等等，但是当nodejs面对cpu密集型模型的时候就力不从心了。尽管node拥有异步机制，可以把一些耗时算法丢入eventloop等待下个事件循环再做，但是因为其任然是单线程模型，所以终究会造成阻塞。<a id="more"></a></p>
+<p>先解释一下两个名词，Fibers 和 Threads。<br>Fibers 又称纤程，可以理解为协同程序，类似py和lua都有这样的模型。使用Fibers可以避免对资源的互抢，减少cpu和内存的消耗，但是Fibers并不能够真正的并行执行，同一时刻只有一个Fibers在执行，如果在其中一个Fibers中执行过多的cpu操作或者写了个死循环，则整个主程序将卡死住。node中的异步事件循环模型就有点象这个。</p>
+<p>Threads 又称线程，他可以在同一时刻并行的执行，他们共享主进程的内存，在其中某一时刻某一个threads锁死了，是不会影响主线程以及其他线程的执行。但是为了实现这个模型，我们不得不消耗更多的内存和cpu为线程切换的开销，同时也存在可能多个线程对同一内存单元进行读写而造成程序崩溃的问题。</p>
+<p>很多让node支持多线程的方法是使用c/c++的addon来实现，在需要进行cpu密集型计算的地方，把js代码改写成c/c++代码，但是如果开发人员对c++不是很熟悉，一来开发效率会降低不少，二来也容易出bug，而且我们知道在addon中的c++代码除了编译出错外，是很难调试的，毕竟没有vs调试c++代码方便。</p>
+<p>令人振奋的消息，我们为什么不让node也支持多线程模型呢？于是Jorge为我们开发出了一个让node支持多线程模型的模块：threads_a_gogo<br>github地址：<a href="https://github.com/xk/node-threads-a-gogo" target="_blank" rel="external">https://github.com/xk/node-threads-a-gogo</a></p>
+<p>有了threads-a-gogo（以下简称TAGG）这个模块之后，我们可以让node做更多的事情，我记得以前我看过一篇文章，说node只能应付i/o密集型场景，在cpu密集型场景将完败给apache，因为apache是为每一个请求起一条线程的，所以在处理cpu密集型任务时一个线程的高强度计算不会很大程度的影响其他线程，类似的还有php的fastcgi，这也是很多拿node和php进行比较时，php的拥护者们一直提出的理论。</p>
+<p>我们先来做一个简单的测试，用我们suqian大大最喜欢的斐波那契数组来看一下，加入了多线程的node有多么的强悍：（测试机器为4CPU）<br>没有使用TAGG的正常情况，异步也帮不了我们应对cpu密集型任务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">function</span> fibo (n) &#123;</div><div class="line">      <span class="built_in">return</span> n &gt; 1 ? fibo(n - 1) + fibo(n - 2) : 1;</div><div class="line">    &#125;</div><div class="line">    var n=8</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">back</span></span>()&#123;</div><div class="line">        <span class="keyword">if</span>(!--n) <span class="built_in">return</span> console.timeEnd(<span class="string">'no thread'</span>);</div><div class="line">    &#125;</div><div class="line">    console.time(<span class="string">'no thread'</span>);</div><div class="line"></div><div class="line">    process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        console.log(fibo (40));</div><div class="line">        back();</div><div class="line">    &#125;)</div><div class="line">    process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        console.log(fibo (40));</div><div class="line">        back();</div><div class="line">    &#125;)</div><div class="line">    process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        console.log(fibo (40));</div><div class="line">        back();</div><div class="line">    &#125;)</div><div class="line">    process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        console.log(fibo (40));</div><div class="line">        back();</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">        console.log(fibo (40));</div><div class="line">        back();</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    console.log(fibo (40));</div><div class="line">    back();</div><div class="line">&#125;)</div><div class="line">process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    console.log(fibo (40));</div><div class="line">    back();</div><div class="line">&#125;)</div><div class="line">process.nextTick(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    console.log(fibo (40));</div><div class="line">    back();</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>我们模拟了8个异步的行为，测试用的node v0.8.16版本，所以 process.nextTick还是异步方法。最后我们输出结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">no thread: 23346ms</div></pre></td></tr></table></figure></p>
+<p>接下来我们使用TAGG模块来测试同样的执行8次斐波那契数组计算，看看成绩如何？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> fibo (n) &#123;</div><div class="line">  <span class="built_in">return</span> n &gt; 1 ? fibo(n - 1) + fibo(n - 2) : 1;</div><div class="line">&#125;</div><div class="line">console.time(<span class="string">'8 thread'</span>);</div><div class="line">var numThreads= 8; //创建线程池，最大数为8</div><div class="line">var threadPool= require(<span class="string">'threads_a_gogo'</span>).createPool(numThreads).all.eval(fibo); //为线程池注册程序</div><div class="line">var i=8;</div><div class="line">var cb = <span class="keyword">function</span>(err,data)&#123; //注册线程执行完毕的回调函数</div><div class="line">    console.log(data);</div><div class="line">    <span class="keyword">if</span>(!--i)&#123;</div><div class="line">        threadPool.destroy();</div><div class="line">        console.timeEnd(<span class="string">'8 thread'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb); //开始向线程池中执行fibo(40)这个任务</div><div class="line"></div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb);</div><div class="line"></div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb);</div><div class="line"></div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb);</div><div class="line"></div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb);</div><div class="line"></div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb);</div><div class="line"></div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb);</div><div class="line"></div><div class="line">threadPool.any.eval(<span class="string">'fibo(40)'</span>, cb);</div></pre></td></tr></table></figure></p>
+<p>最重的结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">8 thread: 9510ms</div></pre></td></tr></table></figure></p>
+<p>相比不使用多线程模型的node，使用了TAGG模块之后，我们在4CPU服务器上的测试结果要快上一倍还不止。<br>到这里我们看上去找到了一个比较完美的解决方案应对CPU密集型任务，但是可能有同学会说，我可以使用cluster来做相同的事情，下面我们来做一个使用cluster计算这些任务的情况：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">var cluster = require(<span class="string">'cluster'</span>);</div><div class="line">var numCPUs = 8;</div><div class="line"><span class="keyword">function</span> fibo (n) &#123;</div><div class="line">  <span class="built_in">return</span> n &gt; 1 ? fibo(n - 1) + fibo(n - 2) : 1;</div><div class="line">&#125;</div><div class="line">console.time(<span class="string">'8 cluster'</span>);</div><div class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</div><div class="line">  // Fork workers.</div><div class="line">  <span class="keyword">for</span> (var i = 0; i &lt; numCPUs; i++) &#123;</div><div class="line">    cluster.fork();</div><div class="line">  &#125;</div><div class="line">  var i = 8;</div><div class="line">  cluster.on(<span class="string">'exit'</span>, <span class="keyword">function</span>(worker, code, signal) &#123;</div><div class="line">        <span class="keyword">if</span>(!--i)&#123;</div><div class="line">            console.timeEnd(<span class="string">'8 cluster'</span>);</div><div class="line">            process.exit(0);</div><div class="line">        &#125;</div><div class="line">  &#125;);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    console.log(fibo (40));</div><div class="line">    process.exit(0);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>代码上的复杂程度比使用TAGG要高的多，而且如果是动态计算斐波那契数组的结果，编码将更加困难，需要在fork时挂上不同的参数，出错的几率也更大。同时还有更重要的一个事情，如果是创建一个http服务器，如果4个cluster都在计算fibo，那第5个请求node将无法处理，而是用TAGG则还是能够正常处理的，所以cluster并不能解决单线程模型的cpu密集计算带来的阻塞问题，我们看下测试结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">165580141</div><div class="line">8 cluster: 11925ms</div></pre></td></tr></table></figure></p>
+<p>TAGG模块还有其他更多的功能，比如事件触发，平滑退出，查看线程工作状态等等，总之TAGG模块给node注入了新的活力，让node一直饱受诟病的处理cpu密集任务问题得到了一个妥善的解决，就算你不擅长c++代码，也能够轻松编写出多线程的真正的非阻塞node程序了。</p>
+<p>tagg2，nodejs多线程模块，更好的api，支持nodejs原生模块，跨平台支持，windows，linux和mac<br> <a href="http://cnodejs.org/topic/51976afe63e9f8a542484e66" target="_blank" rel="external">跨平台模块tagg2，让node多线程支持</a></p>
+<p><a href="https://nodejsmodules.org/" target="_blank" rel="external">nodejs模块排行</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;node从他推出至今，充满赞美和饱受诟病的都是其单线程模型，所有的任务都在一个线程中完成（I/O等例外），优势的地方自然是免去了频繁切换线程的开销，以及减少资源互抢的问题等等，但是当nodejs面对cpu密集型模型的时候就力不从心了。尽管node拥有异步机制，可以把一些耗时算法丢入eventloop等待下个事件循环再做，但是因为其任然是单线程模型，所以终究会造成阻塞。
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://blog.ypintao.com/categories/nodejs/"/>
+    
+    
+      <category term="nodejs" scheme="http://blog.ypintao.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://blog.ypintao.com/2014/05/31/hexo%E6%B5%8B%E8%AF%95/test/"/>
+    <id>http://blog.ypintao.com/2014/05/31/hexo测试/test/</id>
+    <published>2014-05-31T13:37:30.000Z</published>
+    <updated>2017-03-20T15:03:22.005Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个测试用的1<br>这是一个测试用的2<br>这是一个测试用的3<a id="more"></a></p>
+<p>##这是啥。。。。<br>这是一个测试用的这是一个测试用的这是一个测试用的<br>这是一个测试用的4<br>这是一个测试用的5<br>这是一个测试用的6<br>这是一个测试用的7</p>
+<p>###3个井号又是啥。<br>这是一个测试用的8<br>这是一个测试用的9<br>这是一个测试用的0<br>这是一个测试用的0</p>
+<p>###第二个三个井号又是啥<br>这是一个测试用的0<br>这是一个测试用的0<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">这是一个测试用的0这是一个测试用的0这是一个测试用的0</div><div class="line">这是一个测试用的0</div></pre></td></tr></table></figure></p>
+<p>这是一个测试用的1<br>这是一个测试用的2<br>这是一个测试用的3<br>这是一个测试用的4<br>这是一个测试用的5<br>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">这是外链</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是一个测试用的1&lt;br&gt;这是一个测试用的2&lt;br&gt;这是一个测试用的3
+    
+    </summary>
+    
+      <category term="test" scheme="http://blog.ypintao.com/categories/test/"/>
+    
+    
+      <category term="test" scheme="http://blog.ypintao.com/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BAD星星的第一篇博客</title>
+    <link href="http://blog.ypintao.com/2014/05/29/%E9%9A%8F%E7%AC%94/bad%E6%98%9F%E6%98%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://blog.ypintao.com/2014/05/29/随笔/bad星星的第一篇博客/</id>
+    <published>2014-05-28T16:08:07.000Z</published>
+    <updated>2017-03-20T16:03:29.959Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一次用hexo写文章，折腾了好久哇。。哈哈哈<br>不过还是成功了。。<br>现在还是灰常舒坦的。。哈哈<br>貌似样式有问题。。还不知道怎么调。。汗<a id="more"></a><br>HEXO主题制作<br><a href="http://my.oschina.net/youxiachai/blog/121659" target="_blank" rel="external">http://my.oschina.net/youxiachai/blog/121659</a><br>在线编辑器<br><a href="http://tool.oschina.net/apidocs" target="_blank" rel="external">http://tool.oschina.net/apidocs</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一次用hexo写文章，折腾了好久哇。。哈哈哈&lt;br&gt;不过还是成功了。。&lt;br&gt;现在还是灰常舒坦的。。哈哈&lt;br&gt;貌似样式有问题。。还不知道怎么调。。汗
+    
+    </summary>
+    
+      <category term="心情" scheme="http://blog.ypintao.com/categories/%E5%BF%83%E6%83%85/"/>
+    
+    
+      <category term="文章" scheme="http://blog.ypintao.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
+</feed>
