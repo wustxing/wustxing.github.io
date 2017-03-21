@@ -27,9 +27,9 @@ linux
       
         <categories>
             
-            <category> 生活 </category>
+            <category> 随笔 </category>
             
-            <category> T </category>
+            <category> 文章 </category>
             
         </categories>
         
@@ -202,14 +202,16 @@ linux
       
         <categories>
             
-            <category> 心情 </category>
+            <category> 随笔 </category>
+            
+            <category> 文章 </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> 文章 </tag>
+            <tag> 心情 </tag>
             
         </tags>
         

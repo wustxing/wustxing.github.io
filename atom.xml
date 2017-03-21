@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2017-03-21T05:49:47.658Z</updated>
+  <updated>2017-03-21T08:12:06.796Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.ypintao.com/2017/03/21/%E9%9A%8F%E7%AC%94/%E5%8D%9A%E5%AE%A2%E4%BB%8E%E6%96%B0%E8%B5%B7%E8%88%AA/"/>
     <id>http://blog.ypintao.com/2017/03/21/随笔/博客从新起航/</id>
     <published>2017-03-20T16:00:00.000Z</published>
-    <updated>2017-03-21T05:49:47.658Z</updated>
+    <updated>2017-03-21T08:12:06.796Z</updated>
     
     <content type="html"><![CDATA[<p>最近家里一直断网来着，所以有了这个，嘿嘿。其实，觉得有些东西还是记下来靠谱，至少学习得留下一些印记吧，不知不觉毕业5年了，在这5年里，技术的广度算是摸的差不多了，就像很多公司跻身于这大大互联网一样，我跻身于这浩浩荡荡的程序员的世界，写过桌面应用，做过paas平台，倒腾过数据库，慢慢的也算是见过一些场面了。<a id="more"></a></p>
 <p>其实写下这篇文章的目的是为了先给自己总结下，然后分个类别。以后玩东西的时候也好往相应的类别下面丢东西。<br>目前熟练使用的东西大概有：</p>
@@ -47,9 +47,9 @@ linux
     
     </summary>
     
-      <category term="生活" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="随笔" scheme="http://blog.ypintao.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="T" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/T/"/>
+      <category term="文章" scheme="http://blog.ypintao.com/categories/%E9%9A%8F%E7%AC%94/%E6%96%87%E7%AB%A0/"/>
     
     
       <category term="心情" scheme="http://blog.ypintao.com/tags/%E5%BF%83%E6%83%85/"/>
@@ -101,7 +101,7 @@ linux
     <link href="http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/nodejs%E8%B5%84%E6%BA%90%E4%B8%AD%E6%96%87%E5%AF%BC%E8%88%AA/"/>
     <id>http://blog.ypintao.com/2014/06/01/技术/nodejs资源中文导航/</id>
     <published>2014-06-01T05:57:33.000Z</published>
-    <updated>2017-03-21T08:07:08.777Z</updated>
+    <updated>2017-03-21T08:08:33.085Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>· <a href="http://www.nodejs.org/" target="_blank" rel="external">Nodejs主页</a><br>· <a href="http://www.infoq.com/cn/articles/what-is-nodejs" target="_blank" rel="external">Infoq深入浅出Node.js系列(进阶必读)</a><a id="more"></a><br>· <a href="http://docs.cnodejs.net/cman/" target="_blank" rel="external">Node.js中文文档</a><br>· <a href="http://deadhorse.me/nodejs/2012/10/08/c_addon_in_nodejs_node_gyp.html" target="_blank" rel="external">Node.js C++ addon编写实战系列</a><br>· <a href="https://nodejsmodules.org/" target="_blank" rel="external">热门node.js模块排行榜，方便找出你想要的模块</a><br>· <a href="http://cnodejs.org/topic/518b679763e9f8a5424406e9" target="_blank" rel="external">nodejs多线程，真正的非阻塞</a><br>· <a href="http://cnodejs.org/topic/5189ff4f63e9f8a54207f60c" target="_blank" rel="external">浅析nodejs的buffer类</a><br>· <a href="http://cnodejs.org/topic/519ceb5263e9f8a542c19764" target="_blank" rel="external">利用libuv编写异步多线程的addon实例</a></p>
 <h2 id="模块导航"><a href="#模块导航" class="headerlink" title="模块导航"></a>模块导航</h2><h2 id="web服务器框架"><a href="#web服务器框架" class="headerlink" title="web服务器框架"></a>web服务器框架</h2><h3 id="最流行的web框架Express"><a href="#最流行的web框架Express" class="headerlink" title="最流行的web框架Express"></a>最流行的web框架Express</h3><p>· <a href="http://expressjs.com/" target="_blank" rel="external">Express主页</a><br>· <a href="http://cnodejs.org/topic/51c3ef9f73c638f37058e6bc" target="_blank" rel="external">加装涡轮,提速expressjs</a><br>· <a href="http://cnodejs.org/topic/4fce14e0e5e72c25180b51d1" target="_blank" rel="external">给connect的static模块加上url路径前缀</a><br>· <a href="http://cnodejs.org/topic/515535485dff253b374288da" target="_blank" rel="external">研究nodeclub登陆验证逻辑的一些心得</a><br>· <a href="http://www.csser.com/board/4f77e6f996ca600f78000936" target="_blank" rel="external">Express.js中文入门指引手册</a><br>· <a href="http://cnodejs.org/topic/51a2f562776b2e7f035f2850" target="_blank" rel="external">Connect架构初探for新手</a></p>
@@ -232,7 +232,7 @@ linux
     <link href="http://blog.ypintao.com/2014/05/29/%E9%9A%8F%E7%AC%94/bad%E6%98%9F%E6%98%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>http://blog.ypintao.com/2014/05/29/随笔/bad星星的第一篇博客/</id>
     <published>2014-05-28T16:08:07.000Z</published>
-    <updated>2017-03-20T16:03:29.959Z</updated>
+    <updated>2017-03-21T08:12:35.753Z</updated>
     
     <content type="html"><![CDATA[<p>第一次用hexo写文章，折腾了好久哇。。哈哈哈<br>不过还是成功了。。<br>现在还是灰常舒坦的。。哈哈<br>貌似样式有问题。。还不知道怎么调。。汗<a id="more"></a><br>HEXO主题制作<br><a href="http://my.oschina.net/youxiachai/blog/121659" target="_blank" rel="external">http://my.oschina.net/youxiachai/blog/121659</a><br>在线编辑器<br><a href="http://tool.oschina.net/apidocs" target="_blank" rel="external">http://tool.oschina.net/apidocs</a></p>
 ]]></content>
@@ -243,10 +243,12 @@ linux
     
     </summary>
     
-      <category term="心情" scheme="http://blog.ypintao.com/categories/%E5%BF%83%E6%83%85/"/>
+      <category term="随笔" scheme="http://blog.ypintao.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="文章" scheme="http://blog.ypintao.com/categories/%E9%9A%8F%E7%AC%94/%E6%96%87%E7%AB%A0/"/>
     
     
-      <category term="文章" scheme="http://blog.ypintao.com/tags/%E6%96%87%E7%AB%A0/"/>
+      <category term="心情" scheme="http://blog.ypintao.com/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
