@@ -43,6 +43,335 @@ linux
     </entry>
     
     <entry>
+      <title><![CDATA[关于正则]]></title>
+      <url>http://blog.ypintao.com/2016/08/04/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99/</url>
+      <content type="html"><![CDATA[<p>在这里我不统一讲解正则的具体用法<br>就讲解我们平常用的一些知识</p>
+<ul>
+<li>^ 匹配开始、</li>
+<li>$匹配结束、</li>
+<li><ul>
+<li>匹配1个或多个、</li>
+</ul>
+</li>
+<li>? 匹配0个或一个、</li>
+<li>*匹配0个或多个、</li>
+<li>g全局匹配、</li>
+<li>\d 匹配所有数字、</li>
+<li>\w 匹配所有字符、</li>
+<li>\s 匹配所有空格<a id="more"></a></li>
+</ul>
+<p>用正则写出trim函数<br>trim函数主要是去除头尾空格<br>str.replace(/^\s|\s$/g,””);</p>
+<p>邮箱匹配</p>
+<ul>
+<li>/^\w*@\w{2,3}.[com|cn]/</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于前端漏洞]]></title>
+      <url>http://blog.ypintao.com/2016/07/11/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%BC%8F%E6%B4%9E/</url>
+      <content type="html"><![CDATA[<h2 id="xss，csrf（Cross-site-request-forgery）跨站点请求伪造"><a href="#xss，csrf（Cross-site-request-forgery）跨站点请求伪造" class="headerlink" title="xss，csrf（Cross-site request forgery）跨站点请求伪造"></a>xss，csrf（Cross-site request forgery）跨站点请求伪造</h2><p>####xss :  xss就是在页面执行你想要的js</p>
+<h5 id="XSS-防御技巧"><a href="#XSS-防御技巧" class="headerlink" title="XSS 防御技巧"></a>XSS 防御技巧</h5><p>XSS 防御技巧</p>
+<p>HttpOnly</p>
+<p>服务器端在设置安全级别高的Cookie时，带上HttpOnly的属性，就能防止JavaScript获取。<a id="more"></a><br>PHP设置HttpOnly：<br>1 &lt;?2 header(“Set-Cookie: a=1;”, false);3 header(“Set-Cookie: b=1;httponly”, false);4 setcookie(“c”, “1”, NULL, NULL, NULL, NULL, ture);</p>
+<p>输入检查</p>
+<p>任何用户输入的数据，都是“不可信”的。<br>输入检查，一般是用于输入格式检查，例如：邮箱、电话号码、用户名这些…<br>都要按照规定的格式输入：电话号码必须纯是数字和规定长度；用户名除 中英文数字 外，仅允许输入几个安全的符号。<br>输入过滤不能完全交由前端负责，前端的输入过滤只是为了避免普通用户的错误输入，减轻服务器的负担。<br>因为攻击者完全可以绕过正常输入流程，直接利用相关接口向服务器发送设置。<br>所以，前端和后端要做相同的过滤检查。</p>
+<p>输出检查</p>
+<p>相比输入检查，前端更适合做输出检查。<br>可以看到，HttpOnly和前端没直接关系，输入检查的关键点也不在于前端。<br>那XSS的防御就和前端没关系了?<br>当然不是，随着移动端web开发发展起来了，Ajax的使用越来越普遍，越来越多的操作都交给前端来处理。<br>前端也需要做好XSS防御。<br>JavaScript直接通过Ajax向服务器请求数据，接口把数据以JSON格式返回。前端整合处理数据后，输出页面。<br>所以，前端的XSS防御点，在于输出检查。</p>
+<p>但也要结合XSS可能发生的场景。</p>
+<p>XSS注意场景</p>
+<p>在HTML标签中输出<br>如：{$var}<br>风险：{$var} 为 <img src="#" onerror="/xss/"><br>防御手段：变量HtmlEncode后输出</p>
+<p>在HTML属性中输出<br>如：<div data-num="{$var}"></div><br>风险：{$var} 为 “ onclick=”/xss/<br>防御手段：变量HtmlEncode后输出</p>
+<p>在<script>标签中输出<br>如：<script>var num = {$var};</script><br>风险：{$var} 为 1; alert(/xss/)<br>防御手段：确保输出变量在引号里面，再让变量JavaScriptEncode后输出。</p>
+<p>在事件中输出<br>如：<span onclick="fun({$var})">hello!click me!</span><br>风险：{$var} 为 ); alert(/xss/); //<br>防御手段：确保输出变量在引号里面，再让变量JavaScriptEncode后输出。</p>
+<p>在CSS中输出<br>一般来说，尽量禁止用户可控制的变量在<style>标签和style属性中输出。</p>
+<p>#####HtmlEncode</p>
+<p>对下列字符实现编码</p>
+<ul>
+<li>&amp; ——》 &amp;</li>
+<li>&lt; ——》 &lt;</li>
+<li>——》 &gt;</li>
+<li>“ ——》 “</li>
+<li>‘ ——》 ‘ （IE不支持’）</li>
+<li>/ ——》 /</li>
+</ul>
+<p>######JavaScriptEncode</p>
+<p>对下列字符加上反斜杠</p>
+<ul>
+<li>“ ——》 \”</li>
+<li>‘ ——》 \’</li>
+<li>\ ——》 \</li>
+<li>\n ——》 \n</li>
+<li>\r ——》 \r (Windows下的换行符)</li>
+</ul>
+<p>例子： “\”.replace(/\/g, “\“); //return \<br>URLEncode<br>使用以下JS原生方法进行URI编码和解码：<br>encodeURI<br>decodeURI<br>decodeURIComponent<br>encodeURIComponent</p>
+<h4 id="CSRF（Cross-site-request-forgery）"><a href="#CSRF（Cross-site-request-forgery）" class="headerlink" title="CSRF（Cross-site request forgery）"></a>CSRF（Cross-site request forgery）</h4><p>CSRF 即：跨站点请求伪造<br>网站A ：为恶意网站。<br>网站B ：用户已登录的网站。<br>当用户访问 A站 时，A站 私自访问 B站 的操作链接，模拟用户操作。<br>假设B站有一个删除评论的链接：<a href="http://b.com/comment/?type=delete&amp;id=81723">http://b.com/comment/?type=delete&amp;id=81723</a><br>A站 直接访问该链接，就能删除用户在 B站 的评论。</p>
+<p>CSRF 的攻击策略</p>
+<p>因为浏览器访问 B站 相关链接时，会向其服务器发送 B站 保存在本地的Cookie，以判断用户是否登陆。所以通过 A站 访问的链接，也能顺利执行。</p>
+<h4 id="CSRF-防御技巧"><a href="#CSRF-防御技巧" class="headerlink" title="CSRF 防御技巧"></a>CSRF 防御技巧</h4><h5 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h5><p>几乎所有人都知道验证码，但验证码不单单用来防止注册机的暴力破解，还可以有效防止CSRF的攻击。<br>验证码算是对抗CSRF攻击最简洁有效的方法。<br>但使用验证码的问题在于，不可能在用户的所有操作上都需要输入验证码。<br>只有一些关键的操作，才能要求输入验证码。<br>不过随着HTML5的发展。<br>利用canvas标签，前端也能识别验证码的字符，让CSRF生效。</p>
+<h5 id="Referer-Check"><a href="#Referer-Check" class="headerlink" title="Referer Check"></a>Referer Check</h5><p>Referer Check即来源检测。<br>HTTP Referer 是 Request Headers 的一部分，当浏览器向web服务器发出请求的时候，一般会带上Referer，告诉服务器用户从哪个站点链接过来的。<br>服务器通过判断请求头中的referer，也能避免CSRF的攻击。</p>
+<h4 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h4><p>CSRF能攻击成功，根本原因是：操作所带的参数均被攻击者猜测到。<br>既然知道根本原因，我们就对症下药，利用Token。<br>当向服务器传参数时，带上Token。这个Token是一个随机值，并且由服务器和用户同时持有。<br>Token可以存放在用户浏览器的Cookie中，<br>当用户提交表单时带上Token值，服务器就能验证表单和Cookie中的Token是否一致。<br>（前提，网站没有XSS漏洞，攻击者不能通过脚本获取用户的Cookie）</p>
+</style></p>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[从输入url到浏览器显示页面发生了什么]]></title>
+      <url>http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/</url>
+      <content type="html"><![CDATA[<p>#####这个过程大致分为两个部分：网络通信和页面渲染。</p>
+<h6 id="1、网络通信"><a href="#1、网络通信" class="headerlink" title="1、网络通信"></a>1、网络通信</h6><p>互联网内各网络设备间的通信都遵循TCP/IP协议，利用TCP/IP协议进行网络通信时，会通过分层顺序与对方进行通信。分层由高到低分别为：应用层，传输层、网络层、数据链路层。发送端从应用层往下走，接收端从数据链路层往上走：</p>
+<p>如图</p>
+<p>应用层——&gt;传输层——&gt;网络层——&gt;数据链路层</p>
+<p>HTTP客户端——&gt;TCP—-&gt;IP——&gt;网络</p>
+<ul>
+<li><p>在浏览器输入url<a id="more"></a></p>
+</li>
+<li><p>应用层DNS解析域名</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">客户端先检查本地是否有对应的ip地址，</div><div class="line">若找到则返回响应的ip地址。</div><div class="line">若没有找到则请求上级DNS服务器，</div><div class="line">直至找到或到根节点。</div></pre></td></tr></table></figure>
+<ul>
+<li>应用层客户端发送HTTP请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HTTP请求包括请求报头和请求主体两个部分</div><div class="line">，其中请求报头包含至关重要的信息，</div><div class="line">包括请求的方法GET、POST,、目标url、遵循的协议（http，https，ftp），</div><div class="line">返回的信息是否需要缓存，以及客户端是否发送cookie等。</div></pre></td></tr></table></figure>
+<ul>
+<li>传输层TCP传输报文</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">位于传输层的TCP协议为传输报文提供可靠的字节流服务，他为了方便传</div><div class="line">输，将打款的数据分割成以报文段为单位的数据包进行管理，并为他们编</div><div class="line">号，方便服务器接收时能准确地还原报文信息，TCP协议通过三次握手等</div><div class="line">方法保证传输的安全可靠。</div><div class="line">  三次握手的过程是，发送端先发送一个带有SYN标志的数据包给接收</div><div class="line">端，以一定的延时时间内，等待接收的回复，接收端收到数据包后，传回</div><div class="line">一个带有SYN/ACK标志的数据包以表示传达确认信息，接收方收到后再发</div><div class="line">送一个带有ACK标志的数据包给接收端表示握手成功，在这个过程中，如</div><div class="line">果发送端在规定的延时时间内没有收到回复则默认接收方没有收到请求，</div><div class="line">而在次发送，知道收到回复为止</div></pre></td></tr></table></figure>
+<ul>
+<li>网络层IP协议查询MAC地址</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  IP协议的作用是把TCP分割好的各种数据包，传送给接收方。而要保证确</div><div class="line">实能够传到接收方还需要接收方的MAC地址，也就是物理地址，IP地址和</div><div class="line">MAC地址是一一对应的关系，一个网络设备的IP地址可以更换，但是MAC</div><div class="line">地址一般是固定不变的，Arp协议，可以将IP地址解析成对应的MAC地</div><div class="line">址，当通信的双方不再同一个局域网时，需要多次中转才能到达最终的目</div><div class="line">标，在中转的过程中，需要通过下一个中转站的MAC地址来搜索下一个中</div><div class="line">转目标。8135</div></pre></td></tr></table></figure>
+<ul>
+<li>数据到达数据链路层</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在找到对方的mac地址以后，就将数据发送到数据链路层传输，这时，客</div><div class="line">户端发送请求的阶段结束</div></pre></td></tr></table></figure>
+<ul>
+<li>服务器接收数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">接收端的服务器在链路层收到数据包，再层层向上直到应用层，这过程中</div><div class="line">包括在运输层通过TCP协议将分段的数据包重新组成原来的HTTP请求报</div><div class="line">文，</div></pre></td></tr></table></figure>
+<ul>
+<li>服务器响应请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">服务接收到客户端发送的HTTP请求后，查找客户端请求的资源，并返回</div><div class="line">响应的报文，响应的报文中包括一个重要的信息------状态码。状态码由三</div><div class="line">位数字组成，其中比较常见的是200OK表示成功，301表示永久重定向。</div><div class="line">即请求的资源已经永久转移到新的位置。在返回301状态码的同事，响应</div><div class="line">报文也会附带重定向的url，客户端接收到后将http请求的url做相应的改变</div><div class="line">再重新发送。</div></pre></td></tr></table></figure>
+<ul>
+<li>服务器返回相应文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">请求成功后，服务器会返回相应的HTML文件，接下来就到了页面的渲染</div><div class="line">阶段。</div></pre></td></tr></table></figure>
+<h6 id="2、页面渲染"><a href="#2、页面渲染" class="headerlink" title="2、页面渲染"></a>2、页面渲染</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">浏览器渲染页面的过程是这样的：</div><div class="line">解析HTML以构建DOM树----&gt;构建渲染树----&gt;布局渲染树----&gt;绘制渲染</div><div class="line">树。</div><div class="line">DOM树是由HTML文件中的标签排列组成，渲染树是在DOM树种加入css</div><div class="line">或者html种的style样式而形成的。渲染树只包含需要显示在页面中的DOM</div><div class="line">元素，像&lt;head&gt;元素或display属性值为none的元素都不在渲染树中。</div><div class="line">在浏览器还没有接收到完整的html文件时，他就开始渲染页面了。在遇到</div><div class="line">外部链入的脚本标签或样式标签或图片时，会再次发送HTTP请求重复上</div><div class="line">述步骤，在收到css文件后会对已经渲染的页面重新渲染，加入他们应有的</div><div class="line">样式，图片文件加载完立刻显示在相应位置。在这一过程中可能会触发页</div><div class="line">面的重绘或重排。</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JS问题汇总]]></title>
+      <url>http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+      <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于单位px,rem,em]]></title>
+      <url>http://blog.ypintao.com/2016/06/11/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%8D%95%E4%BD%8Dpx,rem,em/</url>
+      <content type="html"><![CDATA[<ul>
+<li><p>px(像素)，相对长度单位，像素px是相对于显示器屏幕分辨率而言的，</p>
+</li>
+<li><p>em 相对长度单位，相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸<br>未被人为设置，则相对于浏览器的默认字体尺寸。<a id="more"></a></p>
+</li>
+<li><p>rem也是相对长度单位，但相对的知识html根元素。</p>
+</li>
+<li><p>vw代表视窗（viewport）的宽度为1%,如果视窗的宽度为1000px，那么50vw =500px</p>
+</li>
+<li><p>vh代表窗口高度的百分，如果视窗的高度为800px,那么50vh = 400px</p>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CSS问题汇总]]></title>
+      <url>http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/CSS%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+      <content type="html"><![CDATA[<p>###浏览器是怎样解析css选择器的？</p>
+<ul>
+<li>按照从上到下,从右到左的顺序解析</li>
+</ul>
+<p>###css优先级算法如何计算（ICE法则）<a id="more"></a></p>
+<ul>
+<li>css优化、提高性能的方法有哪些？</li>
+</ul>
+<p>###设置元素浮动后，该元素的display值是多少？（自动变成display：block）</p>
+<p>###为什么要初始化css样式。</p>
+<ul>
+<li>统一去掉浏览器的默认样式</li>
+</ul>
+<p>###对BFC规范（块级格式化上下文）的理解</p>
+<p>###让页面里的字体变清晰，变细用css怎么做？（-webkit-font-smoothing:antialiased;）</p>
+<p>###使用css预处理器吗？喜欢哪个？</p>
+<p>###经常遇到的浏览器的兼容性问题有哪些？原因，解决方法是什么，常用hack的技巧，</p>
+<p>###display有哪些值？说明他们的作用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  display:none 隐藏</div><div class="line">  </div><div class="line">display:block 块级元素</div><div class="line"></div><div class="line">display:inline  默认</div><div class="line"></div><div class="line">display:inline-block</div></pre></td></tr></table></figure></p>
+]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> CSS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[HTML5问题汇总]]></title>
+      <url>http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+      <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> HTML5 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> HTML5 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[vim使用]]></title>
       <url>http://blog.ypintao.com/2016/02/27/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vim%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<ul>
@@ -306,7 +635,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     <entry>
       <title><![CDATA[git入门]]></title>
       <url>http://blog.ypintao.com/2015/04/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/gulp/gulp%E5%85%A5%E9%97%A8/</url>
-      <content type="html"><![CDATA[<h3 id="你仅仅需要知道的5个gulp命令"><a href="#你仅仅需要知道的5个gulp命令" class="headerlink" title="你仅仅需要知道的5个gulp命令"></a>你仅仅需要知道的5个gulp命令<a id="more"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(name, fn)这个你应经见过了</div><div class="line">gulp.run(tasks...)尽可能多的并行运行多个task</div><div class="line">gulp.watch(glob, fn)当glob内容发生改变时，执行fn</div><div class="line">gulp.src(glob)返回一个可读的stream</div><div class="line">gulp.dest(glob)返回一个可写的stream</div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<h3 id="你仅仅需要知道的5个gulp命令"><a href="#你仅仅需要知道的5个gulp命令" class="headerlink" title="你仅仅需要知道的5个gulp命令"></a>你仅仅需要知道的5个gulp命令<a id="more"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">gulp.task(name, fn)这个你应经见过了</div><div class="line"></div><div class="line">gulp.run(tasks...)尽可能多的并行运行多个task</div><div class="line"></div><div class="line">gulp.watch(glob, fn)当glob内容发生改变时，执行fn</div><div class="line"></div><div class="line">gulp.src(glob)返回一个可读的stream</div><div class="line"></div><div class="line">gulp.dest(glob)返回一个可写的stream</div></pre></td></tr></table></figure>
 ]]></content>
       
         <categories>
@@ -1085,6 +1414,29 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://blog.ypintao.com/2014/06/01/hexo%E6%B5%8B%E8%AF%95/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> test </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nodejs多线程，真正的非阻塞]]></title>
       <url>http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E/</url>
       <content type="html"><![CDATA[<p>node从他推出至今，充满赞美和饱受诟病的都是其单线程模型，所有的任务都在一个线程中完成（I/O等例外），优势的地方自然是免去了频繁切换线程的开销，以及减少资源互抢的问题等等，但是当nodejs面对cpu密集型模型的时候就力不从心了。尽管node拥有异步机制，可以把一些耗时算法丢入eventloop等待下个事件循环再做，但是因为其任然是单线程模型，所以终究会造成阻塞。<a id="more"></a></p>
@@ -1116,29 +1468,6 @@ export PATH=$NODE_HOME/bin:$PATH
         <tags>
             
             <tag> Node </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://blog.ypintao.com/2014/06/01/hexo%E6%B5%8B%E8%AF%95/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> test </tag>
             
         </tags>
         

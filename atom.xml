@@ -57,6 +57,380 @@ linux
   </entry>
   
   <entry>
+    <title>关于正则</title>
+    <link href="http://blog.ypintao.com/2016/08/04/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99/"/>
+    <id>http://blog.ypintao.com/2016/08/04/技术/web前端/JS/关于正则/</id>
+    <published>2016-08-03T16:00:00.000Z</published>
+    <updated>2017-03-22T06:56:58.963Z</updated>
+    
+    <content type="html"><![CDATA[<p>在这里我不统一讲解正则的具体用法<br>就讲解我们平常用的一些知识</p>
+<ul>
+<li>^ 匹配开始、</li>
+<li>$匹配结束、</li>
+<li><ul>
+<li>匹配1个或多个、</li>
+</ul>
+</li>
+<li>? 匹配0个或一个、</li>
+<li>*匹配0个或多个、</li>
+<li>g全局匹配、</li>
+<li>\d 匹配所有数字、</li>
+<li>\w 匹配所有字符、</li>
+<li>\s 匹配所有空格<a id="more"></a></li>
+</ul>
+<p>用正则写出trim函数<br>trim函数主要是去除头尾空格<br>str.replace(/^\s|\s$/g,””);</p>
+<p>邮箱匹配</p>
+<ul>
+<li>/^\w*@\w{2,3}.[com|cn]/</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在这里我不统一讲解正则的具体用法&lt;br&gt;就讲解我们平常用的一些知识&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;^ 匹配开始、&lt;/li&gt;
+&lt;li&gt;$匹配结束、&lt;/li&gt;
+&lt;li&gt;&lt;ul&gt;
+&lt;li&gt;匹配1个或多个、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;? 匹配0个或一个、&lt;/li&gt;
+&lt;li&gt;*匹配0个或多个、&lt;/li&gt;
+&lt;li&gt;g全局匹配、&lt;/li&gt;
+&lt;li&gt;\d 匹配所有数字、&lt;/li&gt;
+&lt;li&gt;\w 匹配所有字符、&lt;/li&gt;
+&lt;li&gt;\s 匹配所有空格
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于前端漏洞</title>
+    <link href="http://blog.ypintao.com/2016/07/11/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%BC%8F%E6%B4%9E/"/>
+    <id>http://blog.ypintao.com/2016/07/11/技术/web前端/JS/关于前端漏洞/</id>
+    <published>2016-07-10T16:00:00.000Z</published>
+    <updated>2017-03-22T07:09:16.598Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="xss，csrf（Cross-site-request-forgery）跨站点请求伪造"><a href="#xss，csrf（Cross-site-request-forgery）跨站点请求伪造" class="headerlink" title="xss，csrf（Cross-site request forgery）跨站点请求伪造"></a>xss，csrf（Cross-site request forgery）跨站点请求伪造</h2><p>####xss :  xss就是在页面执行你想要的js</p>
+<h5 id="XSS-防御技巧"><a href="#XSS-防御技巧" class="headerlink" title="XSS 防御技巧"></a>XSS 防御技巧</h5><p>XSS 防御技巧</p>
+<p>HttpOnly</p>
+<p>服务器端在设置安全级别高的Cookie时，带上HttpOnly的属性，就能防止JavaScript获取。<a id="more"></a><br>PHP设置HttpOnly：<br>1 &lt;?2 header(“Set-Cookie: a=1;”, false);3 header(“Set-Cookie: b=1;httponly”, false);4 setcookie(“c”, “1”, NULL, NULL, NULL, NULL, ture);</p>
+<p>输入检查</p>
+<p>任何用户输入的数据，都是“不可信”的。<br>输入检查，一般是用于输入格式检查，例如：邮箱、电话号码、用户名这些…<br>都要按照规定的格式输入：电话号码必须纯是数字和规定长度；用户名除 中英文数字 外，仅允许输入几个安全的符号。<br>输入过滤不能完全交由前端负责，前端的输入过滤只是为了避免普通用户的错误输入，减轻服务器的负担。<br>因为攻击者完全可以绕过正常输入流程，直接利用相关接口向服务器发送设置。<br>所以，前端和后端要做相同的过滤检查。</p>
+<p>输出检查</p>
+<p>相比输入检查，前端更适合做输出检查。<br>可以看到，HttpOnly和前端没直接关系，输入检查的关键点也不在于前端。<br>那XSS的防御就和前端没关系了?<br>当然不是，随着移动端web开发发展起来了，Ajax的使用越来越普遍，越来越多的操作都交给前端来处理。<br>前端也需要做好XSS防御。<br>JavaScript直接通过Ajax向服务器请求数据，接口把数据以JSON格式返回。前端整合处理数据后，输出页面。<br>所以，前端的XSS防御点，在于输出检查。</p>
+<p>但也要结合XSS可能发生的场景。</p>
+<p>XSS注意场景</p>
+<p>在HTML标签中输出<br>如：{$var}<br>风险：{$var} 为 <img src="#" onerror="/xss/"><br>防御手段：变量HtmlEncode后输出</p>
+<p>在HTML属性中输出<br>如：<div data-num="{$var}"></div><br>风险：{$var} 为 “ onclick=”/xss/<br>防御手段：变量HtmlEncode后输出</p>
+<p>在<script>标签中输出<br>如：<script>var num = {$var};</script><br>风险：{$var} 为 1; alert(/xss/)<br>防御手段：确保输出变量在引号里面，再让变量JavaScriptEncode后输出。</p>
+<p>在事件中输出<br>如：<span onclick="fun({$var})">hello!click me!</span><br>风险：{$var} 为 ); alert(/xss/); //<br>防御手段：确保输出变量在引号里面，再让变量JavaScriptEncode后输出。</p>
+<p>在CSS中输出<br>一般来说，尽量禁止用户可控制的变量在<style>标签和style属性中输出。</p>
+<p>#####HtmlEncode</p>
+<p>对下列字符实现编码</p>
+<ul>
+<li>&amp; ——》 &amp;</li>
+<li>&lt; ——》 &lt;</li>
+<li>——》 &gt;</li>
+<li>“ ——》 “</li>
+<li>‘ ——》 ‘ （IE不支持’）</li>
+<li>/ ——》 /</li>
+</ul>
+<p>######JavaScriptEncode</p>
+<p>对下列字符加上反斜杠</p>
+<ul>
+<li>“ ——》 \”</li>
+<li>‘ ——》 \’</li>
+<li>\ ——》 \</li>
+<li>\n ——》 \n</li>
+<li>\r ——》 \r (Windows下的换行符)</li>
+</ul>
+<p>例子： “\”.replace(/\/g, “\“); //return \<br>URLEncode<br>使用以下JS原生方法进行URI编码和解码：<br>encodeURI<br>decodeURI<br>decodeURIComponent<br>encodeURIComponent</p>
+<h4 id="CSRF（Cross-site-request-forgery）"><a href="#CSRF（Cross-site-request-forgery）" class="headerlink" title="CSRF（Cross-site request forgery）"></a>CSRF（Cross-site request forgery）</h4><p>CSRF 即：跨站点请求伪造<br>网站A ：为恶意网站。<br>网站B ：用户已登录的网站。<br>当用户访问 A站 时，A站 私自访问 B站 的操作链接，模拟用户操作。<br>假设B站有一个删除评论的链接：<a href="http://b.com/comment/?type=delete&amp;id=81723">http://b.com/comment/?type=delete&amp;id=81723</a><br>A站 直接访问该链接，就能删除用户在 B站 的评论。</p>
+<p>CSRF 的攻击策略</p>
+<p>因为浏览器访问 B站 相关链接时，会向其服务器发送 B站 保存在本地的Cookie，以判断用户是否登陆。所以通过 A站 访问的链接，也能顺利执行。</p>
+<h4 id="CSRF-防御技巧"><a href="#CSRF-防御技巧" class="headerlink" title="CSRF 防御技巧"></a>CSRF 防御技巧</h4><h5 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h5><p>几乎所有人都知道验证码，但验证码不单单用来防止注册机的暴力破解，还可以有效防止CSRF的攻击。<br>验证码算是对抗CSRF攻击最简洁有效的方法。<br>但使用验证码的问题在于，不可能在用户的所有操作上都需要输入验证码。<br>只有一些关键的操作，才能要求输入验证码。<br>不过随着HTML5的发展。<br>利用canvas标签，前端也能识别验证码的字符，让CSRF生效。</p>
+<h5 id="Referer-Check"><a href="#Referer-Check" class="headerlink" title="Referer Check"></a>Referer Check</h5><p>Referer Check即来源检测。<br>HTTP Referer 是 Request Headers 的一部分，当浏览器向web服务器发出请求的时候，一般会带上Referer，告诉服务器用户从哪个站点链接过来的。<br>服务器通过判断请求头中的referer，也能避免CSRF的攻击。</p>
+<h4 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h4><p>CSRF能攻击成功，根本原因是：操作所带的参数均被攻击者猜测到。<br>既然知道根本原因，我们就对症下药，利用Token。<br>当向服务器传参数时，带上Token。这个Token是一个随机值，并且由服务器和用户同时持有。<br>Token可以存放在用户浏览器的Cookie中，<br>当用户提交表单时带上Token值，服务器就能验证表单和Cookie中的Token是否一致。<br>（前提，网站没有XSS漏洞，攻击者不能通过脚本获取用户的Cookie）</p>
+</style></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;xss，csrf（Cross-site-request-forgery）跨站点请求伪造&quot;&gt;&lt;a href=&quot;#xss，csrf（Cross-site-request-forgery）跨站点请求伪造&quot; class=&quot;headerlink&quot; title=&quot;xss，csrf（Cross-site request forgery）跨站点请求伪造&quot;&gt;&lt;/a&gt;xss，csrf（Cross-site request forgery）跨站点请求伪造&lt;/h2&gt;&lt;p&gt;####xss :  xss就是在页面执行你想要的js&lt;/p&gt;
+&lt;h5 id=&quot;XSS-防御技巧&quot;&gt;&lt;a href=&quot;#XSS-防御技巧&quot; class=&quot;headerlink&quot; title=&quot;XSS 防御技巧&quot;&gt;&lt;/a&gt;XSS 防御技巧&lt;/h5&gt;&lt;p&gt;XSS 防御技巧&lt;/p&gt;
+&lt;p&gt;HttpOnly&lt;/p&gt;
+&lt;p&gt;服务器端在设置安全级别高的Cookie时，带上HttpOnly的属性，就能防止JavaScript获取。
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从输入url到浏览器显示页面发生了什么</title>
+    <link href="http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/"/>
+    <id>http://blog.ypintao.com/2016/07/01/技术/web前端/JS/从输入url到浏览器显示页面发生了什么/</id>
+    <published>2016-06-30T16:00:00.000Z</published>
+    <updated>2017-03-22T07:09:00.784Z</updated>
+    
+    <content type="html"><![CDATA[<p>#####这个过程大致分为两个部分：网络通信和页面渲染。</p>
+<h6 id="1、网络通信"><a href="#1、网络通信" class="headerlink" title="1、网络通信"></a>1、网络通信</h6><p>互联网内各网络设备间的通信都遵循TCP/IP协议，利用TCP/IP协议进行网络通信时，会通过分层顺序与对方进行通信。分层由高到低分别为：应用层，传输层、网络层、数据链路层。发送端从应用层往下走，接收端从数据链路层往上走：</p>
+<p>如图</p>
+<p>应用层——&gt;传输层——&gt;网络层——&gt;数据链路层</p>
+<p>HTTP客户端——&gt;TCP—-&gt;IP——&gt;网络</p>
+<ul>
+<li><p>在浏览器输入url<a id="more"></a></p>
+</li>
+<li><p>应用层DNS解析域名</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">客户端先检查本地是否有对应的ip地址，</div><div class="line">若找到则返回响应的ip地址。</div><div class="line">若没有找到则请求上级DNS服务器，</div><div class="line">直至找到或到根节点。</div></pre></td></tr></table></figure>
+<ul>
+<li>应用层客户端发送HTTP请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HTTP请求包括请求报头和请求主体两个部分</div><div class="line">，其中请求报头包含至关重要的信息，</div><div class="line">包括请求的方法GET、POST,、目标url、遵循的协议（http，https，ftp），</div><div class="line">返回的信息是否需要缓存，以及客户端是否发送cookie等。</div></pre></td></tr></table></figure>
+<ul>
+<li>传输层TCP传输报文</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">位于传输层的TCP协议为传输报文提供可靠的字节流服务，他为了方便传</div><div class="line">输，将打款的数据分割成以报文段为单位的数据包进行管理，并为他们编</div><div class="line">号，方便服务器接收时能准确地还原报文信息，TCP协议通过三次握手等</div><div class="line">方法保证传输的安全可靠。</div><div class="line">  三次握手的过程是，发送端先发送一个带有SYN标志的数据包给接收</div><div class="line">端，以一定的延时时间内，等待接收的回复，接收端收到数据包后，传回</div><div class="line">一个带有SYN/ACK标志的数据包以表示传达确认信息，接收方收到后再发</div><div class="line">送一个带有ACK标志的数据包给接收端表示握手成功，在这个过程中，如</div><div class="line">果发送端在规定的延时时间内没有收到回复则默认接收方没有收到请求，</div><div class="line">而在次发送，知道收到回复为止</div></pre></td></tr></table></figure>
+<ul>
+<li>网络层IP协议查询MAC地址</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  IP协议的作用是把TCP分割好的各种数据包，传送给接收方。而要保证确</div><div class="line">实能够传到接收方还需要接收方的MAC地址，也就是物理地址，IP地址和</div><div class="line">MAC地址是一一对应的关系，一个网络设备的IP地址可以更换，但是MAC</div><div class="line">地址一般是固定不变的，Arp协议，可以将IP地址解析成对应的MAC地</div><div class="line">址，当通信的双方不再同一个局域网时，需要多次中转才能到达最终的目</div><div class="line">标，在中转的过程中，需要通过下一个中转站的MAC地址来搜索下一个中</div><div class="line">转目标。8135</div></pre></td></tr></table></figure>
+<ul>
+<li>数据到达数据链路层</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在找到对方的mac地址以后，就将数据发送到数据链路层传输，这时，客</div><div class="line">户端发送请求的阶段结束</div></pre></td></tr></table></figure>
+<ul>
+<li>服务器接收数据</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">接收端的服务器在链路层收到数据包，再层层向上直到应用层，这过程中</div><div class="line">包括在运输层通过TCP协议将分段的数据包重新组成原来的HTTP请求报</div><div class="line">文，</div></pre></td></tr></table></figure>
+<ul>
+<li>服务器响应请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">服务接收到客户端发送的HTTP请求后，查找客户端请求的资源，并返回</div><div class="line">响应的报文，响应的报文中包括一个重要的信息------状态码。状态码由三</div><div class="line">位数字组成，其中比较常见的是200OK表示成功，301表示永久重定向。</div><div class="line">即请求的资源已经永久转移到新的位置。在返回301状态码的同事，响应</div><div class="line">报文也会附带重定向的url，客户端接收到后将http请求的url做相应的改变</div><div class="line">再重新发送。</div></pre></td></tr></table></figure>
+<ul>
+<li>服务器返回相应文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">请求成功后，服务器会返回相应的HTML文件，接下来就到了页面的渲染</div><div class="line">阶段。</div></pre></td></tr></table></figure>
+<h6 id="2、页面渲染"><a href="#2、页面渲染" class="headerlink" title="2、页面渲染"></a>2、页面渲染</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">浏览器渲染页面的过程是这样的：</div><div class="line">解析HTML以构建DOM树----&gt;构建渲染树----&gt;布局渲染树----&gt;绘制渲染</div><div class="line">树。</div><div class="line">DOM树是由HTML文件中的标签排列组成，渲染树是在DOM树种加入css</div><div class="line">或者html种的style样式而形成的。渲染树只包含需要显示在页面中的DOM</div><div class="line">元素，像&lt;head&gt;元素或display属性值为none的元素都不在渲染树中。</div><div class="line">在浏览器还没有接收到完整的html文件时，他就开始渲染页面了。在遇到</div><div class="line">外部链入的脚本标签或样式标签或图片时，会再次发送HTTP请求重复上</div><div class="line">述步骤，在收到css文件后会对已经渲染的页面重新渲染，加入他们应有的</div><div class="line">样式，图片文件加载完立刻显示在相应位置。在这一过程中可能会触发页</div><div class="line">面的重绘或重排。</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#####这个过程大致分为两个部分：网络通信和页面渲染。&lt;/p&gt;
+&lt;h6 id=&quot;1、网络通信&quot;&gt;&lt;a href=&quot;#1、网络通信&quot; class=&quot;headerlink&quot; title=&quot;1、网络通信&quot;&gt;&lt;/a&gt;1、网络通信&lt;/h6&gt;&lt;p&gt;互联网内各网络设备间的通信都遵循TCP/IP协议，利用TCP/IP协议进行网络通信时，会通过分层顺序与对方进行通信。分层由高到低分别为：应用层，传输层、网络层、数据链路层。发送端从应用层往下走，接收端从数据链路层往上走：&lt;/p&gt;
+&lt;p&gt;如图&lt;/p&gt;
+&lt;p&gt;应用层——&amp;gt;传输层——&amp;gt;网络层——&amp;gt;数据链路层&lt;/p&gt;
+&lt;p&gt;HTTP客户端——&amp;gt;TCP—-&amp;gt;IP——&amp;gt;网络&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在浏览器输入url
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS问题汇总</title>
+    <link href="http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://blog.ypintao.com/2016/07/01/技术/web前端/JS/JS问题汇总/</id>
+    <published>2016-06-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:06.570Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、如何解决跨域问题&quot;&gt;&lt;a href=&quot;#1、如何解决跨域问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何解决跨域问题&quot;&gt;&lt;/a&gt;1、如何解决跨域问题&lt;/h3&gt;&lt;p&gt;  nginx代理，或后端设置，&lt;/p&gt;
+&lt;h3 id=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;a href=&quot;#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot; class=&quot;headerlink&quot; title=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;/a&gt;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于单位px,rem,em</title>
+    <link href="http://blog.ypintao.com/2016/06/11/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%8D%95%E4%BD%8Dpx,rem,em/"/>
+    <id>http://blog.ypintao.com/2016/06/11/技术/web前端/JS/关于单位px,rem,em/</id>
+    <published>2016-06-10T16:00:00.000Z</published>
+    <updated>2017-03-22T07:09:09.396Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>px(像素)，相对长度单位，像素px是相对于显示器屏幕分辨率而言的，</p>
+</li>
+<li><p>em 相对长度单位，相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸<br>未被人为设置，则相对于浏览器的默认字体尺寸。<a id="more"></a></p>
+</li>
+<li><p>rem也是相对长度单位，但相对的知识html根元素。</p>
+</li>
+<li><p>vw代表视窗（viewport）的宽度为1%,如果视窗的宽度为1000px，那么50vw =500px</p>
+</li>
+<li><p>vh代表窗口高度的百分，如果视窗的高度为800px,那么50vh = 400px</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;px(像素)，相对长度单位，像素px是相对于显示器屏幕分辨率而言的，&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;em 相对长度单位，相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸&lt;br&gt;未被人为设置，则相对于浏览器的默认字体尺寸。
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS问题汇总</title>
+    <link href="http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/CSS%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://blog.ypintao.com/2016/05/01/技术/web前端/CSS/CSS的问题汇总/</id>
+    <published>2016-04-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:15.640Z</updated>
+    
+    <content type="html"><![CDATA[<p>###浏览器是怎样解析css选择器的？</p>
+<ul>
+<li>按照从上到下,从右到左的顺序解析</li>
+</ul>
+<p>###css优先级算法如何计算（ICE法则）<a id="more"></a></p>
+<ul>
+<li>css优化、提高性能的方法有哪些？</li>
+</ul>
+<p>###设置元素浮动后，该元素的display值是多少？（自动变成display：block）</p>
+<p>###为什么要初始化css样式。</p>
+<ul>
+<li>统一去掉浏览器的默认样式</li>
+</ul>
+<p>###对BFC规范（块级格式化上下文）的理解</p>
+<p>###让页面里的字体变清晰，变细用css怎么做？（-webkit-font-smoothing:antialiased;）</p>
+<p>###使用css预处理器吗？喜欢哪个？</p>
+<p>###经常遇到的浏览器的兼容性问题有哪些？原因，解决方法是什么，常用hack的技巧，</p>
+<p>###display有哪些值？说明他们的作用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  display:none 隐藏</div><div class="line">  </div><div class="line">display:block 块级元素</div><div class="line"></div><div class="line">display:inline  默认</div><div class="line"></div><div class="line">display:inline-block</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###浏览器是怎样解析css选择器的？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按照从上到下,从右到左的顺序解析&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###css优先级算法如何计算（ICE法则）
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="CSS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://blog.ypintao.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5问题汇总</title>
+    <link href="http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://blog.ypintao.com/2016/05/01/技术/web前端/HTML5/HTML5问题汇总/</id>
+    <published>2016-04-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:12.152Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;a href=&quot;#简述一下你对html语义化的理解&quot; class=&quot;headerlink&quot; title=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;/a&gt;简述一下你对html语义化的理解&lt;/h3&gt;&lt;p&gt;网页验证码是干嘛的，是为了解决什么安全问题&lt;br&gt;html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，&lt;/p&gt;
+&lt;h3 id=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;a href=&quot;#浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot; class=&quot;headerlink&quot; title=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;/a&gt;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&lt;/h3&gt;&lt;h3 id=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;a href=&quot;#介绍下你对浏览器内核的理解&quot; class=&quot;headerlink&quot; title=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;/a&gt;介绍下你对浏览器内核的理解
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/HTML5/"/>
+    
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/tags/HTML5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vim使用</title>
     <link href="http://blog.ypintao.com/2016/02/27/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vim%E4%BD%BF%E7%94%A8/"/>
     <id>http://blog.ypintao.com/2016/02/27/技术/Linux/node开发工具/vim使用/</id>
@@ -341,9 +715,9 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     <link href="http://blog.ypintao.com/2015/04/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/gulp/gulp%E5%85%A5%E9%97%A8/"/>
     <id>http://blog.ypintao.com/2015/04/01/技术/web前端/gulp/gulp入门/</id>
     <published>2015-03-31T16:00:00.000Z</published>
-    <updated>2017-03-21T08:32:52.711Z</updated>
+    <updated>2017-03-22T06:42:15.638Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="你仅仅需要知道的5个gulp命令"><a href="#你仅仅需要知道的5个gulp命令" class="headerlink" title="你仅仅需要知道的5个gulp命令"></a>你仅仅需要知道的5个gulp命令<a id="more"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(name, fn)这个你应经见过了</div><div class="line">gulp.run(tasks...)尽可能多的并行运行多个task</div><div class="line">gulp.watch(glob, fn)当glob内容发生改变时，执行fn</div><div class="line">gulp.src(glob)返回一个可读的stream</div><div class="line">gulp.dest(glob)返回一个可写的stream</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h3 id="你仅仅需要知道的5个gulp命令"><a href="#你仅仅需要知道的5个gulp命令" class="headerlink" title="你仅仅需要知道的5个gulp命令"></a>你仅仅需要知道的5个gulp命令<a id="more"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">gulp.task(name, fn)这个你应经见过了</div><div class="line"></div><div class="line">gulp.run(tasks...)尽可能多的并行运行多个task</div><div class="line"></div><div class="line">gulp.watch(glob, fn)当glob内容发生改变时，执行fn</div><div class="line"></div><div class="line">gulp.src(glob)返回一个可读的stream</div><div class="line"></div><div class="line">gulp.dest(glob)返回一个可写的stream</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -648,405 +1022,6 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     
       <category term="生活" scheme="http://blog.ypintao.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速搭建 Node.js 开发环境以及加速 npm</title>
-    <link href="http://blog.ypintao.com/2015/02/20/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%20Node.js%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E5%8A%A0%E9%80%9Fnpm/"/>
-    <id>http://blog.ypintao.com/2015/02/20/技术/Linux/node开发工具/快速搭建 Node.js 开发环境以及加速npm/</id>
-    <published>2015-02-19T16:00:00.000Z</published>
-    <updated>2017-03-21T09:45:58.793Z</updated>
-    
-    <content type="html"><![CDATA[<p>快速搭建 Node.js 开发环境以及加速 npm </p>
-<p>在公交车上刷微博，还是有很多同学在咨询: </p>
-<p>如何快速搭建 node 开发环境<br>npm 超慢<br>github 无法打开的问题 </p>
-<p>于是我觉得应该写一篇文章解答所有这些起步问题，让新同学也能顺顺利利入门。<br>快速搭建 Node.js 开发环境 <a id="more"></a></p>
-<p>如果你想长期做 node 开发, 或者想快速更新 node 版本, 或者想快速切换 node 版本, 那么在非 Windows(如 osx, linux) 环境下, 请使用 nvm 来安装你的 node 开发环境, 保持系统的干净. </p>
-<p>如果你使用 Windows 做开发, 那么你可以使用 nvmw 来替代 nvm<br>osx, linux 环境 </p>
-<p>如果你是 windows 环境开发, 请跳过这里, 直接查看下一章.<br>git clone nvm </p>
-<p>直接从 github clone nvm 到本地, 这里假设大家都使用 ~/git 目录存放 git 项目: </p>
-<p>$ cd ~/git<br>$ git clone <a href="https://github.com/creationix/nvm.git" target="_blank" rel="external">https://github.com/creationix/nvm.git</a></p>
-<p>配置终端启动时自动执行 source ~/git/nvm/nvm.sh, 在 ~/.bashrc, ~/.bash_profile, ~/.profile, 或者 ~/.zshrc 文件添加以下命令: </p>
-<p>source ~/git/nvm/nvm.sh </p>
-<p>重新打开你的终端, 输入 nvm </p>
-<p>$ nvm </p>
-<p>Node Version Manager </p>
-<p>Usage:<br>nvm help Show this message<br>nvm –version Print out the latest released version of nvm<br>nvm install [-s] <version> Download and install a <version>, [-s] from source<br>nvm uninstall <version> Uninstall a version<br>nvm use <version> Modify PATH to use <version><br>nvm run <version> [<args>] Run <version> with <args> as arguments<br>nvm current Display currently activated version<br>nvm ls List installed versions<br>nvm ls <version> List versions matching a given description<br>nvm ls-remote List remote versions available for install<br>nvm deactivate Undo effects of NVM on current shell<br>nvm alias [<pattern>] Show all aliases beginning with <pattern><br>nvm alias <name> <version> Set an alias named <name> pointing to <version><br>nvm unalias <name> Deletes the alias named <name><br>nvm copy-packages <version> Install global NPM packages contained in <version> to current version </version></version></name></name></version></name></version></name></pattern></pattern></version></args></version></args></version></version></version></version></version></version></p>
-<p>Example:<br>nvm install v0.10.24 Install a specific version number<br>nvm use 0.10 Use the latest available 0.10.x release<br>nvm run 0.10.24 myApp.js Run myApp.js using node v0.10.24<br>nvm alias default 0.10.24 Set default node version on a shell </p>
-<p>Note:<br>to remove, delete or uninstall nvm - just remove ~/.nvm, ~/.npm and ~/.bower folders </p>
-<p>通过 nvm 安装任意版本的 node </p>
-<p>nvm 默认是从 <a href="http://nodejs.org/dist/" target="_blank" rel="external">http://nodejs.org/dist/</a> 下载的, 国外服务器, 必然很慢, 好在 nvm 以及支持从镜像服务器下载包, 于是我们可以方便地从七牛的 node dist 镜像下载: </p>
-<p>$ NVM_NODEJS_ORG_MIRROR=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a> nvm install 0.11.11 </p>
-<p>于是你就会看到一段非常快速进度条: </p>
-<p>######################################################################## 100.0%<br>Now using node v0.11.11 </p>
-<p>如果你不想每次都输入环境变量 NVM_NODEJS_ORG_MIRROR, 那么我建议你加入到 .bashrc 文件中: </p>
-<h1 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h1><p>export NVM_NODEJS_ORG_MIRROR=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a><br>source ~/git/nvm/nvm.sh </p>
-<p>然后你可以继续非常方便地安装各个版本的 node 了, 你可以查看一下你当前已经安装的版本: </p>
-<p>$ nvm ls<br>nvm<br>v0.8.26<br>v0.10.26<br>v0.11.11<br>-&gt; v0.11.12 </p>
-<p>windows 环境<br>git clone nvmw </p>
-<p>直接从 github clone nvmw 到本地, 这里假设大家都使用 d:\git 目录存放 git 项目: </p>
-<p>$ d:<br>$ cd git<br>$ git clone <a href="https://github.com/hakobera/nvmw.git" target="_blank" rel="external">https://github.com/hakobera/nvmw.git</a></p>
-<p>设置 d:\git\nvmw 目录到你的 PATH 环境变量中: </p>
-<p>set “PATH=d:\git\nvmw;%PATH%” </p>
-<p>重新打开你的终端, 输入 nvmw </p>
-<p>$ nvmw </p>
-<p>Usage:<br>nvmw help Show this message<br>nvmw install [version] Download and install a [version]<br>nvmw uninstall [version] Uninstall a [version]<br>nvmw use [version] Modify PATH to use [version]<br>nvmw ls List installed versions </p>
-<p>Example:<br>nvmw install v0.6.0 Install a specific version number<br>nvmw use v0.6.0 Use the specific version </p>
-<p>通过 nvmw 安装任意版本的 node </p>
-<p>nvmw 默认是从 <a href="http://nodejs.org/dist/" target="_blank" rel="external">http://nodejs.org/dist/</a> 下载的, 国外服务器, 必然很慢, 好在 nvmw 以及支持从镜像服务器下载包, 于是我们可以方便地从七牛的 node dist 镜像下载: </p>
-<p>$ set “NVMW_NODEJS_ORG_MIRROR=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a>“<br>$ nvmw install 0.11.11 </p>
-<p>于是你就会看到一段非常快速进度条: </p>
-<p>######################################################################## 100.0%<br>Now using node v0.11.11 </p>
-<p>如果你不想每次都输入环境变量 NVMW_NODEJS_ORG_MIRROR, 那么我建议你在全局环境变量中增加它. </p>
-<p>然后你可以继续非常方便地安装各个版本的 node 了, 你可以查看一下你当前已经安装的版本: </p>
-<p>$ nvmw ls </p>
-<p>v0.10.26<br>v0.11.12<br>Current: v0.11.12 </p>
-<p>到此, 无论是 windows 环境, 还是 osx, linux 环境, 都能快速安装多个版本的 node 了.<br>使用 cnpm 加速 npm </p>
-<p>同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> : </p>
-<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> install koa </p>
-<p>于是屏幕又哗啦哗啦地一大片输出: </p>
-<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a href="https://registry.npm.taobao.org/koa" target="_blank" rel="external">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a href="https://registry.npm.taobao.org/koa" target="_blank" rel="external">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a href="https://registry.npm.taobao.org/negotiator" target="_blank" rel="external">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a href="https://registry.npm.taobao.org/keygrip" target="_blank" rel="external">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0) </p>
-<p>但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli: </p>
-<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> install cnpm -g </p>
-<p>通过 cnpm 命令行, 你可以快速同步任意模块: </p>
-<p>$ cnpm sync koa connect mocha </p>
-<p>呃, 我就是不想安装 cnpm cli 怎么办? 哈哈, 早就想到你会这么懒了, 于是我们还有一个 web 页面: </p>
-<p>例如我想马上同步 koa, 直接打开浏览器: <a href="https://npm.taobao.org/sync/koa" target="_blank" rel="external">https://npm.taobao.org/sync/koa</a></p>
-<p>或者你是命令行控, 通过 open 命令打开: </p>
-<p>$ open <a href="https://npm.taobao.org/sync/koa" target="_blank" rel="external">https://npm.taobao.org/sync/koa</a></p>
-<p>如果你安装的模块依赖了 C++ 模块, 需要编译, 肯定会通过 node-gyp 来编译, node-gyp 在第一次编译的时候, 需要依赖 node 源代码, 于是又会去 node dist 下载, 于是大家又会吐槽, 怎么 npm 安装这么慢… </p>
-<p>好吧, 于是又要提到 –disturl 参数, 通过七牛的镜像来下载: </p>
-<p>$ npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a> –disturl=<a href="https://npm.taobao.org/dist" target="_blank" rel="external">https://npm.taobao.org/dist</a> install microtime </p>
-<p>再次要提到 cnpm cli, 它已经默认将 –registry 和 –disturl 都配置好了, 谁用谁知道 . 写到这里, 就更快疑惑那些不想安装 cnpm cli 又吐槽 npm 慢的同学是基于什么考虑不在本地安装一个 cnpm 呢?<br>github 好慢 </p>
-<p>好了, 看到这里大家应该对 node 和 npm 已经没有速度慢的问题了. </p>
-<p>github 慢, 或者说是它的资源 host 被堵而已, 大家可以通过简单的 hosts 映射解决: </p>
-<p>185.31.16.184 github.global.ssl.fastly.net</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;快速搭建 Node.js 开发环境以及加速 npm &lt;/p&gt;
-&lt;p&gt;在公交车上刷微博，还是有很多同学在咨询: &lt;/p&gt;
-&lt;p&gt;如何快速搭建 node 开发环境&lt;br&gt;npm 超慢&lt;br&gt;github 无法打开的问题 &lt;/p&gt;
-&lt;p&gt;于是我觉得应该写一篇文章解答所有这些起步问题，让新同学也能顺顺利利入门。&lt;br&gt;快速搭建 Node.js 开发环境
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="node开发工具" scheme="http://blog.ypintao.com/categories/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="node开发工具" scheme="http://blog.ypintao.com/tags/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node  forever安装pm2</title>
-    <link href="http://blog.ypintao.com/2015/01/20/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/node%20%20forever%E5%AE%89%E8%A3%85pm2/"/>
-    <id>http://blog.ypintao.com/2015/01/20/技术/Linux/node开发工具/node  forever安装pm2/</id>
-    <published>2015-01-19T16:00:00.000Z</published>
-    <updated>2017-03-21T09:45:49.387Z</updated>
-    
-    <content type="html"><![CDATA[<p>但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以在js中作为api使用。<br>$ sudo npm install forever -g   #安装<br>$ forever start app.js          #启动<br>$ forever stop app.js           #关闭<br>$ forever start -l forever.log -o out.log -e err.log app.js   #输出日志和错误</p>
-<p>alinode    <a href="http://alinode.aliyun.com/dashboard/apps/30" target="_blank" rel="external">http://alinode.aliyun.com/dashboard/apps/30</a></p>
-<p>forever命令行的中文解释<a id="more"></a></p>
-<p>子命令actions：<br>start:启动守护进程<br>stop:停止守护进程<br>stopall:停止所有的forever进程<br>restart:重启守护进程<br>restartall:重启所有的foever进程<br>list:列表显示forever进程<br>config:列出所有的用户配置项<br>set <key> <val>: 设置用户配置项<br>clear <key>: 清楚用户配置项<br>logs: 列出所有forever进程的日志<br>logs <script|index>: 显示最新的日志<br>columns add <col>: 自定义指标到forever list<br>columns rm <col>: 删除forever list的指标<br>columns set<cols>: 设置所有的指标到forever list<br>cleanlogs: 删除所有的forever历史日志<br>配置参数options：<br>-m MAX: 运行指定脚本的次数<br>-l LOGFILE: 输出日志到LOGFILE<br>-o OUTFILE: 输出控制台信息到OUTFILE<br>-e ERRFILE: 输出控制台错误在ERRFILE<br>-p PATH: 根目录<br>-c COMMAND: 执行命令，默认是node<br>-a, –append: 合并日志<br>-f, –fifo: 流式日志输出<br>-n, –number: 日志打印行数<br>–pidFile: pid文件<br>–sourceDir: 源代码目录<br>–minUptime: 最小spinn更新时间(ms)<br>–spinSleepTime: 两次spin间隔时间<br>–colors: 控制台输出着色<br>–plain: –no-colors的别名，控制台输出无色<br>-d, –debug: debug模式<br>-v, –verbose: 打印详细输出<br>-s, –silent: 不打印日志和错误信息<br>-w, –watch: 监控文件改变<br>–watchDirectory: 监控顶级目录<br>–watchIgnore: 通过模式匹配忽略监控<br>-h, –help: 命令行帮助信息</cols></script|index></key></val></key></p>
-<ol>
-<li>forever服务器管理</li>
-</ol>
-<p>创建一个web项目(express3+ejs)，使用forever管理服务器。<br>安装express3</p>
-<p>~ D:\workspace\javascript&gt;express -e nodejs-forever<br>~ D:\workspace\javascript&gt;cd nodejs-forever &amp;&amp; npm install<br>通过forever启动应用</p>
-<p>~ D:\workspace\javascript\nodejs-forever&gt;forever start app.js<br>warn:    –minUptime not set. Defaulting to: 1000ms<br>warn:    –spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms<br>info:    Forever processing file: app.js<br>打开浏览器: <a href="http://localhost:3000，可以看到web界面" target="_blank" rel="external">http://localhost:3000，可以看到web界面</a><br>在win下面查看forever状态</p>
-<p>~ D:\workspace\javascript\nodejs-forever&gt;forever list<br>info:    No forever processes running</p>
-<p>~ D:\workspace\javascript\nodejs-forever&gt;forever stop app.js<br>error:   Forever cannot find process with index: app.js<br>我们发现forever的程序，工作不对了！！程序明明是运行状态，通过list确看不到。接下来，切换成Linux Ubuntu继续测试。</p>
-<ol>
-<li>forever在Ubuntu进行服务器管理</li>
-</ol>
-<p>Linux的系统环境<br>Linux: Ubuntu 12.04.2 64bit Server<br>Node: v0.11.2<br>Npm: 1.2.21<br>初始化项目：安装命令不解释了</p>
-<p>~ cd /home/conan/nodejs<br>~ express -e nodejs-forever<br>~ cd nodejs-forever &amp;&amp; npm install<br>~ sudo npm install forever -g<br>启动forever</p>
-<p>~ forever start app.js<br>warn:    –minUptime not set. Defaulting to: 1000ms<br>warn:    –spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms<br>info:    Forever processing file: app.js<br>查看node服务器状态</p>
-<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile                       uptime<br>data:    [0] L2tY /usr/local/bin/node app.js 18276   18279 /home/conan/.forever/L2tY.log 0:0:0:37.792</p>
-<h1 id="系统进程"><a href="#系统进程" class="headerlink" title="系统进程"></a>系统进程</h1><p>~ ps -aux|grep node<br>Warning: bad ps syntax, perhaps a bogus ‘-‘? See <a href="http://procps.sf.net/faq.html" target="_blank" rel="external">http://procps.sf.net/faq.html</a><br>conan    18296  0.5  1.1 597696 23776 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18299  0.4  0.8 630340 18392 ?        Sl   15:48   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js</p>
-<h1 id="端口占用"><a href="#端口占用" class="headerlink" title="端口占用"></a>端口占用</h1><p>~ netstat -nltp|grep node<br>tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      18299/node<br>停止服务器</p>
-<p>~ forever stop app.js<br>info:    Forever stopped process:<br>data:        uid  command             script forever pid   logfile                       uptime<br>[0] L2tY /usr/local/bin/node app.js 18276   18279 /home/conan/.forever/L2tY.log 0:0:0:45.621<br>我们看到在Linux Ubuntu环境中是正常的。</p>
-<ol>
-<li>模拟服务器宕机</li>
-</ol>
-<p>两种测试方案：</p>
-<ol>
-<li>用Linux命令，直接杀死node进程</li>
-<li>在应用中，模拟异常退出<br>1). 用Linux命令，直接杀死node进程</li>
-</ol>
-<h1 id="查看node进程，PID-18299"><a href="#查看node进程，PID-18299" class="headerlink" title="查看node进程，PID=18299"></a>查看node进程，PID=18299</h1><p>~ ps -aux|grep node</p>
-<p>conan    18296  0.0  1.1 597696 23776 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18299  0.0  0.8 630340 18392 ?        Sl   15:48   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18315  0.0  0.0  13584   956 pts/5    R+   15:52   0:00 grep –color=auto node</p>
-<h1 id="杀死PID-19299"><a href="#杀死PID-19299" class="headerlink" title="杀死PID=19299"></a>杀死PID=19299</h1><p>~ kill -9 18299</p>
-<h1 id="再看node进程，node自动重启，新的PID-18324"><a href="#再看node进程，node自动重启，新的PID-18324" class="headerlink" title="再看node进程，node自动重启，新的PID=18324"></a>再看node进程，node自动重启，新的PID=18324</h1><p>~ ps -aux|grep node</p>
-<p>conan    18296  0.0  1.1 597696 23916 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18316  2.6  0.8 630340 18412 ?        Sl   15:52   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18324  0.0  0.0  13584   956 pts/5    R+   15:52   0:00 grep –color=auto node<br>我们看到看杀死node进程，forever会帮助我们，重启node。<br>杀死forever的monitor</p>
-<p>~ kill -9  18296<br>~ ps -aux|grep node</p>
-<p>conan    18316  0.0  0.9 630340 18644 ?        Sl   15:52   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18333  0.0  0.0  13584   952 pts/5    S+   15:57   0:00 grep –color=auto node</p>
-<h1 id="再杀死node进程"><a href="#再杀死node进程" class="headerlink" title="再杀死node进程"></a>再杀死node进程</h1><p>~ kill -9 18316<br>~ ps -aux|grep node</p>
-<p>conan    18336  0.0  0.0  13584   956 pts/5    S+   15:58   0:00 grep –color=auto node<br>我们尝试杀死了forever的monitor，monitor程序没有自动重启，然后再杀死node进程后，node也不会自动重启了。<br>2). 在应用中，模拟异常退出<br>修改文件：app.js</p>
-<p>~ vi app.js</p>
-<p>//..<br>http.createServer(app).listen(app.get(‘port’), function(){<br>  console.log(new Date());<br>  console.log(‘Express server listening on port ‘ + app.get(‘port’));<br>});</p>
-<p>setTimeout(function(){<br>  console.log(new Date());<br>  throw new Error(‘App is error from inner!’);<br>},10*1000);<br>通过node命令启动</p>
-<p>~ node app.js<br>Thu Sep 26 2013 16:08:44 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:08:54 GMT+0800 (CST)</p>
-<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>10秒后，由于内部错误， node进程挂掉了。<br>通过forever命令启动</p>
-<p>~ mkdir logs<br>~ chmod 777 -R logs<br>~ forever -p . -l ./logs/access.log -e ./logs/error.log start app.js</p>
-<h1 id="检查错误日志"><a href="#检查错误日志" class="headerlink" title="检查错误日志"></a>检查错误日志</h1><p>~ cat logs/access.log ls<br>Thu Sep 26 2013 16:15:02 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:12 GMT+0800 (CST)</p>
-<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 1 time<br>Thu Sep 26 2013 16:15:13 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:23 GMT+0800 (CST)</p>
-<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 2 time<br>Thu Sep 26 2013 16:15:23 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:33 GMT+0800 (CST)</p>
-<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 3 time<br>Thu Sep 26 2013 16:15:33 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:43 GMT+0800 (CST)</p>
-<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 4 time<br>我们发现每10秒种，node内部挂掉，然后再被forever重启！！<br>通过list我们手动刷新几次也可以看到pid是变的。</p>
-<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18579 logs/access.log 0:0:0:7.211</p>
-<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18579 logs/access.log 0:0:0:8.921</p>
-<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18604 logs/access.log 0:0:0:0.177</p>
-<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18604 logs/access.log 0:0:0:2.206<br>这样forever就帮助我们完成了，几项比较重要服务器管理功能：“启动/停止命令简单”，“支持热部署”，“宕机重启”，“监控界面和日志”。<br>比起upstart管理，省略了配置脚本的步骤(/etc/init/nodejs-xx.conf)。其他的功能，还要更近一步的使用才知道。</p>
-<ol>
-<li>开发环境和生产环境的启动配置</li>
-</ol>
-<p>开发环境</p>
-<p>~ cd /home/conan/nodejs/nodejs-forever/<br>~ forever -p . -l ./logs/access.log -e ./logs/error.log -a -w start app.js<br>生产环境</p>
-<p>~ export LOG=/var/log/nodejs/project<br>~ export PID=/var/log/nodejs/project/forever.pid<br>~ export APP_PATH=/home/conan/nodejs/nodejs-forever<br>~ export APP=$APP_PATH/app.js</p>
-<p>~ forever -p $APP_PATH -l $LOG/access.log -e $LOG/error.log -o $LOG/out.log -a –pidFile $PID start $AP</p>
-<p>================================================================</p>
-<h1 id="pm2的详解-充分利用cpu核心数"><a href="#pm2的详解-充分利用cpu核心数" class="headerlink" title="pm2的详解 充分利用cpu核心数"></a>pm2的详解 充分利用cpu核心数</h1><p>pm2 是一个带有负载均衡功能的Node应用的进程管理器.<br>当你要把你的独立代码利用全部的服务器上的所有CPU，并保证进程永远都活着，0秒的重载， PM2是完美的。它非常适合IaaS结构，但不要把它用于PaaS方案（随后将开发Paas的解决方案）.</p>
-<p>备注：SaaS、PaaS和IaaS是云服务模式。<br>        SaaS 软件即服务，例如Google的 Gmail 邮箱服务.面向应用型用户.<br>        PaaS 平台即服务.例如Google的GAE,面向开发型用户<br>        IaaS  基础架构即服务,例如亚马逊的AWS，IaaS对于不知道新推出的应用程序/网站会有多成功的创业公司来说非常有用<br>      请参考 云服务模式：SaaS、PaaS和IaaS，哪一种适合你？</p>
-<p>主要特性：</p>
-<p>内建负载均衡（使用Node cluster 集群模块）<br>后台运行<br>0秒停机重载，我理解大概意思是维护升级的时候不需要停机.<br>具有Ubuntu和CentOS 的启动脚本<br>停止不稳定的进程（避免无限循环）<br>控制台检测<br>提供 HTTP API<br>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</p>
-<p>测试过Nodejs v0.11 v0.10 v0.8版本，兼容CoffeeScript,基于Linux 和MacOS.</p>
-<p>安装<br>npm install -g pm2</p>
-<p>用法<br>$ npm install pm2 -g     # 命令行安装 pm2<br>$ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js </p>
-<pre><code># 也可以把&apos;max&apos; 参数传递给 start
-# 正确的进程数目依赖于Cpu的核心数目
-</code></pre><p>$ pm2 start app.js –name my-api # 命名进程<br>$ pm2 list               # 显示所有进程状态<br>$ pm2 monit              # 监视所有进程<br>$ pm2 logs               #  显示所有进程日志<br>$ pm2 stop all           # 停止所有进程<br>$ pm2 restart all        # 重启所有进程<br>$ pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)<br>$ pm2 stop 0             # 停止指定的进程<br>$ pm2 restart 0          # 重启指定的进程<br>$ pm2 startup            # 产生 init 脚本 保持进程活着<br>$ pm2 web                # 运行健壮的 computer API endpoint (<a href="http://localhost:9615" target="_blank" rel="external">http://localhost:9615</a>)<br>$ pm2 delete 0           # 杀死指定的进程<br>$ pm2 delete all         # 杀死全部进程</p>
-<p>运行进程的不同方式：<br>$ pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目<br>$ pm2 start app.js -i 3      # 启动3个进程<br>$ pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster<br>$ pm2 start app.js -x – -a 23   # 用fork模式启动 app.js 并且传递参数 (-a 23)<br>$ pm2 start app.js –name serverone  # 启动一个进程并把它命名为 serverone<br>$ pm2 stop serverone       # 停止 serverone 进程<br>$ pm2 start app.json        # 启动进程, 在 app.json里设置选项<br>$ pm2 start app.js -i max – -a 23                   #在–之后给 app.js 传递参数<br>$ pm2 start app.js -i max -e err.log -o out.log  # 启动 并 生成一个配置文件<br>你也可以执行用其他语言编写的app  ( fork 模式):<br>$ pm2 start my-bash-script.sh    -x –interpreter bash<br>$ pm2 start my-python-script.py -x –interpreter python</p>
-<p>0秒停机重载:<br>这项功能允许你重新载入代码而不用失去请求连接。<br>注意：<br>仅能用于web应用<br>运行于Node 0.11.x版本<br>运行于 cluster 模式（默认模式）<br>$ pm2 reload all</p>
-<p>CoffeeScript:<br>$ pm2 start my_app.coffee  #这就是全部</p>
-<p>PM2准备好为产品级服务了吗？<br>只需在你的服务器上测试<br>$ git clone <a href="https://github.com/Unitech/pm2.git" target="_blank" rel="external">https://github.com/Unitech/pm2.git</a><br>$ cd pm2<br>$ npm install  # 或者 npm install –dev ，如果devDependencies 没有安装<br>$ npm test</p>
-<p>pm2 list<br>列出由pm2管理的所有进程信息，还会显示一个进程会被启动多少次，因为没处理的异常。</p>
-<p>pm2 monit<br>监视每个node进程的CPU和内存的使用情况。</p>
-<p><a href="https://cnodejs.org/topic/563f6e708e90ab7c391e9f71" target="_blank" rel="external">https://cnodejs.org/topic/563f6e708e90ab7c391e9f71</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以在js中作为api使用。&lt;br&gt;$ sudo npm install forever -g   #安装&lt;br&gt;$ forever start app.js          #启动&lt;br&gt;$ forever stop app.js           #关闭&lt;br&gt;$ forever start -l forever.log -o out.log -e err.log app.js   #输出日志和错误&lt;/p&gt;
-&lt;p&gt;alinode    &lt;a href=&quot;http://alinode.aliyun.com/dashboard/apps/30&quot;&gt;http://alinode.aliyun.com/dashboard/apps/30&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;forever命令行的中文解释
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="node开发工具" scheme="http://blog.ypintao.com/categories/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="node开发工具" scheme="http://blog.ypintao.com/tags/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>修改阿里云CentOS Linux服务器的主机名</title>
-    <link href="http://blog.ypintao.com/2014/08/20/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E4%BF%AE%E6%94%B9%E9%98%BF%E9%87%8C%E4%BA%91CentOS%20Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D/"/>
-    <id>http://blog.ypintao.com/2014/08/20/技术/Linux/linux基本命令/修改阿里云CentOS Linux服务器的主机名/</id>
-    <published>2014-08-19T16:00:00.000Z</published>
-    <updated>2017-03-21T09:56:59.812Z</updated>
-    
-    <content type="html"><![CDATA[<p>阿里云主机的默认主机名是为AY开头的随机名称，如何修改为易于区分的友好名称呢？请看下面的操作步骤：</p>
-<ol>
-<li>vi /etc/hosts<br>i键，修改主机名，esc键，:x键保存退出<a id="more"></a></li>
-<li>vi /etc/sysconfig/network<br>i键，修改主机名(HOSTNAME=)，esc键，:x键保存退出</li>
-<li>输入以下命令：<br>hostname 新主机名<br>然后用ssh重新登录，就会显示新的主机名。<br>更新：<br>后来发现一个更简单的方法：<br>hostnamectl set-hostname 新主机名</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;阿里云主机的默认主机名是为AY开头的随机名称，如何修改为易于区分的友好名称呢？请看下面的操作步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;vi /etc/hosts&lt;br&gt;i键，修改主机名，esc键，:x键保存退出
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/categories/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置环境变量</title>
-    <link href="http://blog.ypintao.com/2014/08/18/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
-    <id>http://blog.ypintao.com/2014/08/18/技术/Linux/linux基本命令/配置环境变量/</id>
-    <published>2014-08-17T16:00:00.000Z</published>
-    <updated>2017-03-21T10:13:29.054Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><p>   设置CentOS防火墙开放端口方法如下：<br>   打开iptables的配置文件：<br>   vi /etc/sysconfig/iptables<br><a id="more"></a></p>
-<h2 id="配置NODE-HOME"><a href="#配置NODE-HOME" class="headerlink" title="配置NODE_HOME"></a>配置NODE_HOME</h2><pre><code>#vi /etc/profile
-设置nodejs环境变量，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 一行的上面添加如下内容:
-
-#set for nodejs
-export NODE_HOME=/usr/local/src/node-v0.12.3
-export PATH=$NODE_HOME/bin:$PATH
-
-:wq保存并退出，编译/etc/profile 使配置生效
-
-#source /etc/profile
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;防火墙&quot;&gt;&lt;a href=&quot;#防火墙&quot; class=&quot;headerlink&quot; title=&quot;防火墙&quot;&gt;&lt;/a&gt;防火墙&lt;/h2&gt;&lt;p&gt;   设置CentOS防火墙开放端口方法如下：&lt;br&gt;   打开iptables的配置文件：&lt;br&gt;   vi /etc/sysconfig/iptables&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/categories/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux系统信息</title>
-    <link href="http://blog.ypintao.com/2014/07/27/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
-    <id>http://blog.ypintao.com/2014/07/27/技术/Linux/linux基本命令/linux系统信息/</id>
-    <published>2014-07-26T16:00:00.000Z</published>
-    <updated>2017-03-21T09:57:09.270Z</updated>
-    
-    <content type="html"><![CDATA[<p>linux系统信息</p>
-<h1 id="uname-a-查看内核-操作系统-CPU信息"><a href="#uname-a-查看内核-操作系统-CPU信息" class="headerlink" title="uname -a # 查看内核/操作系统/CPU信息"></a>uname -a # 查看内核/操作系统/CPU信息</h1><h1 id="head-n-1-etc-issue-查看操作系统版本"><a href="#head-n-1-etc-issue-查看操作系统版本" class="headerlink" title="head -n 1 /etc/issue # 查看操作系统版本"></a>head -n 1 /etc/issue # 查看操作系统版本</h1><h1 id="cat-proc-cpuinfo-查看CPU信息"><a href="#cat-proc-cpuinfo-查看CPU信息" class="headerlink" title="cat /proc/cpuinfo # 查看CPU信息"></a>cat /proc/cpuinfo # 查看CPU信息</h1><h1 id="hostname-查看计算机名"><a href="#hostname-查看计算机名" class="headerlink" title="hostname # 查看计算机名"></a>hostname # 查看计算机名</h1><h1 id="lspci-tv-列出所有PCI设备"><a href="#lspci-tv-列出所有PCI设备" class="headerlink" title="lspci -tv # 列出所有PCI设备"></a>lspci -tv # 列出所有PCI设备</h1><h1 id="lsusb-tv-列出所有USB设备"><a href="#lsusb-tv-列出所有USB设备" class="headerlink" title="lsusb -tv # 列出所有USB设备"></a>lsusb -tv # 列出所有USB设备</h1><h1 id="lsmod-列出加载的内核模块"><a href="#lsmod-列出加载的内核模块" class="headerlink" title="lsmod # 列出加载的内核模块 "></a>lsmod # 列出加载的内核模块 <a id="more"></a></h1><h1 id="env-查看环境变量"><a href="#env-查看环境变量" class="headerlink" title="env # 查看环境变量"></a>env # 查看环境变量</h1><h1 id="arch-显示机器的处理器架构-1"><a href="#arch-显示机器的处理器架构-1" class="headerlink" title="arch 显示机器的处理器架构(1)"></a>arch 显示机器的处理器架构(1)</h1><h1 id="uname-m-显示机器的处理器架构-2"><a href="#uname-m-显示机器的处理器架构-2" class="headerlink" title="uname -m 显示机器的处理器架构(2)"></a>uname -m 显示机器的处理器架构(2)</h1><h1 id="uname-r-显示正在使用的内核版本"><a href="#uname-r-显示正在使用的内核版本" class="headerlink" title="uname -r 显示正在使用的内核版本"></a>uname -r 显示正在使用的内核版本</h1><h1 id="dmidecode-q-显示硬件系统部件"><a href="#dmidecode-q-显示硬件系统部件" class="headerlink" title="dmidecode -q 显示硬件系统部件"></a>dmidecode -q 显示硬件系统部件</h1><h1 id="hdparm-i-dev-hda-罗列一个磁盘的架构特性"><a href="#hdparm-i-dev-hda-罗列一个磁盘的架构特性" class="headerlink" title="hdparm -i /dev/hda 罗列一个磁盘的架构特性"></a>hdparm -i /dev/hda 罗列一个磁盘的架构特性</h1><h1 id="hdparm-tT-dev-sda-在磁盘上执行测试性读取操作"><a href="#hdparm-tT-dev-sda-在磁盘上执行测试性读取操作" class="headerlink" title="hdparm -tT /dev/sda 在磁盘上执行测试性读取操作"></a>hdparm -tT /dev/sda 在磁盘上执行测试性读取操作</h1><h1 id="cat-proc-interrupts-显示中断"><a href="#cat-proc-interrupts-显示中断" class="headerlink" title="cat /proc/interrupts 显示中断"></a>cat /proc/interrupts 显示中断</h1><h1 id="cat-proc-meminfo-校验内存使用"><a href="#cat-proc-meminfo-校验内存使用" class="headerlink" title="cat /proc/meminfo 校验内存使用"></a>cat /proc/meminfo 校验内存使用</h1><h1 id="cat-proc-swaps-显示哪些swap被使用"><a href="#cat-proc-swaps-显示哪些swap被使用" class="headerlink" title="cat /proc/swaps 显示哪些swap被使用"></a>cat /proc/swaps 显示哪些swap被使用</h1><h1 id="cat-proc-version-显示内核的版本"><a href="#cat-proc-version-显示内核的版本" class="headerlink" title="cat /proc/version 显示内核的版本"></a>cat /proc/version 显示内核的版本</h1><h1 id="cat-proc-net-dev-显示网络适配器及统计"><a href="#cat-proc-net-dev-显示网络适配器及统计" class="headerlink" title="cat /proc/net/dev 显示网络适配器及统计"></a>cat /proc/net/dev 显示网络适配器及统计</h1><h1 id="cat-proc-mounts-显示已加载的文件系统"><a href="#cat-proc-mounts-显示已加载的文件系统" class="headerlink" title="cat /proc/mounts 显示已加载的文件系统"></a>cat /proc/mounts 显示已加载的文件系统</h1><h1 id="lspci-tv-罗列-PCI-设备"><a href="#lspci-tv-罗列-PCI-设备" class="headerlink" title="lspci -tv 罗列 PCI 设备"></a>lspci -tv 罗列 PCI 设备</h1><h1 id="lsusb-tv-显示-USB-设备"><a href="#lsusb-tv-显示-USB-设备" class="headerlink" title="lsusb -tv 显示 USB 设备"></a>lsusb -tv 显示 USB 设备</h1><h1 id="date-显示系统日期"><a href="#date-显示系统日期" class="headerlink" title="date 显示系统日期"></a>date 显示系统日期</h1><h1 id="cal-2007-显示2007年的日历表"><a href="#cal-2007-显示2007年的日历表" class="headerlink" title="cal 2007 显示2007年的日历表"></a>cal 2007 显示2007年的日历表</h1><h1 id="date-041217002007-00-设置日期和时间-–-月日时分年-秒"><a href="#date-041217002007-00-设置日期和时间-–-月日时分年-秒" class="headerlink" title="date 041217002007.00 设置日期和时间 – 月日时分年.秒"></a>date 041217002007.00 设置日期和时间 – 月日时分年.秒</h1><h1 id="clock-w-将时间修改保存到-BIOS"><a href="#clock-w-将时间修改保存到-BIOS" class="headerlink" title="clock -w 将时间修改保存到 BIOS"></a>clock -w 将时间修改保存到 BIOS</h1><p>系统的关机、重启以及登出 </p>
-<h1 id="shutdown-h-now-关闭系统-1"><a href="#shutdown-h-now-关闭系统-1" class="headerlink" title="shutdown -h now 关闭系统(1)"></a>shutdown -h now 关闭系统(1)</h1><h1 id="init-0-关闭系统-2"><a href="#init-0-关闭系统-2" class="headerlink" title="init 0 关闭系统(2)"></a>init 0 关闭系统(2)</h1><h1 id="telinit-0-关闭系统-3"><a href="#telinit-0-关闭系统-3" class="headerlink" title="telinit 0 关闭系统(3)"></a>telinit 0 关闭系统(3)</h1><h1 id="shutdown-h-hours-minutes-amp-按预定时间关闭系统"><a href="#shutdown-h-hours-minutes-amp-按预定时间关闭系统" class="headerlink" title="shutdown -h hours:minutes &amp; 按预定时间关闭系统"></a>shutdown -h hours:minutes &amp; 按预定时间关闭系统</h1><h1 id="shutdown-c-取消按预定时间关闭系统"><a href="#shutdown-c-取消按预定时间关闭系统" class="headerlink" title="shutdown -c 取消按预定时间关闭系统"></a>shutdown -c 取消按预定时间关闭系统</h1><h1 id="shutdown-r-now-重启-1"><a href="#shutdown-r-now-重启-1" class="headerlink" title="shutdown -r now 重启  (1)"></a>shutdown -r now 重启  (1)</h1><h1 id="reboot-重启-2"><a href="#reboot-重启-2" class="headerlink" title="reboot 重启  (2)"></a>reboot 重启  (2)</h1><h1 id="logout-注销"><a href="#logout-注销" class="headerlink" title="logout 注销"></a>logout 注销</h1><p>如何查看linux系统资源</p>
-<h1 id="free-m-查看内存使用量和交换区使用量"><a href="#free-m-查看内存使用量和交换区使用量" class="headerlink" title="free -m # 查看内存使用量和交换区使用量"></a>free -m # 查看内存使用量和交换区使用量</h1><h1 id="df-h-查看各分区使用情况"><a href="#df-h-查看各分区使用情况" class="headerlink" title="df -h # 查看各分区使用情况"></a>df -h # 查看各分区使用情况</h1><h1 id="du-sh-lt-目录名-gt-查看指定目录的大小"><a href="#du-sh-lt-目录名-gt-查看指定目录的大小" class="headerlink" title="du -sh &lt;目录名&gt; # 查看指定目录的大小"></a>du -sh &lt;目录名&gt; # 查看指定目录的大小</h1><h1 id="grep-MemTotal-proc-meminfo-查看内存总量"><a href="#grep-MemTotal-proc-meminfo-查看内存总量" class="headerlink" title="grep MemTotal /proc/meminfo # 查看内存总量"></a>grep MemTotal /proc/meminfo # 查看内存总量</h1><h1 id="grep-MemFree-proc-meminfo-查看空闲内存量"><a href="#grep-MemFree-proc-meminfo-查看空闲内存量" class="headerlink" title="grep MemFree /proc/meminfo # 查看空闲内存量"></a>grep MemFree /proc/meminfo # 查看空闲内存量</h1><h1 id="uptime-查看系统运行时间、用户数、负载"><a href="#uptime-查看系统运行时间、用户数、负载" class="headerlink" title="uptime # 查看系统运行时间、用户数、负载"></a>uptime # 查看系统运行时间、用户数、负载</h1><h1 id="cat-proc-loadavg-查看系统负载"><a href="#cat-proc-loadavg-查看系统负载" class="headerlink" title="cat /proc/loadavg # 查看系统负载"></a>cat /proc/loadavg # 查看系统负载</h1><p>如何查看linux磁盘和分区</p>
-<h1 id="mount-column-t-查看挂接的分区状态"><a href="#mount-column-t-查看挂接的分区状态" class="headerlink" title="mount | column -t # 查看挂接的分区状态"></a>mount | column -t # 查看挂接的分区状态</h1><h1 id="fdisk-l-查看所有分区"><a href="#fdisk-l-查看所有分区" class="headerlink" title="fdisk -l # 查看所有分区"></a>fdisk -l # 查看所有分区</h1><h1 id="swapon-s-查看所有交换分区"><a href="#swapon-s-查看所有交换分区" class="headerlink" title="swapon -s # 查看所有交换分区"></a>swapon -s # 查看所有交换分区</h1><h1 id="hdparm-i-dev-hda-查看磁盘参数-仅适用于IDE设备"><a href="#hdparm-i-dev-hda-查看磁盘参数-仅适用于IDE设备" class="headerlink" title="hdparm -i /dev/hda # 查看磁盘参数(仅适用于IDE设备)"></a>hdparm -i /dev/hda # 查看磁盘参数(仅适用于IDE设备)</h1><h1 id="dmesg-grep-IDE-查看启动时IDE设备检测状况"><a href="#dmesg-grep-IDE-查看启动时IDE设备检测状况" class="headerlink" title="dmesg | grep IDE # 查看启动时IDE设备检测状况"></a>dmesg | grep IDE # 查看启动时IDE设备检测状况</h1><p>查看网络配置的命令</p>
-<h1 id="ifconfig-查看所有网络接口的属性"><a href="#ifconfig-查看所有网络接口的属性" class="headerlink" title="ifconfig # 查看所有网络接口的属性"></a>ifconfig # 查看所有网络接口的属性</h1><h1 id="iptables-L-查看防火墙设置"><a href="#iptables-L-查看防火墙设置" class="headerlink" title="iptables -L # 查看防火墙设置"></a>iptables -L # 查看防火墙设置</h1><h1 id="route-n-查看路由表"><a href="#route-n-查看路由表" class="headerlink" title="route -n # 查看路由表"></a>route -n # 查看路由表</h1><h1 id="netstat-lntp-查看所有监听端口"><a href="#netstat-lntp-查看所有监听端口" class="headerlink" title="netstat -lntp # 查看所有监听端口"></a>netstat -lntp # 查看所有监听端口</h1><h1 id="netstat-antp-查看所有已经建立的连接"><a href="#netstat-antp-查看所有已经建立的连接" class="headerlink" title="netstat -antp # 查看所有已经建立的连接"></a>netstat -antp # 查看所有已经建立的连接</h1><h1 id="netstat-s-查看网络统计信息"><a href="#netstat-s-查看网络统计信息" class="headerlink" title="netstat -s # 查看网络统计信息"></a>netstat -s # 查看网络统计信息</h1><p>查看linux进程</p>
-<h1 id="ps-ef-查看所有进程"><a href="#ps-ef-查看所有进程" class="headerlink" title="ps -ef # 查看所有进程"></a>ps -ef # 查看所有进程</h1><h1 id="top-实时显示进程状态"><a href="#top-实时显示进程状态" class="headerlink" title="top # 实时显示进程状态"></a>top # 实时显示进程状态</h1><p>查看用户的命令</p>
-<h1 id="w-查看活动用户"><a href="#w-查看活动用户" class="headerlink" title="w # 查看活动用户"></a>w # 查看活动用户</h1><h1 id="id-lt-用户名-gt-查看指定用户信息"><a href="#id-lt-用户名-gt-查看指定用户信息" class="headerlink" title="id &lt;用户名&gt; # 查看指定用户信息"></a>id &lt;用户名&gt; # 查看指定用户信息</h1><h1 id="last-查看用户登录日志"><a href="#last-查看用户登录日志" class="headerlink" title="last # 查看用户登录日志"></a>last # 查看用户登录日志</h1><h1 id="cut-d-f1-etc-passwd-查看系统所有用户"><a href="#cut-d-f1-etc-passwd-查看系统所有用户" class="headerlink" title="cut -d: -f1 /etc/passwd # 查看系统所有用户"></a>cut -d: -f1 /etc/passwd # 查看系统所有用户</h1><h1 id="cut-d-f1-etc-group-查看系统所有组"><a href="#cut-d-f1-etc-group-查看系统所有组" class="headerlink" title="cut -d: -f1 /etc/group # 查看系统所有组"></a>cut -d: -f1 /etc/group # 查看系统所有组</h1><h1 id="crontab-l-查看当前用户的计划任务"><a href="#crontab-l-查看当前用户的计划任务" class="headerlink" title="crontab -l # 查看当前用户的计划任务"></a>crontab -l # 查看当前用户的计划任务</h1><p>查看系统服务的命令</p>
-<h1 id="chkconfig-–list-列出所有系统服务"><a href="#chkconfig-–list-列出所有系统服务" class="headerlink" title="chkconfig –list # 列出所有系统服务"></a>chkconfig –list # 列出所有系统服务</h1><h1 id="chkconfig-–list-grep-on-列出所有启动的系统服务"><a href="#chkconfig-–list-grep-on-列出所有启动的系统服务" class="headerlink" title="chkconfig –list | grep on # 列出所有启动的系统服务"></a>chkconfig –list | grep on # 列出所有启动的系统服务</h1><p>安装程序的命令</p>
-<h1 id="rpm-qa-查看所有安装的软件包"><a href="#rpm-qa-查看所有安装的软件包" class="headerlink" title="rpm -qa # 查看所有安装的软件包"></a>rpm -qa # 查看所有安装的软件包</h1><p>获取帮助的命令</p>
-<h1 id="man-lt-命令-gt-获得命令帮助"><a href="#man-lt-命令-gt-获得命令帮助" class="headerlink" title="man &lt;命令&gt; #获得命令帮助"></a>man &lt;命令&gt; #获得命令帮助</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;linux系统信息&lt;/p&gt;
-&lt;h1 id=&quot;uname-a-查看内核-操作系统-CPU信息&quot;&gt;&lt;a href=&quot;#uname-a-查看内核-操作系统-CPU信息&quot; class=&quot;headerlink&quot; title=&quot;uname -a # 查看内核/操作系统/CPU信息&quot;&gt;&lt;/a&gt;uname -a # 查看内核/操作系统/CPU信息&lt;/h1&gt;&lt;h1 id=&quot;head-n-1-etc-issue-查看操作系统版本&quot;&gt;&lt;a href=&quot;#head-n-1-etc-issue-查看操作系统版本&quot; class=&quot;headerlink&quot; title=&quot;head -n 1 /etc/issue # 查看操作系统版本&quot;&gt;&lt;/a&gt;head -n 1 /etc/issue # 查看操作系统版本&lt;/h1&gt;&lt;h1 id=&quot;cat-proc-cpuinfo-查看CPU信息&quot;&gt;&lt;a href=&quot;#cat-proc-cpuinfo-查看CPU信息&quot; class=&quot;headerlink&quot; title=&quot;cat /proc/cpuinfo # 查看CPU信息&quot;&gt;&lt;/a&gt;cat /proc/cpuinfo # 查看CPU信息&lt;/h1&gt;&lt;h1 id=&quot;hostname-查看计算机名&quot;&gt;&lt;a href=&quot;#hostname-查看计算机名&quot; class=&quot;headerlink&quot; title=&quot;hostname # 查看计算机名&quot;&gt;&lt;/a&gt;hostname # 查看计算机名&lt;/h1&gt;&lt;h1 id=&quot;lspci-tv-列出所有PCI设备&quot;&gt;&lt;a href=&quot;#lspci-tv-列出所有PCI设备&quot; class=&quot;headerlink&quot; title=&quot;lspci -tv # 列出所有PCI设备&quot;&gt;&lt;/a&gt;lspci -tv # 列出所有PCI设备&lt;/h1&gt;&lt;h1 id=&quot;lsusb-tv-列出所有USB设备&quot;&gt;&lt;a href=&quot;#lsusb-tv-列出所有USB设备&quot; class=&quot;headerlink&quot; title=&quot;lsusb -tv # 列出所有USB设备&quot;&gt;&lt;/a&gt;lsusb -tv # 列出所有USB设备&lt;/h1&gt;&lt;h1 id=&quot;lsmod-列出加载的内核模块&quot;&gt;&lt;a href=&quot;#lsmod-列出加载的内核模块&quot; class=&quot;headerlink&quot; title=&quot;lsmod # 列出加载的内核模块 &quot;&gt;&lt;/a&gt;lsmod # 列出加载的内核模块
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/categories/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redis安装</title>
-    <link href="http://blog.ypintao.com/2014/06/27/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/redis%E5%AE%89%E8%A3%85/"/>
-    <id>http://blog.ypintao.com/2014/06/27/技术/Linux/CentOS 6.5 搭建环境详解/redis安装/</id>
-    <published>2014-06-26T16:00:00.000Z</published>
-    <updated>2017-03-21T09:57:42.052Z</updated>
-    
-    <content type="html"><![CDATA[<p>[root@infa ~]# wget <a href="http://download.redis.io/releases/redis-2.8.12.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-2.8.12.tar.gz</a><br>tar xzf redis-2.8.12.tar.gz<br>[root@infa ~]# tar xzf redis-2.8.12.tar.gz<br>[root@infa ~]# cd redis-2.8.12<br>[root@infa redis-2.8.12]# ls<br>00-RELEASENOTES  BUGS  CONTRIBUTING  COPYING  deps  INSTALL  Makefile  MANIFESTO  README  redis.conf  runtest  runtest-sentinel  sentinel.conf  src  tests  utils<br>[root@infa redis-2.8.12]# make<br>但是这样子编译会报错，貌似是因为系统的原因； <a id="more"></a><br>报错如下：</p>
-<p>解决方法，就是加上编译参数设置，如下：<br>[root@infa redis-2.8.12]# make CFLAGS=”-march=i686”<br>编译成功；<br>启动并运行redis：<br>[root@infa redis-2.8.12]# src/redis-server</p>
-<p>[root@infa redis-2.8.12]# src/redis-cli<br>127.0.0.1:6379&gt; set name chenzhou<br>OK<br>127.0.0.1:6379&gt; get name<br>“chenzhou”<br>127.0.0.1:6379&gt; </p>
-<p>附2：把Redis作为Linux服务开机启动<br>这里只提供一种最简单的方式，最好的是通过编写开机启动脚本来做。<br>如果要开机启动redis，我们需要把redis设置为daemon后台启动（如果不设置为后台启动，则linux启动后图形界面会卡在一个空白的页面），而redis只有1个启动参数，就是redis的配置文件路径。redis的默认配置文件redis.conf位于redis的安装目录下。我们可以把该文件copy到/etc目录下<br>Shell代码<br>1[root@localhost redis-2.6.14]# cp redis.conf /etc/<br>redis的默认配置文件中daemonize参数的值为no，代表为非后台启动，所以我们需要把该参数的值修改为yes。至于其它的参数在这里就不详细说了，具体可以参见：<a href="http://blog.csdn.net/htofly/article/details/7686436修改完daemonize参数之后，redis就能够通过daemon方式启动了，那么下一步就是把redis加入到linux开机启动服务配置中了，具体步骤如下：" target="_blank" rel="external">http://blog.csdn.net/htofly/article/details/7686436修改完daemonize参数之后，redis就能够通过daemon方式启动了，那么下一步就是把redis加入到linux开机启动服务配置中了，具体步骤如下：</a><br>使用VI编辑器打开Linux开机启动服务配置文件/etc/rc.local，并在其中加入下面的一行代码：<br>Shell代码<br>2/usr/local/redis-2.6.14/src/redis-server /etc/redis.conf<br>编辑完后保存，然后重启系统就OK了。<br>停止Redis服务：<br>Shell代码<br>3src/redis-cli shutdown  </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[root@infa ~]# wget &lt;a href=&quot;http://download.redis.io/releases/redis-2.8.12.tar.gz&quot;&gt;http://download.redis.io/releases/redis-2.8.12.tar.gz&lt;/a&gt;&lt;br&gt;tar xzf redis-2.8.12.tar.gz&lt;br&gt;[root@infa ~]# tar xzf redis-2.8.12.tar.gz&lt;br&gt;[root@infa ~]# cd redis-2.8.12&lt;br&gt;[root@infa redis-2.8.12]# ls&lt;br&gt;00-RELEASENOTES  BUGS  CONTRIBUTING  COPYING  deps  INSTALL  Makefile  MANIFESTO  README  redis.conf  runtest  runtest-sentinel  sentinel.conf  src  tests  utils&lt;br&gt;[root@infa redis-2.8.12]# make&lt;br&gt;但是这样子编译会报错，貌似是因为系统的原因；
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="开发环境" scheme="http://blog.ypintao.com/categories/Linux/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
-    
-    
-      <category term="开发环境" scheme="http://blog.ypintao.com/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB安装</title>
-    <link href="http://blog.ypintao.com/2014/06/17/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/mongoDb%E5%AE%89%E8%A3%85/"/>
-    <id>http://blog.ypintao.com/2014/06/17/技术/Linux/CentOS 6.5 搭建环境详解/mongoDb安装/</id>
-    <published>2014-06-16T16:00:00.000Z</published>
-    <updated>2017-03-21T09:57:26.626Z</updated>
-    
-    <content type="html"><![CDATA[<p>1、下载MongoDB（64位）</p>
-<blockquote>
-<p><a href="http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz" target="_blank" rel="external">http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz</a><br>或<br><a href="http://pan.baidu.com/s/1mgyRB8c" target="_blank" rel="external">http://pan.baidu.com/s/1mgyRB8c</a></p>
-</blockquote>
-<p>2、安装MongoDB（安装到/usr/local）<a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">tar zxvf mongodb-linux-x86_64-2.4.9.tgz</div><div class="line">mv mongodb-linux-x86_64-2.4.9 mongodb</div><div class="line">cd mongodb</div><div class="line">mkdir db</div><div class="line">mkdir logs</div><div class="line">cd bin</div><div class="line">vi mongodb.conf</div><div class="line"></div><div class="line">dbpath=/usr/local/mongodb/db</div><div class="line">logpath=/usr/local/mongodb/logs/mongodb.log</div><div class="line">port=27017</div><div class="line">fork=true</div><div class="line">nohttpinterface=true</div></pre></td></tr></table></figure></p>
-<p>3、重新绑定mongodb的配置文件地址和访问IP<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/mongodb/bin/mongod --bind_ip localhost -f /usr/local/mongodb/bin/mongodb.conf</div></pre></td></tr></table></figure></p>
-<p>4、开机自动启动mongodb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vi /etc/rc.d/rc.local</div><div class="line">/usr/local/mongodb/bin/mongod --config /usr/local/mongodb/bin/mongodb.conf</div></pre></td></tr></table></figure></p>
-<p>5、重启一下系统测试下能不能自启</p>
-<h1 id="进入mongodb的shell模式"><a href="#进入mongodb的shell模式" class="headerlink" title="进入mongodb的shell模式"></a>进入mongodb的shell模式</h1><p>/usr/local/mongodb/bin/mongo</p>
-<h1 id="查看数据库列表"><a href="#查看数据库列表" class="headerlink" title="查看数据库列表"></a>查看数据库列表</h1><p>show dbs</p>
-<h1 id="当前db版本"><a href="#当前db版本" class="headerlink" title="当前db版本"></a>当前db版本</h1><p>db.version();<br>db.auth(“theadmin”, “anadminpassword”)</p>
-<p>以配置形式启动<br>./mongod -f /opt/mongodb/bin/mongodb.conf<br>用admin停止<br>./mongo<br>use amdin<br>db.shutdownServer();</p>
-<p>不能用kill -9停止<br>正常停止方法:</p>
-<h1 id="ps-aux-grep-mongod"><a href="#ps-aux-grep-mongod" class="headerlink" title="ps aux | grep mongod"></a>ps aux | grep mongod</h1><h1 id="kill-2-PID"><a href="#kill-2-PID" class="headerlink" title="kill  -2 PID"></a>kill  -2 PID</h1><p>或</p>
-<h1 id="home-local-mongodb-bin-mongo-port-20000"><a href="#home-local-mongodb-bin-mongo-port-20000" class="headerlink" title="/home/local/mongodb/bin/mongo -port 20000"></a>/home/local/mongodb/bin/mongo -port 20000</h1><blockquote>
-<p>use  admin<br>db.shutdownServer(); </p>
-</blockquote>
-<p>–dbpath<br>$ ./mongdb –dbpath /mongodb/<br>把数据存储位置指向一个自己的目录/mongodb/</p>
-<p>修改默认端口：</p>
-<p>–port<br>$ ./mongdb –port 20111<br>把服务端口修改为20111，这个一方面是为了安全，使用默认端口容易被一些恶意的人发现做手脚</p>
-<p>启动后台服务:</p>
-<p>–fork<br>在后台开启Mongdb服务<br>在使用这个方式启动的时候要注意两点：<br>1、该功能只在1.1之后的版本才可以使用。<br>2、另外通过这个方式在后台启动，如果在启动的时候像–dbpath 那样使用 –logpath 输出日志时候日志输出目录也要自己创建。<br>如：<br>$ ./mongod –fork –logpath /var/log/mongodb.log –logappend<br>解析最后–logappend,以追加的方式创建日志防止把之前的日志删除了</p>
-<p>Mongodb的关闭:</p>
-<p>前台运行:</p>
-<p>如果没有使用–fork，直接可以前台退出终端关闭。通过这种方式，Mongodb将会自己做清理退出，把没有写好的数据写完成，并最终关闭数据文件。要注意的是这个过程会持续到所有操作都完成。</p>
-<p>后台运行:</p>
-<p>如果使用–fork在后台运行mongdb服务，那么就要通过向服务器发送shutdownServer()消息来关闭。</p>
-<p>1、普通命令：<br>$ ./mongod</p>
-<blockquote>
-<p>use admin<br>db.shutdownServer()</p>
-</blockquote>
-<p>要注意的是，这个命令只允许在本地，或是一个经过认证的客户端。</p>
-<p>2、如果这是一个主从式的复制集群，在1.9.1版本后将按下面的步骤来关闭<br>检查从Mongodb的数据更新时间<br>如果所有的从Mongodb和主的时间差都超过10，这个时候不会关闭mongodb（在这种情况下面，我们可以通过配置timeoutSecs的方式来让从Mongodb完成数据的更新）<br>如果其中有一个从Mongodb与主服务时间差在10秒内，那么主服务器将会关闭，并且等待从Mongodb更新完成并关闭。<br>3、如果没有up-to-date 从Mongodb且你想强制关闭服务，可以通过添加force:true;命令如下：</p>
-<blockquote>
-<p>db.adminCommand({shutdown : 1, force : true})<br>//or<br>db.shutdownServer({force : true})</p>
-</blockquote>
-<p>4、指定特定超时时间的关闭服务器，命令同上，另外加上一个timeoutsec:参数</p>
-<blockquote>
-<p>db.adminCommand(shutdown : 1, force : true, timeoutsec : 5)<br>//or<br>db.shutdownServer({force : true, timeoutsec : 5})</p>
-</blockquote>
-<p>Mongodb开机启动</p>
-<p>在/etc/rc.local文件末尾添加下面的代码</p>
-<p>#add mongodb service<br>rm -rf /data/mongodb_data/* &amp;&amp; /usr/local/mongodb/bin/mongod –dbpath=/data/mongdb_data/ –logpath=/data/mongdb_log/mongodb.log –logappend &amp;</p>
-<p>查看数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; db.stats();</div><div class="line">&#123;</div><div class="line">  &quot;db&quot; : &quot;test&quot;,        //当前数据库</div><div class="line">  &quot;collections&quot; : 3,      //当前数据库多少表</div><div class="line">  &quot;objects&quot; : 4,        //当前数据库所有表多少条数据</div><div class="line">  &quot;avgObjSize&quot; : 51,      //每条数据的平均大小</div><div class="line">  &quot;dataSize&quot; : 204,      //所有数据的总大小</div><div class="line">  &quot;storageSize&quot; : 16384,    //所有数据占的磁盘大小</div><div class="line">  &quot;numExtents&quot; : 3,</div><div class="line">  &quot;indexes&quot; : 1,        //索引数</div><div class="line">  &quot;indexSize&quot; : 8176,     //索引大小</div><div class="line">  &quot;fileSize&quot; : 201326592,   //预分配给数据库的文件大小</div><div class="line">  &quot;nsSizeMB&quot; : 16,</div><div class="line">  &quot;dataFileVersion&quot; : &#123;</div><div class="line">    &quot;major&quot; : 4,</div><div class="line">    &quot;minor&quot; : 5</div><div class="line">  &#125;,</div><div class="line">  &quot;ok&quot; : 1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>2,查看数据库表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; db.posts.stats();</div><div class="line">&#123;</div><div class="line">  &quot;ns&quot; : &quot;test.posts&quot;,</div><div class="line">  &quot;count&quot; : 1,</div><div class="line">  &quot;size&quot; : 56,</div><div class="line">  &quot;avgObjSize&quot; : 56,</div><div class="line">  &quot;storageSize&quot; : 8192,</div><div class="line">  &quot;numExtents&quot; : 1,</div><div class="line">  &quot;nindexes&quot; : 1,</div><div class="line">  &quot;lastExtentSize&quot; : 8192,</div><div class="line">  &quot;paddingFactor&quot; : 1,</div><div class="line">  &quot;systemFlags&quot; : 1,</div><div class="line">  &quot;userFlags&quot; : 0,</div><div class="line">  &quot;totalIndexSize&quot; : 8176,</div><div class="line">  &quot;indexSizes&quot; : &#123;</div><div class="line">    &quot;_id_&quot; : 8176</div><div class="line">  &#125;,</div><div class="line">  &quot;ok&quot; : 1</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1、下载MongoDB（64位）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz&quot;&gt;http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz&lt;/a&gt;&lt;br&gt;或&lt;br&gt;&lt;a href=&quot;http://pan.baidu.com/s/1mgyRB8c&quot;&gt;http://pan.baidu.com/s/1mgyRB8c&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2、安装MongoDB（安装到/usr/local）
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="环境安装" scheme="http://blog.ypintao.com/categories/Linux/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/"/>
-    
-    
-      <category term="环境安装" scheme="http://blog.ypintao.com/tags/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
