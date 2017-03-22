@@ -43,6 +43,42 @@ linux
     </entry>
     
     <entry>
+      <title><![CDATA[vim使用]]></title>
+      <url>http://blog.ypintao.com/2016/02/27/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vim%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<ul>
+<li><p>模式了解<br>  vi有三种模式，即：一般模式、编辑模式、命令模式</p>
+<h2 id="一般模式"><a href="#一般模式" class="headerlink" title="一般模式"></a>一般模式</h2><p>  也是默认模式，用vi打开一个文件就直接进入了一般模式。在此模式下，你可以进行删除字符、删除整行、字符替换、复制粘贴等操作</p>
+<h2 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h2><p>  用户vi打开文件进入一般模式，当只要按下【i I a A o O r R】中任何一个字母时，便会进入到编辑模式。<br>  <img src="http://p1.pstatp.com/large/1994000b2cd65083a2b5" alt="t"><br>  当进入编辑模式下，文档左下角会出现”INSERT”或”REPLACE”字样；若要退出编辑模式，按下键盘Esc键即可返回到一般模式</p>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>  在一般模式下，可以用键盘输入【：/?】任意一个字符便会进到命令模式，同时光标移动到最底一行，等待用户下一步的输入。在此模式下，用户可以执行常见的如 读取、保存、批量替换、显示行号、退出编辑器等操作，如”:set nu”便可在文档中显示行号<br>  <img src="http://p9.pstatp.com/large/18fb000557f28195c16a" alt="dd"></p>
+</li>
+<li><p>常用按键指令</p>
+<h2 id="光标的移动"><a href="#光标的移动" class="headerlink" title="光标的移动"></a>光标的移动</h2><p>  <img src="http://p1.pstatp.com/large/18fb000557f4f6592e9a" alt="光标移动"><br>  <img src="http://p1.pstatp.com/large/18fb000557f5a3976c80" alt="光标移动"></p>
+<h2 id="复制与粘贴"><a href="#复制与粘贴" class="headerlink" title="复制与粘贴"></a>复制与粘贴</h2><p>  <img src="http://p3.pstatp.com/large/18fb000557f75a63af7c" alt="复制与粘贴"><br>  <img src="http://p1.pstatp.com/large/18fb000557f8b1e6e9c0" alt="复制与粘贴"></p>
+<h2 id="搜索与替换"><a href="#搜索与替换" class="headerlink" title="搜索与替换"></a>搜索与替换</h2><p>  <img src="http://p3.pstatp.com/large/199b000a396e152eccbd" alt="搜索与替换"><br>  <img src="http://p1.pstatp.com/large/18fb000557fa4f0ea51e" alt="搜索与替换"></p>
+<h2 id="命令模式下的指令"><a href="#命令模式下的指令" class="headerlink" title="命令模式下的指令"></a>命令模式下的指令</h2><p>  <img src="http://p3.pstatp.com/large/199b000a396fa6869771" alt="命令模式下的指令"></p>
+<h2 id="编辑模式下的指令"><a href="#编辑模式下的指令" class="headerlink" title="编辑模式下的指令"></a>编辑模式下的指令</h2><p>  <img src="http://p1.pstatp.com/large/18fb000557fb8bf8f79e" alt="编辑模式下的指令"></p>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> node开发工具 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> node开发工具 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[程序员面试谈薪资的6大技巧]]></title>
       <url>http://blog.ypintao.com/2016/02/21/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E8%B0%88%E8%96%AA%E8%B5%84%E7%9A%846%E5%A4%A7%E6%8A%80%E5%B7%A7/</url>
       <content type="html"><![CDATA[<p>面试官： 在我们这儿工作，您希望有什么样的薪资待遇？  </p>
@@ -1181,6 +1217,33 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
+      <title><![CDATA[nginx安装]]></title>
+      <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nginx%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>sudo apt-get install libpcre3-dev libssl-dev openssl</p>
+</blockquote>
+<p>缺少的库直接补上 <a id="more"></a></p>
+<p>###（2）源代码安装<br>      下载地址：<a href="http://nginx.org/download/" target="_blank" rel="external">http://nginx.org/download/</a><br>      我这里下载的是 nginx-1.3.9.tar.gz，安装过程很简单，如下：<br>      $./configure<br>      $make<br>      $make install<br>      安装成功之后，nginx放置在/usr/local/nginx目录下，主要的配置文件为conf目录下的nginx.conf，<br>nginx的启动文件在sbin目录下的nginx文件。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 开发环境 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 开发环境 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nvm管理]]></title>
       <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nvm%E7%AE%A1%E7%90%86/</url>
       <content type="html"><![CDATA[<pre><code>git clone https://github.com/creationix/nvm.git ~/.nvm
@@ -1213,33 +1276,6 @@ export PATH=$NODE_HOME/bin:$PATH
 <blockquote>
 <p>$ nvm use<version></version></p>
 </blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> Linux </category>
-            
-            <category> 开发环境 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 开发环境 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx安装]]></title>
-      <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nginx%E5%AE%89%E8%A3%85/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>sudo apt-get install libpcre3-dev libssl-dev openssl</p>
-</blockquote>
-<p>缺少的库直接补上 <a id="more"></a></p>
-<p>###（2）源代码安装<br>      下载地址：<a href="http://nginx.org/download/" target="_blank" rel="external">http://nginx.org/download/</a><br>      我这里下载的是 nginx-1.3.9.tar.gz，安装过程很简单，如下：<br>      $./configure<br>      $make<br>      $make install<br>      安装成功之后，nginx放置在/usr/local/nginx目录下，主要的配置文件为conf目录下的nginx.conf，<br>nginx的启动文件在sbin目录下的nginx文件。</p>
 ]]></content>
       
         <categories>

@@ -57,6 +57,46 @@ linux
   </entry>
   
   <entry>
+    <title>vim使用</title>
+    <link href="http://blog.ypintao.com/2016/02/27/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vim%E4%BD%BF%E7%94%A8/"/>
+    <id>http://blog.ypintao.com/2016/02/27/技术/Linux/node开发工具/vim使用/</id>
+    <published>2016-02-26T16:00:00.000Z</published>
+    <updated>2017-03-22T04:57:30.792Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>模式了解<br>  vi有三种模式，即：一般模式、编辑模式、命令模式</p>
+<h2 id="一般模式"><a href="#一般模式" class="headerlink" title="一般模式"></a>一般模式</h2><p>  也是默认模式，用vi打开一个文件就直接进入了一般模式。在此模式下，你可以进行删除字符、删除整行、字符替换、复制粘贴等操作</p>
+<h2 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h2><p>  用户vi打开文件进入一般模式，当只要按下【i I a A o O r R】中任何一个字母时，便会进入到编辑模式。<br>  <img src="http://p1.pstatp.com/large/1994000b2cd65083a2b5" alt="t"><br>  当进入编辑模式下，文档左下角会出现”INSERT”或”REPLACE”字样；若要退出编辑模式，按下键盘Esc键即可返回到一般模式</p>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>  在一般模式下，可以用键盘输入【：/?】任意一个字符便会进到命令模式，同时光标移动到最底一行，等待用户下一步的输入。在此模式下，用户可以执行常见的如 读取、保存、批量替换、显示行号、退出编辑器等操作，如”:set nu”便可在文档中显示行号<br>  <img src="http://p9.pstatp.com/large/18fb000557f28195c16a" alt="dd"></p>
+</li>
+<li><p>常用按键指令</p>
+<h2 id="光标的移动"><a href="#光标的移动" class="headerlink" title="光标的移动"></a>光标的移动</h2><p>  <img src="http://p1.pstatp.com/large/18fb000557f4f6592e9a" alt="光标移动"><br>  <img src="http://p1.pstatp.com/large/18fb000557f5a3976c80" alt="光标移动"></p>
+<h2 id="复制与粘贴"><a href="#复制与粘贴" class="headerlink" title="复制与粘贴"></a>复制与粘贴</h2><p>  <img src="http://p3.pstatp.com/large/18fb000557f75a63af7c" alt="复制与粘贴"><br>  <img src="http://p1.pstatp.com/large/18fb000557f8b1e6e9c0" alt="复制与粘贴"></p>
+<h2 id="搜索与替换"><a href="#搜索与替换" class="headerlink" title="搜索与替换"></a>搜索与替换</h2><p>  <img src="http://p3.pstatp.com/large/199b000a396e152eccbd" alt="搜索与替换"><br>  <img src="http://p1.pstatp.com/large/18fb000557fa4f0ea51e" alt="搜索与替换"></p>
+<h2 id="命令模式下的指令"><a href="#命令模式下的指令" class="headerlink" title="命令模式下的指令"></a>命令模式下的指令</h2><p>  <img src="http://p3.pstatp.com/large/199b000a396fa6869771" alt="命令模式下的指令"></p>
+<h2 id="编辑模式下的指令"><a href="#编辑模式下的指令" class="headerlink" title="编辑模式下的指令"></a>编辑模式下的指令</h2><p>  <img src="http://p1.pstatp.com/large/18fb000557fb8bf8f79e" alt="编辑模式下的指令"></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;模式了解&lt;br&gt;  vi有三种模式，即：一般模式、编辑模式、命令模式&lt;/p&gt;
+&lt;h2 id=&quot;一般模式&quot;&gt;&lt;a href=&quot;#一般模式&quot; class=&quot;headerlink&quot; title=&quot;一般模式&quot;&gt;&lt;/a&gt;一般模式&lt;/h2&gt;&lt;p&gt;  也是默认模式，用v
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
+    
+      <category term="node开发工具" scheme="http://blog.ypintao.com/categories/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="node开发工具" scheme="http://blog.ypintao.com/tags/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>程序员面试谈薪资的6大技巧</title>
     <link href="http://blog.ypintao.com/2016/02/21/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E8%B0%88%E8%96%AA%E8%B5%84%E7%9A%846%E5%A4%A7%E6%8A%80%E5%B7%A7/"/>
     <id>http://blog.ypintao.com/2016/02/21/生活/面试/程序员面试谈薪资的6大技巧/</id>
@@ -1007,43 +1047,6 @@ export PATH=$NODE_HOME/bin:$PATH
     
     
       <category term="环境安装" scheme="http://blog.ypintao.com/tags/%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基本命令</title>
-    <link href="http://blog.ypintao.com/2014/06/07/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    <id>http://blog.ypintao.com/2014/06/07/技术/Linux/linux基本命令/基本命令/</id>
-    <published>2014-06-06T16:00:00.000Z</published>
-    <updated>2017-03-21T10:10:24.001Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="useradd-dev-创建用户"><a href="#useradd-dev-创建用户" class="headerlink" title="useradd dev #创建用户"></a>useradd dev #创建用户</h1><h1 id="passwd-dev-修改密码"><a href="#passwd-dev-修改密码" class="headerlink" title="passwd dev #修改密码"></a>passwd dev #修改密码</h1><p>更改用户 dev 的密码 。<br>新的 密码：<br>重新输入新的 密码：<br>passwd：所有的身份验证令牌已经成功更新。<br>chmod -v u+w /etc/sudoers<br>“/etc/sudoers” 的权限模式保留为0640 (rw-r—–)  <a id="more"></a></p>
-<p>  解决方法：</p>
-<p>1.查找被占用的端口</p>
-<p>netstat -tln<br>netstat -tln | grep 8060</p>
-<p>netstat -tln 查看端口使用情况，而netstat -tln | grep 8060则是只查看端口8060的使用情况</p>
-<p>2.查看端口属于哪个程序？端口被哪个进程占用</p>
-<p>lsof -i:8060</p>
-<p> COMMAND   PID   USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME<br>java    20804   root   36u  IPv6 35452317      0t0  TCP *:pcsync-https (LISTEN)</p>
-<p>3.杀掉占用端口的进程  根据pid杀掉</p>
-<p>kill -9 进程id<br>kill -9 20804</p>
-<p>wget 访问https报错解决方法<br>一般我们远程调用下载文件直接用wget就可以，一般文件路径类型是http。如果有遇到是https就会下载出错，稍微不注意的新手朋友可能还认为是数据源出现问题。因为大脑不好用，所以刚才在有遇到这样问题的时候老左就顺带做一个记录，以便下次遇到这样的问题，以及有遇到同类问题的网友可以参照使用。<br>wget-err-https<br>出现的错误大同小异类似上面的界面演示一样。其实我们仔细根据提示可以解决问题，只需要在wget后面加上–no-check-certificate就可以，需要一个认证下载指令而已。<br>比如我们可以修改成：<br>wget –no-check-certificate <a href="https://我们下载文件路径" target="_blank" rel="external">https://我们下载文件路径</a></p>
-<p>关机命令<br>　 1.shutdown<br>   shutdown命令安全地将系统关机。 有些用户会使用直接断掉电源的方式来关闭linux，<br>这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能<br>会导致进程的数据丢失;#65104;使系统处于不稳定的状态&amp;;#65104;甚至在有的系统中会损坏硬件设备。<br>    而在系统关机前使用shutdown命令;#65104;系统管理员会通知所有登录的用户系统将要关闭。<br>并且login指令会被冻结;#65104;即新的用户不能再登录。直接关机或者延迟一定的时间才关机<br>都是可能的;#65104;还可能重启。这是由所有进程〔process〕都会收到系统所送达的信号〔signal〕<br>决定的。这让像vi之类的程序有时间储存目前正在编辑的文档;#65104;而像处理邮件〔mail〕和<br>新闻〔news〕的程序则可以正常地离开等等。<br>    shutdown执行它的工作是送信号〔signal〕给init程序;#65104;要求它改变runlevel。<br>Runlevel 0被用来停机〔halt〕;#65104;runlevel 6是用来重新激活〔reboot〕系统&amp;;#65104;<br>而runlevel 1则是被用来让系统进入管理工作可以进行的状态;#65108;这是预设的&amp;;#65104;假定没有-h也<br>没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些<br>动作;#65104;你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。<br>　　 shutdown 参数说明:<br>　　 [-t] 在改变到其它runlevel之前;#65104;告诉init多久以后关机。<br>　　 [-r] 重启计算器。<br>　　 [-k] 并不真正关机;#65104;只是送警告信号给每位登录者〔login〕。<br>　　 [-h] 关机后关闭电源〔halt〕。<br>　　 [-n] 不用init;#65104;而是自己来关机。不鼓励使用这个选项&amp;;#65104;而且该选项所产生的后果往<br>往不总是你所预期得到的。<br>　　 [-c] cancel current process取消目前正在执行的关机程序。所以这个选项当然没有<br>时间参数;#65104;但是可以输入一个用来解释的讯息&amp;;#65104;而这信息将会送到每位使用者。<br>　　 [-f] 在重启计算器〔reboot〕时忽略fsck。<br>     [-F] 在重启计算器〔reboot〕时强迫fsck。<br>　　 [-time] 设定关机〔shutdown〕前的时间。 </p>
-<p>2.halt—-最简单的关机命令<br>　　 其实halt就是调用shutdown -h。halt执行时;#65104;杀死应用进程&amp;;#65104;执行sync系统调用&amp;;#65104;<br>文件系统写操作完成后就会停止内核。<br>　　 参数说明:<br>　　 [-n] 防止sync系统调用;#65104;它用在用fsck修补根分区之后&amp;;#65104;以阻止内核用老版本的超<br>级块〔superblock〕覆盖修补过的超级块。<br>　　 [-w] 并不是真正的重启或关机;#65104;只是写wtmp〔/var/log/wtmp〕纪录。<br>　　 [-d] 不写wtmp纪录〔已包含在选项[-n]中〕。<br>　　 [-f] 没有调用shutdown而强制关机或重启。<br>　　 [-i] 关机〔或重启〕前;#65104;关掉所有的网络接口。<br>　　 [-p] 该选项为缺省选项。就是关机时调用poweroff。<br>　　<br>3.reboot<br>    reboot的工作过程差不多跟halt一样;#65104;不过它是引发主机重启&amp;;#65104;而halt是关机。它<br>    的参数与halt相差不多。<br>4.init<br>   init是所有进程的祖先;#65104;它的进程号始终为1&amp;;#65104;所以发送TERM信号给init会终止所有的<br>   用户进程;#65105;守护进程等。shutdown 就是使用这种机制。init定义了8个运行级别(runlevel)，<br>   init 0为关机;#65104;init 1为重启。关于init可以长篇大论&amp;;#65104;这里就不再叙述。另外还有<br>   telinit命令可以改变init的运行级别;#65104;比如&amp;;#65104;telinit -iS可使系统进入单用户模式&amp;;#65104;<br>   并且得不到使用shutdown时的信息和等待时间</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;useradd-dev-创建用户&quot;&gt;&lt;a href=&quot;#useradd-dev-创建用户&quot; class=&quot;headerlink&quot; title=&quot;useradd dev #创建用户&quot;&gt;&lt;/a&gt;useradd dev #创建用户&lt;/h1&gt;&lt;h1 id=&quot;passwd-dev-修改密码&quot;&gt;&lt;a href=&quot;#passwd-dev-修改密码&quot; class=&quot;headerlink&quot; title=&quot;passwd dev #修改密码&quot;&gt;&lt;/a&gt;passwd dev #修改密码&lt;/h1&gt;&lt;p&gt;更改用户 dev 的密码 。&lt;br&gt;新的 密码：&lt;br&gt;重新输入新的 密码：&lt;br&gt;passwd：所有的身份验证令牌已经成功更新。&lt;br&gt;chmod -v u+w /etc/sudoers&lt;br&gt;“/etc/sudoers” 的权限模式保留为0640 (rw-r—–)
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/categories/Linux/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    
-    
-      <category term="基本命令" scheme="http://blog.ypintao.com/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
