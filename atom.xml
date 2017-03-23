@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2017-03-22T06:06:59.258Z</updated>
+  <updated>2017-03-23T12:38:34.804Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二维码活码生成原理</title>
+    <link href="http://blog.ypintao.com/2017/03/23/%E6%8A%80%E6%9C%AF/IDEA/%E6%B4%BB%E7%A0%81%E7%94%9F%E6%88%90%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://blog.ypintao.com/2017/03/23/技术/IDEA/活码生成实现/</id>
+    <published>2017-03-22T16:00:00.000Z</published>
+    <updated>2017-03-23T12:38:34.804Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="二维码分类"><a href="#二维码分类" class="headerlink" title="二维码分类"></a>二维码分类</h3><p>二维码分类这里就直接套用草根二维码的原话了，总结的非常好。</p>
+<h5 id="什么是二维码、静态码、活码？"><a href="#什么是二维码、静态码、活码？" class="headerlink" title="什么是二维码、静态码、活码？"></a>什么是二维码、静态码、活码？</h5><ul>
+<li><strong>静态码</strong>：是直接对电话、地址、网址等信息进行编码（一般最多50个文字）， 所以无需联网也能扫描显示，缺点是生成的二维码图案非常复杂，不容易识别和打印，容错率低；而且印刷后内容无法变更，无法存储图片和文件。</li>
+<li><strong>活码</strong>：是对一个分配的短网址进行编码，扫描后跳转到这个网址。这样将内容存储在云端，可以随时更新、可跟踪扫描统计，可存放图片视频、大量文字内容，同时图案简单易扫。 草料活码永久免费面向用户开放。草料经过近三年的积累，开发了活码管理系统，实现了活码的在线修改、后台管理等功能。<a id="more"></a></li>
+</ul>
+<h3 id="链接转二维码"><a href="#链接转二维码" class="headerlink" title="链接转二维码"></a>链接转二维码</h3><p>基于jquery-qrcode很好实现一个链接转二维码的例子，在这里就不过多讲解了。</p>
+<h3 id="链接转活码"><a href="#链接转活码" class="headerlink" title="链接转活码"></a>链接转活码</h3><p><strong>链接转活码</strong>，采用 链接A—-&gt;生成guid并将链接和guid存储到数据库——&gt;生成一个服务器端的api的带有guid参数的二维码图片，这样不管多长的链接都能生成一个固定的短码图片了。</p>
+<p>当用户扫描二维码的时候，访问的是服务器端api带有参数的的二维码，这个api获取参数以后去查询，找到之前生成的链接，然后重定向跳转到相应的链接。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;二维码分类&quot;&gt;&lt;a href=&quot;#二维码分类&quot; class=&quot;headerlink&quot; title=&quot;二维码分类&quot;&gt;&lt;/a&gt;二维码分类&lt;/h3&gt;&lt;p&gt;二维码分类这里就直接套用草根二维码的原话了，总结的非常好。&lt;/p&gt;
+&lt;h5 id=&quot;什么是二维码、静态码、活码？&quot;&gt;&lt;a href=&quot;#什么是二维码、静态码、活码？&quot; class=&quot;headerlink&quot; title=&quot;什么是二维码、静态码、活码？&quot;&gt;&lt;/a&gt;什么是二维码、静态码、活码？&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;静态码&lt;/strong&gt;：是直接对电话、地址、网址等信息进行编码（一般最多50个文字）， 所以无需联网也能扫描显示，缺点是生成的二维码图案非常复杂，不容易识别和打印，容错率低；而且印刷后内容无法变更，无法存储图片和文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;活码&lt;/strong&gt;：是对一个分配的短网址进行编码，扫描后跳转到这个网址。这样将内容存储在云端，可以随时更新、可跟踪扫描统计，可存放图片视频、大量文字内容，同时图案简单易扫。 草料活码永久免费面向用户开放。草料经过近三年的积累，开发了活码管理系统，实现了活码的在线修改、后台管理等功能。
+    
+    </summary>
+    
+      <category term="IDEA" scheme="http://blog.ypintao.com/categories/IDEA/"/>
+    
+    
+      <category term="IDEA" scheme="http://blog.ypintao.com/tags/IDEA/"/>
+    
+  </entry>
   
   <entry>
     <title>小总结</title>
@@ -182,6 +215,66 @@ linux
   </entry>
   
   <entry>
+    <title>JS问题汇总</title>
+    <link href="http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://blog.ypintao.com/2016/07/01/技术/web前端/JS/JS问题汇总/</id>
+    <published>2016-06-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:06.570Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、如何解决跨域问题&quot;&gt;&lt;a href=&quot;#1、如何解决跨域问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何解决跨域问题&quot;&gt;&lt;/a&gt;1、如何解决跨域问题&lt;/h3&gt;&lt;p&gt;  nginx代理，或后端设置，&lt;/p&gt;
+&lt;h3 id=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;a href=&quot;#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot; class=&quot;headerlink&quot; title=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;/a&gt;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从输入url到浏览器显示页面发生了什么</title>
     <link href="http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/"/>
     <id>http://blog.ypintao.com/2016/07/01/技术/web前端/JS/从输入url到浏览器显示页面发生了什么/</id>
@@ -252,66 +345,6 @@ linux
   </entry>
   
   <entry>
-    <title>JS问题汇总</title>
-    <link href="http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://blog.ypintao.com/2016/07/01/技术/web前端/JS/JS问题汇总/</id>
-    <published>2016-06-30T16:00:00.000Z</published>
-    <updated>2017-03-22T06:57:06.570Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
-<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
-<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
-<li>1、js动态加载dom元素</li>
-<li>2、onload异步加载</li>
-<li>3、使用requerjs这种，是属于异步加载。</li>
-</ul>
-<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
-<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
-<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
-</ul>
-<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
-<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
-</ul>
-<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
-<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
-<li><p>1、对象字面量的方式  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>2、用function来模拟无参的构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
-</li>
-<li><p>4、用工厂方式来创建（内置对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>5、用原型方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
-</li>
-<li><p>6、用混合方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1、如何解决跨域问题&quot;&gt;&lt;a href=&quot;#1、如何解决跨域问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何解决跨域问题&quot;&gt;&lt;/a&gt;1、如何解决跨域问题&lt;/h3&gt;&lt;p&gt;  nginx代理，或后端设置，&lt;/p&gt;
-&lt;h3 id=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;a href=&quot;#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot; class=&quot;headerlink&quot; title=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;/a&gt;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
-    
-    
-      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>关于单位px,rem,em</title>
     <link href="http://blog.ypintao.com/2016/06/11/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%8D%95%E4%BD%8Dpx,rem,em/"/>
     <id>http://blog.ypintao.com/2016/06/11/技术/web前端/JS/关于单位px,rem,em/</id>
@@ -347,6 +380,40 @@ linux
     
     
       <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5问题汇总</title>
+    <link href="http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://blog.ypintao.com/2016/05/01/技术/web前端/HTML5/HTML5问题汇总/</id>
+    <published>2016-04-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:12.152Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;a href=&quot;#简述一下你对html语义化的理解&quot; class=&quot;headerlink&quot; title=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;/a&gt;简述一下你对html语义化的理解&lt;/h3&gt;&lt;p&gt;网页验证码是干嘛的，是为了解决什么安全问题&lt;br&gt;html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，&lt;/p&gt;
+&lt;h3 id=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;a href=&quot;#浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot; class=&quot;headerlink&quot; title=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;/a&gt;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&lt;/h3&gt;&lt;h3 id=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;a href=&quot;#介绍下你对浏览器内核的理解&quot; class=&quot;headerlink&quot; title=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;/a&gt;介绍下你对浏览器内核的理解
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/HTML5/"/>
+    
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/tags/HTML5/"/>
     
   </entry>
   
@@ -397,36 +464,41 @@ linux
   </entry>
   
   <entry>
-    <title>HTML5问题汇总</title>
-    <link href="http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://blog.ypintao.com/2016/05/01/技术/web前端/HTML5/HTML5问题汇总/</id>
-    <published>2016-04-30T16:00:00.000Z</published>
-    <updated>2017-03-22T06:57:12.152Z</updated>
+    <title>图表测试</title>
+    <link href="http://blog.ypintao.com/2016/03/03/hexo%E6%B5%8B%E8%AF%95/%E5%9B%BE%E8%A1%A8%E6%B5%8B%E8%AF%95/"/>
+    <id>http://blog.ypintao.com/2016/03/03/hexo测试/图表测试/</id>
+    <published>2016-03-02T16:00:00.000Z</published>
+    <updated>2017-03-23T13:07:37.236Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
-<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
-<ul>
-<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
-<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+    <content type="html"><![CDATA[<ul>
+<li>SVN((SVN server))——表示这个节点形状是一个圆。</li>
+<li>|read only|SVN——以这种方式添加节点之间的文本。</li>
+<li>graph TD，从上至下</li>
+<li>BT</li>
+<li>RL</li>
+<li>LR<a id="more"></a></li>
 </ul>
-<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
-<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
-</ul>
-<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">    client1--&gt;|read / write|SVN(SVN server)</div><div class="line">    client2--&gt;|read only|SVN</div><div class="line">    client3--&gt;|read / write|SVN</div><div class="line">    client4--&gt;|read only|SVN</div><div class="line">    client5(...)--&gt;SVN</div><div class="line">    SVN---|store the data|sharedrive</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">graph TD</div><div class="line">    client1--&gt;|read / write|SVN(SVN server)</div><div class="line">    client2--&gt;|read only|SVN</div><div class="line">    client3--&gt;|read / write|SVN</div><div class="line">    client4--&gt;|read only|SVN</div><div class="line">    client5(...)--&gt;SVN</div><div class="line">    SVN---|store the data|sharedrive</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">graph TD</div><div class="line">    subgraph SVN Architecture</div><div class="line">    client1--&gt;|read / write|SVN((SVN server))</div><div class="line">    client2--&gt;|read only|SVN</div><div class="line">    client3--&gt;|read / write|SVN</div><div class="line">    client4--&gt;|read only|SVN</div><div class="line">    client5(...)--&gt;SVN</div><div class="line">    SVN---|store the data|sharedrive</div><div class="line">    end</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;a href=&quot;#简述一下你对html语义化的理解&quot; class=&quot;headerlink&quot; title=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;/a&gt;简述一下你对html语义化的理解&lt;/h3&gt;&lt;p&gt;网页验证码是干嘛的，是为了解决什么安全问题&lt;br&gt;html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，&lt;/p&gt;
-&lt;h3 id=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;a href=&quot;#浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot; class=&quot;headerlink&quot; title=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;/a&gt;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&lt;/h3&gt;&lt;h3 id=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;a href=&quot;#介绍下你对浏览器内核的理解&quot; class=&quot;headerlink&quot; title=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;/a&gt;介绍下你对浏览器内核的理解
+      &lt;ul&gt;
+&lt;li&gt;SVN((SVN server))——表示这个节点形状是一个圆。&lt;/li&gt;
+&lt;li&gt;|read only|SVN——以这种方式添加节点之间的文本。&lt;/li&gt;
+&lt;li&gt;graph TD，从上至下&lt;/li&gt;
+&lt;li&gt;BT&lt;/li&gt;
+&lt;li&gt;RL&lt;/li&gt;
+&lt;li&gt;LR
     
     </summary>
     
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="HTML5" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/HTML5/"/>
+      <category term="test" scheme="http://blog.ypintao.com/categories/test/"/>
     
     
-      <category term="HTML5" scheme="http://blog.ypintao.com/tags/HTML5/"/>
+      <category term="test" scheme="http://blog.ypintao.com/tags/test/"/>
     
   </entry>
   
@@ -816,212 +888,6 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     
       <category term="Git" scheme="http://blog.ypintao.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker to mysql</title>
-    <link href="http://blog.ypintao.com/2015/03/20/%E6%8A%80%E6%9C%AF/Linux/Dock/docker%20to%20mysql/"/>
-    <id>http://blog.ypintao.com/2015/03/20/技术/Linux/Dock/docker to mysql/</id>
-    <published>2015-03-19T16:00:00.000Z</published>
-    <updated>2017-03-21T09:57:20.237Z</updated>
-    
-    <content type="html"><![CDATA[<p>1、安装Docker，可以参考下面的连接，这里不细说。<br>Ubuntu 15.04下安装Docker  <a href="http://www.linuxidc.com/Linux/2015-07/120444.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-07/120444.htm</a><br>Docker安装应用(CentOS 6.5_x64) <a href="http://www.linuxidc.com/Linux/2014-07/104595.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-07/104595.htm</a> <a id="more"></a><br>在Ubuntu Trusty 14.04 (LTS) (64-bit)安装Docker <a href="http://www.linuxidc.com/Linux/2014-10/108184.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-10/108184.htm</a><br>Docker安装应用(CentOS 6.5_x64) <a href="http://www.linuxidc.com/Linux/2014-07/104595.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-07/104595.htm</a><br>Ubuntu 14.04安装Docker  <a href="http://www.linuxidc.com/linux/2014-08/105656.htm" target="_blank" rel="external">http://www.linuxidc.com/linux/2014-08/105656.htm</a><br>阿里云CentOS 6.5 模板上安装 Docker <a href="http://www.linuxidc.com/Linux/2014-11/109107.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-11/109107.htm</a><br>2、进入Linux后，使用Docker命令下载MySQL，命令如：<br>      docker pull mysql:5.7<br>运行该命令后，则会显示以下日志：<br>  5.7: Pulling from mysql<br>  4c8cbfd2973e: Pull complete<br>  60c52dbe9d91: Pull complete<br>  c2b0136be90f: Pull complete<br>  273cd71eacf0: Pull complete<br>  543ff72402d8: Pull complete<br>  f928e22e58b0: Pull complete<br>  2d1023ecaed4: Pull complete<br>  059dbbef4dd8: Pull complete<br>  ac0ee0367a32: Pull complete<br>  a9057a689e83: Pull complete<br>  5191ddfc3b01: Pull complete<br>  6e2ce31eb835: Pull complete<br>  099dc92e9b15: Pull complete<br>  7b4030a6b20b: Pull complete<br>  fdb9c2185fc2: Already exists<br>  mysql:5.7: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be    relied on to provide security.<br>  Digest: sha256:d00f3f3cd30d0e8ad9bdf8ba61729ee1a4b6fe84a0fbb95f07dc2668a4cb5d08<br>  Status: Downloaded newer image for mysql:5.7<br>下载需要一段时间，下载完毕后，启动Docker容器。<br>3、先查看本机都有哪些镜像，命令如下：docker images<br>然后会打印出以下日志：<br>  REPOSITORY          TAG                IMAGE ID            CREATED            VIRTUAL SIZE<br>  mysql              5.7                fdb9c2185fc2        9 days ago          321.9 MB<br>  csphere/csphere    0.11.2              6d983828b938        8 weeks ago        112 MB<br>4、然后启动我们的mysql的docker容器，命令如下：<br>  docker run –name db001 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mytest -d mysql:5.7<br>注意，这里的容器名字叫：db001，mysql的root用户密码是：mytest，映射宿主机子的端口3306到容器的端口3306，仓库名mysql和标签(tag）唯一确定了要指定的镜像，其实如果这里只有一个mysql也有必要要tag，执行该命令返回的结果是：<br>a40c6e58afbda0199111a2a2ef0af7e8dd9be057a610ca5f4f30aa782a5d9155<br>5、查看已经运行的的所有容器，命令如：docker ps<br>返回的结果是：<br>  CONTAINER ID        IMAGE                    COMMAND                CREATED            STATUS              PORTS                                      NAMES<br>  a40c6e58afbd        mysql:5.7                “/entrypoint.sh mysq  12 seconds ago      Up 12 seconds      0.0.0.0:3306-&gt;3306/tcp                      db001<br>  512013f5bd3a        csphere/csphere:0.11.2  “/bin/csphere-init -  10 days ago        Up 10 days                                                      csphere-agent<br>  631a4f91b2fb        csphere/csphere:0.11.2  “/bin/csphere-init -  10 days ago        Up 10 days          8086/tcp, 27017/tcp,    0.0.0.0:1016-&gt;80/tcp  csphere-controller<br>使用mysql的工具，比如navicat连接成功。<br>这里我们没有制作自己的镜像，直接使用了网上已有的，开始是从docker pull dl.dockerpool.com:5000/mysql:5.7路径上pull myql镜像，结果没有成功，所以直接使用了上边说的docker pull mysql:5.7，没有什么技术含量，给入门的同学用吧。<br>配置 Docker 镜像下载的本地 mirror 服务  <a href="http://www.linuxidc.com/Linux/2015-07/120061.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-07/120061.htm</a><br>在 Docker 中使用 MySQL <a href="http://www.linuxidc.com/Linux/2014-01/95354.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-01/95354.htm</a></p>
-<p>数据库文件  备份 方法<br>docker inspect mysql-container-id</p>
-<p>找到里面的volume字段 有显示挂载的host路径</p>
-<p>然后题主就可以备份数据了！</p>
-<p>进入容器<br>docker exec -it 02891060202b /bin/bash</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1、安装Docker，可以参考下面的连接，这里不细说。&lt;br&gt;Ubuntu 15.04下安装Docker  &lt;a href=&quot;http://www.linuxidc.com/Linux/2015-07/120444.htm&quot;&gt;http://www.linuxidc.com/Linux/2015-07/120444.htm&lt;/a&gt;&lt;br&gt;Docker安装应用(CentOS 6.5_x64) &lt;a href=&quot;http://www.linuxidc.com/Linux/2014-07/104595.htm&quot;&gt;http://www.linuxidc.com/Linux/2014-07/104595.htm&lt;/a&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="Dock" scheme="http://blog.ypintao.com/categories/Linux/Dock/"/>
-    
-    
-      <category term="Dock" scheme="http://blog.ypintao.com/tags/Dock/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面试笔记</title>
-    <link href="http://blog.ypintao.com/2015/03/02/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0node/"/>
-    <id>http://blog.ypintao.com/2015/03/02/生活/面试/面试笔记node/</id>
-    <published>2015-03-01T16:00:00.000Z</published>
-    <updated>2017-03-21T10:39:40.367Z</updated>
-    
-    <content type="html"><![CDATA[<p>ES6有哪些新特性？<br>参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato r器, Map/Set, Promise</p>
-<ol>
-<li>你对ES6的个人看法？<br>参考答案：ES6必火！从软件工程角度来看，以前真的很弱，不适合做大型应用，很容易导致烂尾工程。ES6就相当于当年的Java5,是历史性的发展，从此我们可以用js做大型项目了。事实上，各大主流浏览器现在已经支持大部分新特性了，后端的Node.js更是可以直接使用ES6的绝大多数语法。</li>
-</ol>
-<ol>
-<li>常用js类定义的方法有哪些？<br>参考答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.<br>代码演示<br>1) 构造函数方法定义类<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person()&#123;</div><div class="line">    this.name = &apos;michaelqin&apos;;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName = function()&#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var person = new Person();</div><div class="line">person.sayName();</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>2) 对象创建方法定义类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var Person = &#123;</div><div class="line">    name: &apos;michaelqin&apos;,</div><div class="line">    sayName: function()&#123; alert(this.name); &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var person = Object.create(Person);</div><div class="line">person.sayName();</div></pre></td></tr></table></figure></p>
-<ol>
-<li>js类继承的方法有哪些<br>参考答案：原型链法，属性复制法和构造器应用法. 另外，由于每个对象可以是一个类，这些方法也可以用于对象类的继承．<br>代码演示<br>1) 原型链法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;&#125;</div><div class="line">Person.prototype = Animal.prototype; // 人继承自动物</div><div class="line">Person.prototype.constructor = &apos;Person&apos;; // 更新构造函数为人</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>2) 属性复制法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;&#125;</div><div class="line"></div><div class="line">for(prop in Animal.prototype) &#123;</div><div class="line">    Person.prototype[prop] = Animal.prototype[prop];</div><div class="line">&#125; // 复制动物的所有属性到人量边</div><div class="line">Person.prototype.constructor = &apos;Person&apos;; // 更新构造函数为人</div></pre></td></tr></table></figure></p>
-<p>3) 构造器应用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Animal() &#123;</div><div class="line">    this.name = &apos;animal&apos;;</div><div class="line">&#125;</div><div class="line">Animal.prototype.sayName = &#123;</div><div class="line">    alert(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function Person() &#123;</div><div class="line">    Animal.call(this); // apply, call, bind方法都可以．细微区别，后面会提到．</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<ol>
-<li>js类多重继承的实现方法是怎么样的?<br>参考答案：就是类继承里边的属性复制法来实现．因为当所有父类的prototype属性被复制后，子类自然拥有类似行为和属性．</li>
-<li><p>js里的作用域是什么样子的？<br>参考答案：大多数语言里边都是块作作用域，以{}进行限定，js里边不是．js里边叫函数作用域，就是一个变量在全函数里有效．比如有个变量p1在函数最后一行定义，第一行也有效，但是值是undefined.<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var globalVar = &apos;global var&apos;;</div><div class="line"></div><div class="line">function test() &#123;</div><div class="line">    alert(globalVar); // undefined, 因为globalVar在本函数内被重定义了，导致全局失效，这里使用函数内的变量值，可是此时还没定义</div><div class="line">    var globalVar = &apos;overrided var&apos;; //　globalVar在本函数内被重定义</div><div class="line">    alert(globalVar);　// overrided var</div><div class="line">&#125;</div><div class="line">alert(globalVar); // global var，使用全局变量</div></pre></td></tr></table></figure>
-</li>
-<li><p>js里边的this指的是什么?<br>参考答案: this指的是对象本身，而不是构造函数．<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName() &#123; alert(this.name); &#125;</div><div class="line"></div><div class="line">var person1 = new Person();</div><div class="line">person1.name = &apos;michaelqin&apos;;</div><div class="line">person1.sayName(); // michaelqin</div></pre></td></tr></table></figure>
-</li>
-<li><p>apply, call和bind有什么区别?<br>参考答案：三者都可以把一个函数应用到其他对象上，注意不是自身对象．apply,call是直接执行函数调用，bind是绑定，执行需要再次调用．apply和call的区别是apply接受数组作为参数，而call是接受逗号分隔的无限多个参数列表，<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayName() &#123; alert(this.name); &#125;</div><div class="line"></div><div class="line">var obj = &#123;name: &apos;michaelqin&apos;&#125;; // 注意这是一个普通对象，它不是Person的实例</div><div class="line">1) apply</div><div class="line">Person.prototype.sayName.apply(obj, [param1, param2, param3]);</div><div class="line"></div><div class="line">2) call</div><div class="line">Person.prototype.sayName.call(obj, param1, param2, param3);</div><div class="line"></div><div class="line">3) bind</div><div class="line">var sn = Person.prototype.sayName.bind(obj);    </div><div class="line">sn([param1, param2, param3]); // bind需要先绑定，再执行 </div><div class="line">sn(param1, param2, param3); // bind需要先绑定，再执行</div></pre></td></tr></table></figure>
-</li>
-<li><p>caller, callee和arguments分别是什么?<br>参考答案: caller,callee之间的关系就像是employer和employee之间的关系，就是调用与被调用的关系，二者返回的都是函数对象引用．arguments是函数的所有参数列表，它是一个类数组的变量．<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function parent(param1, param2, param3) &#123;</div><div class="line">    child(param1, param2, param3);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function child() &#123;</div><div class="line">    console.log(arguments); // &#123; &apos;0&apos;: &apos;mqin1&apos;, &apos;1&apos;: &apos;mqin2&apos;, &apos;2&apos;: &apos;mqin3&apos; &#125;</div><div class="line">    console.log(arguments.callee); // [Function: child]</div><div class="line">    console.log(child.caller); // [Function: parent]</div><div class="line">&#125;</div><div class="line"></div><div class="line">parent(&apos;mqin1&apos;, &apos;mqin2&apos;, &apos;mqin3&apos;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>什么是闭包，闭包有哪些用处?<br>参考答案: 闭包这个术语，无论中文翻译还是英文解释都太２Ｂ了，我必须骂人，因为它什么其实都不是．非要讲它是什么的话，两个字函数，更多字嵌套函数的父子自我引用关系．所有函数都是闭包．通俗的说，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包．全局函数的作用域范围就是全局，所以无须讨论．更多的应用其实是在内嵌函数，这就会涉及到内嵌作用域，或者叫作用域链．说到内嵌，其实就是父子引用关系(父函数包含子函数，子函数因为函数作用域又引用父函数，这它妈不是死结吗？所以叫闭包），这就会带来另外一个问题，什么时候引用结束？如果不结束，就会一直占用内存，引起内存泄漏．好吧，不用的时候就引用设为空，死结就解开了．</p>
-</li>
-<li>defineProperty, hasOwnProperty, isEnumerable都是做什么用的？<br>参考答案：Object.defineProperty(obj, prop, descriptor)用来给对象定义属性,有value,writable,configurable,enumerable,set/get等.hasOwnProerty用于检查某一属性是不是存在于对象本身，继承来的父亲的属性不算．isEnumerable用来检测某一属性是否可遍历，也就是能不能用for..in循环来取到.</li>
-<li><p>js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等<br>参考答案：<br>1) 单例：　任意对象都是单例，无须特别处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;name: &apos;michaelqin&apos;, age: 30&#125;;</div></pre></td></tr></table></figure>
-<p>2) 工厂: 就是同样形式参数返回不同的实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person() &#123; this.name = &apos;Person1&apos;; &#125;</div><div class="line">function Animal() &#123; this.name = &apos;Animal1&apos;; &#125;</div><div class="line"></div><div class="line">function Factory() &#123;&#125;</div><div class="line">Factory.prototype.getInstance = function(className) &#123;</div><div class="line">    return eval(&apos;new &apos; + className + &apos;()&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var factory = new Factory();</div><div class="line">var obj1 = factory.getInstance(&apos;Person&apos;);</div><div class="line">var obj2 = factory.getInstance(&apos;Animal&apos;);</div><div class="line">console.log(obj1.name); // Person1</div><div class="line">console.log(obj2.name); // Animal1</div></pre></td></tr></table></figure>
-<p>3) 代理: 就是新建个类调用老类的接口,包一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function Person() &#123; &#125;</div><div class="line">Person.prototype.sayName = function() &#123; console.log(&apos;michaelqin&apos;); &#125;</div><div class="line">Person.prototype.sayAge = function() &#123; console.log(30); &#125;</div><div class="line"></div><div class="line">function PersonProxy() &#123; </div><div class="line">    this.person = new Person();</div><div class="line">    var that = this;</div><div class="line">    this.callMethod = function(functionName) &#123;</div><div class="line">        console.log(&apos;before proxy:&apos;, functionName);</div><div class="line">        that.person[functionName](); // 代理</div><div class="line">        console.log(&apos;after proxy:&apos;, functionName);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var pp = new PersonProxy();</div><div class="line">pp.callMethod(&apos;sayName&apos;); // 代理调用Person的方法sayName()</div><div class="line">pp.callMethod(&apos;sayAge&apos;); // 代理调用Person的方法sayAge()</div></pre></td></tr></table></figure>
-<p>4) 观察者: 就是事件模式，比如按钮的onclick这样的应用.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">function Publisher() &#123;</div><div class="line">    this.listeners = [];</div><div class="line">&#125;</div><div class="line">Publisher.prototype = &#123;</div><div class="line">    &apos;addListener&apos;: function(listener) &#123;</div><div class="line">        this.listeners.push(listener);</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    &apos;removeListener&apos;: function(listener) &#123;</div><div class="line">        delete this.listeners[listener];</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    &apos;notify&apos;: function(obj) &#123;</div><div class="line">        for(var i = 0; i &lt; this.listeners.length; i++) &#123;</div><div class="line">            var listener = this.listeners[i];</div><div class="line">            if (typeof listener !== &apos;undefined&apos;) &#123;</div><div class="line">                listener.process(obj);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;; // 发布者</div><div class="line"></div><div class="line">function Subscriber() &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">Subscriber.prototype = &#123;</div><div class="line">    &apos;process&apos;: function(obj) &#123;</div><div class="line">        console.log(obj);</div><div class="line">    &#125;</div><div class="line">&#125;;　// 订阅者</div><div class="line"></div><div class="line"></div><div class="line">var publisher = new Publisher();</div><div class="line">publisher.addListener(new Subscriber());</div><div class="line">publisher.addListener(new Subscriber());</div><div class="line">publisher.notify(&#123;name: &apos;michaelqin&apos;, ageo: 30&#125;); // 发布一个对象到所有订阅者</div><div class="line">publisher.notify(&apos;2 subscribers will both perform process&apos;); // 发布一个字符串到所有订阅者</div></pre></td></tr></table></figure>
-</li>
-<li><p>列举数组相关的常用方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: push/pop, shift/unshift, split/join, slice/splice/concat, sort/reverse, map/reduce, forEach, filter</div></pre></td></tr></table></figure>
-</li>
-<li><p>列举字符串相关的常用方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: indexOf/lastIndexOf/charAt, split/match/test, slice/substring/substr, toLowerCase/toUpperCase</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>node核心内置类库(事件，流，文件，网络等)</p>
-<p>node概览</p>
-<ol>
-<li>为什么要用node?<br>参考答案: 总结起来node有以下几个特点:简单强大，轻量可扩展．简单体现在node使用的是javascript,json来进行编码，人人都会；强大体现在非阻塞IO,可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；轻量体现在node本身既是代码，又是服务器，前后端使用统一语言;可扩展体现在可以轻松应对多实例，多服务器架构，同时有海量的第三方应用组件．</li>
-<li><p>node的构架是什么样子的?<br>参考答案: 主要分为三层，应用app &gt;&gt; V8及node内置架构 &gt;&gt; 操作系统. V8是node运行的环境，可以理解为node虚拟机．node内置架构又可分为三层: 核心模块(javascript实现) &gt;&gt; c++绑定 &gt;&gt; libuv + CAes + http.</p>
-</li>
-<li><p>node有哪些核心模块?<br>参考答案: EventEmitter, Stream, FS, Net和全局对象<br>node全局对象</p>
-</li>
-<li><p>node有哪些全局对象?<br>参考答案: process, console, Buffer和exports</p>
-</li>
-<li>process有哪些常用方法?<br>参考答案: process.stdin, process.stdout, process.stderr, process.on, process.env, process.argv, process.arch, process.platform, process.exit</li>
-<li>console有哪些常用方法?<br>参考答案: console.log/console.info, console.error/console.warning, console.time/console.timeEnd, console.trace, console.table</li>
-<li>node有哪些定时功能?<br>参考答案: setTimeout/clearTimeout, setInterval/clearInterval, setImmediate/clearImmediate, process.nextTick</li>
-<li><p>node中的事件循环是什么样子的?<br>参考答案: event loop其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列．但是请务必注意，这一个事件队列的循环，一次只执行一个事件，然后下一次循环再执行一个事件．这是由于javascript的单线程机制导致的，如果一次循环多个事件，就可能会阻塞其它代码的执行．异步执行的叫IO events, setImmediate是在当前队列立即执行,setTimout/setInterval是把执行定时到到后面的队列，process.nextTick是在当前执行完，下次遍历前执行．所以总体顺序是: IO events &gt;&gt; setImmediate &gt;&gt; setTimeout/setInterval(注册事件) &gt;&gt; process.nextTick.</p>
-</li>
-<li><p>node中的Buffer如何应用?<br>参考答案: Buffer是用来处理二进制数据的，比如图片，mp3,数据库文件等.Buffer支持各种编码解码，二进制字符串互转．<br>EventEmitter</p>
-</li>
-<li><p>什么是EventEmitter?<br>参考答案: EventEmitter是node中一个实现观察者模式的类，主要功能是监听和发射消息，用于处理多模块交互问题.</p>
-</li>
-<li><p>如何实现一个EventEmitter?<br>参考答案: 主要分三步：定义一个子类，调用构造函数，继承EventEmitter<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;);</div><div class="line">var EventEmitter = require(&apos;events&apos;).EventEmitter;</div><div class="line"></div><div class="line">function MyEmitter() &#123;</div><div class="line">    EventEmitter.call(this);</div><div class="line">&#125; // 构造函数</div><div class="line"></div><div class="line">util.inherits(MyEmitter, EventEmitter); // 继承</div><div class="line"></div><div class="line">var em = new MyEmitter();</div><div class="line">em.on(&apos;hello&apos;, function(data) &#123;</div><div class="line">    console.log(&apos;收到事件hello的数据:&apos;, data);</div><div class="line">&#125;); // 接收事件，并打印到控制台</div><div class="line">em.emit(&apos;hello&apos;, &apos;EventEmitter传递消息真方便!&apos;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>EventEmitter有哪些典型应用?<br>参考答案: 1) 模块间传递消息 2) 回调函数内外传递消息 3) 处理流数据，因为流是在EventEmitter基础上实现的. 4) 观察者模式发射触发机制相关应用</p>
-</li>
-<li><p>怎么捕获EventEmitter的错误事件?<br>参考答案: 监听error事件即可．如果有多个EventEmitter,也可以用domain来统一处理错误事件.<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var domain = require(&apos;domain&apos;);</div><div class="line">var myDomain = domain.create();</div><div class="line">myDomain.on(&apos;error&apos;, function(err)&#123;</div><div class="line">    console.log(&apos;domain接收到的错误事件:&apos;, err);</div><div class="line">&#125;); // 接收事件并打印</div><div class="line">myDomain.run(function()&#123;</div><div class="line">    var emitter1 = new MyEmitter();</div><div class="line">    emitter1.emit(&apos;error&apos;, &apos;错误事件来自emitter1&apos;);</div><div class="line">    emitter2 = new MyEmitter();</div><div class="line">    emitter2.emit(&apos;error&apos;, &apos;错误事件来自emitter2&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>EventEmitter中的newListenser事件有什么用处?<br>参考答案: newListener可以用来做事件机制的反射，特殊应用，事件管理等．当任何on事件添加到EventEmitter时，就会触发newListener事件，基于这种模式，我们可以做很多自定义处理.<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var emitter3 = new MyEmitter();</div><div class="line">emitter3.on(&apos;newListener&apos;, function(name, listener) &#123;</div><div class="line">    console.log(&quot;新事件的名字:&quot;, name);</div><div class="line">    console.log(&quot;新事件的代码:&quot;, listener);</div><div class="line">    setTimeout(function()&#123; console.log(&quot;我是自定义延时处理机制&quot;); &#125;, 1000);</div><div class="line">&#125;);</div><div class="line">emitter3.on(&apos;hello&apos;, function()&#123;</div><div class="line">    console.log(&apos;hello　node&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Stream</p>
-<ol>
-<li>什么是Stream?<br>参考答案: stream是基于事件EventEmitter的数据管理模式．由各种不同的抽象接口组成，主要包括可写，可读，可读写，可转换等几种类型．</li>
-<li>Stream有什么好处?<br>参考答案: 非阻塞式数据处理提升效率，片断处理节省内存，管道处理方便可扩展等.</li>
-<li>Stream有哪些典型应用?<br>参考答案: 文件，网络，数据转换，音频视频等.</li>
-<li>怎么捕获Stream的错误事件?<br>参考答案: 监听error事件，方法同EventEmitter.</li>
-<li>有哪些常用Stream,分别什么时候使用?<br>参考答案: Readable为可被读流，在作为输入数据源时使用；Writable为可被写流,在作为输出源时使用；Duplex为可读写流,它作为输出源接受被写入，同时又作为输入源被后面的流读出．Transform机制和Duplex一样，都是双向流，区别时Transfrom只需要实现一个函数_transfrom(chunk, encoding, callback);而Duplex需要分别实现_read(size)函数和_write(chunk, encoding, callback)函数.</li>
-<li>实现一个Writable Stream?<br>参考答案: 三步走:1)构造函数call Writable 2)　继承Writable 3) 实现_write(chunk, encoding, callback)函数<br>代码演示<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Writable = require(&apos;stream&apos;).Writable;</div><div class="line">var util = require(&apos;util&apos;);</div><div class="line"></div><div class="line">function MyWritable(options) &#123;</div><div class="line">    Writable.call(this, options);</div><div class="line">&#125; // 构造函数</div><div class="line">util.inherits(MyWritable, Writable); // 继承自Writable</div><div class="line">MyWritable.prototype._write = function(chunk, encoding, callback) &#123;</div><div class="line">    console.log(&quot;被写入的数据是:&quot;, chunk.toString()); // 此处可对写入的数据进行处理</div><div class="line">    callback();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为输出源</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>文件系统</p>
-<ol>
-<li>内置的fs模块架构是什么样子的?<br>参考答案: fs模块主要由下面几部分组成: 1) POSIX文件Wrapper,对应于操作系统的原生文件操作 2) 文件流 fs.createReadStream和fs.createWriteStream 3) 同步文件读写,fs.readFileSync和fs.writeFileSync 4) 异步文件读写, fs.readFile和fs.writeFile</li>
-<li>读写一个文件有多少种方法?<br>参考答案: 总体来说有四种: 1) POSIX式低层读写 2) 流式读写 3) 同步文件读写 4) 异步文件读写</li>
-<li>怎么读取json配置文件?<br>参考答案: 主要有两种方式，第一种是利用node内置的require(‘data.json’)机制，直接得到js对象; 第二种是读入文件入内容，然后用JSON.parse(content)转换成js对象．二者的区别是require机制情况下，如果多个模块都加载了同一个json文件，那么其中一个改变了js对象，其它跟着改变，这是由node模块的缓存机制造成的，只有一个js模块对象; 第二种方式则可以随意改变加载后的js变量，而且各模块互不影响，因为他们都是独立的，是多个js对象.</li>
-<li><p>fs.watch和fs.watchFile有什么区别，怎么应用?<br>参考答案: 二者主要用来监听文件变动．fs.watch利用操作系统原生机制来监听，可能不适用网络文件系统; fs.watchFile则是定期检查文件状态变更，适用于网络文件系统，但是相比fs.watch有些慢，因为不是实时机制．<br>网络</p>
-</li>
-<li><p>node的网络模块架构是什么样子的?<br>参考答案: node全面支持各种网络服务器和客户端，包括tcp, http/https, tcp, udp, dns, tls/ssl等.</p>
-</li>
-<li>node是怎样支持https,tls的?<br>参考答案: 主要实现以下几个步骤即可: 1) openssl生成公钥私钥 2) 服务器或客户端使用https替代http 3) 服务器或客户端加载公钥私钥证书</li>
-<li>实现一个简单的http服务器?<br>参考答案: 经典又很没毛意义的一个题目．思路是加载http模块，创建服务器，监听端口.<br>代码演示<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;); // 加载http模块</div><div class="line"></div><div class="line">http.createServer(function(req, res) &#123;</div><div class="line">    res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/html&apos;&#125;); // 200代表状态成功, 文档类型是给浏览器识别用的</div><div class="line">    res.write(&apos;&lt;meta charset=&quot;UTF-8&quot;&gt; &lt;h1&gt;我是标题啊！&lt;/h1&gt; &lt;font color=&quot;red&quot;&gt;这么原生，初级的服务器，下辈子能用着吗?!&lt;/font&gt;&apos;); // 返回给客户端的html数据</div><div class="line">    res.end(); // 结束输出流</div><div class="line">&#125;).listen(3000); // 绑定3ooo, 查看效果请访问 http://localhost:3000</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>child-process</p>
-<ol>
-<li>为什么需要child-process?<br>参考答案: node是异步非阻塞的，这对高并发非常有效．可是我们还有其它一些常用需求，比如和操作系统shell命令交互，调用可执行文件，创建子进程进行阻塞式访问或高CPU计算等，child-process就是为满足这些需求而生的．child-process顾名思义，就是把node阻塞的工作交给子进程去做．</li>
-<li>exec,execFile,spawn和fork都是做什么用的?<br>参考答案: exec可以用操作系统原生的方式执行各种命令，如管道 cat ab.txt | grep hello; execFile是执行一个文件; spawn是流式和操作系统进行交互; fork是两个node程序(javascript)之间时行交互.</li>
-<li><p>实现一个简单的命令行交互程序?<br>参考答案: 那就用spawn吧.<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var cp = require(&apos;child_process&apos;);</div><div class="line"></div><div class="line">var child = cp.spawn(&apos;echo&apos;, [&apos;你好&apos;, &quot;钩子&quot;]); // 执行命令</div><div class="line">child.stdout.pipe(process.stdout); // child.stdout是输入流，process.stdout是输出流</div><div class="line">// 这句的意思是将子进程的输出作为当前程序的输入流，然后重定向到当前程序的标准输出，即控制台</div></pre></td></tr></table></figure>
-</li>
-<li><p>两个node程序之间怎样交互?<br>参考答案: 用fork嘛，上面讲过了．原理是子程序用process.on, process.send，父程序里用child.on,child.send进行交互.<br>代码演示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">1) fork-parent.js</div><div class="line">var cp = require(&apos;child_process&apos;);</div><div class="line">var child = cp.fork(&apos;./fork-child.js&apos;);</div><div class="line">child.on(&apos;message&apos;, function(msg)&#123;</div><div class="line">    console.log(&apos;老爸从儿子接受到数据:&apos;, msg);</div><div class="line">&#125;);</div><div class="line">child.send(&apos;我是你爸爸，送关怀来了!&apos;);</div><div class="line"></div><div class="line">2) fork-child.js</div><div class="line">process.on(&apos;message&apos;, function(msg)&#123;</div><div class="line">    console.log(&quot;儿子从老爸接收到的数据:&quot;, msg);</div><div class="line">    process.send(&quot;我不要关怀，我要银民币！&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>怎样让一个js文件变得像linux命令一样可执行?<br>参考答案: 1) 在myCommand.js文件头部加入 #!/usr/bin/env node 2) chmod命令把js文件改为可执行即可 3) 进入文件目录，命令行输入myComand就是相当于node myComand.js了</p>
-</li>
-<li><p>child-process和process的stdin,stdout,stderror是一样的吗?<br>参考答案: 概念都是一样的，输入，输出，错误，都是流．区别是在父程序眼里，子程序的stdout是输入流，stdin是输出流．<br>node高级话题(异步，部署，性能调优，异常调试等)</p>
-</li>
-<li><p>node中的异步和同步怎么理解<br>参考答案: node是单线程的，异步是通过一次次的循环事件队列来实现的．同步则是说阻塞式的IO,这在高并发环境会是一个很大的性能问题，所以同步一般只在基础框架的启动时使用，用来加载配置文件，初始化程序什么的．</p>
-</li>
-<li>有哪些方法可以进行异步流程的控制?<br>参考答案: 1) 多层嵌套回调 2)　为每一个回调写单独的函数，函数里边再回调 3) 用第三方框架比方async, q, promise等</li>
-<li>怎样绑定node程序到80端口?<br>参考答案: 多种方式 1) sudo 2) apache/nginx代理 3) 用操作系统的firewall iptables进行端口重定向</li>
-<li>有哪些方法可以让node程序遇到错误后自动重启?<br>参考答案: 1) runit 2) forever 3) nohup npm start &amp;</li>
-<li>怎样充分利用多个CPU?<br>参考答案: 一个CPU运行一个node实例</li>
-<li>怎样调节node执行单元的内存大小?<br>参考答案: 用–max-old-space-size 和 –max-new-space-size 来设置 v8 使用内存的上限</li>
-<li>程序总是崩溃，怎样找出问题在哪里?<br>参考答案: 1) node –prof 查看哪些函数调用次数多 2) memwatch和heapdump获得内存快照进行对比，查找内存溢出</li>
-<li>有哪些常用方法可以防止程序崩溃?<br>参考答案: 1) try-catch-finally 2) EventEmitter/Stream error事件处理 3) domain统一控制 4) jshint静态检查 5) jasmine/mocha进行单元测试</li>
-<li><p>怎样调试node程序?<br>参考答案: node –debug app.js 和node-inspector<br>常用知名第三方类库(Async, Express等)</p>
-</li>
-<li><p>async都有哪些常用方法，分别是怎么用?<br>参考答案: async是一个js类库，它的目的是解决js中异常流程难以控制的问题．async不仅适用在node.js里，浏览器中也可以使用． </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">1) async.parallel并行执行完多个函数后，调用结束函数</div><div class="line">    async.parallel([</div><div class="line">        function()&#123; ... &#125;,</div><div class="line">        function()&#123; ... &#125;</div><div class="line">    ], callback);</div><div class="line">2) async.series串行执行完多个函数后，调用结束函数</div><div class="line">    async.series([</div><div class="line">        function()&#123; ... &#125;,</div><div class="line">        function()&#123; ... &#125;</div><div class="line">    ]);</div><div class="line">3) async.waterfall依次执行多个函数，后一个函数以前面函数的结果作为输入参数</div><div class="line">    async.waterfall([</div><div class="line">        function(callback) &#123;</div><div class="line">            callback(null, &apos;one&apos;, &apos;two&apos;);</div><div class="line">        &#125;,</div><div class="line">        function(arg1, arg2, callback) &#123;</div><div class="line">          // arg1 now equals &apos;one&apos; and arg2 now equals &apos;two&apos; </div><div class="line">            callback(null, &apos;three&apos;);</div><div class="line">        &#125;,</div><div class="line">        function(arg1, callback) &#123;</div><div class="line">            // arg1 now equals &apos;three&apos; </div><div class="line">            callback(null, &apos;done&apos;);</div><div class="line">        &#125;</div><div class="line">    ], function (err, result) &#123;</div><div class="line">        // result now equals &apos;done&apos; </div><div class="line">    &#125;);</div><div class="line">4) async.map异步执行多个数组，返回结果数组</div><div class="line">    async.map([&apos;file1&apos;,&apos;file2&apos;,&apos;file3&apos;], fs.stat, function(err, results)&#123;</div><div class="line">        // results is now an array of stats for each file </div><div class="line">    &#125;);</div><div class="line">5) async.filter异步过滤多个数组，返回结果数组</div><div class="line">    async.filter([&apos;file1&apos;,&apos;file2&apos;,&apos;file3&apos;], fs.exists, function(results)&#123;</div><div class="line">        // results now equals an array of the existing files </div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>express项目的目录大致是什么样子的<br>参考答案: app.js, package.json, bin/www, public, routes, views.</p>
-</li>
-<li>express常用函数<br>参考答案: express.Router路由组件,app.get路由定向，app.configure配置，app.set设定参数,app.use使用中间件</li>
-<li>express中如何获取路由的参数<br>参考答案: /users/:name使用req.params.name来获取; req.body.username则是获得表单传入参数username; express路由支持常用通配符 ?, +, *, and ()</li>
-<li><p>express response有哪些常用方法<br>参考答案: res.download() 弹出文件下载<br>res.end() 结束response<br>res.json() 返回json<br>res.jsonp() 返回jsonp<br>res.redirect() 重定向请求<br>res.render() 渲染模板<br>res.send() 返回多种形式数据<br>res.sendFile 返回文件<br>res.sendStatus() 返回状态<br>其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</p>
-</li>
-<li><p>mongodb有哪些常用优化措施<br>参考答案: 类似传统数据库，索引和分区．</p>
-</li>
-<li>mongoose是什么？有支持哪些特性?<br>参考答案: mongoose是mongodb的文档映射模型．主要由Schema, Model和Instance三个方面组成．Schema就是定义数据类型，Model就是把Schema和js类绑定到一起，Instance就是一个对象实例．常见mongoose操作有,save, update, find. findOne, findById, static方法等．</li>
-<li><p>redis支持哪些功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参考答案: set/get, mset/hset/hmset/hmget/hgetall/hkeys, sadd/smembers, publish/subscribe, expire</div></pre></td></tr></table></figure>
-</li>
-<li><p>redis最简单的应用<br>参考答案:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var redis = require(&quot;redis&quot;),</div><div class="line">    client = redis.createClient();</div><div class="line"></div><div class="line">client.set(&quot;foo_rand000000000000&quot;, &quot;some fantastic value&quot;);</div><div class="line">client.get(&quot;foo_rand000000000000&quot;, function (err, reply) &#123;</div><div class="line">    console.log(reply.toString());</div><div class="line">&#125;);</div><div class="line">client.end();</div></pre></td></tr></table></figure>
-</li>
-<li><p>apache,nginx有什么区别?<br>参考答案: 二者都是代理服务器，功能类似．apache应用简单，相当广泛．nginx在分布式，静态转发方面比较有优势．<br>常用前端技术(Html5, CSS3, JQuery等)</p>
-</li>
-<li><p>Html5有哪些比较实用新功能<br>参考答案: File API支持本地文件操作; Canvans/SVG支持绘图; 拖拽功能支持; 本地存储支持; 表单多属性验证支持; 原生音频视频支持等</p>
-</li>
-<li>CSS3/JQuery有哪些学常见选择器<br>参考答案: id, 元素，属性, 值，父子兄弟, 序列等</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;ES6有哪些新特性？&lt;br&gt;参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato r器, Map/Set, Promise&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;你对ES6的个人看法？&lt;
-    
-    </summary>
-    
-      <category term="生活" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="面试" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="生活" scheme="http://blog.ypintao.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
