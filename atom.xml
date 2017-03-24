@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2017-03-24T14:06:54.837Z</updated>
+  <updated>2017-03-24T14:10:29.301Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -16,17 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>pomelo并非完全的游戏引擎</title>
     <link href="http://blog.ypintao.com/2017/03/24/%E6%8A%80%E6%9C%AF/%E6%A1%86%E6%9E%B6demo/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6pomelo/"/>
     <id>http://blog.ypintao.com/2017/03/24/技术/框架demo/游戏框架pomelo/</id>
-    <published>2017-03-24T14:06:54.835Z</published>
-    <updated>2017-03-24T14:06:54.837Z</updated>
+    <published>2017-03-23T16:00:00.000Z</published>
+    <updated>2017-03-24T14:10:29.301Z</updated>
     
-    <content type="html"><![CDATA[<p>title: pomelo并非完全的游戏引擎<br>date： 2017-03-24<br>tags: demo<br>categories: </p>
-<ul>
-<li>demo</li>
-</ul>
-<p>前几天有个朋友问，棋牌游戏js可以做不，由于对于游戏这一块基本算是空白，所以就稍微查了下资料，不想，有新的发现。<br>大名鼎鼎的pomelo 大家应该不陌生。<br>没想到他的文档还挺齐全的，它是基于nodejs的，下面介绍下pomelo的安装</p>
+    <content type="html"><![CDATA[<p>前几天有个朋友问，棋牌游戏js可以做不，由于对于游戏这一块基本算是空白，所以就稍微查了下资料，不想，有新的发现。<br>大名鼎鼎的pomelo 大家应该不陌生。<br>没想到他的文档还挺齐全的，它是基于nodejs的，下面介绍下pomelo的安装</p>
 <ul>
 <li><h4 id="Pomelo的设计动机"><a href="#Pomelo的设计动机" class="headerlink" title="Pomelo的设计动机"></a>Pomelo的设计动机</h4></li>
 </ul>
@@ -78,11 +74,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;title: pomelo并非完全的游戏引擎&lt;br&gt;date： 2017-03-24&lt;br&gt;tags: demo&lt;br&gt;categories: &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;demo&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;前几天有个朋友问，棋牌游戏js可以做不，由于对于游戏这一块基本算是空白，所以就稍微查了下资料，不想，有新的发现。&lt;br&gt;大名鼎鼎的pomelo 大家应该不陌生。&lt;br&gt;没想到他的文档还挺齐全的，它是基于nodejs的，下面介绍下pomelo的安装&lt;/p&gt;
+      &lt;p&gt;前几天有个朋友问，棋牌游戏js可以做不，由于对于游戏这一块基本算是空白，所以就稍微查了下资料，不想，有新的发现。&lt;br&gt;大名鼎鼎的pomelo 大家应该不陌生。&lt;br&gt;没想到他的文档还挺齐全的，它是基于nodejs的，下面介绍下pomelo的安装&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;h4 id=&quot;Pomelo的设计动机&quot;&gt;&lt;a href=&quot;#Pomelo的设计动机&quot; class=&quot;headerlink&quot; title=&quot;Pomelo的设计动机&quot;&gt;&lt;/a&gt;Pomelo的设计动机&lt;/h4&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -90,6 +82,10 @@
     
     </summary>
     
+      <category term="demo" scheme="http://blog.ypintao.com/categories/demo/"/>
+    
+    
+      <category term="demo" scheme="http://blog.ypintao.com/tags/demo/"/>
     
   </entry>
   
