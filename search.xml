@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[pomelo并非完全的游戏引擎]]></title>
-      <url>http://blog.ypintao.com/2017/03/24/%E6%8A%80%E6%9C%AF/%E6%A1%86%E6%9E%B6demo/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6pomelo/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E6%A1%86%E6%9E%B6demo/%E6%B8%B8%E6%88%8F%E6%A1%86%E6%9E%B6pomelo.html</url>
       <content type="html"><![CDATA[<p>前几天有个朋友问，棋牌游戏js可以做不，由于对于游戏这一块基本算是空白，所以就稍微查了下资料，不想，有新的发现。<br>大名鼎鼎的pomelo 大家应该不陌生。<br>没想到他的文档还挺齐全的，它是基于nodejs的，下面介绍下pomelo的安装</p>
 <ul>
 <li><h4 id="Pomelo的设计动机"><a href="#Pomelo的设计动机" class="headerlink" title="Pomelo的设计动机"></a>Pomelo的设计动机</h4></li>
@@ -73,7 +73,7 @@
     
     <entry>
       <title><![CDATA[二维码活码生成原理]]></title>
-      <url>http://blog.ypintao.com/2017/03/23/%E6%8A%80%E6%9C%AF/IDEA/%E6%B4%BB%E7%A0%81%E7%94%9F%E6%88%90%E5%AE%9E%E7%8E%B0/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/IDEA/%E6%B4%BB%E7%A0%81%E7%94%9F%E6%88%90%E5%AE%9E%E7%8E%B0.html</url>
       <content type="html"><![CDATA[<h3 id="二维码分类"><a href="#二维码分类" class="headerlink" title="二维码分类"></a>二维码分类</h3><p>二维码分类这里就直接套用草根二维码的原话了，总结的非常好。</p>
 <h5 id="什么是二维码、静态码、活码？"><a href="#什么是二维码、静态码、活码？" class="headerlink" title="什么是二维码、静态码、活码？"></a>什么是二维码、静态码、活码？</h5><ul>
 <li><strong>静态码</strong>：是直接对电话、地址、网址等信息进行编码（一般最多50个文字）， 所以无需联网也能扫描显示，缺点是生成的二维码图案非常复杂，不容易识别和打印，容错率低；而且印刷后内容无法变更，无法存储图片和文件。</li>
@@ -101,7 +101,7 @@
     
     <entry>
       <title><![CDATA[小总结]]></title>
-      <url>http://blog.ypintao.com/2017/03/21/%E9%9A%8F%E7%AC%94/%E5%8D%9A%E5%AE%A2%E4%BB%8E%E6%96%B0%E8%B5%B7%E8%88%AA/</url>
+      <url>http://blog.ypintao.com/%E9%9A%8F%E7%AC%94/%E5%8D%9A%E5%AE%A2%E4%BB%8E%E6%96%B0%E8%B5%B7%E8%88%AA.html</url>
       <content type="html"><![CDATA[<p>最近家里一直断网来着，然后刚好在找工作，就写个总结，然后分个类别，把自己掌握的一些个东西写出来。所以有了这个，嘿嘿。其实，觉得有些东西还是记下来靠谱，至少学习得留下一些印记吧，不知不觉毕业5年了，在这5年里，技术的广度算是摸的差不多了，就像很多公司跻身于这大大互联网一样，我跻身于这浩浩荡荡的程序员的世界，写过桌面应用，做过paas平台，倒腾过数据库，慢慢的也算是见过一些场面了。<a id="more"></a></p>
 <p>其实写下这篇文章的目的是为了先给自己总结下，然后分个类别。以后玩东西的时候也好往相应的类别下面丢东西。<br>目前熟练使用的东西大概有：</p>
 <h3 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h3><pre><code>.Net MVC
@@ -140,7 +140,7 @@ linux
     
     <entry>
       <title><![CDATA[关于正则]]></title>
-      <url>http://blog.ypintao.com/2016/08/04/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99.html</url>
       <content type="html"><![CDATA[<p>在这里我不统一讲解正则的具体用法<br>就讲解我们平常用的一些知识</p>
 <ul>
 <li>^ 匹配开始、</li>
@@ -182,7 +182,7 @@ linux
     
     <entry>
       <title><![CDATA[关于前端漏洞]]></title>
-      <url>http://blog.ypintao.com/2016/07/11/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%BC%8F%E6%B4%9E/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%BC%8F%E6%B4%9E.html</url>
       <content type="html"><![CDATA[<h2 id="xss，csrf（Cross-site-request-forgery）跨站点请求伪造"><a href="#xss，csrf（Cross-site-request-forgery）跨站点请求伪造" class="headerlink" title="xss，csrf（Cross-site request forgery）跨站点请求伪造"></a>xss，csrf（Cross-site request forgery）跨站点请求伪造</h2><p>####xss :  xss就是在页面执行你想要的js</p>
 <h5 id="XSS-防御技巧"><a href="#XSS-防御技巧" class="headerlink" title="XSS 防御技巧"></a>XSS 防御技巧</h5><p>XSS 防御技巧</p>
 <p>HttpOnly</p>
@@ -245,7 +245,7 @@ linux
     
     <entry>
       <title><![CDATA[JS问题汇总]]></title>
-      <url>http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
       <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
 <h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
 <h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
@@ -302,7 +302,7 @@ linux
     
     <entry>
       <title><![CDATA[从输入url到浏览器显示页面发生了什么]]></title>
-      <url>http://blog.ypintao.com/2016/07/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.html</url>
       <content type="html"><![CDATA[<p>#####这个过程大致分为两个部分：网络通信和页面渲染。</p>
 <h6 id="1、网络通信"><a href="#1、网络通信" class="headerlink" title="1、网络通信"></a>1、网络通信</h6><p>互联网内各网络设备间的通信都遵循TCP/IP协议，利用TCP/IP协议进行网络通信时，会通过分层顺序与对方进行通信。分层由高到低分别为：应用层，传输层、网络层、数据链路层。发送端从应用层往下走，接收端从数据链路层往上走：</p>
 <p>如图</p>
@@ -364,7 +364,7 @@ linux
     
     <entry>
       <title><![CDATA[关于单位px,rem,em]]></title>
-      <url>http://blog.ypintao.com/2016/06/11/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%8D%95%E4%BD%8Dpx,rem,em/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%8D%95%E4%BD%8Dpx,rem,em.html</url>
       <content type="html"><![CDATA[<ul>
 <li><p>px(像素)，相对长度单位，像素px是相对于显示器屏幕分辨率而言的，</p>
 </li>
@@ -397,39 +397,8 @@ linux
     </entry>
     
     <entry>
-      <title><![CDATA[HTML5问题汇总]]></title>
-      <url>http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
-      <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
-<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
-<ul>
-<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
-<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
-</ul>
-<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
-<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
-</ul>
-<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> HTML5 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> HTML5 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[CSS问题汇总]]></title>
-      <url>http://blog.ypintao.com/2016/05/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/CSS%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/CSS%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
       <content type="html"><![CDATA[<p>###浏览器是怎样解析css选择器的？</p>
 <ul>
 <li>按照从上到下,从右到左的顺序解析</li>
@@ -468,8 +437,39 @@ linux
     </entry>
     
     <entry>
+      <title><![CDATA[HTML5问题汇总]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
+      <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> HTML5 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> HTML5 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[图表测试]]></title>
-      <url>http://blog.ypintao.com/2016/03/03/hexo%E6%B5%8B%E8%AF%95/%E5%9B%BE%E8%A1%A8%E6%B5%8B%E8%AF%95/</url>
+      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/%E5%9B%BE%E8%A1%A8%E6%B5%8B%E8%AF%95.html</url>
       <content type="html"><![CDATA[<ul>
 <li>SVN((SVN server))——表示这个节点形状是一个圆。</li>
 <li>|read only|SVN——以这种方式添加节点之间的文本。</li>
@@ -500,7 +500,7 @@ linux
     
     <entry>
       <title><![CDATA[vim使用]]></title>
-      <url>http://blog.ypintao.com/2016/02/27/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vim%E4%BD%BF%E7%94%A8/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vim%E4%BD%BF%E7%94%A8.html</url>
       <content type="html"><![CDATA[<ul>
 <li><p>模式了解<br>  vi有三种模式，即：一般模式、编辑模式、命令模式</p>
 <h2 id="一般模式"><a href="#一般模式" class="headerlink" title="一般模式"></a>一般模式</h2><p>  也是默认模式，用vi打开一个文件就直接进入了一般模式。在此模式下，你可以进行删除字符、删除整行、字符替换、复制粘贴等操作<a id="more"></a></p>
@@ -536,7 +536,7 @@ linux
     
     <entry>
       <title><![CDATA[程序员面试谈薪资的6大技巧]]></title>
-      <url>http://blog.ypintao.com/2016/02/21/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E8%B0%88%E8%96%AA%E8%B5%84%E7%9A%846%E5%A4%A7%E6%8A%80%E5%B7%A7/</url>
+      <url>http://blog.ypintao.com/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E8%B0%88%E8%96%AA%E8%B5%84%E7%9A%846%E5%A4%A7%E6%8A%80%E5%B7%A7.html</url>
       <content type="html"><![CDATA[<p>面试官： 在我们这儿工作，您希望有什么样的薪资待遇？  </p>
 <p>提示：了解该公司所在地区、所属行业、公司规模等信息，你的薪水要求应该在该公司所在地 区、行业、公司规模相应的薪水范围之内。尽可能提供一个你期望的薪水范围，而不是具体的 薪金数。 求职者：其实工资并不是我决定工作机会的唯一因素，如果您一定要我回答这个问题，只能说我希望以我所受的教育背景及工作经验，我希望我的工资不低于年薪50,000元。<a id="more"></a></p>
 <p>面试官： 你认为每年加薪的幅度是多少？</p>
@@ -570,7 +570,7 @@ linux
     
     <entry>
       <title><![CDATA[关于libuv]]></title>
-      <url>http://blog.ypintao.com/2015/07/21/%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/Node%20Express/%E5%85%B3%E4%BA%8Elibuv/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/Node%20Express/%E5%85%B3%E4%BA%8Elibuv.html</url>
       <content type="html"><![CDATA[<p>首先介绍下libuv，libuv 是一个高性能事件驱动的程序库，封装了 Windows 和 Unix 平台一些底层特性，为开发者提供了统一的 API。libuv 采用了 异步 (asynchronous), 事件驱动 (event-driven)的编程风格, <a id="more"></a>其主要任务是为开人员提供了一套事件循环和基于I/O(或其他活动)通知的回调函数, libuv 提供了一套核心的工具集, 例如定时器, 非阻塞网络编程的支持, 异步访问文件系统, 子进程以及其他功能。 可见nodejs的一切异步操作都是基于libuv来实现的，有了它的这些api我们也就可以编写出异步的nodejs模块了。<br>最好结合github上的test和liuv.h来看，更加容易弄懂 中文版的libuv手册：<a href="http://forhappy.github.io/uvbook/index.html" target="_blank" rel="external">http://forhappy.github.io/uvbook/index.html</a> libuv项目地址：<a href="https://github.com/joyent/libuv" target="_blank" rel="external">https://github.com/joyent/libuv</a></p>
 ]]></content>
       
@@ -593,7 +593,7 @@ linux
     
     <entry>
       <title><![CDATA[备份，删除mongodb数据库释放空间]]></title>
-      <url>http://blog.ypintao.com/2015/04/30/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/%E5%A4%87%E4%BB%BD%EF%BC%8C%E5%88%A0%E9%99%A4mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8A%E6%94%BE%E7%A9%BA%E9%97%B4/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/%E5%A4%87%E4%BB%BD%EF%BC%8C%E5%88%A0%E9%99%A4mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8A%E6%94%BE%E7%A9%BA%E9%97%B4.html</url>
       <content type="html"><![CDATA[<p>所以介绍用db.copyDatabase可以备份复制数据的方法。<br>1.db.copyDatabase(“from”,”to”,”127.0.0.1:16161”);复制出一个新的to数据库。这个已经是最小数据占用的数据。会在数据目录下产生to的相关数据文件。<br>2.将所有程序的配置从from库改为to库。测试无误。<br>3.这时可以删除from库。方法。use from 后 db.dropDatabase()<a id="more"></a>。这个方法的好处是可以时间将磁盘上的数据删除掉。节省出很大的空间。</p>
 <p>禁止数据库预分配空间<br>在启动数据库时可以选择noprealloc参数，禁止数据库预分配空间，但会影响到插入效率。</p>
 ]]></content>
@@ -617,7 +617,7 @@ linux
     
     <entry>
       <title><![CDATA[程序员如何提高影响力]]></title>
-      <url>http://blog.ypintao.com/2015/04/28/%E7%94%9F%E6%B4%BB/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E5%BD%B1%E5%93%8D%E5%8A%9B/</url>
+      <url>http://blog.ypintao.com/%E7%94%9F%E6%B4%BB/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E5%BD%B1%E5%93%8D%E5%8A%9B.html</url>
       <content type="html"><![CDATA[<p>影响力，让梦想离你更近。<br>试想一下，有一天你开发了一个新的语言。它比现有的某某主流软件，运行效率将提高了50%，开发效率提高了100%。接着，你在github上 release了0.1，但是由于出现某个开发难题，你需要别人的帮助。而这时，你找不到有效的途径去找到那些真正会用它的人。接着出现了一个新的语言可 以达到一样的效果，而这个项目就死于腹中，我记得mruby刚刚只写了一个README.md的时候，就获得了上千个star。<br>如何提高影响力，为自己代言<a id="more"></a></p>
 <p>每个人都可以是一个品牌，对于一个程序员来说，我们的ID就是我们的品牌。而构成品牌的有多个要素:<br>博客<br>Github<br>Weibo(or Twitter)<br>StackOverflow(or SegmentFault, Zhihu)<br>等等。<br>搭建一个跨平台的平台</p>
 <p>连接各个平台的核心是我们的ID。<br>第一个平台指的是不同的网站，如我们的博客、Github、知乎等等，第二个平台指的是我们的影响力。<br>So，在开始的时候我们需要有一个统一的ID，来标识我们的身份:我是谁，你在xx网站上看到的那个xx就是我。刚开始的时候，我在CSDN、 Github上的ID(gmszone)和我的博客的域名(Phodal)是不一样的，因为当时的域名(gmszone.com)握在别人的手上，于是我 便想办法将两个ID改了过来（ps: github提供迁移)。<br>于是，这时就可以开始使用跨平台的平台了。<br>构建平台</p>
@@ -650,7 +650,7 @@ linux
     
     <entry>
       <title><![CDATA[MongoDB索引]]></title>
-      <url>http://blog.ypintao.com/2015/04/24/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/mongodb%E7%B4%A2%E5%BC%95/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/mongodb%E7%B4%A2%E5%BC%95.html</url>
       <content type="html"><![CDATA[<p>一、索引基础：<br>    MongoDB的索引几乎与传统的关系型数据库一模一样，这其中也包括一些基本的优化技巧。下面是创建索引的命令：</p>
 <pre><code>&gt; db.test.ensureIndex({&quot;username&quot;:1})
 可以通过下面的名称查看索引是否已经成功建立：
@@ -738,7 +738,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[MongoDB 安全和访问权限控制]]></title>
-      <url>http://blog.ypintao.com/2015/04/22/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/MongoDB%20%E5%AE%89%E5%85%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/MongoDB%20%E5%AE%89%E5%85%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6.html</url>
       <content type="html"><![CDATA[<p>MongoDB的访问控制能够有效保证数据库的安全，访问控制是指绑定Application监听的IP地址，设置监听端口，使用账户和密码登录<br>一，访问控制的参数<a id="more"></a><br>1，绑定IP地址<br>mongod 参数：–bind_ip <ip address=""><br>默认值是所有的IP地址都能访问，该参数指定MongoDB对外提供服务的绑定IP地址，用于监听客户端 Application的连接，客户端只能使用绑定的IP地址才能访问mongod，其他IP地址是无法访问的。<br>2，设置监听端口<br>mongod 参数：–port <port><br>MongoDB 默认监听的端口是27017，该参数显式指定MongoDB实例监听的TCP 端口，只有当客户端Application连接的端口和MongoDB实例监听的端口一致时，才能连接到MongoDB实例。<br>3，启用用户验证<br>mongod 参数：–auth<br>默认值是不需要验证，即 –noauth，该参数启用用户访问权限控制；当mongod 使用该参数启动时，MongoDB会验证客户端连接的账户和密码，以确定其是否有访问的权限。如果认证不通过，那么客户端不能访问MongoDB的数据库。<br>Enables authorization to control user’s access to database resources and operations. When authorization is enabled, MongoDB requires all clients to authenticate themselves first in order to determine the access for the client.<br>4，权限认证<br>mongo 参数：–username <username>, -u <username><br>mongo 参数：–password <password>, -p <password><br>mongo 参数：–authenticationDatabase <dbname>  指定创建User的数据库；在特定的数据库中创建User，该DB就是User的authentication database。<br>在连接mongo时，使用参数 –authenticationDatabase，会认证 -u 和 -p 参数指定的账户和密码。如果没有指定验证数据库，mongo使用连接字符串中指定的DB作为验证数据块。<br>二，基于角色的访问控制（Role-Based Access Control）<br>角色是授予User在指定资源上执行指定操作的权限，MongoDB官方手册对角色的定义是：<br>A role grants privileges to perform the specified actions on resource.<br>MongoDB为了方便管理员管理权限，在DB级别上预先定义了内置角色；如果用户需要对权限进行更为细致的管理，MongoDB允许用户创建自定义的角色，能够在集合级别上控制User能够执行的操作。<br>MongoDB使用角色（Role）授予User访问资源的权限，Role决定User能够访问的数据库资源和执行的操作。一个User能够被授予一个或多个Role，如果User没有被授予Role，那么就没有访问MongoDB系统的权限。<br>A user is granted one or more roles that determine the user’s access to database resources and operations. Outside of role assignments, the user has no access to the system.<br>1，内置角色（Built-In Roles）<br>内置角色是MongoDB预定义的角色，操作的资源是在DB级别上。MongoDB拥有一个SuperUser的角色：root，拥有最大权限，能够在系统的所有资源上执行任意操作。<br>数据库用户角色（Database User Roles）：<br>read：授予User只读数据的权限<br>readWrite：授予User读写数据的权限<br>数据库管理角色（Database Administration Roles）：<br>dbAdmin：在当前dB中执行管理操作<br>dbOwner：在当前DB中执行任意操作<br>userAdmin：在当前DB中管理User<br>备份和还原角色（Backup and Restoration Roles）：<br>backup<br>restore<br>跨库角色（All-Database Roles）：<br>readAnyDatabase：授予在所有数据库上读取数据的权限<br>readWriteAnyDatabase：授予在所有数据库上读写数据的权限<br>userAdminAnyDatabase：授予在所有数据库上管理User的权限<br>dbAdminAnyDatabase：授予管理所有数据库的权限<br>集群管理角色（Cluster Administration Roles）：<br>clusterAdmin：授予管理集群的最高权限<br>clusterManager：授予管理和监控集群的权限，A user with this role can access the config and local databases, which are used in sharding and replication, respectively.<br>clusterMonitor：授予监控集群的权限，对监控工具具有readonly的权限<br>hostManager：管理Server<br>2，用户自定义的角色（User-Defined Roles）<br>内置角色只能控制User在DB级别上执行的操作，管理员可以创建自定义角色，控制用户在集合级别（Collection-Level）上执行的操作，即，控制User在当前DB的特定集合上执行特定的操作。<br>在创建角色时，必须明确Role的四个特性：<br>Scope：角色作用的范围，创建在Admin中的角色，能够在其他DB中使用；在其他DB中创建的角色，只能在当前DB中使用；<br>Resource：角色控制的资源，表示授予在该资源上执行特定操作的权限；<br>Privilege Actions：定义了User能够在资源上执行的操作，系统定义Action是：Privilege Actions；<br>Inherit：角色能够继承其他角色权限<br>2.1 角色作用的范围（Scope）<br>在admin 数据库中创建的角色，Scope是全局的，能够在admin，其他DB和集群中使用，并且能够继承其他DB的Role；而在非admin中创建的角色，Scope是当前数据库，只能在当前DB中使用，只能继承当前数据库的角色。<br>A role created in the admin database can include privileges that apply to the admin database, other databases or to the cluster resource, and can inherit from roles in other databases as well as the admin database. Except for roles created in the admin database, a role can only include privileges that apply to its database and can only inherit from other roles in its database.<br>2.2 权限的操作（Privilege actions）<br>MongoDB的权限包由：资源（Resource）和操作（Action）两部分组成，Privilege Actions 定义User能够在资源上执行的操作，例如：MongoDB在文档级别（Document-Level）上执行的读写操作（Query and Write Actions）列表是：<br>find<br>insert<br>remove<br>update<br>3，创建角色<br>使用db.CreateRole()在当前DB中创建角色，创建的语法示例如下：<br>复制代码<br>use admin<br>db.createRole(<br>   {<br>     role: “new_role”,<br>     privileges: [<br>       { resource: { cluster: true }, actions: [ “addShard” ] },<br>       { resource: { db: “config”, collection: “” }, actions: [ “find”, “update”, “insert”, “remove” ] },<br>       { resource: { db: “users”, collection: “usersCollection” }, actions: [ “update”, “insert”, “remove” ] },<br>       { resource: { db: “”, collection: “” }, actions: [ “find” ] }<br>     ],<br>     roles: [<br>       { role: “read”, db: “admin” }<br>     ]<br>   },<br>   { w: “majority” , wtimeout: 5000 }<br>)<br>复制代码<br>在roles数组中，指定被继承的role，即，新建的new_role从roles数组中继承权限：<br>如果被继承的role在当前DB中，定义的格式是：roles:[“role”]；<br>如果被继承的role不在当前DB中，需要使用doc，指定该role所在的DB，定义的格式是：roles:[{role:”role_name”, db:”db_name”}]；<br>4，自定义角色管理函数<br>db.createRole() ：Creates a role and specifies its privileges.<br>db.updateRole() ：Updates a user-defined role.<br>db.dropRole() ：Deletes a user-defined role.<br>db.dropAllRoles() ：Deletes all user-defined roles associated with a database.<br>db.grantPrivilegesToRole() ：Assigns privileges to a user-defined role.<br>db.revokePrivilegesFromRole() ：Removes the specified privileges from a user-defined role.<br>db.grantRolesToRole() ：Specifies roles from which a user-defined role inherits privileges.<br>db.revokeRolesFromRole() ：Removes inherited roles from a role.<br>db.getRole() ：Returns information for the specified role.<br>db.getRoles() ：Returns information for all the user-defined roles in a database.<br>三，管理用户和权限<br>1，创建用户<br>复制代码<br>use db_name<br>db.createUser(<br>{<br>    user: “user_name”,<br>    pwd: “user_pwd”,<br>    roles: [   { role: “clusterAdmin”, db: “admin” },<br>               { role: “readAnyDatabase”, db: “admin” },<br>               “readWrite”<br>           ]<br>}<br>)<br>复制代码<br>为新建的User，授予一个或多个角色，通过roles数组来实现：<br>如果role存在于当前DB中，roles的格式：roles:[“role”]；<br>如果role不存在于当前DB中，roles的格式：roles:[Role:”role_name”, db:”db_name”]；<br>2，权限认证（Authenticate）<br>mongo连接到mongod，有两种权限认证的方式：<br>在连接时认证用户访问的权限，mongo 使用参数 –authenticationDatabase <dbname> 指定认证数据库；<br>在连接后，认证用户访问的权限，mongo 没有使用参数 –authenticationDatabase <dbname>，在连接到mongod之后，切换到验证数据库（authentication database）中，使用db.auth() 验证User是否有权限访问当前数据库；<br>use db_name<br>db.auth(“user_name”, “user_pwd” )<br>3，用户管理函数<br>db.auth() ：Authenticates a user to a database.<br>db.createUser() ：Creates a new user.<br>db.updateUser() ：Updates user data.<br>db.changeUserPassword() ：Changes an existing user’s password.<br>db.dropAllUsers() ：Deletes all users associated with a database.<br>db.dropUser() ：Removes a single user.<br>db.grantRolesToUser() ：Grants a role and its privileges to a user.<br>db.revokeRolesFromUser() ：Removes a role from a user.<br>db.getUser() ：Returns information about the specified user.<br>db.getUsers() ：Returns information about all users associated with a database.</dbname></dbname></dbname></password></password></username></username></port></ip></p>
 ]]></content>
       
@@ -761,7 +761,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[git入门]]></title>
-      <url>http://blog.ypintao.com/2015/04/01/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/gulp/gulp%E5%85%A5%E9%97%A8/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/gulp/gulp%E5%85%A5%E9%97%A8.html</url>
       <content type="html"><![CDATA[<h3 id="你仅仅需要知道的5个gulp命令"><a href="#你仅仅需要知道的5个gulp命令" class="headerlink" title="你仅仅需要知道的5个gulp命令"></a>你仅仅需要知道的5个gulp命令<a id="more"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">gulp.task(name, fn)这个你应经见过了</div><div class="line"></div><div class="line">gulp.run(tasks...)尽可能多的并行运行多个task</div><div class="line"></div><div class="line">gulp.watch(glob, fn)当glob内容发生改变时，执行fn</div><div class="line"></div><div class="line">gulp.src(glob)返回一个可读的stream</div><div class="line"></div><div class="line">gulp.dest(glob)返回一个可写的stream</div></pre></td></tr></table></figure>
 ]]></content>
       
@@ -784,7 +784,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[forever用途]]></title>
-      <url>http://blog.ypintao.com/2015/03/24/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/forever%E7%94%A8%E9%80%94/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/forever%E7%94%A8%E9%80%94.html</url>
       <content type="html"><![CDATA[<p>Github地址：<a href="https://github.com/nodejitsu/forever" target="_blank" rel="external">https://github.com/nodejitsu/forever</a><br>forever用途<br>forever的用途就是帮我们更好的管理我们node App服务，本质上就是在forever进程之下，创建一个node app的子进程。<br>比如，你有一个基于express的或者其他的一些个应用那么，它将会很方便你更新和操作你的服务，并且保证你服务能持续运行。<a id="more"></a><br>更好的一点就是每次更改文件，它都可以帮你自动重启服务而不需要手动重启。<br>安装forever<br>复制代码 代码如下:</p>
 <p>// 记得加-g，forever要求安装到全局环境下</p>
 <blockquote>
@@ -839,7 +839,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[git创建服务器]]></title>
-      <url>http://blog.ypintao.com/2015/03/22/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E5%85%B7/Git/git%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E5%85%B7/Git/git%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8.html</url>
       <content type="html"><![CDATA[<p>##创建git服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo git init --bare nodeweb.git</div><div class="line"></div><div class="line">sudo chown -R git:git nodeweb.git</div></pre></td></tr></table></figure></p>
 <p>git添加忽略文件 <a id="more"></a></p>
 ]]></content>
@@ -863,7 +863,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[docker to mysql]]></title>
-      <url>http://blog.ypintao.com/2015/03/20/%E6%8A%80%E6%9C%AF/Linux/Dock/docker%20to%20mysql/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/Dock/docker%20to%20mysql.html</url>
       <content type="html"><![CDATA[<p>1、安装Docker，可以参考下面的连接，这里不细说。<br>Ubuntu 15.04下安装Docker  <a href="http://www.linuxidc.com/Linux/2015-07/120444.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-07/120444.htm</a><br>Docker安装应用(CentOS 6.5_x64) <a href="http://www.linuxidc.com/Linux/2014-07/104595.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-07/104595.htm</a> <a id="more"></a><br>在Ubuntu Trusty 14.04 (LTS) (64-bit)安装Docker <a href="http://www.linuxidc.com/Linux/2014-10/108184.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-10/108184.htm</a><br>Docker安装应用(CentOS 6.5_x64) <a href="http://www.linuxidc.com/Linux/2014-07/104595.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-07/104595.htm</a><br>Ubuntu 14.04安装Docker  <a href="http://www.linuxidc.com/linux/2014-08/105656.htm" target="_blank" rel="external">http://www.linuxidc.com/linux/2014-08/105656.htm</a><br>阿里云CentOS 6.5 模板上安装 Docker <a href="http://www.linuxidc.com/Linux/2014-11/109107.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-11/109107.htm</a><br>2、进入Linux后，使用Docker命令下载MySQL，命令如：<br>      docker pull mysql:5.7<br>运行该命令后，则会显示以下日志：<br>  5.7: Pulling from mysql<br>  4c8cbfd2973e: Pull complete<br>  60c52dbe9d91: Pull complete<br>  c2b0136be90f: Pull complete<br>  273cd71eacf0: Pull complete<br>  543ff72402d8: Pull complete<br>  f928e22e58b0: Pull complete<br>  2d1023ecaed4: Pull complete<br>  059dbbef4dd8: Pull complete<br>  ac0ee0367a32: Pull complete<br>  a9057a689e83: Pull complete<br>  5191ddfc3b01: Pull complete<br>  6e2ce31eb835: Pull complete<br>  099dc92e9b15: Pull complete<br>  7b4030a6b20b: Pull complete<br>  fdb9c2185fc2: Already exists<br>  mysql:5.7: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be    relied on to provide security.<br>  Digest: sha256:d00f3f3cd30d0e8ad9bdf8ba61729ee1a4b6fe84a0fbb95f07dc2668a4cb5d08<br>  Status: Downloaded newer image for mysql:5.7<br>下载需要一段时间，下载完毕后，启动Docker容器。<br>3、先查看本机都有哪些镜像，命令如下：docker images<br>然后会打印出以下日志：<br>  REPOSITORY          TAG                IMAGE ID            CREATED            VIRTUAL SIZE<br>  mysql              5.7                fdb9c2185fc2        9 days ago          321.9 MB<br>  csphere/csphere    0.11.2              6d983828b938        8 weeks ago        112 MB<br>4、然后启动我们的mysql的docker容器，命令如下：<br>  docker run –name db001 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mytest -d mysql:5.7<br>注意，这里的容器名字叫：db001，mysql的root用户密码是：mytest，映射宿主机子的端口3306到容器的端口3306，仓库名mysql和标签(tag）唯一确定了要指定的镜像，其实如果这里只有一个mysql也有必要要tag，执行该命令返回的结果是：<br>a40c6e58afbda0199111a2a2ef0af7e8dd9be057a610ca5f4f30aa782a5d9155<br>5、查看已经运行的的所有容器，命令如：docker ps<br>返回的结果是：<br>  CONTAINER ID        IMAGE                    COMMAND                CREATED            STATUS              PORTS                                      NAMES<br>  a40c6e58afbd        mysql:5.7                “/entrypoint.sh mysq  12 seconds ago      Up 12 seconds      0.0.0.0:3306-&gt;3306/tcp                      db001<br>  512013f5bd3a        csphere/csphere:0.11.2  “/bin/csphere-init -  10 days ago        Up 10 days                                                      csphere-agent<br>  631a4f91b2fb        csphere/csphere:0.11.2  “/bin/csphere-init -  10 days ago        Up 10 days          8086/tcp, 27017/tcp,    0.0.0.0:1016-&gt;80/tcp  csphere-controller<br>使用mysql的工具，比如navicat连接成功。<br>这里我们没有制作自己的镜像，直接使用了网上已有的，开始是从docker pull dl.dockerpool.com:5000/mysql:5.7路径上pull myql镜像，结果没有成功，所以直接使用了上边说的docker pull mysql:5.7，没有什么技术含量，给入门的同学用吧。<br>配置 Docker 镜像下载的本地 mirror 服务  <a href="http://www.linuxidc.com/Linux/2015-07/120061.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-07/120061.htm</a><br>在 Docker 中使用 MySQL <a href="http://www.linuxidc.com/Linux/2014-01/95354.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2014-01/95354.htm</a></p>
 <p>数据库文件  备份 方法<br>docker inspect mysql-container-id</p>
 <p>找到里面的volume字段 有显示挂载的host路径</p>
@@ -890,7 +890,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[面试笔记]]></title>
-      <url>http://blog.ypintao.com/2015/03/02/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0node/</url>
+      <url>http://blog.ypintao.com/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0node.html</url>
       <content type="html"><![CDATA[<p>ES6有哪些新特性？<br>参考答案：类的支持，模块化，箭头操作符，let/const块作用域，字符串模板，解构，参数默认值/不定参数/拓展参数,for-of遍历,generato r器, Map/Set, Promise</p>
 <ol>
 <li>你对ES6的个人看法？<br>参考答案：ES6必火！从软件工程角度来看，以前真的很弱，不适合做大型应用，很容易导致烂尾工程。ES6就相当于当年的Java5,是历史性的发展，从此我们可以用js做大型项目了。事实上，各大主流浏览器现在已经支持大部分新特性了，后端的Node.js更是可以直接使用ES6的绝大多数语法。</li>
@@ -1063,7 +1063,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[快速搭建 Node.js 开发环境以及加速 npm]]></title>
-      <url>http://blog.ypintao.com/2015/02/20/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%20Node.js%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E5%8A%A0%E9%80%9Fnpm/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%20Node.js%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E5%8A%A0%E9%80%9Fnpm.html</url>
       <content type="html"><![CDATA[<p>快速搭建 Node.js 开发环境以及加速 npm </p>
 <p>在公交车上刷微博，还是有很多同学在咨询: </p>
 <p>如何快速搭建 node 开发环境<br>npm 超慢<br>github 无法打开的问题 </p>
@@ -1149,7 +1149,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[node  forever安装pm2]]></title>
-      <url>http://blog.ypintao.com/2015/01/20/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/node%20%20forever%E5%AE%89%E8%A3%85pm2/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/node%20%20forever%E5%AE%89%E8%A3%85pm2.html</url>
       <content type="html"><![CDATA[<p>但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以在js中作为api使用。<br>$ sudo npm install forever -g   #安装<br>$ forever start app.js          #启动<br>$ forever stop app.js           #关闭<br>$ forever start -l forever.log -o out.log -e err.log app.js   #输出日志和错误</p>
 <p>alinode    <a href="http://alinode.aliyun.com/dashboard/apps/30" target="_blank" rel="external">http://alinode.aliyun.com/dashboard/apps/30</a></p>
 <p>forever命令行的中文解释<a id="more"></a></p>
@@ -1250,7 +1250,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[修改阿里云CentOS Linux服务器的主机名]]></title>
-      <url>http://blog.ypintao.com/2014/08/20/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E4%BF%AE%E6%94%B9%E9%98%BF%E9%87%8C%E4%BA%91CentOS%20Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E4%BF%AE%E6%94%B9%E9%98%BF%E9%87%8C%E4%BA%91CentOS%20Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D.html</url>
       <content type="html"><![CDATA[<p>阿里云主机的默认主机名是为AY开头的随机名称，如何修改为易于区分的友好名称呢？请看下面的操作步骤：</p>
 <ol>
 <li>vi /etc/hosts<br>i键，修改主机名，esc键，:x键保存退出<a id="more"></a></li>
@@ -1278,7 +1278,7 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     <entry>
       <title><![CDATA[配置环境变量]]></title>
-      <url>http://blog.ypintao.com/2014/08/18/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.html</url>
       <content type="html"><![CDATA[<h2 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h2><p>   设置CentOS防火墙开放端口方法如下：<br>   打开iptables的配置文件：<br>   vi /etc/sysconfig/iptables<br><a id="more"></a></p>
 <h2 id="配置NODE-HOME"><a href="#配置NODE-HOME" class="headerlink" title="配置NODE_HOME"></a>配置NODE_HOME</h2><pre><code>#vi /etc/profile
 设置nodejs环境变量，在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 一行的上面添加如下内容:
@@ -1311,7 +1311,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[linux系统信息]]></title>
-      <url>http://blog.ypintao.com/2014/07/27/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF.html</url>
       <content type="html"><![CDATA[<p>linux系统信息</p>
 <h1 id="uname-a-查看内核-操作系统-CPU信息"><a href="#uname-a-查看内核-操作系统-CPU信息" class="headerlink" title="uname -a # 查看内核/操作系统/CPU信息"></a>uname -a # 查看内核/操作系统/CPU信息</h1><h1 id="head-n-1-etc-issue-查看操作系统版本"><a href="#head-n-1-etc-issue-查看操作系统版本" class="headerlink" title="head -n 1 /etc/issue # 查看操作系统版本"></a>head -n 1 /etc/issue # 查看操作系统版本</h1><h1 id="cat-proc-cpuinfo-查看CPU信息"><a href="#cat-proc-cpuinfo-查看CPU信息" class="headerlink" title="cat /proc/cpuinfo # 查看CPU信息"></a>cat /proc/cpuinfo # 查看CPU信息</h1><h1 id="hostname-查看计算机名"><a href="#hostname-查看计算机名" class="headerlink" title="hostname # 查看计算机名"></a>hostname # 查看计算机名</h1><h1 id="lspci-tv-列出所有PCI设备"><a href="#lspci-tv-列出所有PCI设备" class="headerlink" title="lspci -tv # 列出所有PCI设备"></a>lspci -tv # 列出所有PCI设备</h1><h1 id="lsusb-tv-列出所有USB设备"><a href="#lsusb-tv-列出所有USB设备" class="headerlink" title="lsusb -tv # 列出所有USB设备"></a>lsusb -tv # 列出所有USB设备</h1><h1 id="lsmod-列出加载的内核模块"><a href="#lsmod-列出加载的内核模块" class="headerlink" title="lsmod # 列出加载的内核模块 "></a>lsmod # 列出加载的内核模块 <a id="more"></a></h1><h1 id="env-查看环境变量"><a href="#env-查看环境变量" class="headerlink" title="env # 查看环境变量"></a>env # 查看环境变量</h1><h1 id="arch-显示机器的处理器架构-1"><a href="#arch-显示机器的处理器架构-1" class="headerlink" title="arch 显示机器的处理器架构(1)"></a>arch 显示机器的处理器架构(1)</h1><h1 id="uname-m-显示机器的处理器架构-2"><a href="#uname-m-显示机器的处理器架构-2" class="headerlink" title="uname -m 显示机器的处理器架构(2)"></a>uname -m 显示机器的处理器架构(2)</h1><h1 id="uname-r-显示正在使用的内核版本"><a href="#uname-r-显示正在使用的内核版本" class="headerlink" title="uname -r 显示正在使用的内核版本"></a>uname -r 显示正在使用的内核版本</h1><h1 id="dmidecode-q-显示硬件系统部件"><a href="#dmidecode-q-显示硬件系统部件" class="headerlink" title="dmidecode -q 显示硬件系统部件"></a>dmidecode -q 显示硬件系统部件</h1><h1 id="hdparm-i-dev-hda-罗列一个磁盘的架构特性"><a href="#hdparm-i-dev-hda-罗列一个磁盘的架构特性" class="headerlink" title="hdparm -i /dev/hda 罗列一个磁盘的架构特性"></a>hdparm -i /dev/hda 罗列一个磁盘的架构特性</h1><h1 id="hdparm-tT-dev-sda-在磁盘上执行测试性读取操作"><a href="#hdparm-tT-dev-sda-在磁盘上执行测试性读取操作" class="headerlink" title="hdparm -tT /dev/sda 在磁盘上执行测试性读取操作"></a>hdparm -tT /dev/sda 在磁盘上执行测试性读取操作</h1><h1 id="cat-proc-interrupts-显示中断"><a href="#cat-proc-interrupts-显示中断" class="headerlink" title="cat /proc/interrupts 显示中断"></a>cat /proc/interrupts 显示中断</h1><h1 id="cat-proc-meminfo-校验内存使用"><a href="#cat-proc-meminfo-校验内存使用" class="headerlink" title="cat /proc/meminfo 校验内存使用"></a>cat /proc/meminfo 校验内存使用</h1><h1 id="cat-proc-swaps-显示哪些swap被使用"><a href="#cat-proc-swaps-显示哪些swap被使用" class="headerlink" title="cat /proc/swaps 显示哪些swap被使用"></a>cat /proc/swaps 显示哪些swap被使用</h1><h1 id="cat-proc-version-显示内核的版本"><a href="#cat-proc-version-显示内核的版本" class="headerlink" title="cat /proc/version 显示内核的版本"></a>cat /proc/version 显示内核的版本</h1><h1 id="cat-proc-net-dev-显示网络适配器及统计"><a href="#cat-proc-net-dev-显示网络适配器及统计" class="headerlink" title="cat /proc/net/dev 显示网络适配器及统计"></a>cat /proc/net/dev 显示网络适配器及统计</h1><h1 id="cat-proc-mounts-显示已加载的文件系统"><a href="#cat-proc-mounts-显示已加载的文件系统" class="headerlink" title="cat /proc/mounts 显示已加载的文件系统"></a>cat /proc/mounts 显示已加载的文件系统</h1><h1 id="lspci-tv-罗列-PCI-设备"><a href="#lspci-tv-罗列-PCI-设备" class="headerlink" title="lspci -tv 罗列 PCI 设备"></a>lspci -tv 罗列 PCI 设备</h1><h1 id="lsusb-tv-显示-USB-设备"><a href="#lsusb-tv-显示-USB-设备" class="headerlink" title="lsusb -tv 显示 USB 设备"></a>lsusb -tv 显示 USB 设备</h1><h1 id="date-显示系统日期"><a href="#date-显示系统日期" class="headerlink" title="date 显示系统日期"></a>date 显示系统日期</h1><h1 id="cal-2007-显示2007年的日历表"><a href="#cal-2007-显示2007年的日历表" class="headerlink" title="cal 2007 显示2007年的日历表"></a>cal 2007 显示2007年的日历表</h1><h1 id="date-041217002007-00-设置日期和时间-–-月日时分年-秒"><a href="#date-041217002007-00-设置日期和时间-–-月日时分年-秒" class="headerlink" title="date 041217002007.00 设置日期和时间 – 月日时分年.秒"></a>date 041217002007.00 设置日期和时间 – 月日时分年.秒</h1><h1 id="clock-w-将时间修改保存到-BIOS"><a href="#clock-w-将时间修改保存到-BIOS" class="headerlink" title="clock -w 将时间修改保存到 BIOS"></a>clock -w 将时间修改保存到 BIOS</h1><p>系统的关机、重启以及登出 </p>
 <h1 id="shutdown-h-now-关闭系统-1"><a href="#shutdown-h-now-关闭系统-1" class="headerlink" title="shutdown -h now 关闭系统(1)"></a>shutdown -h now 关闭系统(1)</h1><h1 id="init-0-关闭系统-2"><a href="#init-0-关闭系统-2" class="headerlink" title="init 0 关闭系统(2)"></a>init 0 关闭系统(2)</h1><h1 id="telinit-0-关闭系统-3"><a href="#telinit-0-关闭系统-3" class="headerlink" title="telinit 0 关闭系统(3)"></a>telinit 0 关闭系统(3)</h1><h1 id="shutdown-h-hours-minutes-amp-按预定时间关闭系统"><a href="#shutdown-h-hours-minutes-amp-按预定时间关闭系统" class="headerlink" title="shutdown -h hours:minutes &amp; 按预定时间关闭系统"></a>shutdown -h hours:minutes &amp; 按预定时间关闭系统</h1><h1 id="shutdown-c-取消按预定时间关闭系统"><a href="#shutdown-c-取消按预定时间关闭系统" class="headerlink" title="shutdown -c 取消按预定时间关闭系统"></a>shutdown -c 取消按预定时间关闭系统</h1><h1 id="shutdown-r-now-重启-1"><a href="#shutdown-r-now-重启-1" class="headerlink" title="shutdown -r now 重启  (1)"></a>shutdown -r now 重启  (1)</h1><h1 id="reboot-重启-2"><a href="#reboot-重启-2" class="headerlink" title="reboot 重启  (2)"></a>reboot 重启  (2)</h1><h1 id="logout-注销"><a href="#logout-注销" class="headerlink" title="logout 注销"></a>logout 注销</h1><p>如何查看linux系统资源</p>
@@ -1343,7 +1343,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[redis安装]]></title>
-      <url>http://blog.ypintao.com/2014/06/27/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/redis%E5%AE%89%E8%A3%85/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/redis%E5%AE%89%E8%A3%85.html</url>
       <content type="html"><![CDATA[<p>[root@infa ~]# wget <a href="http://download.redis.io/releases/redis-2.8.12.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-2.8.12.tar.gz</a><br>tar xzf redis-2.8.12.tar.gz<br>[root@infa ~]# tar xzf redis-2.8.12.tar.gz<br>[root@infa ~]# cd redis-2.8.12<br>[root@infa redis-2.8.12]# ls<br>00-RELEASENOTES  BUGS  CONTRIBUTING  COPYING  deps  INSTALL  Makefile  MANIFESTO  README  redis.conf  runtest  runtest-sentinel  sentinel.conf  src  tests  utils<br>[root@infa redis-2.8.12]# make<br>但是这样子编译会报错，貌似是因为系统的原因； <a id="more"></a><br>报错如下：</p>
 <p>解决方法，就是加上编译参数设置，如下：<br>[root@infa redis-2.8.12]# make CFLAGS=”-march=i686”<br>编译成功；<br>启动并运行redis：<br>[root@infa redis-2.8.12]# src/redis-server</p>
 <p>[root@infa redis-2.8.12]# src/redis-cli<br>127.0.0.1:6379&gt; set name chenzhou<br>OK<br>127.0.0.1:6379&gt; get name<br>“chenzhou”<br>127.0.0.1:6379&gt; </p>
@@ -1369,7 +1369,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[MongoDB安装]]></title>
-      <url>http://blog.ypintao.com/2014/06/17/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/mongoDb%E5%AE%89%E8%A3%85/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/mongoDb%E5%AE%89%E8%A3%85.html</url>
       <content type="html"><![CDATA[<p>1、下载MongoDB（64位）</p>
 <blockquote>
 <p><a href="http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz" target="_blank" rel="external">http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.4.9.tgz</a><br>或<br><a href="http://pan.baidu.com/s/1mgyRB8c" target="_blank" rel="external">http://pan.baidu.com/s/1mgyRB8c</a></p>
@@ -1436,7 +1436,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[基本命令]]></title>
-      <url>http://blog.ypintao.com/2014/06/07/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4.html</url>
       <content type="html"><![CDATA[<h1 id="useradd-dev-创建用户"><a href="#useradd-dev-创建用户" class="headerlink" title="useradd dev #创建用户"></a>useradd dev #创建用户</h1><h1 id="passwd-dev-修改密码"><a href="#passwd-dev-修改密码" class="headerlink" title="passwd dev #修改密码"></a>passwd dev #修改密码</h1><p>更改用户 dev 的密码 。<br>新的 密码：<br>重新输入新的 密码：<br>passwd：所有的身份验证令牌已经成功更新。<br>chmod -v u+w /etc/sudoers<br>“/etc/sudoers” 的权限模式保留为0640 (rw-r—–)  <a id="more"></a></p>
 <p>  解决方法：</p>
 <p>1.查找被占用的端口</p>
@@ -1471,7 +1471,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[markdown常用命令总结]]></title>
-      <url>http://blog.ypintao.com/2014/06/02/hexo%E6%B5%8B%E8%AF%95/markdown%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/</url>
+      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/markdown%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93.html</url>
       <content type="html"><![CDATA[<p>Markdown语法</p>
 <p>1、分段： 两个回车</p>
 <p>2、换行 两个空格 + 回车</p>
@@ -1504,7 +1504,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[nodejs资源中文导航]]></title>
-      <url>http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E8%B5%84%E6%BA%90%E4%B8%AD%E6%96%87%E5%AF%BC%E8%88%AA/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E8%B5%84%E6%BA%90%E4%B8%AD%E6%96%87%E5%AF%BC%E8%88%AA.html</url>
       <content type="html"><![CDATA[<h2 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h2><p>· <a href="http://www.nodejs.org/" target="_blank" rel="external">Nodejs主页</a><br>· <a href="http://www.infoq.com/cn/articles/what-is-nodejs" target="_blank" rel="external">Infoq深入浅出Node.js系列(进阶必读)</a><a id="more"></a><br>· <a href="http://docs.cnodejs.net/cman/" target="_blank" rel="external">Node.js中文文档</a><br>· <a href="http://deadhorse.me/nodejs/2012/10/08/c_addon_in_nodejs_node_gyp.html" target="_blank" rel="external">Node.js C++ addon编写实战系列</a><br>· <a href="https://nodejsmodules.org/" target="_blank" rel="external">热门node.js模块排行榜，方便找出你想要的模块</a><br>· <a href="http://cnodejs.org/topic/518b679763e9f8a5424406e9" target="_blank" rel="external">nodejs多线程，真正的非阻塞</a><br>· <a href="http://cnodejs.org/topic/5189ff4f63e9f8a54207f60c" target="_blank" rel="external">浅析nodejs的buffer类</a><br>· <a href="http://cnodejs.org/topic/519ceb5263e9f8a542c19764" target="_blank" rel="external">利用libuv编写异步多线程的addon实例</a></p>
 <h2 id="模块导航"><a href="#模块导航" class="headerlink" title="模块导航"></a>模块导航</h2><h2 id="web服务器框架"><a href="#web服务器框架" class="headerlink" title="web服务器框架"></a>web服务器框架</h2><h3 id="最流行的web框架Express"><a href="#最流行的web框架Express" class="headerlink" title="最流行的web框架Express"></a>最流行的web框架Express</h3><p>· <a href="http://expressjs.com/" target="_blank" rel="external">Express主页</a><br>· <a href="http://cnodejs.org/topic/51c3ef9f73c638f37058e6bc" target="_blank" rel="external">加装涡轮,提速expressjs</a><br>· <a href="http://cnodejs.org/topic/4fce14e0e5e72c25180b51d1" target="_blank" rel="external">给connect的static模块加上url路径前缀</a><br>· <a href="http://cnodejs.org/topic/515535485dff253b374288da" target="_blank" rel="external">研究nodeclub登陆验证逻辑的一些心得</a><br>· <a href="http://www.csser.com/board/4f77e6f996ca600f78000936" target="_blank" rel="external">Express.js中文入门指引手册</a><br>· <a href="http://cnodejs.org/topic/51a2f562776b2e7f035f2850" target="_blank" rel="external">Connect架构初探for新手</a></p>
 <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="Mysql老牌关系型数据库"><a href="#Mysql老牌关系型数据库" class="headerlink" title="Mysql老牌关系型数据库"></a>Mysql老牌关系型数据库</h3><p>· <a href="https://github.com/felixge/node-mysql" target="_blank" rel="external">主页</a><br>· <a href="https://github.com/felixge/node-mysql" target="_blank" rel="external">mysql处理BIGINT里面的一个坑</a><br>· <a href="http://cnodejs.org/topic/51676ac26d38277306fe7c85" target="_blank" rel="external">使用node-mysql中的连接池</a><br>· <a href="http://cnodejs.org/topic/516b77e86d382773064266df" target="_blank" rel="external">mysql自动断开解决办法</a></p>
@@ -1541,8 +1541,31 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/hello-world.html</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> test </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nodejs多线程，真正的非阻塞]]></title>
-      <url>http://blog.ypintao.com/2014/06/01/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E.html</url>
       <content type="html"><![CDATA[<p>node从他推出至今，充满赞美和饱受诟病的都是其单线程模型，所有的任务都在一个线程中完成（I/O等例外），优势的地方自然是免去了频繁切换线程的开销，以及减少资源互抢的问题等等，但是当nodejs面对cpu密集型模型的时候就力不从心了。尽管node拥有异步机制，可以把一些耗时算法丢入eventloop等待下个事件循环再做，但是因为其任然是单线程模型，所以终究会造成阻塞。<a id="more"></a></p>
 <p>先解释一下两个名词，Fibers 和 Threads。<br>Fibers 又称纤程，可以理解为协同程序，类似py和lua都有这样的模型。使用Fibers可以避免对资源的互抢，减少cpu和内存的消耗，但是Fibers并不能够真正的并行执行，同一时刻只有一个Fibers在执行，如果在其中一个Fibers中执行过多的cpu操作或者写了个死循环，则整个主程序将卡死住。node中的异步事件循环模型就有点象这个。</p>
 <p>Threads 又称线程，他可以在同一时刻并行的执行，他们共享主进程的内存，在其中某一时刻某一个threads锁死了，是不会影响主线程以及其他线程的执行。但是为了实现这个模型，我们不得不消耗更多的内存和cpu为线程切换的开销，同时也存在可能多个线程对同一内存单元进行读写而造成程序崩溃的问题。</p>
@@ -1578,31 +1601,8 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://blog.ypintao.com/2014/06/01/hexo%E6%B5%8B%E8%AF%95/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[test]]></title>
-      <url>http://blog.ypintao.com/2014/05/31/hexo%E6%B5%8B%E8%AF%95/test/</url>
+      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/test.html</url>
       <content type="html"><![CDATA[<p>这是一个测试用的1<br>这是一个测试用的2<br>这是一个测试用的3<a id="more"></a></p>
 <p>##这是啥。。。。<br>这是一个测试用的这是一个测试用的这是一个测试用的<br>这是一个测试用的4<br>这是一个测试用的5<br>这是一个测试用的6<br>这是一个测试用的7</p>
 <p>###3个井号又是啥。<br>这是一个测试用的8<br>这是一个测试用的9<br>这是一个测试用的0<br>这是一个测试用的0</p>
@@ -1627,7 +1627,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[BAD星星的第一篇博客]]></title>
-      <url>http://blog.ypintao.com/2014/05/29/%E9%9A%8F%E7%AC%94/bad%E6%98%9F%E6%98%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      <url>http://blog.ypintao.com/%E9%9A%8F%E7%AC%94/bad%E6%98%9F%E6%98%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2.html</url>
       <content type="html"><![CDATA[<p>第一次用hexo写文章，折腾了好久哇。。哈哈哈<br>不过还是成功了。。<br>现在还是灰常舒坦的。。哈哈<br>貌似样式有问题。。还不知道怎么调。。汗<a id="more"></a><br>HEXO主题制作<br><a href="http://my.oschina.net/youxiachai/blog/121659" target="_blank" rel="external">http://my.oschina.net/youxiachai/blog/121659</a><br>在线编辑器<br><a href="http://tool.oschina.net/apidocs" target="_blank" rel="external">http://tool.oschina.net/apidocs</a></p>
 ]]></content>
       
@@ -1650,7 +1650,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[python安装]]></title>
-      <url>http://blog.ypintao.com/2014/05/24/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/python%E5%AE%89%E8%A3%85/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/python%E5%AE%89%E8%A3%85.html</url>
       <content type="html"><![CDATA[<p>在Linux CentOS 6.6上安装Python 2.7.9</p>
 <p>CentOS 6.6自带的是Python 2.6.6，而编译llvm需要Python 2.7以上。<br>checking for python… /usr/bin/python<br>checking for python &gt;= 2.7… not found<br>configure: error: found python 2.6.6 (/usr/bin/python); required &gt;= 2.7<br>yum中最新的也是Python 2.6.6，只能下载Python 2.7.9的源代码自己编译安装。 <a id="more"></a><br>操作步骤如下：<br>1）安装devtoolset<br>yum groupinstall “Development tools”<br>2）安装编译Python需要的包包<br>yum install zlib-devel<br>yum install bzip2-devel<br>yum install openssl-devel<br>yum install ncurses-devel<br>yum install sqlite-devel<br>3）下载并解压Python 2.7.9的源代码<br>cd /opt<br>wget –no-check-certificate <a href="https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz" target="_blank" rel="external">https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz</a><br>tar xf Python-2.7.9.tar.xz<br>cd Python-2.7.9<br>4）编译与安装Python 2.7.9<br>./configure –prefix=/usr/local<br>make &amp;&amp; make altinstall<br>5）将python命令指向Python 2.7.9<br>ln -s /usr/local/bin/python2.7 /usr/local/bin/python<br>6）检查Python版本<br>sh<br>sh-4.1# python -V<br>Python 2.7.9</p>
 ]]></content>
@@ -1674,7 +1674,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[nvm管理]]></title>
-      <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nvm%E7%AE%A1%E7%90%86/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nvm%E7%AE%A1%E7%90%86.html</url>
       <content type="html"><![CDATA[<pre><code>git clone https://github.com/creationix/nvm.git ~/.nvm
 </code></pre><p>然后打开 ~/.bashrc ,  ~/.profile , or  ~/.zshrc这三个文件，在其中添加：</p>
 <blockquote>
@@ -1726,7 +1726,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[nginx安装]]></title>
-      <url>http://blog.ypintao.com/2014/05/15/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nginx%E5%AE%89%E8%A3%85/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nginx%E5%AE%89%E8%A3%85.html</url>
       <content type="html"><![CDATA[<blockquote>
 <p>sudo apt-get install libpcre3-dev libssl-dev openssl</p>
 </blockquote>
@@ -1753,7 +1753,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[java开发环境详解]]></title>
-      <url>http://blog.ypintao.com/2014/05/11/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/CentOS%206.5%20%E6%90%AD%E5%BB%BA%20Java%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/CentOS%206.5%20%E6%90%AD%E5%BB%BA%20Java%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3.html</url>
       <content type="html"><![CDATA[<p>一、安装jdk</p>
 <p>1.查看Linux自带的JDK是否已安装</p>
 <p>java –version<br>如果出现openjdk，最好还是先卸载掉openjdk,在安装sun公司的jdk.<br>2.查看jdk信息</p>
@@ -1793,7 +1793,7 @@ export PATH=$NODE_HOME/bin:$PATH
     
     <entry>
       <title><![CDATA[git安装]]></title>
-      <url>http://blog.ypintao.com/2014/04/11/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E5%85%B7/Git/git%E5%AE%89%E8%A3%85/</url>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E5%85%B7/Git/git%E5%AE%89%E8%A3%85.html</url>
       <content type="html"></content>
       
         <categories>

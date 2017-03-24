@@ -1,0 +1,895 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>node  forever安装pm2 | wustxing技术栈 | web技术</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="web技术">
+    
+    
+  
+ <meta name="keywords" content="web技术 node">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:title" content="node  forever安装pm2"/>
+    <meta property="og:site_name" content="wustxing"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oluvshunx.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">熊星</p>
+                        <p class="desc">.Net/Web前端/全栈/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/test/">
+                    test <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/生活/">
+                    生活 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/生活/面试/">
+                    面试 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/随笔/">
+                    随笔 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/随笔/文章/">
+                    文章 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IDEA/">
+                    IDEA <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/demo/">
+                    demo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Linux/">
+                    Linux <span class="right">15 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/开发环境/">
+                    开发环境 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/Dock/">
+                    Dock <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/基本命令/">
+                    基本命令 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/环境安装/">
+                    环境安装 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/node开发工具/">
+                    node开发工具 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/web前端/">
+                    web前端 <span class="right">8 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/CSS/">
+                    CSS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/HTML5/">
+                    HTML5 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/JS/">
+                    JS <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/gulp/">
+                    gulp <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后端/">
+                    后端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后端/Node/">
+                    Node <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/工具/">
+                    工具 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/工具/Git/">
+                    Git <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/mongodb/">
+                    mongodb <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/编程语言/">
+                    编程语言 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/编程语言/Node/">
+                    Node <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Linux/">Linux</a><a class="breadcrumb" href="/categories/Linux/node开发工具/">node开发工具</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>node  forever安装pm2</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2015-01-19T16:00:00.000Z"><a href="/技术/Linux/node开发工具/node  forever安装pm2.html">2015-01-20</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/node开发工具/" class="chip pink lighten-1">node开发工具</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#系统进程"><span class="section table-of-contents-text">系统进程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#端口占用"><span class="section table-of-contents-text">端口占用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#查看node进程，PID-18299"><span class="section table-of-contents-text">查看node进程，PID=18299</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#杀死PID-19299"><span class="section table-of-contents-text">杀死PID=19299</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#再看node进程，node自动重启，新的PID-18324"><span class="section table-of-contents-text">再看node进程，node自动重启，新的PID=18324</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#再杀死node进程"><span class="section table-of-contents-text">再杀死node进程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#检查错误日志"><span class="section table-of-contents-text">检查错误日志</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#pm2的详解-充分利用cpu核心数"><span class="section table-of-contents-text">pm2的详解 充分利用cpu核心数</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>但是，forever能做更多的事情，比如分别记录输出和错误日志，比如可以在js中作为api使用。<br>$ sudo npm install forever -g   #安装<br>$ forever start app.js          #启动<br>$ forever stop app.js           #关闭<br>$ forever start -l forever.log -o out.log -e err.log app.js   #输出日志和错误</p>
+<p>alinode    <a href="http://alinode.aliyun.com/dashboard/apps/30" target="_blank" rel="external">http://alinode.aliyun.com/dashboard/apps/30</a></p>
+<p>forever命令行的中文解释<a id="more"></a></p>
+<p>子命令actions：<br>start:启动守护进程<br>stop:停止守护进程<br>stopall:停止所有的forever进程<br>restart:重启守护进程<br>restartall:重启所有的foever进程<br>list:列表显示forever进程<br>config:列出所有的用户配置项<br>set <key> <val>: 设置用户配置项<br>clear <key>: 清楚用户配置项<br>logs: 列出所有forever进程的日志<br>logs <script|index>: 显示最新的日志<br>columns add <col>: 自定义指标到forever list<br>columns rm <col>: 删除forever list的指标<br>columns set<cols>: 设置所有的指标到forever list<br>cleanlogs: 删除所有的forever历史日志<br>配置参数options：<br>-m MAX: 运行指定脚本的次数<br>-l LOGFILE: 输出日志到LOGFILE<br>-o OUTFILE: 输出控制台信息到OUTFILE<br>-e ERRFILE: 输出控制台错误在ERRFILE<br>-p PATH: 根目录<br>-c COMMAND: 执行命令，默认是node<br>-a, –append: 合并日志<br>-f, –fifo: 流式日志输出<br>-n, –number: 日志打印行数<br>–pidFile: pid文件<br>–sourceDir: 源代码目录<br>–minUptime: 最小spinn更新时间(ms)<br>–spinSleepTime: 两次spin间隔时间<br>–colors: 控制台输出着色<br>–plain: –no-colors的别名，控制台输出无色<br>-d, –debug: debug模式<br>-v, –verbose: 打印详细输出<br>-s, –silent: 不打印日志和错误信息<br>-w, –watch: 监控文件改变<br>–watchDirectory: 监控顶级目录<br>–watchIgnore: 通过模式匹配忽略监控<br>-h, –help: 命令行帮助信息</cols></script|index></key></val></key></p>
+<ol>
+<li>forever服务器管理</li>
+</ol>
+<p>创建一个web项目(express3+ejs)，使用forever管理服务器。<br>安装express3</p>
+<p>~ D:\workspace\javascript&gt;express -e nodejs-forever<br>~ D:\workspace\javascript&gt;cd nodejs-forever &amp;&amp; npm install<br>通过forever启动应用</p>
+<p>~ D:\workspace\javascript\nodejs-forever&gt;forever start app.js<br>warn:    –minUptime not set. Defaulting to: 1000ms<br>warn:    –spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms<br>info:    Forever processing file: app.js<br>打开浏览器: <a href="http://localhost:3000，可以看到web界面" target="_blank" rel="external">http://localhost:3000，可以看到web界面</a><br>在win下面查看forever状态</p>
+<p>~ D:\workspace\javascript\nodejs-forever&gt;forever list<br>info:    No forever processes running</p>
+<p>~ D:\workspace\javascript\nodejs-forever&gt;forever stop app.js<br>error:   Forever cannot find process with index: app.js<br>我们发现forever的程序，工作不对了！！程序明明是运行状态，通过list确看不到。接下来，切换成Linux Ubuntu继续测试。</p>
+<ol>
+<li>forever在Ubuntu进行服务器管理</li>
+</ol>
+<p>Linux的系统环境<br>Linux: Ubuntu 12.04.2 64bit Server<br>Node: v0.11.2<br>Npm: 1.2.21<br>初始化项目：安装命令不解释了</p>
+<p>~ cd /home/conan/nodejs<br>~ express -e nodejs-forever<br>~ cd nodejs-forever &amp;&amp; npm install<br>~ sudo npm install forever -g<br>启动forever</p>
+<p>~ forever start app.js<br>warn:    –minUptime not set. Defaulting to: 1000ms<br>warn:    –spinSleepTime not set. Your script will exit if it does not stay up for at least 1000ms<br>info:    Forever processing file: app.js<br>查看node服务器状态</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile                       uptime<br>data:    [0] L2tY /usr/local/bin/node app.js 18276   18279 /home/conan/.forever/L2tY.log 0:0:0:37.792</p>
+<h1 id="系统进程"><a href="#系统进程" class="headerlink" title="系统进程"></a>系统进程</h1><p>~ ps -aux|grep node<br>Warning: bad ps syntax, perhaps a bogus ‘-‘? See <a href="http://procps.sf.net/faq.html" target="_blank" rel="external">http://procps.sf.net/faq.html</a><br>conan    18296  0.5  1.1 597696 23776 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18299  0.4  0.8 630340 18392 ?        Sl   15:48   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js</p>
+<h1 id="端口占用"><a href="#端口占用" class="headerlink" title="端口占用"></a>端口占用</h1><p>~ netstat -nltp|grep node<br>tcp        0      0 0.0.0.0:3000            0.0.0.0:*               LISTEN      18299/node<br>停止服务器</p>
+<p>~ forever stop app.js<br>info:    Forever stopped process:<br>data:        uid  command             script forever pid   logfile                       uptime<br>[0] L2tY /usr/local/bin/node app.js 18276   18279 /home/conan/.forever/L2tY.log 0:0:0:45.621<br>我们看到在Linux Ubuntu环境中是正常的。</p>
+<ol>
+<li>模拟服务器宕机</li>
+</ol>
+<p>两种测试方案：</p>
+<ol>
+<li>用Linux命令，直接杀死node进程</li>
+<li>在应用中，模拟异常退出<br>1). 用Linux命令，直接杀死node进程</li>
+</ol>
+<h1 id="查看node进程，PID-18299"><a href="#查看node进程，PID-18299" class="headerlink" title="查看node进程，PID=18299"></a>查看node进程，PID=18299</h1><p>~ ps -aux|grep node</p>
+<p>conan    18296  0.0  1.1 597696 23776 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18299  0.0  0.8 630340 18392 ?        Sl   15:48   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18315  0.0  0.0  13584   956 pts/5    R+   15:52   0:00 grep –color=auto node</p>
+<h1 id="杀死PID-19299"><a href="#杀死PID-19299" class="headerlink" title="杀死PID=19299"></a>杀死PID=19299</h1><p>~ kill -9 18299</p>
+<h1 id="再看node进程，node自动重启，新的PID-18324"><a href="#再看node进程，node自动重启，新的PID-18324" class="headerlink" title="再看node进程，node自动重启，新的PID=18324"></a>再看node进程，node自动重启，新的PID=18324</h1><p>~ ps -aux|grep node</p>
+<p>conan    18296  0.0  1.1 597696 23916 ?        Ssl  15:48   0:00 /usr/local/bin/node /usr/local/lib/node_modules/forever/bin/monitor app.js<br>conan    18316  2.6  0.8 630340 18412 ?        Sl   15:52   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18324  0.0  0.0  13584   956 pts/5    R+   15:52   0:00 grep –color=auto node<br>我们看到看杀死node进程，forever会帮助我们，重启node。<br>杀死forever的monitor</p>
+<p>~ kill -9  18296<br>~ ps -aux|grep node</p>
+<p>conan    18316  0.0  0.9 630340 18644 ?        Sl   15:52   0:00 /usr/local/bin/node /home/conan/nodejs/nodejs-forever/app.js<br>conan    18333  0.0  0.0  13584   952 pts/5    S+   15:57   0:00 grep –color=auto node</p>
+<h1 id="再杀死node进程"><a href="#再杀死node进程" class="headerlink" title="再杀死node进程"></a>再杀死node进程</h1><p>~ kill -9 18316<br>~ ps -aux|grep node</p>
+<p>conan    18336  0.0  0.0  13584   956 pts/5    S+   15:58   0:00 grep –color=auto node<br>我们尝试杀死了forever的monitor，monitor程序没有自动重启，然后再杀死node进程后，node也不会自动重启了。<br>2). 在应用中，模拟异常退出<br>修改文件：app.js</p>
+<p>~ vi app.js</p>
+<p>//..<br>http.createServer(app).listen(app.get(‘port’), function(){<br>  console.log(new Date());<br>  console.log(‘Express server listening on port ‘ + app.get(‘port’));<br>});</p>
+<p>setTimeout(function(){<br>  console.log(new Date());<br>  throw new Error(‘App is error from inner!’);<br>},10*1000);<br>通过node命令启动</p>
+<p>~ node app.js<br>Thu Sep 26 2013 16:08:44 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:08:54 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>10秒后，由于内部错误， node进程挂掉了。<br>通过forever命令启动</p>
+<p>~ mkdir logs<br>~ chmod 777 -R logs<br>~ forever -p . -l ./logs/access.log -e ./logs/error.log start app.js</p>
+<h1 id="检查错误日志"><a href="#检查错误日志" class="headerlink" title="检查错误日志"></a>检查错误日志</h1><p>~ cat logs/access.log ls<br>Thu Sep 26 2013 16:15:02 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:12 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 1 time<br>Thu Sep 26 2013 16:15:13 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:23 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 2 time<br>Thu Sep 26 2013 16:15:23 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:33 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 3 time<br>Thu Sep 26 2013 16:15:33 GMT+0800 (CST)<br>Express server listening on port 3000<br>Thu Sep 26 2013 16:15:43 GMT+0800 (CST)</p>
+<p>/home/conan/nodejs/nodejs-forever/app.js:41<br>  throw new Error(‘App is error from inner!’);<br>        ^<br>Error: App is error from inner!<br>    at null._onTimeout (/home/conan/nodejs/nodejs-forever/app.js:41:9)<br>    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)<br>error: Forever detected script exited with code: 8<br>error: Forever restarting script for 4 time<br>我们发现每10秒种，node内部挂掉，然后再被forever重启！！<br>通过list我们手动刷新几次也可以看到pid是变的。</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18579 logs/access.log 0:0:0:7.211</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18579 logs/access.log 0:0:0:8.921</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18604 logs/access.log 0:0:0:0.177</p>
+<p>~ forever list<br>info:    Forever processes running<br>data:        uid  command             script forever pid   logfile         uptime<br>data:    [0] SmtT /usr/local/bin/node app.js 18444   18604 logs/access.log 0:0:0:2.206<br>这样forever就帮助我们完成了，几项比较重要服务器管理功能：“启动/停止命令简单”，“支持热部署”，“宕机重启”，“监控界面和日志”。<br>比起upstart管理，省略了配置脚本的步骤(/etc/init/nodejs-xx.conf)。其他的功能，还要更近一步的使用才知道。</p>
+<ol>
+<li>开发环境和生产环境的启动配置</li>
+</ol>
+<p>开发环境</p>
+<p>~ cd /home/conan/nodejs/nodejs-forever/<br>~ forever -p . -l ./logs/access.log -e ./logs/error.log -a -w start app.js<br>生产环境</p>
+<p>~ export LOG=/var/log/nodejs/project<br>~ export PID=/var/log/nodejs/project/forever.pid<br>~ export APP_PATH=/home/conan/nodejs/nodejs-forever<br>~ export APP=$APP_PATH/app.js</p>
+<p>~ forever -p $APP_PATH -l $LOG/access.log -e $LOG/error.log -o $LOG/out.log -a –pidFile $PID start $AP</p>
+<p>================================================================</p>
+<h1 id="pm2的详解-充分利用cpu核心数"><a href="#pm2的详解-充分利用cpu核心数" class="headerlink" title="pm2的详解 充分利用cpu核心数"></a>pm2的详解 充分利用cpu核心数</h1><p>pm2 是一个带有负载均衡功能的Node应用的进程管理器.<br>当你要把你的独立代码利用全部的服务器上的所有CPU，并保证进程永远都活着，0秒的重载， PM2是完美的。它非常适合IaaS结构，但不要把它用于PaaS方案（随后将开发Paas的解决方案）.</p>
+<p>备注：SaaS、PaaS和IaaS是云服务模式。<br>        SaaS 软件即服务，例如Google的 Gmail 邮箱服务.面向应用型用户.<br>        PaaS 平台即服务.例如Google的GAE,面向开发型用户<br>        IaaS  基础架构即服务,例如亚马逊的AWS，IaaS对于不知道新推出的应用程序/网站会有多成功的创业公司来说非常有用<br>      请参考 云服务模式：SaaS、PaaS和IaaS，哪一种适合你？</p>
+<p>主要特性：</p>
+<p>内建负载均衡（使用Node cluster 集群模块）<br>后台运行<br>0秒停机重载，我理解大概意思是维护升级的时候不需要停机.<br>具有Ubuntu和CentOS 的启动脚本<br>停止不稳定的进程（避免无限循环）<br>控制台检测<br>提供 HTTP API<br>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</p>
+<p>测试过Nodejs v0.11 v0.10 v0.8版本，兼容CoffeeScript,基于Linux 和MacOS.</p>
+<p>安装<br>npm install -g pm2</p>
+<p>用法<br>$ npm install pm2 -g     # 命令行安装 pm2<br>$ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js </p>
+<pre><code># 也可以把&apos;max&apos; 参数传递给 start
+# 正确的进程数目依赖于Cpu的核心数目
+</code></pre><p>$ pm2 start app.js –name my-api # 命名进程<br>$ pm2 list               # 显示所有进程状态<br>$ pm2 monit              # 监视所有进程<br>$ pm2 logs               #  显示所有进程日志<br>$ pm2 stop all           # 停止所有进程<br>$ pm2 restart all        # 重启所有进程<br>$ pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)<br>$ pm2 stop 0             # 停止指定的进程<br>$ pm2 restart 0          # 重启指定的进程<br>$ pm2 startup            # 产生 init 脚本 保持进程活着<br>$ pm2 web                # 运行健壮的 computer API endpoint (<a href="http://localhost:9615" target="_blank" rel="external">http://localhost:9615</a>)<br>$ pm2 delete 0           # 杀死指定的进程<br>$ pm2 delete all         # 杀死全部进程</p>
+<p>运行进程的不同方式：<br>$ pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目<br>$ pm2 start app.js -i 3      # 启动3个进程<br>$ pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster<br>$ pm2 start app.js -x – -a 23   # 用fork模式启动 app.js 并且传递参数 (-a 23)<br>$ pm2 start app.js –name serverone  # 启动一个进程并把它命名为 serverone<br>$ pm2 stop serverone       # 停止 serverone 进程<br>$ pm2 start app.json        # 启动进程, 在 app.json里设置选项<br>$ pm2 start app.js -i max – -a 23                   #在–之后给 app.js 传递参数<br>$ pm2 start app.js -i max -e err.log -o out.log  # 启动 并 生成一个配置文件<br>你也可以执行用其他语言编写的app  ( fork 模式):<br>$ pm2 start my-bash-script.sh    -x –interpreter bash<br>$ pm2 start my-python-script.py -x –interpreter python</p>
+<p>0秒停机重载:<br>这项功能允许你重新载入代码而不用失去请求连接。<br>注意：<br>仅能用于web应用<br>运行于Node 0.11.x版本<br>运行于 cluster 模式（默认模式）<br>$ pm2 reload all</p>
+<p>CoffeeScript:<br>$ pm2 start my_app.coffee  #这就是全部</p>
+<p>PM2准备好为产品级服务了吗？<br>只需在你的服务器上测试<br>$ git clone <a href="https://github.com/Unitech/pm2.git" target="_blank" rel="external">https://github.com/Unitech/pm2.git</a><br>$ cd pm2<br>$ npm install  # 或者 npm install –dev ，如果devDependencies 没有安装<br>$ npm test</p>
+<p>pm2 list<br>列出由pm2管理的所有进程信息，还会显示一个进程会被启动多少次，因为没处理的异常。</p>
+<p>pm2 monit<br>监视每个node进程的CPU和内存的使用情况。</p>
+<p><a href="https://cnodejs.org/topic/563f6e708e90ab7c391e9f71" target="_blank" rel="external">https://cnodejs.org/topic/563f6e708e90ab7c391e9f71</a></p>
+
+                
+<p class="pink-link-context">
+    <a href="/技术/Linux/node开发工具/快速搭建 Node.js 开发环境以及加速npm.html" rel="next" title="快速搭建 Node.js 开发环境以及加速 npm">
+    上一篇：快速搭建 Node.js 开发环境以及加速 npm
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/技术/Linux/linux基本命令/修改阿里云CentOS Linux服务器的主机名.html" rel="next" title="修改阿里云CentOS Linux服务器的主机名">
+    下一篇：修改阿里云CentOS Linux服务器的主机名
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="技术/Linux/node开发工具/node  forever安装pm2.html" data-title="node  forever安装pm2" data-url="http://blog.ypintao.com/技术/Linux/node开发工具/node  forever安装pm2.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'wustxingblog'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/2100494272" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/wustxing" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <div class="site-visitors-container white-text">
+                    <span>
+                        <i class="fa fa-user"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+                    </span>
+                    <span>&nbsp;|&nbsp;</span>
+                    <span>
+                        <i class="fa fa-eye"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+                    </span>
+                </div>
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.ypintao.com/" target="_blank">wustxing技术博客</a>
+                
+                    <a class="social-link" href="http://blackmack.github.io/" target="_blank">创姐的博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=61306871" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
