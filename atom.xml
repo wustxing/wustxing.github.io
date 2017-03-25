@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2017-03-24T15:26:30.894Z</updated>
+  <updated>2017-03-25T16:29:59.571Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css3的一些新用法</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/css3%E5%B1%9E%E6%80%A7%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/CSS/css3属性一些用法.html</id>
+    <published>2017-03-25T16:00:00.000Z</published>
+    <updated>2017-03-25T16:29:59.571Z</updated>
+    
+    <content type="html"><![CDATA[<p>直接上例子了。</p>
+<ul>
+<li><h3 id="after实现画图"><a href="#after实现画图" class="headerlink" title="::after实现画图"></a>::after实现画图</h3></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">  <span class="attribute">width</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">height</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">border-radius</span>:<span class="number">50%</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#333</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span>&#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">''</span>,</div><div class="line">  display:block;</div><div class="line">  <span class="attribute">width</span>:<span class="number">8px</span>;</div><div class="line">  <span class="attribute">height</span>:<span class="number">60px</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">right</span>: -<span class="number">22</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">38</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-45deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="attr和content实现悬浮提示"><a href="#attr和content实现悬浮提示" class="headerlink" title="attr和content实现悬浮提示"></a>attr和content实现悬浮提示</h3><blockquote>
+<p>attr：能够在css中获取到元素的某个属性值，然后插入到伪元素的content中去。</p>
+</blockquote>
+</li>
+</ul>
+<p>html代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-title</span>=<span class="string">"hello, world"</span>&gt;</span>hello...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>下面看看如何实现悬浮提示</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">    position: relative;</div><div class="line">&#125;</div><div class="line">div:hover::after &#123;</div><div class="line">    content: attr(data-title);    //取到data-title属性的值</div><div class="line">    display: inline-block;</div><div class="line">    padding: 10px 14px;</div><div class="line">    border: 1px solid #ddd;</div><div class="line">    border-radius: 5px;</div><div class="line">    position: absolute;</div><div class="line">    top: -50px;</div><div class="line">    left: -30px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h3>在标准盒子模型中，元素的总宽＝content + padding + border + margin。</li>
+</ul>
+<p>box-sizing属性就是用来重定义这个计算方式的，它有三个取值，分别是：content-box（默认）、border-box、padding-box</p>
+<p>一般来说，假如我们需要有一个占宽200px、padding10px、border5px的div，经过计算，要这么定义样式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line"><span class="comment">/*这里的宽度要使用200-10*2-5*2 = 170得到。*/</span></div><div class="line">    <span class="attribute">width</span>: <span class="number">170px</span>;   </div><div class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果使用box-sizing</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line"><span class="comment">/*这里的宽度就是元素所占总宽度，不需要计算*/</span>  </div><div class="line">    <span class="attribute">box-sizing</span>: border-box; </div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;  </div><div class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="linear-gradient-线性渐变"><a href="#linear-gradient-线性渐变" class="headerlink" title="linear-gradient 线性渐变"></a>linear-gradient 线性渐变</h3></li>
+</ul>
+<p>做活动页面的时候我们经常会遇到这样的需求：</p>
+<p>顶部的中间一张大banner图片，然后整个区域的背景色要根据图片背景色渐变。就可以使用这个属性了。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, red, yellow, black, green);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有repeating-linear-gradient也可以试试效果</p>
+<ul>
+<li><h3 id="radial-gradient-经向渐变"><a href="#radial-gradient-经向渐变" class="headerlink" title="radial-gradient 经向渐变"></a>radial-gradient 经向渐变</h3></li>
+<li><h3 id="box-shadow-阴影效果"><a href="#box-shadow-阴影效果" class="headerlink" title="box-shadow 阴影效果"></a>box-shadow 阴影效果</h3>box-shadow: [x偏移] [y偏移] [阴影模糊宽度] [阴影宽度] [颜色]，并且还能添加多个阴影，使用逗号隔开。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;直接上例子了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;after实现画图&quot;&gt;&lt;a href=&quot;#after实现画图&quot; class=&quot;headerlink&quot; title=&quot;::after实现画图&quot;&gt;&lt;/a&gt;::after实现画图&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figu
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="CSS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://blog.ypintao.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>pomelo并非完全的游戏引擎</title>
@@ -458,6 +520,40 @@ linux
   </entry>
   
   <entry>
+    <title>HTML5问题汇总</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/HTML5/HTML5问题汇总.html</id>
+    <published>2016-04-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:12.152Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;a href=&quot;#简述一下你对html语义化的理解&quot; class=&quot;headerlink&quot; title=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;/a&gt;简述一下你对html语义化的理解&lt;/h3&gt;&lt;p&gt;网页验证码是干嘛的，是为了解决什么安全问题&lt;br&gt;html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，&lt;/p&gt;
+&lt;h3 id=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;a href=&quot;#浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot; class=&quot;headerlink&quot; title=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;/a&gt;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&lt;/h3&gt;&lt;h3 id=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;a href=&quot;#介绍下你对浏览器内核的理解&quot; class=&quot;headerlink&quot; title=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;/a&gt;介绍下你对浏览器内核的理解
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/HTML5/"/>
+    
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/tags/HTML5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CSS问题汇总</title>
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/CSS%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
     <id>http://blog.ypintao.com/技术/web前端/CSS/CSS的问题汇总.html</id>
@@ -500,40 +596,6 @@ linux
     
     
       <category term="CSS" scheme="http://blog.ypintao.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5问题汇总</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
-    <id>http://blog.ypintao.com/技术/web前端/HTML5/HTML5问题汇总.html</id>
-    <published>2016-04-30T16:00:00.000Z</published>
-    <updated>2017-03-22T06:57:12.152Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
-<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
-<ul>
-<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
-<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
-</ul>
-<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
-<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
-</ul>
-<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;a href=&quot;#简述一下你对html语义化的理解&quot; class=&quot;headerlink&quot; title=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;/a&gt;简述一下你对html语义化的理解&lt;/h3&gt;&lt;p&gt;网页验证码是干嘛的，是为了解决什么安全问题&lt;br&gt;html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，&lt;/p&gt;
-&lt;h3 id=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;a href=&quot;#浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot; class=&quot;headerlink&quot; title=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;/a&gt;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&lt;/h3&gt;&lt;h3 id=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;a href=&quot;#介绍下你对浏览器内核的理解&quot; class=&quot;headerlink&quot; title=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;/a&gt;介绍下你对浏览器内核的理解
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="HTML5" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/HTML5/"/>
-    
-    
-      <category term="HTML5" scheme="http://blog.ypintao.com/tags/HTML5/"/>
     
   </entry>
   
@@ -878,63 +940,6 @@ explain会返回查询使用的索引情况，耗时和扫描文档数的统计�
     
     
       <category term="gulp" scheme="http://blog.ypintao.com/tags/gulp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>forever用途</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/forever%E7%94%A8%E9%80%94.html"/>
-    <id>http://blog.ypintao.com/技术/Linux/node开发工具/forever用途.html</id>
-    <published>2015-03-23T16:00:00.000Z</published>
-    <updated>2017-03-21T10:31:55.963Z</updated>
-    
-    <content type="html"><![CDATA[<p>Github地址：<a href="https://github.com/nodejitsu/forever" target="_blank" rel="external">https://github.com/nodejitsu/forever</a><br>forever用途<br>forever的用途就是帮我们更好的管理我们node App服务，本质上就是在forever进程之下，创建一个node app的子进程。<br>比如，你有一个基于express的或者其他的一些个应用那么，它将会很方便你更新和操作你的服务，并且保证你服务能持续运行。<a id="more"></a><br>更好的一点就是每次更改文件，它都可以帮你自动重启服务而不需要手动重启。<br>安装forever<br>复制代码 代码如下:</p>
-<p>// 记得加-g，forever要求安装到全局环境下</p>
-<blockquote>
-<p>sudo npm install forever -g</p>
-</blockquote>
-<p>forever使用说明</p>
-<p>启动相关</p>
-<p>复制代码 代码如下:</p>
-<p>// 1. 简单的启动</p>
-<blockquote>
-<p>forever start app.js<br>// 2. 指定forever信息输出文件，当然，默认它会放到~/.forever/forever.log<br>forever start -l forever.log app.js<br>// 3. 指定app.js中的日志信息和错误日志输出文件，<br>//  -o 就是console.log输出的信息，-e 就是console.error输出的信息<br>forever start -o out.log -e err.log app.js<br>// 4. 追加日志，forever默认是不能覆盖上次的启动日志，<br>//  所以如果第二次启动不加-a，则会不让运行<br>forever start -l forever.log -a app.js<br>// 5. 监听当前文件夹下的所有文件改动<br>forever start -w app.js<br>文件改动监听并自动重启</p>
-</blockquote>
-<p>复制代码 代码如下:</p>
-<p>// 1. 监听当前文件夹下的所有文件改动（不太建议这样）</p>
-<blockquote>
-<p>forever start -w app.js</p>
-</blockquote>
-<p>显示所有运行的服务<br>复制代码 代码如下:</p>
-<blockquote>
-<p>forever list</p>
-</blockquote>
-<p>停止操作<br>复制代码 代码如下:<br>// 1. 停止所有运行的node App</p>
-<blockquote>
-<p>forever stopall<br>// 2. 停止其中一个node App<br>forever stop app.js<br>// 当然还可以这样<br>// forever list 找到对应的id，然后：<br>forever stop [id]<br>重启操作<br>重启操作跟停止操作保持一致。<br>复制代码 代码如下:<br>// 1. 启动所有<br>forever restartall<br>开发和线上建议配置<br>复制代码 代码如下:</p>
-</blockquote>
-<p>// 开发环境下</p>
-<blockquote>
-<p>NODE_ENV=development forever start -l forever.log -e err.log -a app.js<br>// 线上环境下<br>NODE_ENV=production forever start -l ~/.forever/forever.log -e ~/.forever/err.log -w -a app.js</p>
-</blockquote>
-<p>上面加上NODE_ENV为了让app.js辨认当前是什么环境用的。不加它可能就不知道哦？<br>一些注意点<br>有可能你需要使用unix下的crontab（定时任务）<br>这个时候需要注意配置好环境变量。<br>复制代码 代码如下:</p>
-<blockquote>
-<p>SHELL=/bin/sh<br>PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Github地址：&lt;a href=&quot;https://github.com/nodejitsu/forever&quot;&gt;https://github.com/nodejitsu/forever&lt;/a&gt;&lt;br&gt;forever用途&lt;br&gt;forever的用途就是帮我们更好的管理我们node App服务，本质上就是在forever进程之下，创建一个node app的子进程。&lt;br&gt;比如，你有一个基于express的或者其他的一些个应用那么，它将会很方便你更新和操作你的服务，并且保证你服务能持续运行。
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://blog.ypintao.com/categories/Linux/"/>
-    
-      <category term="node开发工具" scheme="http://blog.ypintao.com/categories/Linux/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="node开发工具" scheme="http://blog.ypintao.com/tags/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
