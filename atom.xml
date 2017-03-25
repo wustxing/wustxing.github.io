@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2017-03-25T16:29:59.571Z</updated>
+  <updated>2017-03-25T16:32:39.230Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/css3%E5%B1%9E%E6%80%A7%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html"/>
     <id>http://blog.ypintao.com/技术/web前端/CSS/css3属性一些用法.html</id>
     <published>2017-03-25T16:00:00.000Z</published>
-    <updated>2017-03-25T16:29:59.571Z</updated>
+    <updated>2017-03-25T16:32:39.230Z</updated>
     
     <content type="html"><![CDATA[<p>直接上例子了。</p>
 <ul>
 <li><h3 id="after实现画图"><a href="#after实现画图" class="headerlink" title="::after实现画图"></a>::after实现画图</h3></li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">  <span class="attribute">width</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">height</span>:<span class="number">50px</span>;</div><div class="line">  <span class="attribute">border-radius</span>:<span class="number">50%</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#333</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span>&#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">''</span>,</div><div class="line">  display:block;</div><div class="line">  <span class="attribute">width</span>:<span class="number">8px</span>;</div><div class="line">  <span class="attribute">height</span>:<span class="number">60px</span>;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">5px</span>;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#333</span>;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">right</span>: -<span class="number">22</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">38</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-45deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
 <li><h3 id="attr和content实现悬浮提示"><a href="#attr和content实现悬浮提示" class="headerlink" title="attr和content实现悬浮提示"></a>attr和content实现悬浮提示</h3><blockquote>
 <p>attr：能够在css中获取到元素的某个属性值，然后插入到伪元素的content中去。</p>
@@ -64,7 +65,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;h3 id=&quot;after实现画图&quot;&gt;&lt;a href=&quot;#after实现画图&quot; class=&quot;headerlink&quot; title=&quot;::after实现画图&quot;&gt;&lt;/a&gt;::after实现画图&lt;/h3&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figu
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;50px&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;50px&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;border-radius&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;50%&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;border&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;5px&lt;/span&gt; solid &lt;span class=&quot;number&quot;&gt;#333&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;position&lt;/span&gt;: relative;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;selector-pseudo&quot;&gt;::after&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  display:block;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;8px&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;60px&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;border-radius&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;5px&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;background&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;#333&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;position&lt;/span&gt;: absolute;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;right&lt;/span&gt;: -&lt;span class=&quot;number&quot;&gt;22&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;top&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;38&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;transform&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;rotate&lt;/span&gt;(-45deg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -520,40 +521,6 @@ linux
   </entry>
   
   <entry>
-    <title>HTML5问题汇总</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
-    <id>http://blog.ypintao.com/技术/web前端/HTML5/HTML5问题汇总.html</id>
-    <published>2016-04-30T16:00:00.000Z</published>
-    <updated>2017-03-22T06:57:12.152Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
-<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
-<ul>
-<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
-<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
-</ul>
-<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
-<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
-</ul>
-<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;a href=&quot;#简述一下你对html语义化的理解&quot; class=&quot;headerlink&quot; title=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;/a&gt;简述一下你对html语义化的理解&lt;/h3&gt;&lt;p&gt;网页验证码是干嘛的，是为了解决什么安全问题&lt;br&gt;html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，&lt;/p&gt;
-&lt;h3 id=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;a href=&quot;#浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot; class=&quot;headerlink&quot; title=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;/a&gt;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&lt;/h3&gt;&lt;h3 id=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;a href=&quot;#介绍下你对浏览器内核的理解&quot; class=&quot;headerlink&quot; title=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;/a&gt;介绍下你对浏览器内核的理解
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="HTML5" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/HTML5/"/>
-    
-    
-      <category term="HTML5" scheme="http://blog.ypintao.com/tags/HTML5/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CSS问题汇总</title>
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/CSS%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
     <id>http://blog.ypintao.com/技术/web前端/CSS/CSS的问题汇总.html</id>
@@ -596,6 +563,40 @@ linux
     
     
       <category term="CSS" scheme="http://blog.ypintao.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5问题汇总</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/HTML5/HTML5问题汇总.html</id>
+    <published>2016-04-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:12.152Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;a href=&quot;#简述一下你对html语义化的理解&quot; class=&quot;headerlink&quot; title=&quot;简述一下你对html语义化的理解&quot;&gt;&lt;/a&gt;简述一下你对html语义化的理解&lt;/h3&gt;&lt;p&gt;网页验证码是干嘛的，是为了解决什么安全问题&lt;br&gt;html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，&lt;/p&gt;
+&lt;h3 id=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;a href=&quot;#浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot; class=&quot;headerlink&quot; title=&quot;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&quot;&gt;&lt;/a&gt;浏览器是怎么对html5的离线存储资源进行管理和加载的呢&lt;/h3&gt;&lt;h3 id=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;a href=&quot;#介绍下你对浏览器内核的理解&quot; class=&quot;headerlink&quot; title=&quot;介绍下你对浏览器内核的理解&quot;&gt;&lt;/a&gt;介绍下你对浏览器内核的理解
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/HTML5/"/>
+    
+    
+      <category term="HTML5" scheme="http://blog.ypintao.com/tags/HTML5/"/>
     
   </entry>
   
