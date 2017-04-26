@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2017-04-26T14:28:31.293Z</updated>
+  <updated>2017-04-26T14:36:36.667Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2.html"/>
     <id>http://blog.ypintao.com/技术/web前端/CSS/媒体查询.html</id>
     <published>2017-04-25T16:00:00.000Z</published>
-    <updated>2017-04-26T14:28:31.293Z</updated>
+    <updated>2017-04-26T14:36:36.667Z</updated>
     
-    <content type="html"><![CDATA[<p>转眼一个月过去了。休假也休完了。回来认真的学习了。<br>又有了一些idea，比如微信服务号，比如淘宝抓取数据应用。然后下面我们将要讲解的是一个小知识点<br>媒体查询，或许大伙都已经很熟悉了，也就是前几天认认真真的复习了一遍，处于做什么事都要有一个结果的心态，做个记录吧。</p>
+    <content type="html"><![CDATA[<p>转眼一个月过去了。休假也休完了。回来认真的学习了。<br>又有了一些idea，比如微信服务号，比如淘宝抓取数据应用。然后下面我们将要讲解的是一个小知识点<br>媒体查询，或许大伙都已经很熟悉了，也就是前几天认认真真的复习了一遍，处于做什么事都要有一个结果的心态，做个记录吧。<a id="more"></a></p>
 <p>首先我们需要知道移动设备优先，html结构</p>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -49,22 +49,27 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>Angular1最佳实践</title>
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.html"/>
     <id>http://blog.ypintao.com/技术/web前端/AngularJS/AngularJS最佳实践.html</id>
-    <published>2017-04-02T05:51:34.748Z</published>
-    <updated>2017-04-02T05:51:34.749Z</updated>
+    <published>2017-04-01T16:00:00.000Z</published>
+    <updated>2017-04-26T14:39:21.280Z</updated>
     
-    <content type="html"><![CDATA[<p>title: Angular最佳实践<br>date: 2017-04-02<br>tags: </p>
-]]></content>
+    <content type="html"><![CDATA[<p><a href="https://github.com/wustxing/angular1-demo.git" target="_blank" rel="external">https://github.com/wustxing/angular1-demo.git</a></p>
+<a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;title: Angular最佳实践&lt;br&gt;date: 2017-04-02&lt;br&gt;tags: &lt;/p&gt;
-
+      &lt;p&gt;&lt;a href=&quot;https://github.com/wustxing/angular1-demo.git&quot;&gt;https://github.com/wustxing/angular1-demo.git&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="AngularJS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/AngularJS/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.ypintao.com/tags/AngularJS/"/>
     
   </entry>
   
@@ -73,9 +78,9 @@
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html"/>
     <id>http://blog.ypintao.com/技术/web前端/SASS/SASS在webstrom下的安装.html</id>
     <published>2017-03-29T16:00:00.000Z</published>
-    <updated>2017-03-30T01:49:12.530Z</updated>
+    <updated>2017-04-26T14:40:05.538Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
     
     <summary type="html">
     
@@ -93,80 +98,13 @@
   </entry>
   
   <entry>
-    <title>RequireJS的使用结合angular</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/RequireJS/RequireJS%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%93%E5%90%88angular.html"/>
-    <id>http://blog.ypintao.com/技术/web前端/RequireJS/RequireJS的使用结合angular.html</id>
-    <published>2017-03-29T16:00:00.000Z</published>
-    <updated>2017-03-30T01:50:41.853Z</updated>
-    
-    <content type="html"><![CDATA[<p>###Requirejs结合angular的使用</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;###Requirejs结合angular的使用&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="RequireJS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/RequireJS/"/>
-    
-    
-      <category term="RequireJS" scheme="http://blog.ypintao.com/tags/RequireJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于angularjs用到的技术总结</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html"/>
-    <id>http://blog.ypintao.com/技术/web前端/AngularJS/AngularJS总结.html</id>
-    <published>2017-03-29T16:00:00.000Z</published>
-    <updated>2017-04-02T05:57:34.785Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>1、bootstrap</li>
-<li>2、ui-root</li>
-<li>3、angularjs</li>
-<li>4、jquery</li>
-<li>5、requirejs</li>
-<li>6、nginx作为代理</li>
-<li>7、</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;1、bootstrap&lt;/li&gt;
-&lt;li&gt;2、ui-root&lt;/li&gt;
-&lt;li&gt;3、angularjs&lt;/li&gt;
-&lt;li&gt;4、jquery&lt;/li&gt;
-&lt;li&gt;5、requirejs&lt;/li&gt;
-&lt;li&gt;6、nginx作为代理&lt;/li&gt;
-&lt;li&gt;7、&lt;/li&gt;
-&lt;/
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="AngularJS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/AngularJS/"/>
-    
-    
-      <category term="AngularJS" scheme="http://blog.ypintao.com/tags/AngularJS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ionic的app目录约定</title>
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/IONIC/ionic%E7%9A%84app%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A.html"/>
     <id>http://blog.ypintao.com/技术/web前端/IONIC/ionic的app目录约定.html</id>
     <published>2017-03-29T16:00:00.000Z</published>
-    <updated>2017-03-30T01:52:14.300Z</updated>
+    <updated>2017-04-26T14:36:42.369Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="IONIC-的目录约定以及一些基本用法"><a href="#IONIC-的目录约定以及一些基本用法" class="headerlink" title="IONIC 的目录约定以及一些基本用法"></a>IONIC 的目录约定以及一些基本用法</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="IONIC-的目录约定以及一些基本用法"><a href="#IONIC-的目录约定以及一些基本用法" class="headerlink" title="IONIC 的目录约定以及一些基本用法"></a>IONIC 的目录约定以及一些基本用法</h3><a id="more"></a>]]></content>
     
     <summary type="html">
     
@@ -184,21 +122,84 @@
   </entry>
   
   <entry>
-    <title>js系列1</title>
+    <title>关于angularjs用到的技术总结</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/AngularJS/AngularJS总结.html</id>
+    <published>2017-03-29T16:00:00.000Z</published>
+    <updated>2017-04-26T14:38:07.410Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>1、bootstrap</li>
+<li>2、ui-root</li>
+<li>3、angularjs</li>
+<li>4、jquery</li>
+<li>5、requirejs</li>
+<li>6、nginx作为代理</li>
+<li>7、<a id="more"></a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;1、bootstrap&lt;/li&gt;
+&lt;li&gt;2、ui-root&lt;/li&gt;
+&lt;li&gt;3、angularjs&lt;/li&gt;
+&lt;li&gt;4、jquery&lt;/li&gt;
+&lt;li&gt;5、requirejs&lt;/li&gt;
+&lt;li&gt;6、nginx作为代理&lt;/li&gt;
+&lt;li&gt;7、
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="AngularJS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/AngularJS/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.ypintao.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RequireJS的使用结合angular</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/RequireJS/RequireJS%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%93%E5%90%88angular.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/RequireJS/RequireJS的使用结合angular.html</id>
+    <published>2017-03-29T16:00:00.000Z</published>
+    <updated>2017-04-26T14:39:53.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>###Requirejs结合angular的使用<br><a id="more"></a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###Requirejs结合angular的使用&lt;br&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="RequireJS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/RequireJS/"/>
+    
+    
+      <category term="RequireJS" scheme="http://blog.ypintao.com/tags/RequireJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js作用域</title>
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/js%E4%BD%9C%E7%94%A8%E5%9F%9F.html"/>
     <id>http://blog.ypintao.com/技术/web前端/JS/js作用域.html</id>
     <published>2017-03-26T16:00:00.000Z</published>
-    <updated>2017-03-27T14:13:51.832Z</updated>
+    <updated>2017-04-26T14:37:32.462Z</updated>
     
-    <content type="html"><![CDATA[<p>有很多人问js闭包是什么，有的说是函数作用域，有的说是函数内部能够访问函数外部，反正我是不知道怎么描述<br>下面就来看看我们的例子。</p>
+    <content type="html"><![CDATA[<p>有很多人问js闭包是什么，有的说是函数作用域，有的说是函数内部能够访问函数外部，反正我是不知道怎么描述<br>下面就来看看我们的例子。<a id="more"></a></p>
 <p>1、一个简单的例子,怎么区分普通对象和函数对象。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function a1()&#123;&#125;;</div><div class="line">var a2 = function()&#123;&#125;;</div><div class="line">var a3 = new Function(&apos;str&apos;,&apos;console.log(str)&apos;);</div><div class="line"></div><div class="line">var b1 = &#123;&#125;;</div><div class="line">var b2 = new Object();</div><div class="line">var b3 = new a1();</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;有很多人问js闭包是什么，有的说是函数作用域，有的说是函数内部能够访问函数外部，反正我是不知道怎么描述&lt;br&gt;下面就来看看我们的例子。&lt;/p&gt;
-&lt;p&gt;1、一个简单的例子,怎么区分普通对象和函数对象。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;
+      &lt;p&gt;有很多人问js闭包是什么，有的说是函数作用域，有的说是函数内部能够访问函数外部，反正我是不知道怎么描述&lt;br&gt;下面就来看看我们的例子。
     
     </summary>
     
@@ -548,66 +549,6 @@ linux
   </entry>
   
   <entry>
-    <title>JS问题汇总</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
-    <id>http://blog.ypintao.com/技术/web前端/JS/JS问题汇总.html</id>
-    <published>2016-06-30T16:00:00.000Z</published>
-    <updated>2017-03-22T06:57:06.570Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
-<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
-<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
-<li>1、js动态加载dom元素</li>
-<li>2、onload异步加载</li>
-<li>3、使用requerjs这种，是属于异步加载。</li>
-</ul>
-<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
-<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
-<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
-</ul>
-<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
-<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
-</ul>
-<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
-<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
-<li><p>1、对象字面量的方式  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>2、用function来模拟无参的构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
-</li>
-<li><p>4、用工厂方式来创建（内置对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>5、用原型方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
-</li>
-<li><p>6、用混合方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1、如何解决跨域问题&quot;&gt;&lt;a href=&quot;#1、如何解决跨域问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何解决跨域问题&quot;&gt;&lt;/a&gt;1、如何解决跨域问题&lt;/h3&gt;&lt;p&gt;  nginx代理，或后端设置，&lt;/p&gt;
-&lt;h3 id=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;a href=&quot;#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot; class=&quot;headerlink&quot; title=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;/a&gt;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
-    
-    
-      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>从输入url到浏览器显示页面发生了什么</title>
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.html"/>
     <id>http://blog.ypintao.com/技术/web前端/JS/从输入url到浏览器显示页面发生了什么.html</id>
@@ -665,6 +606,66 @@ linux
 &lt;p&gt;HTTP客户端——&amp;gt;TCP—-&amp;gt;IP——&amp;gt;网络&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;在浏览器输入url
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS问题汇总</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/JS/JS问题汇总.html</id>
+    <published>2016-06-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:06.570Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、如何解决跨域问题&quot;&gt;&lt;a href=&quot;#1、如何解决跨域问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何解决跨域问题&quot;&gt;&lt;/a&gt;1、如何解决跨域问题&lt;/h3&gt;&lt;p&gt;  nginx代理，或后端设置，&lt;/p&gt;
+&lt;h3 id=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;a href=&quot;#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot; class=&quot;headerlink&quot; title=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;/a&gt;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&lt;/h3&gt;
     
     </summary>
     
