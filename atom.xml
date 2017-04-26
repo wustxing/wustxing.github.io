@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2017-03-25T16:32:39.230Z</updated>
+  <updated>2017-04-26T14:28:31.293Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -14,6 +14,202 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>媒体查询</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/CSS/媒体查询.html</id>
+    <published>2017-04-25T16:00:00.000Z</published>
+    <updated>2017-04-26T14:28:31.293Z</updated>
+    
+    <content type="html"><![CDATA[<p>转眼一个月过去了。休假也休完了。回来认真的学习了。<br>又有了一些idea，比如微信服务号，比如淘宝抓取数据应用。然后下面我们将要讲解的是一个小知识点<br>媒体查询，或许大伙都已经很熟悉了，也就是前几天认认真真的复习了一遍，处于做什么事都要有一个结果的心态，做个记录吧。</p>
+<p>首先我们需要知道移动设备优先，html结构</p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<p>width = device-width：宽度等于当前设备的宽度<br>initial-scale： 初始的缩放比例（默认设置为1.0）<br>minimum-scale：允许用户缩放到的最小比例（默认设置为1.0）<br>maximum-scale：允许用户缩放到的最大比例（默认设置为1.0）<br>user-scalable：用户是否可以手动缩放（默认设置为no，因为我们不希望用户放大缩小页面）</p>
+<p><meta http-equiv="X-UA-Compatible" ;content="IE=edge, chrome=1"><br>如果有的用户电脑里面装了这个chrome的插件，<br>就可以让电脑里面的IE不管是哪个版本的都可以使用Webkit引擎及V8引擎进行排版及运算</p>
+<p>如果用户没装这个插件，那这段代码就会<br>让IE以最高的文档模式展现效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">@media (max-width:750px)&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen and ;(orientation:portrait)&quot; ;href=&quot;style.css&quot;&gt;</div><div class="line">移动设备是不是纵向放置的显示屏</div><div class="line"></div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;screen and (max-width:960px)&quot; href=&quot;style.css&quot;&gt;</div><div class="line">让页面宽度小于960的执行指定的样式文件</div></pre></td></tr></table></figure>
+<h3 id="Media所有参数汇总"><a href="#Media所有参数汇总" class="headerlink" title="Media所有参数汇总"></a>Media所有参数汇总</h3><p>以上就是我们最常需要用到的媒体查询器的三个特性，大于，等于，小于的写法。媒体查询器的全部功能肯定不止这三个功能，下面是我总结的它的一些参数用法解释：<br>width:浏览器可视宽度。<br>height:浏览器可视高度。<br>device-width:设备屏幕的宽度。<br>device-height:设备屏幕的高度。<br>orientation:检测设备目前处于横向还是纵向状态。<br>aspect-ratio:检测浏览器可视宽度和高度的比例。(例如：aspect-ratio:16/9)<br>device-aspect-ratio:检测设备的宽度和高度的比例。<br>color:检测颜色的位数。（例如：min-color:32就会检测设备是否拥有32位颜色）<br>color-index:检查设备颜色索引表中的颜色，他的值不能是负数。<br>monochrome:检测单色楨缓冲区域中的每个像素的位数。（这个太高级，估计咱很少会用的到）<br>resolution:检测屏幕或打印机的分辨率。(例如：min-resolution:300dpi或min-resolution:118dpcm)。<br>grid:检测输出的设备是网格的还是位图设备。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转眼一个月过去了。休假也休完了。回来认真的学习了。&lt;br&gt;又有了一些idea，比如微信服务号，比如淘宝抓取数据应用。然后下面我们将要讲解的是一个小知识点&lt;br&gt;媒体查询，或许大伙都已经很熟悉了，也就是前几天认认真真的复习了一遍，处于做什么事都要有一个结果的心态，做个记录吧。
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="CSS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://blog.ypintao.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/AngularJS/AngularJS最佳实践.html</id>
+    <published>2017-04-02T05:51:34.748Z</published>
+    <updated>2017-04-02T05:51:34.749Z</updated>
+    
+    <content type="html"><![CDATA[<p>title: Angular最佳实践<br>date: 2017-04-02<br>tags: </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;title: Angular最佳实践&lt;br&gt;date: 2017-04-02&lt;br&gt;tags: &lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SASS在webstrom下的安装</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/SASS/SASS在webstrom下的安装.html</id>
+    <published>2017-03-29T16:00:00.000Z</published>
+    <updated>2017-03-30T01:49:12.530Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;sass在webstrom下的安装步骤&quot;&gt;&lt;a href=&quot;#sass在webstrom下的安装步骤&quot; class=&quot;headerlink&quot; title=&quot;sass在webstrom下的安装步骤&quot;&gt;&lt;/a&gt;sass在webstrom下的安装步骤&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="SASS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/SASS/"/>
+    
+    
+      <category term="SASS" scheme="http://blog.ypintao.com/tags/SASS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RequireJS的使用结合angular</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/RequireJS/RequireJS%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%93%E5%90%88angular.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/RequireJS/RequireJS的使用结合angular.html</id>
+    <published>2017-03-29T16:00:00.000Z</published>
+    <updated>2017-03-30T01:50:41.853Z</updated>
+    
+    <content type="html"><![CDATA[<p>###Requirejs结合angular的使用</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###Requirejs结合angular的使用&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="RequireJS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/RequireJS/"/>
+    
+    
+      <category term="RequireJS" scheme="http://blog.ypintao.com/tags/RequireJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于angularjs用到的技术总结</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/AngularJS/AngularJS总结.html</id>
+    <published>2017-03-29T16:00:00.000Z</published>
+    <updated>2017-04-02T05:57:34.785Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>1、bootstrap</li>
+<li>2、ui-root</li>
+<li>3、angularjs</li>
+<li>4、jquery</li>
+<li>5、requirejs</li>
+<li>6、nginx作为代理</li>
+<li>7、</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;1、bootstrap&lt;/li&gt;
+&lt;li&gt;2、ui-root&lt;/li&gt;
+&lt;li&gt;3、angularjs&lt;/li&gt;
+&lt;li&gt;4、jquery&lt;/li&gt;
+&lt;li&gt;5、requirejs&lt;/li&gt;
+&lt;li&gt;6、nginx作为代理&lt;/li&gt;
+&lt;li&gt;7、&lt;/li&gt;
+&lt;/
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="AngularJS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/AngularJS/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.ypintao.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic的app目录约定</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/IONIC/ionic%E7%9A%84app%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/IONIC/ionic的app目录约定.html</id>
+    <published>2017-03-29T16:00:00.000Z</published>
+    <updated>2017-03-30T01:52:14.300Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="IONIC-的目录约定以及一些基本用法"><a href="#IONIC-的目录约定以及一些基本用法" class="headerlink" title="IONIC 的目录约定以及一些基本用法"></a>IONIC 的目录约定以及一些基本用法</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;IONIC-的目录约定以及一些基本用法&quot;&gt;&lt;a href=&quot;#IONIC-的目录约定以及一些基本用法&quot; class=&quot;headerlink&quot; title=&quot;IONIC 的目录约定以及一些基本用法&quot;&gt;&lt;/a&gt;IONIC 的目录约定以及一些基本用法&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="IONIC" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/IONIC/"/>
+    
+    
+      <category term="IONIC" scheme="http://blog.ypintao.com/tags/IONIC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js系列1</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/js%E4%BD%9C%E7%94%A8%E5%9F%9F.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/JS/js作用域.html</id>
+    <published>2017-03-26T16:00:00.000Z</published>
+    <updated>2017-03-27T14:13:51.832Z</updated>
+    
+    <content type="html"><![CDATA[<p>有很多人问js闭包是什么，有的说是函数作用域，有的说是函数内部能够访问函数外部，反正我是不知道怎么描述<br>下面就来看看我们的例子。</p>
+<p>1、一个简单的例子,怎么区分普通对象和函数对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function a1()&#123;&#125;;</div><div class="line">var a2 = function()&#123;&#125;;</div><div class="line">var a3 = new Function(&apos;str&apos;,&apos;console.log(str)&apos;);</div><div class="line"></div><div class="line">var b1 = &#123;&#125;;</div><div class="line">var b2 = new Object();</div><div class="line">var b3 = new a1();</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有很多人问js闭包是什么，有的说是函数作用域，有的说是函数内部能够访问函数外部，反正我是不知道怎么描述&lt;br&gt;下面就来看看我们的例子。&lt;/p&gt;
+&lt;p&gt;1、一个简单的例子,怎么区分普通对象和函数对象。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>css3的一些新用法</title>
@@ -352,6 +548,66 @@ linux
   </entry>
   
   <entry>
+    <title>JS问题汇总</title>
+    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
+    <id>http://blog.ypintao.com/技术/web前端/JS/JS问题汇总.html</id>
+    <published>2016-06-30T16:00:00.000Z</published>
+    <updated>2017-03-22T06:57:06.570Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、如何解决跨域问题&quot;&gt;&lt;a href=&quot;#1、如何解决跨域问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何解决跨域问题&quot;&gt;&lt;/a&gt;1、如何解决跨域问题&lt;/h3&gt;&lt;p&gt;  nginx代理，或后端设置，&lt;/p&gt;
+&lt;h3 id=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;a href=&quot;#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot; class=&quot;headerlink&quot; title=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;/a&gt;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+    
+    
+      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从输入url到浏览器显示页面发生了什么</title>
     <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.html"/>
     <id>http://blog.ypintao.com/技术/web前端/JS/从输入url到浏览器显示页面发生了什么.html</id>
@@ -409,66 +665,6 @@ linux
 &lt;p&gt;HTTP客户端——&amp;gt;TCP—-&amp;gt;IP——&amp;gt;网络&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;在浏览器输入url
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="JS" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
-    
-    
-      <category term="JS" scheme="http://blog.ypintao.com/tags/JS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS问题汇总</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html"/>
-    <id>http://blog.ypintao.com/技术/web前端/JS/JS问题汇总.html</id>
-    <published>2016-06-30T16:00:00.000Z</published>
-    <updated>2017-03-22T06:57:06.570Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
-<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
-<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
-<li>1、js动态加载dom元素</li>
-<li>2、onload异步加载</li>
-<li>3、使用requerjs这种，是属于异步加载。</li>
-</ul>
-<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
-<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
-<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
-</ul>
-<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
-<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
-</ul>
-<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
-<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
-<li><p>1、对象字面量的方式  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>2、用function来模拟无参的构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
-</li>
-<li><p>4、用工厂方式来创建（内置对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>5、用原型方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
-</li>
-<li><p>6、用混合方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1、如何解决跨域问题&quot;&gt;&lt;a href=&quot;#1、如何解决跨域问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何解决跨域问题&quot;&gt;&lt;/a&gt;1、如何解决跨域问题&lt;/h3&gt;&lt;p&gt;  nginx代理，或后端设置，&lt;/p&gt;
-&lt;h3 id=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;a href=&quot;#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot; class=&quot;headerlink&quot; title=&quot;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&quot;&gt;&lt;/a&gt;2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）&lt;/h3&gt;
     
     </summary>
     
@@ -676,271 +872,6 @@ linux
     
     
       <category term="node开发工具" scheme="http://blog.ypintao.com/tags/node%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>程序员面试谈薪资的6大技巧</title>
-    <link href="http://blog.ypintao.com/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E8%B0%88%E8%96%AA%E8%B5%84%E7%9A%846%E5%A4%A7%E6%8A%80%E5%B7%A7.html"/>
-    <id>http://blog.ypintao.com/生活/面试/程序员面试谈薪资的6大技巧.html</id>
-    <published>2016-02-20T16:00:00.000Z</published>
-    <updated>2017-03-21T09:56:53.758Z</updated>
-    
-    <content type="html"><![CDATA[<p>面试官： 在我们这儿工作，您希望有什么样的薪资待遇？  </p>
-<p>提示：了解该公司所在地区、所属行业、公司规模等信息，你的薪水要求应该在该公司所在地 区、行业、公司规模相应的薪水范围之内。尽可能提供一个你期望的薪水范围，而不是具体的 薪金数。 求职者：其实工资并不是我决定工作机会的唯一因素，如果您一定要我回答这个问题，只能说我希望以我所受的教育背景及工作经验，我希望我的工资不低于年薪50,000元。<a id="more"></a></p>
-<p>面试官： 你认为每年加薪的幅度是多少？</p>
-<p>提示：通常, 比较可靠的回答是: 你希望收入的增长和生活水平的提高保持一致。你还应该提 到，你的业绩将是加薪的主要因素。 求职者：总体来说，取决于我个人的业绩和公司的业绩（盈利状况）。但一般而言，至少和生 活水平的提高保持一致。</p>
-<p>面试官： 你上一份工作的收入是多少？  </p>
-<p>提示：有时候面试人员希望得到一个比较明确的答案。记住，在陈述你的收入时，要把你的整个福利收入也加在上面。在有的公司福利收入可以使你的年收入增加30%或更多。求职者：我过去的三年内一直在ABC公司工作，我是大学一毕业就在这个公司的，当时并没有管理经验。这三年中，我积累了很多管理和财务方面的技巧。现在ABC公司给我的薪水是非常富有竞争性的。</p>
-<p>面试官： 你愿意降低你的标准吗？  </p>
-<p>提示：如果这确实是你非常希望得到的工作，那么，你应该考虑在开始时工资有所降低。应强 调你可以把工作做得很好，并设法了解公司调整你薪水的时间。另外，对你能够接受的最低数 额应心里有数，但千万不要把这个数字告诉给面试人员。求职者：由于我对该职位非常感兴趣，我可以考虑接受低一些的薪水，你也需要时间让我证明 我的能力。我相信我可以干得十分出色，如果我能证明我的能力，你是否会考虑对我的薪水作 一些调整呢，比如说，在三个月后。</p>
-<p>面试官： 你认为我们提供给你的薪水如何？  </p>
-<p>提示：在回答这个问题之前，首先确定这是否是正式聘用的工资数额，也许面试人只是想了解你的工资要求。如果是正式聘用的工资数额，你要确定自己是否能够接受这个数额。在西方国 家，多数雇主希望你能跟他们进一步商量；而在亚洲国家，则相反。如果这个数目大大低于你的期望，可以有技巧性地询问其它的福利项目是怎样的。求职者：这个数字跟我期望的非常接近，不过我的期望值要稍高些。您是否可以提供一个大致的薪资范围？</p>
-<p>面试官： 能否告诉我，你的工资调整纪录？  </p>
-<p>提示：在这个问题中，面试人员只是想知道是否你一直原职不变，或者说是否你不断得到晋升的机会。所以，尽量避免提供薪资具体数额，除非他们要求。求职者：三年来，我一直在ABC公司工作，曾得到两次职务提升。ABC公司每年薪资调整的幅度不是太大，但由于我的工作总是十分优秀，每年的薪资调整都接近调整的最高水平。我目前的 工资已比我开始工作的第一年提高近40%。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;面试官： 在我们这儿工作，您希望有什么样的薪资待遇？  &lt;/p&gt;
-&lt;p&gt;提示：了解该公司所在地区、所属行业、公司规模等信息，你的薪水要求应该在该公司所在地 区、行业、公司规模相应的薪水范围之内。尽可能提供一个你期望的薪水范围，而不是具体的 薪金数。 求职者：其实工资并不是我决定工作机会的唯一因素，如果您一定要我回答这个问题，只能说我希望以我所受的教育背景及工作经验，我希望我的工资不低于年薪50,000元。
-    
-    </summary>
-    
-      <category term="生活" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="面试" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="面试" scheme="http://blog.ypintao.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于libuv</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF/Node%20Express/%E5%85%B3%E4%BA%8Elibuv.html"/>
-    <id>http://blog.ypintao.com/技术/后端/Node Express/关于libuv.html</id>
-    <published>2015-07-20T16:00:00.000Z</published>
-    <updated>2017-03-21T09:46:33.078Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先介绍下libuv，libuv 是一个高性能事件驱动的程序库，封装了 Windows 和 Unix 平台一些底层特性，为开发者提供了统一的 API。libuv 采用了 异步 (asynchronous), 事件驱动 (event-driven)的编程风格, <a id="more"></a>其主要任务是为开人员提供了一套事件循环和基于I/O(或其他活动)通知的回调函数, libuv 提供了一套核心的工具集, 例如定时器, 非阻塞网络编程的支持, 异步访问文件系统, 子进程以及其他功能。 可见nodejs的一切异步操作都是基于libuv来实现的，有了它的这些api我们也就可以编写出异步的nodejs模块了。<br>最好结合github上的test和liuv.h来看，更加容易弄懂 中文版的libuv手册：<a href="http://forhappy.github.io/uvbook/index.html" target="_blank" rel="external">http://forhappy.github.io/uvbook/index.html</a> libuv项目地址：<a href="https://github.com/joyent/libuv" target="_blank" rel="external">https://github.com/joyent/libuv</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先介绍下libuv，libuv 是一个高性能事件驱动的程序库，封装了 Windows 和 Unix 平台一些底层特性，为开发者提供了统一的 API。libuv 采用了 异步 (asynchronous), 事件驱动 (event-driven)的编程风格,
-    
-    </summary>
-    
-      <category term="后端" scheme="http://blog.ypintao.com/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-      <category term="Node" scheme="http://blog.ypintao.com/categories/%E5%90%8E%E7%AB%AF/Node/"/>
-    
-    
-      <category term="Node" scheme="http://blog.ypintao.com/tags/Node/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>备份，删除mongodb数据库释放空间</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/%E5%A4%87%E4%BB%BD%EF%BC%8C%E5%88%A0%E9%99%A4mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8A%E6%94%BE%E7%A9%BA%E9%97%B4.html"/>
-    <id>http://blog.ypintao.com/技术/数据库/mongodb/备份，删除mongodb数据库释放空间.html</id>
-    <published>2015-04-29T16:00:00.000Z</published>
-    <updated>2017-03-21T09:46:07.697Z</updated>
-    
-    <content type="html"><![CDATA[<p>所以介绍用db.copyDatabase可以备份复制数据的方法。<br>1.db.copyDatabase(“from”,”to”,”127.0.0.1:16161”);复制出一个新的to数据库。这个已经是最小数据占用的数据。会在数据目录下产生to的相关数据文件。<br>2.将所有程序的配置从from库改为to库。测试无误。<br>3.这时可以删除from库。方法。use from 后 db.dropDatabase()<a id="more"></a>。这个方法的好处是可以时间将磁盘上的数据删除掉。节省出很大的空间。</p>
-<p>禁止数据库预分配空间<br>在启动数据库时可以选择noprealloc参数，禁止数据库预分配空间，但会影响到插入效率。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;所以介绍用db.copyDatabase可以备份复制数据的方法。&lt;br&gt;1.db.copyDatabase(“from”,”to”,”127.0.0.1:16161”);复制出一个新的to数据库。这个已经是最小数据占用的数据。会在数据目录下产生to的相关数据文件。&lt;br&gt;2.将所有程序的配置从from库改为to库。测试无误。&lt;br&gt;3.这时可以删除from库。方法。use from 后 db.dropDatabase()
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://blog.ypintao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="mongodb" scheme="http://blog.ypintao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/"/>
-    
-    
-      <category term="mongodb" scheme="http://blog.ypintao.com/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>程序员如何提高影响力</title>
-    <link href="http://blog.ypintao.com/%E7%94%9F%E6%B4%BB/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E5%BD%B1%E5%93%8D%E5%8A%9B.html"/>
-    <id>http://blog.ypintao.com/生活/程序员如何提高影响力.html</id>
-    <published>2015-04-27T16:00:00.000Z</published>
-    <updated>2017-03-21T10:32:01.043Z</updated>
-    
-    <content type="html"><![CDATA[<p>影响力，让梦想离你更近。<br>试想一下，有一天你开发了一个新的语言。它比现有的某某主流软件，运行效率将提高了50%，开发效率提高了100%。接着，你在github上 release了0.1，但是由于出现某个开发难题，你需要别人的帮助。而这时，你找不到有效的途径去找到那些真正会用它的人。接着出现了一个新的语言可 以达到一样的效果，而这个项目就死于腹中，我记得mruby刚刚只写了一个README.md的时候，就获得了上千个star。<br>如何提高影响力，为自己代言<a id="more"></a></p>
-<p>每个人都可以是一个品牌，对于一个程序员来说，我们的ID就是我们的品牌。而构成品牌的有多个要素:<br>博客<br>Github<br>Weibo(or Twitter)<br>StackOverflow(or SegmentFault, Zhihu)<br>等等。<br>搭建一个跨平台的平台</p>
-<p>连接各个平台的核心是我们的ID。<br>第一个平台指的是不同的网站，如我们的博客、Github、知乎等等，第二个平台指的是我们的影响力。<br>So，在开始的时候我们需要有一个统一的ID，来标识我们的身份:我是谁，你在xx网站上看到的那个xx就是我。刚开始的时候，我在CSDN、 Github上的ID(gmszone)和我的博客的域名(Phodal)是不一样的，因为当时的域名(gmszone.com)握在别人的手上，于是我 便想办法将两个ID改了过来（ps: github提供迁移)。<br>于是，这时就可以开始使用跨平台的平台了。<br>构建平台</p>
-<p>小博客也会有成长的一天。<br>对于像我这样一个个默默无闻地人来说，用户可能会有下面几种不同的方法来知道我:<br>live example<br>用户 -&gt; 搜索{谷歌,百度,必应} -&gt; 博客 -&gt; {Weibo,Github}<br>用户 -&gt; 微博 -&gt; {Github, 博客}<br>用户 —&gt; Github -&gt; 博客<br>用户 -&gt; {知乎, SegmentFault} -&gt; {Weibo,Github,博客}<br>博客</p>
-<p>刚开始在CSDN上写博客的时候，一开始的访问量很少，慢慢地就多了。有一天发现这样的博客不是自己想要的，于是建了自己的博客，一开始的流量是 0。像CSDN这样的网站推荐一些文章到首页，如果能这样便是幸运的。在经历大半年的几乎零流量之后，开始慢慢增长了。到了今天，一共有470篇博客(有 一些是出于测试SEO目的写成多篇文章)。一天的PageView大平均有五百左右，主要来源是搜索引擎，百度200左右，谷歌50左右，必应10左右。<br>用户故事</p>
-<p>对于一个程序员来说，必须在某种程度上熟悉怎么搜索自己想要的内容，即关键字。如我们想要知道如何在OpenWRT OS上用Python，那么我们会搜索OpenWRT Python。于是，这个时候我们博客的标题带有OpenWRT Python，那么我们可能就中奖了。<br>故事，告诉我们好的标题很重要。重复这个主题也很重要，会有一个更好的排名。至于，如何更好地排到第一，就是SEO(搜索引擎优化)的话题了。<br>笔记</p>
-<p>一开始要写一个博客是比较难的，没有流量、没有评论。所以，一个好的切入点是: 笔记。最好是那种网上很少的内容的笔记，虽说很多人不愿意去做这个，但是这是一个很好的方向。<br>一个技术博客里面的内容应该是两种类型:<br>技术<br>理论<br>技术型可以带来流量，理论型的可以带来评论。理想的话，两者会相辅相成的，但是在我们刚处于学习期的时候。那么那些Note，可以给我们带来一些流量，也带来一些信心。如果，只是想着一开始我就只写一些长篇大论的话，那么只是就是拿了80%的时间做了20%的事。<br>以用户搜索的过程来说，用户是有目的的进行搜索。换句话说，在我们日常工作的时候，我们只关心和我们工作相关的内容。而在受众来，正常情况下，技术型的博文、笔记可以带来流量的主要原因是: 大部分人都是初学者。<br>70 percent<br>理论性的内容，更适合更高级别的开发者，这样的受众较少。<br>上头条</p>
-<p>而在今天有其他的平台，可以借用来推销自己的:<br>开发者头条<br>极客头条<br>掘金稀土<br>…<br>网上的IT新闻、博客都是互相Copy，对于一些软文(如本文)来说。这也是期触及率高的原因，通常来说这样可以带来大量的流量。记得在原文中留个原文链接，附张图片(自己博客的图片)来保证:Google把原文指向你的博客，而不是免费为别人打工。<br>提升</p>
-<p>除了是一个很好的展示平台，也是一个很好的测试平台。作为一个Web Developer，测试过<br>Nginx Log分析(~600M)<br>New Relic<br>SEO<br>AutoComplete<br>重构网站<br>…<br>Github</p>
-<p>将自己尝试的不同技术栈的内容丢到Github上，加上适当地文档、博客，就变成了一个很好的Demo。然而，不止于此，越来越多地人开始在Github寻找人才，因为他们乐于付出，也乐于分离。曾经因为Github上的项目:<br>申请WebStorm开源License<br>Review英文版书籍<br>…(有些不方便透露)<br>而在Github上的项目其实不仅仅只有一些库:<br>库和框架: 和jQuery<br>系统: 如Linux、hhvm、docker<br>配置集: 如dotfiles<br>辅助工具: 如oh-my-zsh<br>工具: 如Homewbrew和Bower<br>资料收集: 如free programming books，You-Dont-Know-JS，Font-Awesome<br>其他:简历如Resume，博客<br>所以，可以尝试不同的切入点使用Github。<br>在某种程度上来说，一个人在Gihub上的粉丝数量会帮助他的项目在初期获取更多的人气。这样就有助于其下一步开展项目，当然也会在某种程度上更好看Blabla。<br>提升</p>
-<p>之前写过一篇《如何通过github提升自己》中说到了一些细节，大致上还是那些东西，Github与Trello、Travis-CI、Coveralls、SauceLabs、Code Climate，配合得很好。已经可以接近于我们在一些项目上用到的功能，因此拿他们搭建一个好的开发环境完全不是问题。<br>Travis CI:支持Node.js、Python、Ruby、PHP等二十几种语言，也支持MySQL、PostgreSQL、MongoDB、Redis等数据库。<br>Coveralls:可以用来查看代码的测试覆盖率。<br>SauceLabs:可以用来跑Selenium功能测试等等<br>Code Climate:查看代码的坏味道。<br>在我们试着去保证测试覆盖率、代码质量等等的时候，我们就可以学到一些知识，如使用不同语言测试框架的Mock、Stub、FakeServer等等。<br>扩大影响力</p>
-<p>上面的两部分属于打造平台部分，而如Weibo、知乎等则属于扩大影响力。<br>在某种时候，博客、Github都更像是个人的平台。如Weibo、知乎、SegmentFault、CSDN等等的开发者社区，也可以为自己的博 客、Github带来流量，而这一些都是互相促进的。如果我们在其中的一个网站上表现得很好的话，那么在另外一个网站上我们也很容易聚集同样的粉丝。如， 我最常用的一个作法是: 将自己写得相对比较好的一些博客复制到CSDN、SegemntFault、图灵社区等等，并适当地推到CSDN首页、开发者头条等等。<br>由于写作的开发人员是有限的，所以通常在某某头条上的推荐，会成为某博客园上的新闻，接着会有成群接队的小站开始Copy。同时，这些文章又会推到 他们的微博上，接着还可能是微信平台。毕竟，对于大部分的网络来说，大部分的流量是流向他们的网站的，所以他们不太会在乎其中的外链等等。故而，通常来 说: 不是某某东西突然火了，而是突然没有别的新闻了。通常来说一个好的作法是，试着将你的博客分享到微博上，然后@那些愿意帮你分享的平台。这样，你可以有更 多的阅读、更多的粉丝，当然好的内容是前提。<br>其中还有若干其它的好处:<br>更大的曝光率，会带来更多的机会<br>更有机会参与一些未公开互联网产品的试用<br>各种精美小礼物<br>翻译、出版机会<br>TODO</p>
-<p>只需要简单地几步就可以开始提高我们的影响力:<br>在不同的网站上使用一个ID<br>创建一个博客<br>开始创作内容、提交代码、分享<br>持续Impact</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;影响力，让梦想离你更近。&lt;br&gt;试想一下，有一天你开发了一个新的语言。它比现有的某某主流软件，运行效率将提高了50%，开发效率提高了100%。接着，你在github上 release了0.1，但是由于出现某个开发难题，你需要别人的帮助。而这时，你找不到有效的途径去找到那些真正会用它的人。接着出现了一个新的语言可 以达到一样的效果，而这个项目就死于腹中，我记得mruby刚刚只写了一个README.md的时候，就获得了上千个star。&lt;br&gt;如何提高影响力，为自己代言
-    
-    </summary>
-    
-      <category term="生活" scheme="http://blog.ypintao.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="生活" scheme="http://blog.ypintao.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB索引</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/mongodb%E7%B4%A2%E5%BC%95.html"/>
-    <id>http://blog.ypintao.com/技术/数据库/mongodb/mongodb索引.html</id>
-    <published>2015-04-23T16:00:00.000Z</published>
-    <updated>2017-03-21T09:36:06.056Z</updated>
-    
-    <content type="html"><![CDATA[<p>一、索引基础：<br>    MongoDB的索引几乎与传统的关系型数据库一模一样，这其中也包括一些基本的优化技巧。下面是创建索引的命令：</p>
-<pre><code>&gt; db.test.ensureIndex({&quot;username&quot;:1})
-可以通过下面的名称查看索引是否已经成功建立：
-&gt; db.test.getIndexes()
-删除索引的命令是：
-&gt; db.test.dropIndex({&quot;username&quot;:1})
-在MongoDB中，我们同样可以创建复合索引，如：&lt;!--more--&gt;
--- 数字1表示username键的索引按升序存储，-1表示age键的索引按照降序方式存储。
-&gt; db.test.ensureIndex({&quot;username&quot;:1, &quot;age&quot;:-1})
-该索引被创建后，基于username和age的查询将会用到该索引，或者是基于username的查询也会用到该索引，但是只是基于age的查询将不 会用到该复合索引。因此可以说，如果想用到复合索引，必须在查询条件中包含复合索引中的前N个索引列。然而如果查询条件中的键值顺序和复合索引中的创建顺 序不一致的话，MongoDB可以智能的帮助我们调整该顺序，以便使复合索引可以为查询所用。如：
-&gt; db.test.find({&quot;age&quot;: 30, &quot;username&quot;: &quot;stephen&quot;})
-对于上面示例中的查询条件，MongoDB在检索之前将会动态的调整查询条件文档的顺序，以使该查询可以用到刚刚创建的复合索引。
-我们可以为内嵌文档创建索引，其规则和普通文档没有任何差别，如：
-&gt; db.test.ensureIndex({&quot;comments.date&quot;:1})
-对于上面创建的索引，MongoDB都会根据索引的keyname和索引方向为新创建的索引自动分配一个索引名，下面的命令可以在创建索引时为其指定索引名，如：
-&gt; db.test.ensureIndex({&quot;username&quot;:1},{&quot;name&quot;:&quot;testindex&quot;})    
-随着集合的增长，需要针对查询中大量的排序做索引。如果没有对索引的键调用sort，MongoDB需要将所有数据提取到内存并排序。因此在做无索引排序时，如果数据量过大以致无法在内存中进行排序，此时MongoDB将会报错。
-</code></pre><p>二、唯一索引：<br>    在缺省情况下创建的索引均不是唯一索引。下面的示例将创建唯一索引，如：</p>
-<pre><code>&gt; db.test.ensureIndex({&quot;userid&quot;:1},{&quot;unique&quot;:true})
-如果再次插入userid重复的文档时，MongoDB将报错，以提示插入重复键，如：
-&gt; db.test.insert({&quot;userid&quot;:5})
-&gt; db.test.insert({&quot;userid&quot;:5})
-E11000 duplicate key error index: test.test.$userid_1  dup key: { : 5.0 }    
-如果插入的文档中不包含userid键，那么该文档中该键的值为null，如果多次插入类似的文档，MongoDB将会报出同样的错误，如：
-&gt; db.test.insert({&quot;userid1&quot;:5})
-&gt; db.test.insert({&quot;userid1&quot;:5})
-E11000 duplicate key error index: test.test.$userid_1  dup key: { : null }        
-如果在创建唯一索引时已经存在了重复项，我们可以通过下面的命令帮助我们在创建唯一索引时消除重复文档，仅保留发现的第一个文档，如：
---先删除刚刚创建的唯一索引。
-&gt; db.test.dropIndex({&quot;userid&quot;:1}) 
---插入测试数据，以保证集合中有重复键存在。
-&gt; db.test.remove()
-&gt; db.test.insert({&quot;userid&quot;:5})
-&gt; db.test.insert({&quot;userid&quot;:5})    
---创建唯一索引，并消除重复数据。
-&gt; db.test.ensureIndex({&quot;userid&quot;:1},{&quot;unique&quot;:true,&quot;dropDups&quot;:true})    
---查询结果确认，重复的键确实在创建索引时已经被删除。
-&gt; db.test.find()
-{ &quot;_id&quot; : ObjectId(&quot;4fe823c180144abd15acd52e&quot;), &quot;userid&quot; : 5 }    
-
-我们同样可以创建复合唯一索引，即保证复合键值唯一即可。如：
-&gt; db.test.ensureIndex({&quot;userid&quot;:1,&quot;age&quot;:1},{&quot;unique&quot;:true})    
-</code></pre><p>三、使用explain：<br>    explain是非常有用的工具，会帮助你获得查询方面诸多有用的信息。只要对游标调用该方法，就可以得到查询细节。explain会返回一个文档，而不是游标本身。如：</p>
-<pre><code>&gt; db.test.find().explain()
-{
-    &quot;cursor&quot; : &quot;BasicCursor&quot;,
-    &quot;nscanned&quot; : 1,
-    &quot;nscannedObjects&quot; : 1,
-    &quot;n&quot; : 1,
-    &quot;millis&quot; : 0,
-    &quot;nYields&quot; : 0,
-    &quot;nChunkSkips&quot; : 0,
-    &quot;isMultiKey&quot; : false,
-    &quot;indexBounds&quot; : {
-
-    }    
-}
-explain会返回查询使用的索引情况，耗时和扫描文档数的统计信息。
-&quot;cursor&quot;:&quot;BasicCursor&quot;表示没有使用索引。
-&quot;nscanned&quot;:1 表示查询了多少个文档。
-&quot;n&quot;:1 表示返回的文档数量。
-&quot;millis&quot;:0 表示整个查询的耗时。
-</code></pre><p>四、索引管理：<br>    system.indexes集合中包含了每个索引的详细信息，因此可以通过下面的命令查询已经存在的索引，如：</p>
-<pre><code>&gt; db.system.indexes.find()
-如果在为已有数据的文档创建索引时，可以执行下面的命令，以使MongoDB在后台创建索引，这样的创建时就不会阻塞其他操作。但是相比而言，以阻塞方式创建索引，会使整个创建过程效率更高，但是在创建时MongoDB将无法接收其他的操作。
-&gt; db.test.ensureIndex({&quot;username&quot;:1},{&quot;background&quot;:true})
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一、索引基础：&lt;br&gt;    MongoDB的索引几乎与传统的关系型数据库一模一样，这其中也包括一些基本的优化技巧。下面是创建索引的命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; db.test.ensureIndex({&amp;quot;username&amp;quot;:1})
-可
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://blog.ypintao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="mongodb" scheme="http://blog.ypintao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/"/>
-    
-    
-      <category term="mongodb" scheme="http://blog.ypintao.com/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB 安全和访问权限控制</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/MongoDB%20%E5%AE%89%E5%85%A8%E5%92%8C%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6.html"/>
-    <id>http://blog.ypintao.com/技术/数据库/mongodb/MongoDB 安全和访问权限控制.html</id>
-    <published>2015-04-21T16:00:00.000Z</published>
-    <updated>2017-03-21T09:35:18.076Z</updated>
-    
-    <content type="html"><![CDATA[<p>MongoDB的访问控制能够有效保证数据库的安全，访问控制是指绑定Application监听的IP地址，设置监听端口，使用账户和密码登录<br>一，访问控制的参数<a id="more"></a><br>1，绑定IP地址<br>mongod 参数：–bind_ip <ip address=""><br>默认值是所有的IP地址都能访问，该参数指定MongoDB对外提供服务的绑定IP地址，用于监听客户端 Application的连接，客户端只能使用绑定的IP地址才能访问mongod，其他IP地址是无法访问的。<br>2，设置监听端口<br>mongod 参数：–port <port><br>MongoDB 默认监听的端口是27017，该参数显式指定MongoDB实例监听的TCP 端口，只有当客户端Application连接的端口和MongoDB实例监听的端口一致时，才能连接到MongoDB实例。<br>3，启用用户验证<br>mongod 参数：–auth<br>默认值是不需要验证，即 –noauth，该参数启用用户访问权限控制；当mongod 使用该参数启动时，MongoDB会验证客户端连接的账户和密码，以确定其是否有访问的权限。如果认证不通过，那么客户端不能访问MongoDB的数据库。<br>Enables authorization to control user’s access to database resources and operations. When authorization is enabled, MongoDB requires all clients to authenticate themselves first in order to determine the access for the client.<br>4，权限认证<br>mongo 参数：–username <username>, -u <username><br>mongo 参数：–password <password>, -p <password><br>mongo 参数：–authenticationDatabase <dbname>  指定创建User的数据库；在特定的数据库中创建User，该DB就是User的authentication database。<br>在连接mongo时，使用参数 –authenticationDatabase，会认证 -u 和 -p 参数指定的账户和密码。如果没有指定验证数据库，mongo使用连接字符串中指定的DB作为验证数据块。<br>二，基于角色的访问控制（Role-Based Access Control）<br>角色是授予User在指定资源上执行指定操作的权限，MongoDB官方手册对角色的定义是：<br>A role grants privileges to perform the specified actions on resource.<br>MongoDB为了方便管理员管理权限，在DB级别上预先定义了内置角色；如果用户需要对权限进行更为细致的管理，MongoDB允许用户创建自定义的角色，能够在集合级别上控制User能够执行的操作。<br>MongoDB使用角色（Role）授予User访问资源的权限，Role决定User能够访问的数据库资源和执行的操作。一个User能够被授予一个或多个Role，如果User没有被授予Role，那么就没有访问MongoDB系统的权限。<br>A user is granted one or more roles that determine the user’s access to database resources and operations. Outside of role assignments, the user has no access to the system.<br>1，内置角色（Built-In Roles）<br>内置角色是MongoDB预定义的角色，操作的资源是在DB级别上。MongoDB拥有一个SuperUser的角色：root，拥有最大权限，能够在系统的所有资源上执行任意操作。<br>数据库用户角色（Database User Roles）：<br>read：授予User只读数据的权限<br>readWrite：授予User读写数据的权限<br>数据库管理角色（Database Administration Roles）：<br>dbAdmin：在当前dB中执行管理操作<br>dbOwner：在当前DB中执行任意操作<br>userAdmin：在当前DB中管理User<br>备份和还原角色（Backup and Restoration Roles）：<br>backup<br>restore<br>跨库角色（All-Database Roles）：<br>readAnyDatabase：授予在所有数据库上读取数据的权限<br>readWriteAnyDatabase：授予在所有数据库上读写数据的权限<br>userAdminAnyDatabase：授予在所有数据库上管理User的权限<br>dbAdminAnyDatabase：授予管理所有数据库的权限<br>集群管理角色（Cluster Administration Roles）：<br>clusterAdmin：授予管理集群的最高权限<br>clusterManager：授予管理和监控集群的权限，A user with this role can access the config and local databases, which are used in sharding and replication, respectively.<br>clusterMonitor：授予监控集群的权限，对监控工具具有readonly的权限<br>hostManager：管理Server<br>2，用户自定义的角色（User-Defined Roles）<br>内置角色只能控制User在DB级别上执行的操作，管理员可以创建自定义角色，控制用户在集合级别（Collection-Level）上执行的操作，即，控制User在当前DB的特定集合上执行特定的操作。<br>在创建角色时，必须明确Role的四个特性：<br>Scope：角色作用的范围，创建在Admin中的角色，能够在其他DB中使用；在其他DB中创建的角色，只能在当前DB中使用；<br>Resource：角色控制的资源，表示授予在该资源上执行特定操作的权限；<br>Privilege Actions：定义了User能够在资源上执行的操作，系统定义Action是：Privilege Actions；<br>Inherit：角色能够继承其他角色权限<br>2.1 角色作用的范围（Scope）<br>在admin 数据库中创建的角色，Scope是全局的，能够在admin，其他DB和集群中使用，并且能够继承其他DB的Role；而在非admin中创建的角色，Scope是当前数据库，只能在当前DB中使用，只能继承当前数据库的角色。<br>A role created in the admin database can include privileges that apply to the admin database, other databases or to the cluster resource, and can inherit from roles in other databases as well as the admin database. Except for roles created in the admin database, a role can only include privileges that apply to its database and can only inherit from other roles in its database.<br>2.2 权限的操作（Privilege actions）<br>MongoDB的权限包由：资源（Resource）和操作（Action）两部分组成，Privilege Actions 定义User能够在资源上执行的操作，例如：MongoDB在文档级别（Document-Level）上执行的读写操作（Query and Write Actions）列表是：<br>find<br>insert<br>remove<br>update<br>3，创建角色<br>使用db.CreateRole()在当前DB中创建角色，创建的语法示例如下：<br>复制代码<br>use admin<br>db.createRole(<br>   {<br>     role: “new_role”,<br>     privileges: [<br>       { resource: { cluster: true }, actions: [ “addShard” ] },<br>       { resource: { db: “config”, collection: “” }, actions: [ “find”, “update”, “insert”, “remove” ] },<br>       { resource: { db: “users”, collection: “usersCollection” }, actions: [ “update”, “insert”, “remove” ] },<br>       { resource: { db: “”, collection: “” }, actions: [ “find” ] }<br>     ],<br>     roles: [<br>       { role: “read”, db: “admin” }<br>     ]<br>   },<br>   { w: “majority” , wtimeout: 5000 }<br>)<br>复制代码<br>在roles数组中，指定被继承的role，即，新建的new_role从roles数组中继承权限：<br>如果被继承的role在当前DB中，定义的格式是：roles:[“role”]；<br>如果被继承的role不在当前DB中，需要使用doc，指定该role所在的DB，定义的格式是：roles:[{role:”role_name”, db:”db_name”}]；<br>4，自定义角色管理函数<br>db.createRole() ：Creates a role and specifies its privileges.<br>db.updateRole() ：Updates a user-defined role.<br>db.dropRole() ：Deletes a user-defined role.<br>db.dropAllRoles() ：Deletes all user-defined roles associated with a database.<br>db.grantPrivilegesToRole() ：Assigns privileges to a user-defined role.<br>db.revokePrivilegesFromRole() ：Removes the specified privileges from a user-defined role.<br>db.grantRolesToRole() ：Specifies roles from which a user-defined role inherits privileges.<br>db.revokeRolesFromRole() ：Removes inherited roles from a role.<br>db.getRole() ：Returns information for the specified role.<br>db.getRoles() ：Returns information for all the user-defined roles in a database.<br>三，管理用户和权限<br>1，创建用户<br>复制代码<br>use db_name<br>db.createUser(<br>{<br>    user: “user_name”,<br>    pwd: “user_pwd”,<br>    roles: [   { role: “clusterAdmin”, db: “admin” },<br>               { role: “readAnyDatabase”, db: “admin” },<br>               “readWrite”<br>           ]<br>}<br>)<br>复制代码<br>为新建的User，授予一个或多个角色，通过roles数组来实现：<br>如果role存在于当前DB中，roles的格式：roles:[“role”]；<br>如果role不存在于当前DB中，roles的格式：roles:[Role:”role_name”, db:”db_name”]；<br>2，权限认证（Authenticate）<br>mongo连接到mongod，有两种权限认证的方式：<br>在连接时认证用户访问的权限，mongo 使用参数 –authenticationDatabase <dbname> 指定认证数据库；<br>在连接后，认证用户访问的权限，mongo 没有使用参数 –authenticationDatabase <dbname>，在连接到mongod之后，切换到验证数据库（authentication database）中，使用db.auth() 验证User是否有权限访问当前数据库；<br>use db_name<br>db.auth(“user_name”, “user_pwd” )<br>3，用户管理函数<br>db.auth() ：Authenticates a user to a database.<br>db.createUser() ：Creates a new user.<br>db.updateUser() ：Updates user data.<br>db.changeUserPassword() ：Changes an existing user’s password.<br>db.dropAllUsers() ：Deletes all users associated with a database.<br>db.dropUser() ：Removes a single user.<br>db.grantRolesToUser() ：Grants a role and its privileges to a user.<br>db.revokeRolesFromUser() ：Removes a role from a user.<br>db.getUser() ：Returns information about the specified user.<br>db.getUsers() ：Returns information about all users associated with a database.</dbname></dbname></dbname></password></password></username></username></port></ip></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;MongoDB的访问控制能够有效保证数据库的安全，访问控制是指绑定Application监听的IP地址，设置监听端口，使用账户和密码登录&lt;br&gt;一，访问控制的参数
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://blog.ypintao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="mongodb" scheme="http://blog.ypintao.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mongodb/"/>
-    
-    
-      <category term="mongodb" scheme="http://blog.ypintao.com/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git入门</title>
-    <link href="http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/gulp/gulp%E5%85%A5%E9%97%A8.html"/>
-    <id>http://blog.ypintao.com/技术/web前端/gulp/gulp入门.html</id>
-    <published>2015-03-31T16:00:00.000Z</published>
-    <updated>2017-03-22T06:42:15.638Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="你仅仅需要知道的5个gulp命令"><a href="#你仅仅需要知道的5个gulp命令" class="headerlink" title="你仅仅需要知道的5个gulp命令"></a>你仅仅需要知道的5个gulp命令<a id="more"></a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">gulp.task(name, fn)这个你应经见过了</div><div class="line"></div><div class="line">gulp.run(tasks...)尽可能多的并行运行多个task</div><div class="line"></div><div class="line">gulp.watch(glob, fn)当glob内容发生改变时，执行fn</div><div class="line"></div><div class="line">gulp.src(glob)返回一个可读的stream</div><div class="line"></div><div class="line">gulp.dest(glob)返回一个可写的stream</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;你仅仅需要知道的5个gulp命令&quot;&gt;&lt;a href=&quot;#你仅仅需要知道的5个gulp命令&quot; class=&quot;headerlink&quot; title=&quot;你仅仅需要知道的5个gulp命令&quot;&gt;&lt;/a&gt;你仅仅需要知道的5个gulp命令
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="gulp" scheme="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/gulp/"/>
-    
-    
-      <category term="gulp" scheme="http://blog.ypintao.com/tags/gulp/"/>
     
   </entry>
   

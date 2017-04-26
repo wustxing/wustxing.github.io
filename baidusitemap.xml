@@ -4,6 +4,159 @@
 
     
   <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2.html</loc>
+    <lastmod>2017-04-26T14:28:31.293Z</lastmod>
+    <data>
+        <display>
+        <title>媒体查询</title>
+        <pubTime>2017-04-25T16:00:00.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+         
+           
+             
+              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="CSS" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html</loc>
+    <lastmod>2017-04-02T05:57:34.785Z</lastmod>
+    <data>
+        <display>
+        <title>关于angularjs用到的技术总结</title>
+        <pubTime>2017-03-29T16:00:00.000Z</pubTime>
+        
+        <tag>AngularJS</tag>
+         
+         
+           
+             
+              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="AngularJS" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/AngularJS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.html</loc>
+    <lastmod>2017-04-02T05:51:34.749Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2017-04-02T05:51:34.748Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/IONIC/ionic%E7%9A%84app%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A.html</loc>
+    <lastmod>2017-03-30T01:52:14.300Z</lastmod>
+    <data>
+        <display>
+        <title>ionic的app目录约定</title>
+        <pubTime>2017-03-29T16:00:00.000Z</pubTime>
+        
+        <tag>IONIC</tag>
+         
+         
+           
+             
+              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="IONIC" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/IONIC/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/RequireJS/RequireJS%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%93%E5%90%88angular.html</loc>
+    <lastmod>2017-03-30T01:50:41.853Z</lastmod>
+    <data>
+        <display>
+        <title>RequireJS的使用结合angular</title>
+        <pubTime>2017-03-29T16:00:00.000Z</pubTime>
+        
+        <tag>RequireJS</tag>
+         
+         
+           
+             
+              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="RequireJS" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/RequireJS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</loc>
+    <lastmod>2017-03-30T01:49:12.530Z</lastmod>
+    <data>
+        <display>
+        <title>SASS在webstrom下的安装</title>
+        <pubTime>2017-03-29T16:00:00.000Z</pubTime>
+        
+        <tag>SASS</tag>
+         
+         
+           
+             
+              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="SASS" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/SASS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/js%E4%BD%9C%E7%94%A8%E5%9F%9F.html</loc>
+    <lastmod>2017-03-27T14:13:51.832Z</lastmod>
+    <data>
+        <display>
+        <title>js系列1</title>
+        <pubTime>2017-03-26T16:00:00.000Z</pubTime>
+        
+        <tag>JS</tag>
+         
+         
+           
+             
+              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JS" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/CSS/css3%E5%B1%9E%E6%80%A7%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html</loc>
     <lastmod>2017-03-25T16:32:39.230Z</lastmod>
     <data>
