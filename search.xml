@@ -107,28 +107,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[SASS在webstrom下的安装]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</url>
-      <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> SASS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> SASS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于angularjs用到的技术总结]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html</url>
       <content type="html"><![CDATA[<ul>
@@ -154,6 +132,28 @@
         <tags>
             
             <tag> AngularJS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[SASS在webstrom下的安装]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</url>
+      <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> SASS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> SASS </tag>
             
         </tags>
         
@@ -1932,6 +1932,33 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
+      <title><![CDATA[nginx安装]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nginx%E5%AE%89%E8%A3%85.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>sudo apt-get install libpcre3-dev libssl-dev openssl</p>
+</blockquote>
+<p>缺少的库直接补上 <a id="more"></a></p>
+<p>###（2）源代码安装<br>      下载地址：<a href="http://nginx.org/download/" target="_blank" rel="external">http://nginx.org/download/</a><br>      我这里下载的是 nginx-1.3.9.tar.gz，安装过程很简单，如下：<br>      $./configure<br>      $make<br>      $make install<br>      安装成功之后，nginx放置在/usr/local/nginx目录下，主要的配置文件为conf目录下的nginx.conf，<br>nginx的启动文件在sbin目录下的nginx文件。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Linux </category>
+            
+            <category> 开发环境 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 开发环境 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nvm管理]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nvm%E7%AE%A1%E7%90%86.html</url>
       <content type="html"><![CDATA[<pre><code>git clone https://github.com/creationix/nvm.git ~/.nvm
@@ -1964,33 +1991,6 @@ export PATH=$NODE_HOME/bin:$PATH
 <blockquote>
 <p>$ nvm use<version></version></p>
 </blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> Linux </category>
-            
-            <category> 开发环境 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 开发环境 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[nginx安装]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/Linux/CentOS%206.5%20%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E8%AF%A6%E8%A7%A3/nginx%E5%AE%89%E8%A3%85.html</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>sudo apt-get install libpcre3-dev libssl-dev openssl</p>
-</blockquote>
-<p>缺少的库直接补上 <a id="more"></a></p>
-<p>###（2）源代码安装<br>      下载地址：<a href="http://nginx.org/download/" target="_blank" rel="external">http://nginx.org/download/</a><br>      我这里下载的是 nginx-1.3.9.tar.gz，安装过程很简单，如下：<br>      $./configure<br>      $make<br>      $make install<br>      安装成功之后，nginx放置在/usr/local/nginx目录下，主要的配置文件为conf目录下的nginx.conf，<br>nginx的启动文件在sbin目录下的nginx文件。</p>
 ]]></content>
       
         <categories>
