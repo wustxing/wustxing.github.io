@@ -7,8 +7,7 @@
       <title><![CDATA[混合开发注意事项]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.html</url>
       <content type="html"><![CDATA[<p>开个标题<br><strong>安卓调用js传参数</strong></p>
-<h2 id="单个参数"><a href="#单个参数" class="headerlink" title="单个参数"></a>单个参数</h2><h2 id="多个参数"><a href="#多个参数" class="headerlink" title="多个参数"></a>多个参数</h2><h2 id="传对象"><a href="#传对象" class="headerlink" title="传对象"></a>传对象</h2><h2 id="传list"><a href="#传list" class="headerlink" title="传list"></a>传list</h2><a id="more"></a>
-<p><strong>js调用安卓传参数</strong></p>
+<h2 id="单个参数"><a href="#单个参数" class="headerlink" title="单个参数"></a>单个参数</h2><h2 id="多个参数"><a href="#多个参数" class="headerlink" title="多个参数"></a>多个参数<a id="more"></a></h2><h2 id="传对象"><a href="#传对象" class="headerlink" title="传对象"></a>传对象</h2><h2 id="传list"><a href="#传list" class="headerlink" title="传list"></a>传list</h2><p><strong>js调用安卓传参数</strong></p>
 <h2 id="单个参数-1"><a href="#单个参数-1" class="headerlink" title="单个参数"></a>单个参数</h2><h2 id="多个参数-1"><a href="#多个参数-1" class="headerlink" title="多个参数"></a>多个参数</h2><h2 id="传对象-1"><a href="#传对象-1" class="headerlink" title="传对象"></a>传对象</h2><h2 id="传list-1"><a href="#传list-1" class="headerlink" title="传list"></a>传list</h2><p>优化相关 jj<br>1、看看能不能把html代码放在应用里面，当没有网络的时候 这样就可以和原生的一样了。</p>
 ]]></content>
       
@@ -84,23 +83,22 @@
     </entry>
     
     <entry>
-      <title><![CDATA[RequireJS的使用结合angular]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/RequireJS/RequireJS%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%93%E5%90%88angular.html</url>
-      <content type="html"><![CDATA[<p>###Requirejs结合angular的使用<br><a id="more"></a></p>
-]]></content>
+      <title><![CDATA[SASS在webstrom下的安装]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</url>
+      <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
       
         <categories>
             
             <category> web前端 </category>
             
-            <category> RequireJS </category>
+            <category> SASS </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> RequireJS </tag>
+            <tag> SASS </tag>
             
         </tags>
         
@@ -138,28 +136,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[SASS在webstrom下的安装]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</url>
-      <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> SASS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> SASS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[ionic的app目录约定]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/IONIC/ionic%E7%9A%84app%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A.html</url>
       <content type="html"><![CDATA[<h3 id="IONIC-的目录约定以及一些基本用法"><a href="#IONIC-的目录约定以及一些基本用法" class="headerlink" title="IONIC 的目录约定以及一些基本用法"></a>IONIC 的目录约定以及一些基本用法</h3><a id="more"></a>]]></content>
@@ -176,6 +152,29 @@
         <tags>
             
             <tag> IONIC </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[RequireJS的使用结合angular]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/RequireJS/RequireJS%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%93%E5%90%88angular.html</url>
+      <content type="html"><![CDATA[<p>###Requirejs结合angular的使用<br><a id="more"></a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> RequireJS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> RequireJS </tag>
             
         </tags>
         
@@ -503,6 +502,63 @@ linux
     </entry>
     
     <entry>
+      <title><![CDATA[JS问题汇总]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
+      <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[从输入url到浏览器显示页面发生了什么]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.html</url>
       <content type="html"><![CDATA[<p>#####这个过程大致分为两个部分：网络通信和页面渲染。</p>
@@ -565,63 +621,6 @@ linux
     </entry>
     
     <entry>
-      <title><![CDATA[JS问题汇总]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
-      <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
-<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
-<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
-<li>1、js动态加载dom元素</li>
-<li>2、onload异步加载</li>
-<li>3、使用requerjs这种，是属于异步加载。</li>
-</ul>
-<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
-<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
-<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
-</ul>
-<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
-<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
-</ul>
-<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
-<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
-<li><p>1、对象字面量的方式  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>2、用function来模拟无参的构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
-</li>
-<li><p>4、用工厂方式来创建（内置对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>5、用原型方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
-</li>
-<li><p>6、用混合方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> JS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> JS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于单位px,rem,em]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%8D%95%E4%BD%8Dpx,rem,em.html</url>
       <content type="html"><![CDATA[<ul>
@@ -650,37 +649,6 @@ linux
         <tags>
             
             <tag> JS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[HTML5问题汇总]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
-      <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
-<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
-<ul>
-<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
-<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
-</ul>
-<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
-<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
-</ul>
-<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> HTML5 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> HTML5 </tag>
             
         </tags>
         
@@ -721,6 +689,37 @@ linux
         <tags>
             
             <tag> CSS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[HTML5问题汇总]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
+      <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> HTML5 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> HTML5 </tag>
             
         </tags>
         
@@ -1800,6 +1799,29 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/hello-world.html</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> test </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[nodejs多线程，真正的非阻塞]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E.html</url>
       <content type="html"><![CDATA[<p>node从他推出至今，充满赞美和饱受诟病的都是其单线程模型，所有的任务都在一个线程中完成（I/O等例外），优势的地方自然是免去了频繁切换线程的开销，以及减少资源互抢的问题等等，但是当nodejs面对cpu密集型模型的时候就力不从心了。尽管node拥有异步机制，可以把一些耗时算法丢入eventloop等待下个事件循环再做，但是因为其任然是单线程模型，所以终究会造成阻塞。<a id="more"></a></p>
@@ -1831,29 +1853,6 @@ export PATH=$NODE_HOME/bin:$PATH
         <tags>
             
             <tag> Node </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/hello-world.html</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> test </tag>
             
         </tags>
         
@@ -2076,12 +2075,6 @@ export PATH=$NODE_HOME/bin:$PATH
   
     
     <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://blog.ypintao.com/reading/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://blog.ypintao.com/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我是熊星。欢迎来到我的个人技术博客。</p>
@@ -2110,6 +2103,12 @@ export PATH=$NODE_HOME/bin:$PATH
 </li>
 </ul>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://blog.ypintao.com/reading/index.html</url>
+      <content type="html"></content>
     </entry>
     
   
