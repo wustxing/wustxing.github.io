@@ -1,0 +1,967 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>D3 | wustxing技术栈 | web技术</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="web技术">
+    
+    
+  
+ <meta name="keywords" content="web技术 node">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:title" content="D3"/>
+    <meta property="og:site_name" content="wustxing"/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            搜索
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://oluvshunx.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.png" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">熊星</p>
+                        <p class="desc">.Net/Web前端/全栈/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    搜索
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/test/">
+                    test <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/随笔/">
+                    随笔 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/随笔/文章/">
+                    文章 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/生活/">
+                    生活 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/生活/面试/">
+                    面试 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/IDEA/">
+                    IDEA <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/demo/">
+                    demo <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Linux/">
+                    Linux <span class="right">15 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/开发环境/">
+                    开发环境 <span class="right">5 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/Dock/">
+                    Dock <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/基本命令/">
+                    基本命令 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/环境安装/">
+                    环境安装 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Linux/node开发工具/">
+                    node开发工具 <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/web前端/">
+                    web前端 <span class="right">20 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/AngularJS/">
+                    AngularJS <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/CSS/">
+                    CSS <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/webRTC/">
+                    webRTC <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/D3/">
+                    D3 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/JS/">
+                    JS <span class="right">6 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/HTML5/">
+                    HTML5 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/RequireJS/">
+                    RequireJS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/IONIC/">
+                    IONIC <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/SASS/">
+                    SASS <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/gulp/">
+                    gulp <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/混合开发/">
+                    混合开发 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/web前端/自适应/">
+                    自适应 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/后端/">
+                    后端 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/后端/Node/">
+                    Node <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/数据库/">
+                    数据库 <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/数据库/mongodb/">
+                    mongodb <span class="right">3 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/工具/">
+                    工具 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/工具/Git/">
+                    Git <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/编程语言/">
+                    编程语言 <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/编程语言/Node/">
+                    Node <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">搜索</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/web前端/">web前端</a><a class="breadcrumb" href="/categories/web前端/D3/">D3</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>D3</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2017-07-26T16:00:00.000Z"><a href="/技术/web前端/D3/D3 v4api专辑.html">2017-07-27</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/D3/" class="chip pink lighten-1">D3</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#API-总览"><span class="section table-of-contents-text">API 总览</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#选择元素"><span class="section table-of-contents-text">选择元素</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数据类型"><span class="section table-of-contents-text">数据类型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#格式化"><span class="section table-of-contents-text">格式化</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#队列"><span class="section table-of-contents-text">队列</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#请求"><span class="section table-of-contents-text">请求</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数据映射"><span class="section table-of-contents-text">数据映射</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#比例尺-连续型-颜色序数型-数值型-序数型-分类颜色型"><span class="section table-of-contents-text">比例尺 (连续型, 颜色序数型, 数值型, 序数型, 分类颜色型)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#图形几何"><span class="section table-of-contents-text">图形几何</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#形状-弧-饼-线-面积-曲线-符号-堆叠"><span class="section table-of-contents-text">形状 (弧, 饼, 线, 面积, 曲线, 符号, 堆叠)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#轴"><span class="section table-of-contents-text">轴</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#泰森多边形"><span class="section table-of-contents-text">泰森多边形</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#路径"><span class="section table-of-contents-text">路径</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#多边形"><span class="section table-of-contents-text">多边形</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四叉树"><span class="section table-of-contents-text">四叉树</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#布局"><span class="section table-of-contents-text">布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#力布局"><span class="section table-of-contents-text">力布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#层次布局"><span class="section table-of-contents-text">层次布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#动态交互"><span class="section table-of-contents-text">动态交互</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#定时器"><span class="section table-of-contents-text">定时器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#过渡"><span class="section table-of-contents-text">过渡</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#插值器"><span class="section table-of-contents-text">插值器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#缓动"><span class="section table-of-contents-text">缓动</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#事件分派"><span class="section table-of-contents-text">事件分派</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#拖动"><span class="section table-of-contents-text">拖动</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#缩放"><span class="section table-of-contents-text">缩放</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#D3-使用-语义命名。可使用d3-version获取当前版本号。"><span class="section table-of-contents-text">D3 使用 语义命名。可使用d3.version获取当前版本号。</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数组"><span class="section table-of-contents-text">数组</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#统计"><span class="section table-of-contents-text">统计</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#直方图"><span class="section table-of-contents-text">直方图</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#查找"><span class="section table-of-contents-text">查找</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#转换"><span class="section table-of-contents-text">转换</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#轴-1"><span class="section table-of-contents-text">轴</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#集合"><span class="section table-of-contents-text">集合</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#对象"><span class="section table-of-contents-text">对象</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#映射"><span class="section table-of-contents-text">映射</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#集合-1"><span class="section table-of-contents-text">集合</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#嵌套"><span class="section table-of-contents-text">嵌套</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#颜色"><span class="section table-of-contents-text">颜色</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#分隔符分隔的值"><span class="section table-of-contents-text">分隔符分隔的值</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#事件分发"><span class="section table-of-contents-text">事件分发</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#拖曳"><span class="section table-of-contents-text">拖曳</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#力导向图"><span class="section table-of-contents-text">力导向图</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#层次布局-1"><span class="section table-of-contents-text">层次布局</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#插值器-1"><span class="section table-of-contents-text">插值器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数字格式化"><span class="section table-of-contents-text">数字格式化</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#路径-1"><span class="section table-of-contents-text">路径</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#多边形-1"><span class="section table-of-contents-text">多边形</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#四叉树-1"><span class="section table-of-contents-text">四叉树</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#队列-1"><span class="section table-of-contents-text">队列</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#随机数"><span class="section table-of-contents-text">随机数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#请求-1"><span class="section table-of-contents-text">请求</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#比例尺"><span class="section table-of-contents-text">比例尺</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#连续颜色比例尺"><span class="section table-of-contents-text">连续颜色比例尺</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#量化比例尺"><span class="section table-of-contents-text">量化比例尺</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#序数比例尺"><span class="section table-of-contents-text">序数比例尺</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#选择器"><span class="section table-of-contents-text">选择器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#修改元素"><span class="section table-of-contents-text">修改元素</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数据绑定"><span class="section table-of-contents-text">数据绑定</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#命名空间"><span class="section table-of-contents-text">命名空间</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#形状"><span class="section table-of-contents-text">形状</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#弧"><span class="section table-of-contents-text">弧</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#饼"><span class="section table-of-contents-text">饼</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#线"><span class="section table-of-contents-text">线</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#面积"><span class="section table-of-contents-text">面积</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#曲线"><span class="section table-of-contents-text">曲线</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#符号"><span class="section table-of-contents-text">符号</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#堆叠"><span class="section table-of-contents-text">堆叠</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#时间格式化"><span class="section table-of-contents-text">时间格式化</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#时间间隔"><span class="section table-of-contents-text">时间间隔</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#定时器-1"><span class="section table-of-contents-text">定时器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#冯罗诺"><span class="section table-of-contents-text">冯罗诺</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#缩放-1"><span class="section table-of-contents-text">缩放</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="API-总览"><a href="#API-总览" class="headerlink" title="API 总览"></a>API 总览</h1><h2 id="选择元素"><a href="#选择元素" class="headerlink" title="选择元素"></a>选择元素</h2><pre><code>选择 (选择, 修改, 数据, 事件, 控制, 命名空间)
+</code></pre><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><pre><code>数组 (统计, 直方图, 查找, 转换)
+集合 (对象, 映射（map）, 集合（set）, 嵌套)
+颜色
+DSV（分隔符分割的值）
+随机值
+时间序列
+</code></pre><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><pre><code>数字格式化 
+时间格式化
+加载数据
+</code></pre><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h2 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h2><h2 id="数据映射"><a href="#数据映射" class="headerlink" title="数据映射"></a>数据映射</h2><h2 id="比例尺-连续型-颜色序数型-数值型-序数型-分类颜色型"><a href="#比例尺-连续型-颜色序数型-数值型-序数型-分类颜色型" class="headerlink" title="比例尺 (连续型, 颜色序数型, 数值型, 序数型, 分类颜色型)"></a>比例尺 (连续型, 颜色序数型, 数值型, 序数型, 分类颜色型)</h2><h2 id="图形几何"><a href="#图形几何" class="headerlink" title="图形几何"></a>图形几何</h2><h2 id="形状-弧-饼-线-面积-曲线-符号-堆叠"><a href="#形状-弧-饼-线-面积-曲线-符号-堆叠" class="headerlink" title="形状 (弧, 饼, 线, 面积, 曲线, 符号, 堆叠)"></a>形状 (弧, 饼, 线, 面积, 曲线, 符号, 堆叠)</h2><h2 id="轴"><a href="#轴" class="headerlink" title="轴"></a>轴</h2><h2 id="泰森多边形"><a href="#泰森多边形" class="headerlink" title="泰森多边形"></a>泰森多边形</h2><h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><h2 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h2><h2 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h2><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h2 id="力布局"><a href="#力布局" class="headerlink" title="力布局"></a>力布局</h2><h2 id="层次布局"><a href="#层次布局" class="headerlink" title="层次布局"></a>层次布局</h2><h2 id="动态交互"><a href="#动态交互" class="headerlink" title="动态交互"></a>动态交互</h2><h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><h2 id="插值器"><a href="#插值器" class="headerlink" title="插值器"></a>插值器</h2><h2 id="缓动"><a href="#缓动" class="headerlink" title="缓动"></a>缓动</h2><h2 id="事件分派"><a href="#事件分派" class="headerlink" title="事件分派"></a>事件分派</h2><h2 id="拖动"><a href="#拖动" class="headerlink" title="拖动"></a>拖动</h2><h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><h2 id="D3-使用-语义命名。可使用d3-version获取当前版本号。"><a href="#D3-使用-语义命名。可使用d3-version获取当前版本号。" class="headerlink" title="D3 使用 语义命名。可使用d3.version获取当前版本号。"></a>D3 使用 语义命名。可使用d3.version获取当前版本号。</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><pre><code>数组操作，排序，查找，汇总等。
+</code></pre><h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>计算基本汇总统计的一些方法。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.min - 计算数组中的最小值。</div><div class="line">d3.max - 计算数组中的最大值。</div><div class="line">d3.extent - 计算数组的范围。</div><div class="line">d3.sum - 数组中所有元素求和。</div><div class="line">d3.mean - 计算数组的算术平均值。</div><div class="line">d3.median - 计算数组的中位数。</div><div class="line">d3.quantile - 计算一个数字数组排序后的分位数。R和Excel使用的R-7分位数计算法</div><div class="line">d3.variance - 数组中数字的方差。</div><div class="line">d3.deviation - 数组中数字的标准差。</div></pre></td></tr></table></figure></p>
+<h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>将离散样本分成连续的无重叠的间隔。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">d3.histogram - 创建一个新的直方图生成器。</div><div class="line">histogram - 对给定的样本数组计算直方图。</div><div class="line">histogram.value - 为每个样本指定一个值访问器。</div><div class="line">histogram.domain - 指定可观测值的间隔。</div><div class="line">histogram.thresholds - 指定值划分成不同箱的方法。</div><div class="line">d3.thresholdFreedmanDiaconis - Freedman–Diaconis装箱规则。</div><div class="line">d3.thresholdScott - Scott’s normal reference装箱规则。</div><div class="line">d3.thresholdSturges - Sturges’装箱准则。</div></pre></td></tr></table></figure></p>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>检索数组中特定的值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.scan - 使用比较器线查找。</div><div class="line">d3.bisect - 二分查找排序数组中的值。</div><div class="line">d3.bisectRight - 二分查找排序数组中的值。</div><div class="line">d3.bisectLeft - 二分查找排序数组中的值。</div><div class="line">d3.bisector - 使用访问器和比较器二分查找。</div><div class="line">bisector.left - 使用给定的比较器的bisectLeft。</div><div class="line">bisector.right - 使用给定的比较器的bisectRight。</div><div class="line">d3.ascending - 升序排序。</div><div class="line">d3.descending - 降序排序。</div></pre></td></tr></table></figure>
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><p>转换数组并返回一个新的数组。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">d3.merge - 将多个数组合并成一个。</div><div class="line">d3.pairs - 数组邻接对。</div><div class="line">d3.permute - 安装指定的索引数组重排数组。</div><div class="line">d3.shuffle - 数组随机排序。洗牌算法的讨论</div><div class="line">d3.ticks - 从一个数组间隔生成有代表的值，刻度值。</div><div class="line">d3.tickStep - 从一个数组间隔生成有代表的步长。</div><div class="line">d3.tickIncrement - 增量（ticks中用到）。</div><div class="line">d3.range - 生成一组数值。</div><div class="line">d3.transpose - 数组转置。</div><div class="line">d3.zip - 转置多个数组。</div><div class="line">d3.cross - 两个数组的笛卡尔积。</div></pre></td></tr></table></figure>
+<h2 id="轴-1"><a href="#轴-1" class="headerlink" title="轴"></a>轴</h2><p>人类可读的刻度轴。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d3.axisTop - 创建一个上部轴生成器。</div><div class="line">d3.axisRight - 创建一个右部轴生成器。</div><div class="line">d3.axisBottom - 创建一个底部轴生成器。</div><div class="line">d3.axisLeft - 创建一个左部轴生成器。</div><div class="line">axis - 为给定的选择生成轴。</div><div class="line">axis.scale - 设置比例尺。</div><div class="line">axis.ticks - 自定义刻度的生成和格式化方式。</div><div class="line">axis.tickArguments - 自定义刻度的生成和格式化方式。</div><div class="line">axis.tickValues - 明确地指定刻度值。</div><div class="line">axis.tickFormat - 明确地指定刻度格式。</div><div class="line">axis.tickSize - 设置刻度的大小。</div><div class="line">axis.tickSizeInner - 设置内刻度的大小。</div><div class="line">axis.tickSizeOuter - 设置外刻度的大小。</div><div class="line">axis.tickPadding - 设置刻度和标签之间的间距。</div></pre></td></tr></table></figure>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>便捷的数据结构，元素的键是字符串类型。</p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>将对象转为数组的方法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">d3.keys - 列举关联数组的键。</div><div class="line">d3.values - 列举关联数组的值。</div><div class="line">d3.entries - 列举关联数组的键值对实体。</div></pre></td></tr></table></figure>
+<h2 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h2><p>类似ES6 Map，但是键时字符类型的，并且有点其他区别。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">d3.map - 创建一个空的map。</div><div class="line">map.has - 返回map中是否包含某个值。</div><div class="line">map.get - 获取值。</div><div class="line">map.set - 设置值。</div><div class="line">map.remove - 移除值。</div><div class="line">map.clear - 移除所有值。</div><div class="line">map.keys - 获取键数组。</div><div class="line">map.values - 获取值数组。</div><div class="line">map.entries - 获取键值对数组。</div><div class="line">map.each - 为每个元素调用一次指定的方法。</div><div class="line">map.empty - 返回map是否为空。</div><div class="line">map.size - 计算值的数量。</div></pre></td></tr></table></figure>
+<h2 id="集合-1"><a href="#集合-1" class="headerlink" title="集合"></a>集合</h2><p>类似ES6 Set，但是键时字符类型的，并且有点其他区别。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.set - 创建一个空的set。</div><div class="line">set.has - 返回set中是否包含某个值。</div><div class="line">set.add - 添加指定值。</div><div class="line">set.remove - 删除指定值。</div><div class="line">set.clear - 移除所有值。</div><div class="line">set.values - 获取值数组。</div><div class="line">set.each - 为每个元素调用一次指定的方法。</div><div class="line">set.empty - 返回set是否为空。</div><div class="line">set.size - 计算值的数量。</div></pre></td></tr></table></figure>
+<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p>将数据组织成任意层次。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">d3.nest - 创建一个嵌套生成器。</div><div class="line">nest.key - 在嵌套层级中加一级。</div><div class="line">nest.sortKeys - 当前层级按键排序。</div><div class="line">nest.sortValues - 叶子层级按值排序。</div><div class="line">nest.rollup -为叶子层指定汇总函数。</div><div class="line">nest.map - 生成一个嵌套，返回一个map。</div><div class="line">nest.object - 生成一个嵌套，返回一个关联数组。</div><div class="line">nest.entries - 生成一个嵌套，返回一个键值对数组。</div></pre></td></tr></table></figure>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>颜色操作和颜空间转换。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">d3.color - 解析给定的CSS颜色名。</div><div class="line">color.rgb - 计算该颜色的RGB值。</div><div class="line">color.brighter - 该颜色的高亮副本。</div><div class="line">color.darker - 该颜色的较亮副本。</div><div class="line">color.displayable - 如果该颜色在标准硬件上可以显示则返回true。</div><div class="line">color.toString - 将该颜色格式化为一个十六进制 RGB值字符串。</div><div class="line">d3.rgb - 创建一个RGB颜色。</div><div class="line">d3.hsl - 创建一个HSL颜色。</div><div class="line">d3.lab - 创建一个Lab颜色。</div><div class="line">d3.hcl - 创建一个HCL颜色。</div><div class="line">d3.cubehelix - 创建一个Cubehelix颜色。</div></pre></td></tr></table></figure>
+<h2 id="分隔符分隔的值"><a href="#分隔符分隔的值" class="headerlink" title="分隔符分隔的值"></a>分隔符分隔的值</h2><p>解析和格式分隔符分隔的值（特别是TSV和CSV）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">d3.dsvFormat - 为指定的分隔符指定一个解析器和格式化器。</div><div class="line">dsv.parse - 解析给定的字符串返回一组对象。</div><div class="line">dsv.parseRows - 解析给定的字符串返回行数组。</div><div class="line">dsv.format - 格式化一组对象。</div><div class="line">dsv.formatRows - 格式化行数组。</div><div class="line">d3.csvParse - 解析给定的CSV字符串，返回一组对象。</div><div class="line">d3.csvParseRows - 解析给定的CSV字符串，返回行数组。</div><div class="line">d3.csvFormat - 格式化给定的CSV对象。</div><div class="line">d3.csvFormatRows - 格式化给定的CSV行数组。</div><div class="line">d3.tsvParse -解析给定的TSV字符串，返回一组对象。</div><div class="line">d3.tsvParseRows - 解析给定的TSV字符串，返回行数组。</div><div class="line">d3.tsvFormat - 格式化给定的TSV对象。</div><div class="line">d3.tsvFormatRows - 格式化给定的TSV行数组。</div></pre></td></tr></table></figure>
+<h2 id="事件分发"><a href="#事件分发" class="headerlink" title="事件分发"></a>事件分发</h2><p>命名回调函数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">d3.dispatch - 创建一个定制的事件分发器。</div><div class="line">dispatch.on - 注册或者解除注册事件监听器。</div><div class="line">dispatch.copy - 创建分发器副本。</div><div class="line">dispatch.call - 给注册的监听器分发事件。</div><div class="line">dispatch.apply - 给注册的监听器分发事件。</div></pre></td></tr></table></figure>
+<h2 id="拖曳"><a href="#拖曳" class="headerlink" title="拖曳"></a>拖曳</h2><p>使用鼠标或触屏拖曳SVG，HTML 或 Canvas。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.drag - 创建一个拖曳行为。</div><div class="line">drag - 对一个选择应用拖曳行为。</div><div class="line">drag.container - 设置坐标系统。</div><div class="line">drag.filter - 忽略一些初始的事件。</div><div class="line">drag.subject - 设置被拖曳对象。</div><div class="line">drag.x - 设置被拖曳对象的x-坐标。</div><div class="line">drag.y - 设置被拖曳对象的y-坐标。</div><div class="line">drag.on - 监听拖曳事件。</div><div class="line">event.on - 监听当前动作的拖曳事件。</div></pre></td></tr></table></figure>
+<h2 id="力导向图"><a href="#力导向图" class="headerlink" title="力导向图"></a>力导向图</h2><p>力导向图使用velocity Verlet整合算法实现。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">d3.forceSimulation - 创建一个力模拟。</div><div class="line">simulation.restart - 重启力模拟。</div><div class="line">simulation.stop - 停止力模拟。</div><div class="line">simulation.tick - 将力模拟向前推进一步。</div><div class="line">simulation.nodes - 设置力模拟的节点。</div><div class="line">simulation.alpha - 设置当前的α值。</div><div class="line">simulation.alphaMin -设置α最小阈值。</div><div class="line">simulation.alphaDecay - 设置α指数衰减率。</div><div class="line">simulation.alphaTarget - 设置目标α。</div><div class="line">simulation.drag - 设置曳引系数。</div><div class="line">simulation.force - 添加或移除力。</div><div class="line">simulation.fix - 固定节点位置。</div><div class="line">simulation.unfix - 释放固定的节点。</div><div class="line">simulation.find - 查找给定位置最近的节点。</div><div class="line">simulation.on - 添加或移除事件监听器。</div><div class="line">force - 应用力模拟。</div><div class="line">force.initialize - 使用给定的节点初始化力布局。</div><div class="line">d3.forceCenter - 创建一个力中心。</div><div class="line">center.x - 设置中心的x-坐标。</div><div class="line">center.y - 设置中心的y-坐标。</div><div class="line">d3.forceCollide - 创建一个圆碰撞力。</div><div class="line">collide.radius - 设置圆的半径。</div><div class="line">collide.strength - 设置碰撞检测强度。</div><div class="line">collide.iterations - 设置迭代次数。</div><div class="line">d3.forceLink - 创建连接力。</div><div class="line">link.links - 设置连接数组。</div><div class="line">link.id - 连接数组。</div><div class="line">link.distance - 设置连接距离。</div><div class="line">link.strength - 设置连接强度。</div><div class="line">link.iterations - 设置迭代次数。</div><div class="line">d3.forceManyBody - 创建多体力。</div><div class="line">manyBody.strength - 设置力强度。</div><div class="line">manyBody.theta - 设置Barnes-Hut近似精度。</div><div class="line">manyBody.distanceMin - 当节点关闭限制力。</div><div class="line">manyBody.distanceMax - 当节点太远限制力。</div><div class="line">d3.forceX - 创建x-定位力。</div><div class="line">x.strength - 设置力强度。</div><div class="line">x.x - 设置目标x-坐标。</div><div class="line">d3.forceY - 创建y-定位力。</div><div class="line">y.strength - 设置力强度。</div><div class="line">y.y - 设置目标y-坐标。</div></pre></td></tr></table></figure></p>
+<h2 id="层次布局-1"><a href="#层次布局-1" class="headerlink" title="层次布局"></a>层次布局</h2><p>用来可视化层次型数据的布局算法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">d3.hierarchy - 从层次型的数据构造一个根节点。</div><div class="line">node.ancestors - 生成祖先数组。</div><div class="line">node.descendants - 生成后代数组。</div><div class="line">node.leaves - 生成层级数组。</div><div class="line">node.path - 生成到达另一个节点的最短路径。</div><div class="line">node.sum - 求和。</div><div class="line">node.sort - 排序所有后代的兄弟节点。</div><div class="line">node.each - 广度优先遍历。</div><div class="line">node.eachAfter - 后序遍历。</div><div class="line">node.eachBefore - 先序遍历。</div><div class="line">node.copy - 拷贝层次布局。</div><div class="line">d3.stratify - 创建一个层操作符。</div><div class="line">stratify - 从表格式的数据构造一个根节点。</div><div class="line">stratify.id - 设置节点ID访问器。</div><div class="line">stratify.parentId - 设置父节点ID访问器。</div><div class="line">d3.cluster - 创建一个新的簇（系统树图）布局。</div><div class="line">cluster - 将给定的层次数据排列到簇中。</div><div class="line">cluster.size - 设置布局大小。</div><div class="line">cluster.nodeSize - 设置节点大小。</div><div class="line">cluster.separation - 设置层间距。</div><div class="line">d3.tree - 创建新的整齐的树布局。</div><div class="line">tree - 将给定的层次数据排列到树中。</div><div class="line">tree.size - 设置布局大小。</div><div class="line">tree.nodeSize - 设置节点大小。</div><div class="line">tree.separation - 设置层间距。</div><div class="line">d3.treemap - 创建一个新的矩形填充树布局（简称矩形树布局）。</div><div class="line">treemap - 使用矩形填充树布局排列给定的层次数据。</div><div class="line">treemap.tile - 设置铺砌方法。</div><div class="line">treemap.size - 设置布局大小。</div><div class="line">treemap.round - 设置输出坐标是否是取整的。</div><div class="line">treemap.padding - 设置间距。</div><div class="line">treemap.paddingInner - 设置兄弟节点之间的间距。</div><div class="line">treemap.paddingOuter - 设置父子节点之间的间距。</div><div class="line">treemap.paddingTop - 设置父节点顶边缘和子节点的间距。</div><div class="line">treemap.paddingRight - 设置父节点右边缘和子节点的间距。</div><div class="line">treemap.paddingBottom - 设置父节点底边缘和子节点的间距。</div><div class="line">treemap.paddingLeft - 设置父节点左边缘和子节点的间距。</div><div class="line">d3.treemapBinary - 使用平衡二叉树铺砌。</div><div class="line">d3.treemapDice - 水平行铺砌。</div><div class="line">d3.treemapSlice - 垂直列铺砌。</div><div class="line">d3.treemapSliceDice - 水平和垂直交替铺砌。</div><div class="line">d3.treemapSquarify - 正方形铺砌。</div><div class="line">squarify.ratio - 设置期望的矩形长宽比。</div><div class="line">d3.partition - 创建新的分区布局（旭日图和冰柱图）。</div><div class="line">partition - 使用分区布局排列给定的层次数据。</div><div class="line">partition.size - 设置布局大小。</div><div class="line">partition.round - 设置输出坐标是否是取整的。</div><div class="line">partition.padding - 设置间距。</div><div class="line">d3.pack - 创建一个新的圆形填充布局（简称包布局）。</div><div class="line">pack - 使用包布局排列给定的层次数据。</div><div class="line">pack.radius - 设置半径访问器。</div><div class="line">pack.size - 设置布局大小。</div><div class="line">pack.padding - 设置间距。</div><div class="line">d3.packSiblings - 包装指定的圆数组。</div><div class="line">d3.packEnclose - 围住指定的圆数组。</div></pre></td></tr></table></figure>
+<h2 id="插值器-1"><a href="#插值器-1" class="headerlink" title="插值器"></a>插值器</h2><p>插补数字，字符串，颜色，数组，对象等。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">d3.interpolate - 插补任意值。</div><div class="line">d3.interpolateArray - 插补任意值的数组。</div><div class="line">d3.interpolateNumber - 插补数组。</div><div class="line">d3.interpolateObject - 插补充任意对象</div><div class="line">d3.interpolateRound - 插补整数。</div><div class="line">d3.interpolateString - 插补嵌入数字的字符串。</div><div class="line">d3.interpolateTransformCss - 插补2D CSS变换。</div><div class="line">d3.interpolateTransformSvg - 插补2D SVG变换。</div><div class="line">d3.interpolateZoom - 两个视图之间平移和缩放。</div><div class="line">d3.interpolateRgb - 插补RGB颜色。</div><div class="line">d3.interpolateHsl - 插补HSL颜色。</div><div class="line">d3.interpolateHslLong - 插补HSL颜色（长整型）。</div><div class="line">d3.interpolateLab - 插补Lab颜色。</div><div class="line">d3.interpolateHcl - 插补HCL颜色。</div><div class="line">d3.interpolateHclLong - 插补HCL颜色（长整型）。</div><div class="line">d3.interpolateCubehelix - 插补Cubehelix颜色。</div><div class="line">d3.interpolateCubehelixLong - 插补Cubehelix颜色（长整型）。</div><div class="line">interpolate.gamma - 在插值过程中使用γ矫正。</div></pre></td></tr></table></figure></p>
+<h2 id="数字格式化"><a href="#数字格式化" class="headerlink" title="数字格式化"></a>数字格式化</h2><p>将数字格式化为人类可读的形式。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">d3.format - enUs.format的别名。</div><div class="line">d3.formatPrefix - enUs.formatPrefix的别名。</div><div class="line">d3.formatSpecifier - 解析数字格式说明符。</div><div class="line">d3.formatLocale - 定义一个自定义的本地化。</div><div class="line">locale.format - 创建一个数字格式。</div><div class="line">locale.formatPrefix - 创建一个SI-前缀数字格式化。</div><div class="line">d3.formatCaEs - Catalan (西班牙) 本地化。</div><div class="line">d3.formatCsCz - Czech (捷克) 本地化。</div><div class="line">d3.formatDeCh - German (瑞士) 本地化。</div><div class="line">d3.formatDeDe - German (德国) 本地化。</div><div class="line">d3.formatEnCa - English (加拿大) 本地化。</div><div class="line">d3.formatEnGb - English (英国) 本地化。</div><div class="line">d3.formatEnUs - English (美国 ) 本地化。</div><div class="line">d3.formatEsEs - Spanish (西班牙) 本地化。</div><div class="line">d3.formatFiFi - Finnish (芬兰) 本地化。</div><div class="line">d3.formatFrCa - French (加拿大) 本地化。</div><div class="line">d3.formatFrFr - French (法国) 本地化。</div><div class="line">d3.formatHeIl - Hebrew (以色列) 本地化。</div><div class="line">d3.formatHuHu - Hungarian (匈牙利) 本地化。</div><div class="line">d3.formatItIt - Italian (意大利) 本地化。</div><div class="line">d3.formatJaJp - Japanese (日本) 本地化。</div><div class="line">d3.formatKoKr - Korean (韩国) 本地化。</div><div class="line">d3.formatMkMk - Macedonian (马其顿) 本地化。</div><div class="line">d3.formatNlNl - Dutch (荷兰) 本地化。</div><div class="line">d3.formatPlPl - Polish (波兰) 本地化。</div><div class="line">d3.formatPtBr - Portuguese (巴西) 本地化。</div><div class="line">d3.formatRuRu - Russian (俄罗斯) 本地化。</div><div class="line">d3.formatSvSe - Swedish (瑞典) 本地化。</div><div class="line">d3.formatZhCn - Chinese (中国) 本地化。</div><div class="line">d3.precisionFixed - 计算定点表示法的小数精度。</div><div class="line">d3.precisionPrefix - 计算SI-前缀记号法的小数精度。</div><div class="line">d3.precisionRound - 计算有效数字。</div></pre></td></tr></table></figure></p>
+<h2 id="路径-1"><a href="#路径-1" class="headerlink" title="路径"></a>路径</h2><p>序列化Canvas路径命令为SVG。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">d3.path - 创建一个新的路径序列化。</div><div class="line">path.moveTo - 移动到给定的点。</div><div class="line">path.closePath - 关闭当前的子路径。</div><div class="line">path.lineTo - 画一条直线段。</div><div class="line">path.quadraticCurveTo - 画一条二次贝塞尔曲线段。</div><div class="line">path.bezierCurveTo - 画一条三次贝塞尔曲线段。</div><div class="line">path.arcTo - 画一条三次贝塞尔曲线弧。</div><div class="line">path.arc - 画一条三次贝塞尔曲线弧。</div><div class="line">path.rect - 画一个矩形。</div><div class="line">path.toString - 序列化为SVG路径的data属性字符串。</div></pre></td></tr></table></figure>
+<h2 id="多边形-1"><a href="#多边形-1" class="headerlink" title="多边形"></a>多边形</h2><p>二维多边形的几何操作。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">d3.polygonArea - 计算给定多边形的面积。</div><div class="line">d3.polygonCentroid - 计算给定多边形的中心。</div><div class="line">d3.polygonHull - 计算给定点集的凸包。</div><div class="line">d3.polygonContains - 测试点是否在多边形内。</div><div class="line">d3.polygonLength - 计算给定多边形的周长的长度。</div></pre></td></tr></table></figure>
+<h2 id="四叉树-1"><a href="#四叉树-1" class="headerlink" title="四叉树"></a>四叉树</h2><p>二维递归空间细分。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d3.quadtree - 创建一个新的空的四叉树。</div><div class="line">quadtree.x - 设置x访问器。</div><div class="line">quadtree.y - 设置y访问器。</div><div class="line">quadtree.add - 添加数据到四叉树中。</div><div class="line">quadtree.remove - 删除四叉树中的数据。</div><div class="line">quadtree.copy - 创建一个四叉树的副本。</div><div class="line">quadtree.root - 获取四叉树的根节点。</div><div class="line">quadtree.data - 从四叉树检索所有数据。</div><div class="line">quadtree.size - 计算在四叉树中数据的数量。</div><div class="line">quadtree.find - 在四叉树快速找到最接近的数据。</div><div class="line">quadtree.visit - 选择性地访问四叉树中的节点。</div><div class="line">quadtree.visitAfter - 访问四叉树中的所有节点。</div><div class="line">quadtree.cover - 扩充四叉树覆盖一个点。</div><div class="line">quadtree.extent - 扩充四叉树覆盖一个范围。</div></pre></td></tr></table></figure>
+<h2 id="队列-1"><a href="#队列-1" class="headerlink" title="队列"></a>队列</h2><p>使用可配置的并发性评估异步任务。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">d3.queue - 管理异步任务的并发评估。</div><div class="line">queue.defer - 注册一个用来评估的任务。</div><div class="line">queue.abort - 中止任何活动任务,取消任何挂起任务。</div><div class="line">queue.await - 注册一个任务结束后的回调函数。</div><div class="line">queue.awaitAll - 注册一个所有任务结束后的回调函数。</div></pre></td></tr></table></figure>
+<h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><p>生成不同分布的随机数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">d3.randomUniform - 均匀分布。</div><div class="line">d3.randomNormal - 正态分布。</div><div class="line">d3.randomLogNormal - 对数正态分布。</div><div class="line">d3.randomBates - 贝茨分布。</div><div class="line">d3.randomIrwinHall - Irwin-Hall分布。</div><div class="line">d3.randomExponential - 指数分布</div></pre></td></tr></table></figure>
+<h2 id="请求-1"><a href="#请求-1" class="headerlink" title="请求"></a>请求</h2><p>XMLHttpRequest的简便封装。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">d3.request - 创建一个异步请求。</div><div class="line">request.header - 设置请求头。</div><div class="line">request.user - 设置用来认证身份的用户名。</div><div class="line">request.password - 设置用来认证身份的密码。</div><div class="line">request.mimeType - 设置MIME类型。</div><div class="line">request.timeout - 设置超时时长（以秒为单位）。</div><div class="line">request.responseType - 设置响应类型。</div><div class="line">request.response - 设置响应函数。</div><div class="line">request.get - 发送GET请求。</div><div class="line">request.post - 发送POST请求。</div><div class="line">request.send - 设置请求。</div><div class="line">request.abort - 中断请求。</div><div class="line">request.on - 监听请求事件。</div><div class="line">d3.csv - 获取CSV文件。</div><div class="line">d3.html - 获取HTML文件。</div><div class="line">d3.json - 获取JSON文件。</div><div class="line">d3.text - 获取文本文件。</div><div class="line">d3.tsv - 获取TSV文件。</div><div class="line">d3.xml - 获取XML文件。</div></pre></td></tr></table></figure>
+<h2 id="比例尺"><a href="#比例尺" class="headerlink" title="比例尺"></a>比例尺</h2><p>映射抽象数据为可视化表示所需要的形式。</p>
+<p>连续型比例尺</p>
+<p>将连续的，数量的定义域映射为连续的值域上。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">continuous - 计算对应于给定的定义域的值域。</div><div class="line">continuous.invert - 计算对应于给定的值域的定义域。</div><div class="line">continuous.domain - 设置输入的定义域。</div><div class="line">continuous.range - 设置输出的值域。</div><div class="line">continuous.rangeRound - 设置取整后的值域</div><div class="line">continuous.clamp - 启用闭合。</div><div class="line">continuous.interpolate - 设置输出插值器。</div><div class="line">continuous.ticks - 计算定义域中有代表性的刻度值。</div><div class="line">continuous.tickFormat - 格式化刻度值。</div><div class="line">continuous.nice - 优化定义域。</div><div class="line">continuous.copy - 创建比例尺的副本。</div><div class="line">d3.scaleLinear - 创建定量线性比例尺。</div><div class="line">d3.scalePow - 创建定量幂比例尺。</div><div class="line">pow - 计算对应于给定的定义域的值域。</div><div class="line">pow.invert - 计算对应于给定的值域的定义域。</div><div class="line">pow.exponent - 设置幂指数。</div><div class="line">pow.domain - 设置输入的定义域。</div><div class="line">pow.range - 设置输出的值域。</div><div class="line">pow.rangeRound - 设置取整后的值域</div><div class="line">pow.clamp - 启用闭合。</div><div class="line">pow.interpolate - 设置输出插值器。</div><div class="line">pow.ticks - 计算定义域中有代表性的刻度值。</div><div class="line">pow.tickFormat - 格式化刻度值。</div><div class="line">pow.nice - 优化定义域。</div><div class="line">pow.copy - 创建比例尺的副本。</div><div class="line">d3.scaleSqrt - 创建一个幂比例尺，指数是0.5。</div><div class="line">d3.scaleLog - 创建定量对数比例尺。</div><div class="line">log - 计算对应于给定的定义域的值域。</div><div class="line">log.invert - 计算对应于给定的值域的定义域。</div><div class="line">log.base - 设置对数基底。</div><div class="line">log.domain - 设置输入的定义域。</div><div class="line">log.range - 设置输出的值域。</div><div class="line">log.rangeRound - 设置取整后的值域</div><div class="line">log.clamp - 启用闭合。</div><div class="line">log.interpolate - 设置输出插值器。</div><div class="line">log.ticks - 计算定义域中有代表性的刻度值。</div><div class="line">log.tickFormat - 格式化刻度值。</div><div class="line">log.nice - 优化定义域。</div><div class="line">log.copy - 创建比例尺的副本。</div><div class="line">d3.scaleIdentity - 创建定量恒等比例尺。</div><div class="line">d3.scaleTime - 创建时间线性比例尺。</div><div class="line">time - 计算对应于给定的定义域的值域。</div><div class="line">time.invert - 计算对应于给定的值域的定义域。</div><div class="line">time.domain - 设置输入的定义域。</div><div class="line">time.range - 设置输出的值域。</div><div class="line">time.rangeRound - 设置取整后的值域</div><div class="line">time.clamp - 启用闭合。</div><div class="line">time.interpolate - 设置输出插值器。</div><div class="line">time.ticks - 计算定义域中有代表性的刻度值。</div><div class="line">time.tickFormat - 格式化刻度值。</div><div class="line">time.nice - 优化定义域。</div><div class="line">time.copy - 创建比例尺的副本。</div><div class="line">d3.scaleUtc - 创建UTC时间的线性比例尺。</div></pre></td></tr></table></figure></p>
+<h2 id="连续颜色比例尺"><a href="#连续颜色比例尺" class="headerlink" title="连续颜色比例尺"></a>连续颜色比例尺</h2><p>将连续的，数量的定义域映射为连续的，固定的颜色插值器。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">d3.scaleSequential - 创建一个顺序比例尺。create a sequential scale.</div><div class="line">sequential.interpolator - 设置比例尺的输出插值器。</div><div class="line">d3.interpolateViridis - 暗到明的颜色组合。</div><div class="line">viridis</div><div class="line"></div><div class="line">d3.interpolateInferno - 暗到明的颜色组合。</div><div class="line">inferno</div><div class="line"></div><div class="line">d3.interpolateMagma - 暗到明的颜色组合。</div><div class="line">magma</div><div class="line"></div><div class="line">d3.interpolatePlasma - 暗到明的颜色组合。</div><div class="line">plasma</div><div class="line"></div><div class="line">d3.interpolateWarm - 色相环颜色组合。</div><div class="line">warm</div><div class="line"></div><div class="line">d3.interpolateCool - 色相环颜色组合。</div><div class="line">cool</div><div class="line"></div><div class="line">d3.interpolateRainbow - 循环的色相环颜色组合。</div><div class="line">rainbow</div><div class="line"></div><div class="line">d3.interpolateCubehelixDefault - 暗到明的色相环颜色组合。</div><div class="line">cubehelix</div></pre></td></tr></table></figure>
+<h2 id="量化比例尺"><a href="#量化比例尺" class="headerlink" title="量化比例尺"></a>量化比例尺</h2><p>将连续的数量的定义域映射为离散的值域。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">d3.scaleQuantize - 创建一个均匀的量化的线性比例尺。</div><div class="line">quantize - 计算对应于给定的定义域的值域。</div><div class="line">quantize.invertExtent - 计算对应于给定的值域的定义域。</div><div class="line">quantize.domain - 设置输入的定义域。</div><div class="line">quantize.range - 设置输出的值域。</div><div class="line">quantize.nice - 优化定义域。</div><div class="line">quantize.ticks - 计算定义域中有代表性的刻度值。</div><div class="line">quantize.tickFormat - 格式化刻度值。</div><div class="line">quantize.copy - 创建比例尺的副本。</div><div class="line">d3.scaleQuantile - 创建一个分位数的量化的线性比例尺。</div><div class="line">quantile - 计算对应于给定的定义域的值域。</div><div class="line">quantile.invertExtent - 计算对应于给定的值域的定义域。</div><div class="line">quantile.domain - 设置输入的定义域。</div><div class="line">quantile.range - 设置输出的值域。</div><div class="line">quantile.quantiles - 设置分位数的阈值。</div><div class="line">quantile.copy - 创建比例尺的副本。</div><div class="line">d3.scaleThreshold - 创建一个任意的量化的线性比例尺。</div><div class="line">threshold - 计算对应于给定的定义域的值域。</div><div class="line">threshold.invertExtent - 计算对应于给定的值域的定义域。</div><div class="line">threshold.domain - 设置输入的定义域。</div><div class="line">threshold.range - 设置输出的值域。</div><div class="line">threshold.copy - 创建比例尺的副本。</div></pre></td></tr></table></figure></p>
+<h2 id="序数比例尺"><a href="#序数比例尺" class="headerlink" title="序数比例尺"></a>序数比例尺</h2><p>定义域和值域都是离散的。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">d3.scaleOrdinal - 创建一个序数比例尺。</div><div class="line">ordinal - 计算对应于给定的定义域的值域。</div><div class="line">ordinal.domain - 设置输入的定义域。</div><div class="line">ordinal.range - 设置输出的值域。</div><div class="line">ordinal.unknown - 设置未知输入域的输出值。</div><div class="line">ordinal.copy - 创建比例尺的副本。</div><div class="line">d3.scaleImplicit - 隐域的一个特殊的未知值。</div><div class="line">d3.scaleBand - 创建序数段比例尺。</div><div class="line">band - 计算对应于给定的定义域的值域。</div><div class="line">band.domain - 设置输入的定义域。</div><div class="line">band.range - 设置输出的值域。</div><div class="line">band.rangeRound - 设置输出的值域并取整。</div><div class="line">band.round - 取整。</div><div class="line">band.paddingInner - 段间距。</div><div class="line">band.paddingOuter - 外边距。</div><div class="line">band.padding - 设置间距（段间距和外边距）。</div><div class="line">band.align - 设置段对齐。</div><div class="line">band.bandwidth - 获取每段宽度。</div><div class="line">band.step - 开始相邻段之间的距离。</div><div class="line">band.copy - 创建比例尺的副本。</div><div class="line">d3.scalePoint - 创建序数点比例尺。</div><div class="line">point - 计算对应于给定的定义域的值域。</div><div class="line">point.domain - 设置输入的定义域。</div><div class="line">point.range - 设置输出的值域。</div><div class="line">point.rangeRound - 设置输出的值域并取整。</div><div class="line">point.round - 取整。</div><div class="line">point.padding - 外边距。</div><div class="line">point.align - 设置点对齐。</div><div class="line">point.bandwidth - 返回0。</div><div class="line">point.step - 开始相邻点之间的距离。</div><div class="line">point.copy - 创建比例尺的副本。</div><div class="line">d3.schemeCategory10 - 10种分类颜色。</div><div class="line">category10</div><div class="line"></div><div class="line">d3.schemeCategory20 - 20种分类颜色。</div><div class="line">category20</div><div class="line"></div><div class="line">d3.schemeCategory20b - 20种分类颜色。</div><div class="line">category20b</div><div class="line"></div><div class="line">d3.schemeCategory20c - 20种分类颜色。</div><div class="line">category20c</div></pre></td></tr></table></figure></p>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><p>通过选择元素和加入数据来转换DOM。</p>
+<p>选择元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">d3.selection - 选择根文档元素。</div><div class="line">d3.select - 从文档中选择一个元素。</div><div class="line">d3.selectAll - 从文档中选择多个元素。</div><div class="line">selection.select - 选择每个选中元素的一个后代元素。</div><div class="line">selection.selectAll - 选择每个选中元素的多个后代元素。</div><div class="line">selection.filter - 基于数据过滤元素。</div><div class="line">selection.merge - 合并两个选择。</div><div class="line">d3.matcher - 测试一个元素是否匹配选择器。</div><div class="line">d3.selector - 选择一个元素。</div><div class="line">d3.selectorAll - 选择多个元素。</div><div class="line">d3.window - 得到节点的所有者窗口。</div></pre></td></tr></table></figure>
+<h2 id="修改元素"><a href="#修改元素" class="headerlink" title="修改元素"></a>修改元素</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">selection.attr - 设置或获取特性。</div><div class="line">selection.classed - 获取，添加或移除CSS类。</div><div class="line">selection.style - 设置或获取样式。</div><div class="line">selection.property - 设置或获取行内属性。</div><div class="line">selection.text - 设置或获取文本内容。</div><div class="line">selection.html - 设置或获取inner HTML。</div><div class="line">selection.append - 创建，添加或选择新的元素。</div><div class="line">selection.remove - 移除文档中的元素。</div><div class="line">selection.sort - 基于数据给文档中的元素排序。</div><div class="line">selection.order - 重排列文档中的元素以匹配选择中的顺序。</div><div class="line">selection.raise - 重新排列每个元素为父元素的最后一个子节点。</div><div class="line">selection.lower - 重新排列每个元素为父元素的第一个子节点。</div><div class="line">d3.creator - 通过名称创建元素。</div></pre></td></tr></table></figure>
+<h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">selection.data - 元素和数据绑定。</div><div class="line">selection.enter - 获得进入（enter）选择器（数据无元素）。</div><div class="line">selection.exit - 获得退出（exit）选择器（元素无数据）。</div><div class="line">selection.datum - 获取或设置元素的数据（不绑定）。</div></pre></td></tr></table></figure>
+<p>事件处理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">selection.on - 添加或移除事件监听器。</div><div class="line">selection.dispatch - 分发自定义事件。</div><div class="line">d3.event - 交互中的当前用户事件。</div><div class="line">d3.customEvent - 暂时定义一个自定义事件。</div><div class="line">d3.mouse - 获取相对给定容器的鼠标位置。</div><div class="line">d3.touch - 获取相对给定容器的单点触控位置。</div><div class="line">d3.touches - 获取相对给定容器的多点触控位置。</div></pre></td></tr></table></figure>
+<p>控制语句</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">selection.each - 为每个元素调用一次指定的方法。</div><div class="line">selection.call - 选择器调用指定的方法。</div><div class="line">selection.empty - 返回是否是空选择。</div><div class="line">selection.nodes - 返回所有选中元素的数组。</div><div class="line">selection.node - 返回第一个非空元素。</div><div class="line">selection.size - 返回元素数量。</div></pre></td></tr></table></figure>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">d3.namespace - 限定XML命名空间，如“xlink:href "。</div><div class="line">d3.namespaces - 内置的XML命名空间。</div></pre></td></tr></table></figure>
+<h2 id="形状"><a href="#形状" class="headerlink" title="形状"></a>形状</h2><p>可视化的图形原语。</p>
+<h2 id="弧"><a href="#弧" class="headerlink" title="弧"></a>弧</h2><p>圆形或环形扇区，如饼图或甜甜圈图。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">d3.arc - 创建一个新的弧生成器。</div><div class="line">arc - 创建给定数据的弧。</div><div class="line">arc.centroid - 弧中心。</div><div class="line">arc.innerRadius - 设置内径。</div><div class="line">arc.outerRadius - 设置外径。</div><div class="line">arc.cornerRadius - 设置圆角半径。</div><div class="line">arc.startAngle - 设置起始角度。</div><div class="line">arc.endAngle - 设置结束角度。</div><div class="line">arc.padAngle - 设置相邻弧之间的夹角。</div><div class="line">arc.padRadius - 设置线性填充半径。</div><div class="line">arc.context - 设置渲染上下文。</div></pre></td></tr></table></figure>
+<h2 id="饼"><a href="#饼" class="headerlink" title="饼"></a>饼</h2><p>计算用于展示饼图或甜环形图的必要的角度值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">d3.pie - 创建一个饼生成器。</div><div class="line">pie - 计算给定数据集的角度值。</div><div class="line">pie.value - 设置值访问器。</div><div class="line">pie.sort - 设置排序比较器。</div><div class="line">pie.sortValues - 设置排序比较器。</div><div class="line">pie.startAngle - 设置整体的起始角度。</div><div class="line">pie.endAngle - 设置整体的结束角度。</div><div class="line">pie.padAngle - 设置相邻弧间隔角度。</div></pre></td></tr></table></figure>
+<h2 id="线"><a href="#线" class="headerlink" title="线"></a>线</h2><p>用于绘制线图的样条曲线或者折线。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d3.line - 创建一个新的线生成器。</div><div class="line">line - 生成给定数据的线。</div><div class="line">line.x - 设置x访问器。</div><div class="line">line.y - 设置y访问器。</div><div class="line">line.defined - 设置定义访问器。</div><div class="line">line.curve - 设置曲线插值器。</div><div class="line">line.context - 设置渲染上下文。</div><div class="line">d3.radialLine - 创建一个新的径向线生成器。</div><div class="line">radialLine - 生成给定数据的线。</div><div class="line">radialLine.angle - 设置角度访问器。</div><div class="line">radialLine.radius - 设置半径访问器。</div><div class="line">radialLine.defined - 设置定义访问器。</div><div class="line">radialLine.curve - 设置曲线插值器。</div><div class="line">radialLine.context - 设置渲染上下文。</div></pre></td></tr></table></figure>
+<h2 id="面积"><a href="#面积" class="headerlink" title="面积"></a>面积</h2><p>由顶线基线构成，用于面积图。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">d3.area - 创建一个新的面积生成器。</div><div class="line">area - 为给定数据集生成面积。</div><div class="line">area.x - 设置 x0 和 x1 访问器。</div><div class="line">area.x0 - 设置 基线的 x 访问器。</div><div class="line">area.x1 - 设置顶线的 x 访问器。</div><div class="line">area.y - 设置 y0 和 y1 访问器。</div><div class="line">area.y0 - 设置基线的 y 访问器。</div><div class="line">area.y1 - 设置顶线的 y 访问器。</div><div class="line">area.defined - 设置定义点访问器。</div><div class="line">area.curve - 设置曲线插值器。</div><div class="line">area.context - 设置渲染上下文。</div><div class="line">area.lineX0 - 为区域左边缘得到一条线。</div><div class="line">area.lineX1 - 为区域右边缘得到一条线。</div><div class="line">area.lineY0 - 为区域上边缘得到一条线。</div><div class="line">area.lineY1 - 为区域下边缘得到一条线。</div><div class="line">d3.radialArea - 创建一个新的径向面积生成器。</div><div class="line">radialArea - 为给定数据集生成面积。</div><div class="line">radialArea.angle - 设置起始角度/结束角度访问器。</div><div class="line">radialArea.startAngle - 设置起始角度访问器。</div><div class="line">radialArea.endAngle - 设置结束角度访问器。</div><div class="line">radialArea.radius - 设置内半径/外半径访问器。</div><div class="line">radialArea.innerRadius - 设置内半径访问器。</div><div class="line">radialArea.outerRadius - 设置外半径访问器。</div><div class="line">radialArea.defined - 设置定义点访问器。</div><div class="line">radialArea.curve - 设置曲线插值器。</div><div class="line">radialArea.context - 设置渲染上下文。</div><div class="line">radialArea.lineStartAngle - 为区域起始边缘得到一条线。</div><div class="line">radialArea.lineEndAngle - 为区域结束边缘得到一条线。</div><div class="line">radialArea.lineInnerRadius - 为区域内边缘得到一条线。</div><div class="line">radialArea.lineOuterRadius - 为区域外边缘得到一条线。</div></pre></td></tr></table></figure>
+<h2 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h2><p>通过在点间插值生成一条曲线。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">d3.curveBasis - 立方基本样条，终点循环。</div><div class="line">basis</div><div class="line"></div><div class="line">d3.curveBasisClosed - 闭合立方基本样条。</div><div class="line">basisClosed</div><div class="line"></div><div class="line">d3.curveBasisOpen - 开放立方基本样条。</div><div class="line">basisOpen</div><div class="line"></div><div class="line">d3.curveBundle - 直立方基本样条。</div><div class="line">bundle</div><div class="line"></div><div class="line">d3.curveCardinal - 三次C样条。</div><div class="line">cardinal</div><div class="line"></div><div class="line">d3.curveCardinalClosed - 闭合三次C样条。</div><div class="line">cardinalClosed</div><div class="line"></div><div class="line">d3.curveCardinalOpen - 开放三次C样条。</div><div class="line">cardinalOpen</div><div class="line"></div><div class="line">cardinal.tension - 设置基数样条曲线的张力。</div><div class="line">d3.curveCatmullRom - 立方Catmull-Rom样条。</div><div class="line">catmullRom</div><div class="line"></div><div class="line">d3.curveCatmullRomClosed - 闭合立方Catmull-Rom样条。</div><div class="line">catmullRomClosed</div><div class="line"></div><div class="line">d3.curveCatmullRomOpen - 开放立方Catmull-Rom样条。</div><div class="line">catmullRomOpen</div><div class="line"></div><div class="line">catmullRom.alpha - 设置Catmull–Rom的alpha参数。</div><div class="line">d3.curveLinear - 折线。</div><div class="line">linear</div><div class="line"></div><div class="line">d3.curveLinearClosed - 闭合折线。</div><div class="line">linearClosed</div><div class="line"></div><div class="line">d3.curveMonotoneX - 立方样条。假设y是单调的，保持x的单调性。</div><div class="line">monotoneX</div><div class="line"></div><div class="line">d3.curveMonotoneY - 立方样条。假设x是单调的，保持y的单调性。</div><div class="line">monotoneY</div><div class="line"></div><div class="line">d3.curveNatural - 自然三次样条。</div><div class="line">natural</div><div class="line"></div><div class="line">d3.curveStep - 分段常值函数。</div><div class="line">step</div><div class="line"></div><div class="line">d3.curveStepAfter - 分段常值函数。</div><div class="line">stepAfter</div><div class="line"></div><div class="line">d3.curveStepBefore - 分段常值函数。</div><div class="line">stepBefore</div><div class="line"></div><div class="line">curve.areaStart - 开始一个面积片段。</div><div class="line">curve.areaEnd - 结束一个面积片段。</div><div class="line">curve.lineStart - 开始一条新的线段。</div><div class="line">curve.lineEnd - 结束一条新的线段。</div><div class="line">curve.point - 给当前线段加一个点。</div></pre></td></tr></table></figure>
+<h2 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h2><p>一些内置形状，用于散点图。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d3.symbol - 创建一个新的形状生成器。</div><div class="line">symbol - 为给定数据生成符号。</div><div class="line">symbol.type - 设置符号类型。</div><div class="line">symbol.size - 设置符号尺寸。</div><div class="line">symbol.context - 设置渲染上下文。</div><div class="line">d3.symbols - 符号类型数组。</div><div class="line">d3.symbolCircle - 圆形。</div><div class="line">d3.symbolCross - 十字。</div><div class="line">d3.symbolDiamond - 菱形。</div><div class="line">d3.symbolSquare - 方形。</div><div class="line">d3.symbolStar - 五角星。</div><div class="line">d3.symbolTriangle - 上三角。</div><div class="line">d3.symbolWye - Y形。</div><div class="line">symbolType.draw - 在给定的容器中绘制符号。</div></pre></td></tr></table></figure>
+<h2 id="堆叠"><a href="#堆叠" class="headerlink" title="堆叠"></a>堆叠</h2><p>将形状堆叠起来，就像分段条形图那样。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">d3.stack - 创建一个新的堆叠生成器。</div><div class="line">stack - 为给定数据生成堆叠数据。</div><div class="line">stack.keys - 设置键访问器。</div><div class="line">stack.value - 设置值访问器。</div><div class="line">stack.order - 设置排序访问器。</div><div class="line">stack.offset - 设置偏移访问器。</div><div class="line">d3.stackOrderAscending - 将最小值放在底部。</div><div class="line">d3.stackOrderDescending - 将最大值放在底部。</div><div class="line">d3.stackOrderInsideOut - 将最大值放在中部。</div><div class="line">d3.stackOrderNone - 使用给定的系列顺序。</div><div class="line">d3.stackOrderReverse - 系列给定的系列相反的顺序。</div><div class="line">d3.stackOffsetExpand - 标准化为0=1之间。</div><div class="line">d3.stackOffsetNone - 应用零基准。</div><div class="line">d3.stackOffsetSilhouette - 将流图居中在0附近。</div><div class="line">d3.stackOffsetWiggle - 流图最小摆动。</div></pre></td></tr></table></figure>
+<h2 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h2><p>解析和格式化时间。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">d3.timeFormat - enUs.format别名。</div><div class="line">d3.timeParse - enUs.parse别名。</div><div class="line">d3.utcFormat - enUs.utcFormat别名。</div><div class="line">d3.utcFormat - enUs.utcParse别名。</div><div class="line">d3.isoFormat - ISO 8601 UTC格式化。</div><div class="line">d3.isoParse - ISO 8601 UTC解析器。</div><div class="line">d3.timeFormatLocale - 自定义本地化。</div><div class="line">locale.format - 创建一个时间格式化器。</div><div class="line">locale.parse - 创建一个时间解析器。</div><div class="line">locale.utcFormat - 创建一个UTC格式化器。</div><div class="line">locale.utcParse - 创建一个UTC解析器。</div></pre></td></tr></table></figure>
+<h2 id="时间间隔"><a href="#时间间隔" class="headerlink" title="时间间隔"></a>时间间隔</h2><p>时间计算。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">d3.timeInterval - 实现一个新的自定义时间间隔。</div><div class="line">interval - interval.floor的别名。</div><div class="line">interval.floor - 下取整到最近的边界。</div><div class="line">interval.round - 四舍五入到最近的边界。</div><div class="line">interval.ceil - 上取整到最近的边界。</div><div class="line">interval.offset - 抵消一些日期的间隔。</div><div class="line">interval.range - 生成的日期范围区间边界。</div><div class="line">interval.filter - 创建一个这个区间的过滤子集。</div><div class="line">interval.every - 创建一个这个区间的过滤子集。</div><div class="line">interval.count - 计算两个时间之间的间隔。</div><div class="line">d3.timeMillisecond, d3.utcMillisecond - 毫秒间隔。</div><div class="line">d3.timeMilliseconds, d3.utcMilliseconds - millisecond.range的别名。</div><div class="line">d3.timeSecond, d3.utcSecond - 秒间隔。</div><div class="line">d3.timeSeconds, d3.utcSeconds - second.range的别名。</div><div class="line">d3.timeMinute, d3.utcMinute - 分钟间隔。</div><div class="line">d3.timeMinutes, d3.utcMinutes - minute.range的别名。</div><div class="line">d3.timeHour, d3.utcHour - 小时间隔。</div><div class="line">d3.timeHours, d3.utcHours - hour.range的别名。</div><div class="line">d3.timeDay, d3.utcDay - 天间隔。</div><div class="line">d3.timeDays, d3.utcDays - day.range的别名。</div><div class="line">d3.timeWeek, d3.utcWeek - 星期天的别名。</div><div class="line">d3.timeWeeks, d3.utcWeeks - week.range的别名。</div><div class="line">d3.timeSunday, d3.utcSunday - 星期间隔（周日开始）。</div><div class="line">d3.timeSundays, d3.utcSundays - sunday.range的别名。</div><div class="line">d3.timeMonday, d3.utcMonday - 星期间隔（周一开始）。</div><div class="line">d3.timeMondays, d3.utcMondays - monday.range的别名。</div><div class="line">d3.timeTuesday, d3.utcTuesday - 星期间隔（周二开始）。</div><div class="line">d3.timeTuesdays, d3.utcTuesdays - tuesday.range的别名。</div><div class="line">d3.timeWednesday, d3.utcWednesday - 星期间隔（周三开始）。</div><div class="line">d3.timeWednesdays, d3.utcWednesdays - wednesday.range的别名。</div><div class="line">d3.timeThursday, d3.utcThursday - 星期间隔（周四开始）。</div><div class="line">d3.timeThursdays, d3.utcThursdays - thursday.range的别名。</div><div class="line">d3.timeFriday, d3.utcFriday - 星期间隔（周五开始）。</div><div class="line">d3.timeFridays, d3.utcFridays - friday.range的别名。</div><div class="line">d3.timeSaturday, d3.utcSaturday - 星期间隔（周六开始）。</div><div class="line">d3.timeSaturdays, d3.utcSaturdays - saturday.range的别名。</div><div class="line">d3.timeMonth, d3.utcMonth - 月间隔。</div><div class="line">d3.timeMonths, d3.utcMonths - month.range的别名。</div><div class="line">d3.timeYear, d3.utcYear - 年间隔。</div><div class="line">d3.timeYears, d3.utcYears - year.range的别名。</div></pre></td></tr></table></figure>
+<h2 id="定时器-1"><a href="#定时器-1" class="headerlink" title="定时器"></a>定时器</h2><p>管理成千上万的并发动画的队列。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">d3.now - 获取当前高分辨率时间。</div><div class="line">d3.timer - 安排一个新的定时器。</div><div class="line">timer.restart - 重置定时器的开始时间和回调。</div><div class="line">timer.stop - 停止定时器。</div><div class="line">d3.timerFlush - 立即执行任何合格的定时器。</div><div class="line">d3.timeout - 安排一个定时器在首次回调时停止。</div><div class="line">d3.interval - 安排一个可配置时期的定时器。</div><div class="line">过渡</div><div class="line"></div><div class="line">selections的动画过渡。</div><div class="line"></div><div class="line">selection.transition - 为选定的元素安排一个过渡。</div><div class="line">selection.interrupt - 中断和取消选定元素的过渡。</div><div class="line">d3.transition - 为文档根元素安排一个过渡。</div><div class="line">transition.select - 为选定的元素安排一个过渡。</div><div class="line">transition.selectAll - 为选定的所有元素安排一个过渡。</div><div class="line">transition.filter - 基于数据过滤元素。</div><div class="line">transition.merge - 两个过渡合并。</div><div class="line">transition.selection - 返回一个过渡选择。</div><div class="line">transition.transition - 链式过渡。</div><div class="line">transition.call - 过渡调用一个函数。</div><div class="line">transition.nodes - 返回选定元素数组。</div><div class="line">transition.node - 返回第一个非空元素。</div><div class="line">transition.size - 返回元素数。</div><div class="line">transition.empty - 如果过渡为空返回true。</div><div class="line">transition.each - 为每个元素调用一个函数。</div><div class="line">transition.on - 添加或删除过渡的事件侦听器。</div><div class="line">transition.attr - 使用默认插值器过渡属性。</div><div class="line">transition.attrTween - 使用自定义插值器过渡属性。</div><div class="line">transition.style - 使用默认插值器过渡样式。</div><div class="line">transition.styleTween - 使用自定义插值器过渡样式。</div><div class="line">transition.text - 在过渡开始时设置文本内容。</div><div class="line">transition.remove - 过渡结束后移除元素。</div><div class="line">transition.tween - 在过渡期间运行自定义代码。</div><div class="line">transition.delay - 指定每个元素的延迟时间（以毫米为单位）。</div><div class="line">transition.duration - 指定每个元素的持续时间（以毫米为单位）。</div><div class="line">transition.ease -指定缓动函数。</div><div class="line">d3.active - 对于一个给定的节点选择活跃中的过渡。</div><div class="line">d3.interrupt - 中断过渡？。</div></pre></td></tr></table></figure></p>
+<h2 id="冯罗诺"><a href="#冯罗诺" class="headerlink" title="冯罗诺"></a>冯罗诺</h2><p>为给定的点集计算冯罗诺图。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.voronoi - 创建一个新的冯罗诺生成器。</div><div class="line">voronoi - 为给定的点集计算泰森多边形。</div><div class="line">voronoi.polygons - 为给定的点集计算冯罗诺多边形</div><div class="line">voronoi.triangles - 为给定的点集计算Delaunay三角形。</div><div class="line">voronoi.links - 为给定的点集计算Delaunay连接。</div><div class="line">voronoi.x - 设置x访问器。</div><div class="line">voronoi.y - 设置y访问器。</div><div class="line">voronoi.extent - 设置点的观察范围。</div><div class="line">voronoi.size - 设置点的观察范围。</div></pre></td></tr></table></figure>
+<h2 id="缩放-1"><a href="#缩放-1" class="headerlink" title="缩放"></a>缩放</h2><p>使用鼠标或触摸平移和缩放SVG, HTML 或 Canvas。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">d3.zoom - 创建缩放行为。</div><div class="line">zoom - 将缩放行为应用到选中的元素上。</div><div class="line">zoom.transform - 改变选中元素的仿射变换。</div><div class="line">zoom.translateBy - 平移。</div><div class="line">zoom.scaleBy - 缩放。</div><div class="line">zoom.scaleTo - 缩放到。</div><div class="line">zoom.filter - 控制那个输入事件初始化缩放。</div><div class="line">zoom.extent - 设置viewport的尺寸。</div><div class="line">zoom.scaleExtent - 设置缩放范围。</div><div class="line">zoom.translateExtent - 设置平移范围。</div><div class="line">zoom.duration - 设置缩放过渡的延时时间。</div><div class="line">zoom.on - 监听缩放事件。</div><div class="line">d3.zoomTransform - 获取给定元素的仿射变换。</div><div class="line">transform.scale - 缩放指定大小。</div><div class="line">transform.translate - 平移指定大小。</div><div class="line">transform.apply - 将变换应用到给定的点。</div><div class="line">transform.applyX - 将变换应用到给定的x坐标。</div><div class="line">transform.applyY - 将变换应用到给定的y坐标。</div><div class="line">transform.invert - 解除给定点的变化。</div><div class="line">transform.invertX - 解除给定x坐标的变化。</div><div class="line">transform.invertY - 解除给定y坐标的变化。</div><div class="line">transform.rescaleX - 应用平移到指定的x比例尺的定义域。</div><div class="line">transform.rescaleY - 应用平移到指定的y比例尺的定义域。</div><div class="line">transform.toString - 将变换转换成SVG变换字符串。</div><div class="line">d3.zoomIdentity - 恒等变换。</div></pre></td></tr></table></figure>
+                
+
+
+<p class="pink-link-context">
+    <a href="/技术/web前端/自适应布局/bootstrap自适应布局.html" rel="next" title="自适应布局的一些">
+    下一篇：自适应布局的一些
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="技术/web前端/D3/D3 v4api专辑.html" data-title="D3" data-url="http://blog.ypintao.com/技术/web前端/D3/D3 v4api专辑.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'wustxingblog'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/2100494272" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://github.com/wustxing" target="_blank">
+                        <i class="fa fa-2x fa-github"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                <div class="site-visitors-container white-text">
+                    <span>
+                        <i class="fa fa-user"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+                    </span>
+                    <span>&nbsp;|&nbsp;</span>
+                    <span>
+                        <i class="fa fa-eye"></i>
+                        <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+                    </span>
+                </div>
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://blog.ypintao.com/" target="_blank">wustxing技术博客</a>
+                
+                    <a class="social-link" href="http://blackmack.github.io/" target="_blank">创姐的博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2016 example.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=61306871" charset="UTF-8"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
