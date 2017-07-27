@@ -16,7 +16,7 @@ DSV（分隔符分割的值）
 </code></pre><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><pre><code>数字格式化 
 时间格式化
 加载数据
-</code></pre><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h2 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h2><h2 id="数据映射"><a href="#数据映射" class="headerlink" title="数据映射"></a>数据映射</h2><h2 id="比例尺-连续型-颜色序数型-数值型-序数型-分类颜色型"><a href="#比例尺-连续型-颜色序数型-数值型-序数型-分类颜色型" class="headerlink" title="比例尺 (连续型, 颜色序数型, 数值型, 序数型, 分类颜色型)"></a>比例尺 (连续型, 颜色序数型, 数值型, 序数型, 分类颜色型)</h2><h2 id="图形几何"><a href="#图形几何" class="headerlink" title="图形几何"></a>图形几何</h2><h2 id="形状-弧-饼-线-面积-曲线-符号-堆叠"><a href="#形状-弧-饼-线-面积-曲线-符号-堆叠" class="headerlink" title="形状 (弧, 饼, 线, 面积, 曲线, 符号, 堆叠)"></a>形状 (弧, 饼, 线, 面积, 曲线, 符号, 堆叠)</h2><h2 id="轴"><a href="#轴" class="headerlink" title="轴"></a>轴</h2><h2 id="泰森多边形"><a href="#泰森多边形" class="headerlink" title="泰森多边形"></a>泰森多边形</h2><h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><h2 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h2><h2 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h2><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h2 id="力布局"><a href="#力布局" class="headerlink" title="力布局"></a>力布局</h2><h2 id="层次布局"><a href="#层次布局" class="headerlink" title="层次布局"></a>层次布局</h2><h2 id="动态交互"><a href="#动态交互" class="headerlink" title="动态交互"></a>动态交互</h2><h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><h2 id="插值器"><a href="#插值器" class="headerlink" title="插值器"></a>插值器</h2><h2 id="缓动"><a href="#缓动" class="headerlink" title="缓动"></a>缓动</h2><h2 id="事件分派"><a href="#事件分派" class="headerlink" title="事件分派"></a>事件分派</h2><h2 id="拖动"><a href="#拖动" class="headerlink" title="拖动"></a>拖动</h2><h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><h2 id="D3-使用-语义命名。可使用d3-version获取当前版本号。"><a href="#D3-使用-语义命名。可使用d3-version获取当前版本号。" class="headerlink" title="D3 使用 语义命名。可使用d3.version获取当前版本号。"></a>D3 使用 语义命名。可使用d3.version获取当前版本号。</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组<a id="more"></a></h2><pre><code>数组操作，排序，查找，汇总等。
+</code></pre><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组<a id="more"></a></h2><pre><code>数组操作，排序，查找，汇总等。
 </code></pre><!--more-->
 <h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>计算基本汇总统计的一些方法。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.min - 计算数组中的最小值。</div><div class="line">d3.max - 计算数组中的最大值。</div><div class="line">d3.extent - 计算数组的范围。</div><div class="line">d3.sum - 数组中所有元素求和。</div><div class="line">d3.mean - 计算数组的算术平均值。</div><div class="line">d3.median - 计算数组的中位数。</div><div class="line">d3.quantile - 计算一个数字数组排序后的分位数。R和Excel使用的R-7分位数计算法</div><div class="line">d3.variance - 数组中数字的方差。</div><div class="line">d3.deviation - 数组中数字的标准差。</div></pre></td></tr></table></figure></p>
 <h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>将离散样本分成连续的无重叠的间隔。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">d3.histogram - 创建一个新的直方图生成器。</div><div class="line">histogram - 对给定的样本数组计算直方图。</div><div class="line">histogram.value - 为每个样本指定一个值访问器。</div><div class="line">histogram.domain - 指定可观测值的间隔。</div><div class="line">histogram.thresholds - 指定值划分成不同箱的方法。</div><div class="line">d3.thresholdFreedmanDiaconis - Freedman–Diaconis装箱规则。</div><div class="line">d3.thresholdScott - Scott’s normal reference装箱规则。</div><div class="line">d3.thresholdSturges - Sturges’装箱准则。</div></pre></td></tr></table></figure></p>
@@ -24,7 +24,7 @@ DSV（分隔符分割的值）
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.scan - 使用比较器线查找。</div><div class="line">d3.bisect - 二分查找排序数组中的值。</div><div class="line">d3.bisectRight - 二分查找排序数组中的值。</div><div class="line">d3.bisectLeft - 二分查找排序数组中的值。</div><div class="line">d3.bisector - 使用访问器和比较器二分查找。</div><div class="line">bisector.left - 使用给定的比较器的bisectLeft。</div><div class="line">bisector.right - 使用给定的比较器的bisectRight。</div><div class="line">d3.ascending - 升序排序。</div><div class="line">d3.descending - 降序排序。</div></pre></td></tr></table></figure>
 <h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><p>转换数组并返回一个新的数组。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">d3.merge - 将多个数组合并成一个。</div><div class="line">d3.pairs - 数组邻接对。</div><div class="line">d3.permute - 安装指定的索引数组重排数组。</div><div class="line">d3.shuffle - 数组随机排序。洗牌算法的讨论</div><div class="line">d3.ticks - 从一个数组间隔生成有代表的值，刻度值。</div><div class="line">d3.tickStep - 从一个数组间隔生成有代表的步长。</div><div class="line">d3.tickIncrement - 增量（ticks中用到）。</div><div class="line">d3.range - 生成一组数值。</div><div class="line">d3.transpose - 数组转置。</div><div class="line">d3.zip - 转置多个数组。</div><div class="line">d3.cross - 两个数组的笛卡尔积。</div></pre></td></tr></table></figure>
-<h2 id="轴-1"><a href="#轴-1" class="headerlink" title="轴"></a>轴</h2><p>人类可读的刻度轴。</p>
+<h2 id="轴"><a href="#轴" class="headerlink" title="轴"></a>轴</h2><p>人类可读的刻度轴。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d3.axisTop - 创建一个上部轴生成器。</div><div class="line">d3.axisRight - 创建一个右部轴生成器。</div><div class="line">d3.axisBottom - 创建一个底部轴生成器。</div><div class="line">d3.axisLeft - 创建一个左部轴生成器。</div><div class="line">axis - 为给定的选择生成轴。</div><div class="line">axis.scale - 设置比例尺。</div><div class="line">axis.ticks - 自定义刻度的生成和格式化方式。</div><div class="line">axis.tickArguments - 自定义刻度的生成和格式化方式。</div><div class="line">axis.tickValues - 明确地指定刻度值。</div><div class="line">axis.tickFormat - 明确地指定刻度格式。</div><div class="line">axis.tickSize - 设置刻度的大小。</div><div class="line">axis.tickSizeInner - 设置内刻度的大小。</div><div class="line">axis.tickSizeOuter - 设置外刻度的大小。</div><div class="line">axis.tickPadding - 设置刻度和标签之间的间距。</div></pre></td></tr></table></figure>
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>便捷的数据结构，元素的键是字符串类型。</p>
 <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>将对象转为数组的方法。</p>
@@ -44,21 +44,21 @@ DSV（分隔符分割的值）
 <h2 id="拖曳"><a href="#拖曳" class="headerlink" title="拖曳"></a>拖曳</h2><p>使用鼠标或触屏拖曳SVG，HTML 或 Canvas。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.drag - 创建一个拖曳行为。</div><div class="line">drag - 对一个选择应用拖曳行为。</div><div class="line">drag.container - 设置坐标系统。</div><div class="line">drag.filter - 忽略一些初始的事件。</div><div class="line">drag.subject - 设置被拖曳对象。</div><div class="line">drag.x - 设置被拖曳对象的x-坐标。</div><div class="line">drag.y - 设置被拖曳对象的y-坐标。</div><div class="line">drag.on - 监听拖曳事件。</div><div class="line">event.on - 监听当前动作的拖曳事件。</div></pre></td></tr></table></figure>
 <h2 id="力导向图"><a href="#力导向图" class="headerlink" title="力导向图"></a>力导向图</h2><p>力导向图使用velocity Verlet整合算法实现。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">d3.forceSimulation - 创建一个力模拟。</div><div class="line">simulation.restart - 重启力模拟。</div><div class="line">simulation.stop - 停止力模拟。</div><div class="line">simulation.tick - 将力模拟向前推进一步。</div><div class="line">simulation.nodes - 设置力模拟的节点。</div><div class="line">simulation.alpha - 设置当前的α值。</div><div class="line">simulation.alphaMin -设置α最小阈值。</div><div class="line">simulation.alphaDecay - 设置α指数衰减率。</div><div class="line">simulation.alphaTarget - 设置目标α。</div><div class="line">simulation.drag - 设置曳引系数。</div><div class="line">simulation.force - 添加或移除力。</div><div class="line">simulation.fix - 固定节点位置。</div><div class="line">simulation.unfix - 释放固定的节点。</div><div class="line">simulation.find - 查找给定位置最近的节点。</div><div class="line">simulation.on - 添加或移除事件监听器。</div><div class="line">force - 应用力模拟。</div><div class="line">force.initialize - 使用给定的节点初始化力布局。</div><div class="line">d3.forceCenter - 创建一个力中心。</div><div class="line">center.x - 设置中心的x-坐标。</div><div class="line">center.y - 设置中心的y-坐标。</div><div class="line">d3.forceCollide - 创建一个圆碰撞力。</div><div class="line">collide.radius - 设置圆的半径。</div><div class="line">collide.strength - 设置碰撞检测强度。</div><div class="line">collide.iterations - 设置迭代次数。</div><div class="line">d3.forceLink - 创建连接力。</div><div class="line">link.links - 设置连接数组。</div><div class="line">link.id - 连接数组。</div><div class="line">link.distance - 设置连接距离。</div><div class="line">link.strength - 设置连接强度。</div><div class="line">link.iterations - 设置迭代次数。</div><div class="line">d3.forceManyBody - 创建多体力。</div><div class="line">manyBody.strength - 设置力强度。</div><div class="line">manyBody.theta - 设置Barnes-Hut近似精度。</div><div class="line">manyBody.distanceMin - 当节点关闭限制力。</div><div class="line">manyBody.distanceMax - 当节点太远限制力。</div><div class="line">d3.forceX - 创建x-定位力。</div><div class="line">x.strength - 设置力强度。</div><div class="line">x.x - 设置目标x-坐标。</div><div class="line">d3.forceY - 创建y-定位力。</div><div class="line">y.strength - 设置力强度。</div><div class="line">y.y - 设置目标y-坐标。</div></pre></td></tr></table></figure></p>
-<h2 id="层次布局-1"><a href="#层次布局-1" class="headerlink" title="层次布局"></a>层次布局</h2><p>用来可视化层次型数据的布局算法。</p>
+<h2 id="层次布局"><a href="#层次布局" class="headerlink" title="层次布局"></a>层次布局</h2><p>用来可视化层次型数据的布局算法。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">d3.hierarchy - 从层次型的数据构造一个根节点。</div><div class="line">node.ancestors - 生成祖先数组。</div><div class="line">node.descendants - 生成后代数组。</div><div class="line">node.leaves - 生成层级数组。</div><div class="line">node.path - 生成到达另一个节点的最短路径。</div><div class="line">node.sum - 求和。</div><div class="line">node.sort - 排序所有后代的兄弟节点。</div><div class="line">node.each - 广度优先遍历。</div><div class="line">node.eachAfter - 后序遍历。</div><div class="line">node.eachBefore - 先序遍历。</div><div class="line">node.copy - 拷贝层次布局。</div><div class="line">d3.stratify - 创建一个层操作符。</div><div class="line">stratify - 从表格式的数据构造一个根节点。</div><div class="line">stratify.id - 设置节点ID访问器。</div><div class="line">stratify.parentId - 设置父节点ID访问器。</div><div class="line">d3.cluster - 创建一个新的簇（系统树图）布局。</div><div class="line">cluster - 将给定的层次数据排列到簇中。</div><div class="line">cluster.size - 设置布局大小。</div><div class="line">cluster.nodeSize - 设置节点大小。</div><div class="line">cluster.separation - 设置层间距。</div><div class="line">d3.tree - 创建新的整齐的树布局。</div><div class="line">tree - 将给定的层次数据排列到树中。</div><div class="line">tree.size - 设置布局大小。</div><div class="line">tree.nodeSize - 设置节点大小。</div><div class="line">tree.separation - 设置层间距。</div><div class="line">d3.treemap - 创建一个新的矩形填充树布局（简称矩形树布局）。</div><div class="line">treemap - 使用矩形填充树布局排列给定的层次数据。</div><div class="line">treemap.tile - 设置铺砌方法。</div><div class="line">treemap.size - 设置布局大小。</div><div class="line">treemap.round - 设置输出坐标是否是取整的。</div><div class="line">treemap.padding - 设置间距。</div><div class="line">treemap.paddingInner - 设置兄弟节点之间的间距。</div><div class="line">treemap.paddingOuter - 设置父子节点之间的间距。</div><div class="line">treemap.paddingTop - 设置父节点顶边缘和子节点的间距。</div><div class="line">treemap.paddingRight - 设置父节点右边缘和子节点的间距。</div><div class="line">treemap.paddingBottom - 设置父节点底边缘和子节点的间距。</div><div class="line">treemap.paddingLeft - 设置父节点左边缘和子节点的间距。</div><div class="line">d3.treemapBinary - 使用平衡二叉树铺砌。</div><div class="line">d3.treemapDice - 水平行铺砌。</div><div class="line">d3.treemapSlice - 垂直列铺砌。</div><div class="line">d3.treemapSliceDice - 水平和垂直交替铺砌。</div><div class="line">d3.treemapSquarify - 正方形铺砌。</div><div class="line">squarify.ratio - 设置期望的矩形长宽比。</div><div class="line">d3.partition - 创建新的分区布局（旭日图和冰柱图）。</div><div class="line">partition - 使用分区布局排列给定的层次数据。</div><div class="line">partition.size - 设置布局大小。</div><div class="line">partition.round - 设置输出坐标是否是取整的。</div><div class="line">partition.padding - 设置间距。</div><div class="line">d3.pack - 创建一个新的圆形填充布局（简称包布局）。</div><div class="line">pack - 使用包布局排列给定的层次数据。</div><div class="line">pack.radius - 设置半径访问器。</div><div class="line">pack.size - 设置布局大小。</div><div class="line">pack.padding - 设置间距。</div><div class="line">d3.packSiblings - 包装指定的圆数组。</div><div class="line">d3.packEnclose - 围住指定的圆数组。</div></pre></td></tr></table></figure>
-<h2 id="插值器-1"><a href="#插值器-1" class="headerlink" title="插值器"></a>插值器</h2><p>插补数字，字符串，颜色，数组，对象等。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">d3.interpolate - 插补任意值。</div><div class="line">d3.interpolateArray - 插补任意值的数组。</div><div class="line">d3.interpolateNumber - 插补数组。</div><div class="line">d3.interpolateObject - 插补充任意对象</div><div class="line">d3.interpolateRound - 插补整数。</div><div class="line">d3.interpolateString - 插补嵌入数字的字符串。</div><div class="line">d3.interpolateTransformCss - 插补2D CSS变换。</div><div class="line">d3.interpolateTransformSvg - 插补2D SVG变换。</div><div class="line">d3.interpolateZoom - 两个视图之间平移和缩放。</div><div class="line">d3.interpolateRgb - 插补RGB颜色。</div><div class="line">d3.interpolateHsl - 插补HSL颜色。</div><div class="line">d3.interpolateHslLong - 插补HSL颜色（长整型）。</div><div class="line">d3.interpolateLab - 插补Lab颜色。</div><div class="line">d3.interpolateHcl - 插补HCL颜色。</div><div class="line">d3.interpolateHclLong - 插补HCL颜色（长整型）。</div><div class="line">d3.interpolateCubehelix - 插补Cubehelix颜色。</div><div class="line">d3.interpolateCubehelixLong - 插补Cubehelix颜色（长整型）。</div><div class="line">interpolate.gamma - 在插值过程中使用γ矫正。</div></pre></td></tr></table></figure></p>
+<h2 id="插值器"><a href="#插值器" class="headerlink" title="插值器"></a>插值器</h2><p>插补数字，字符串，颜色，数组，对象等。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">d3.interpolate - 插补任意值。</div><div class="line">d3.interpolateArray - 插补任意值的数组。</div><div class="line">d3.interpolateNumber - 插补数组。</div><div class="line">d3.interpolateObject - 插补充任意对象</div><div class="line">d3.interpolateRound - 插补整数。</div><div class="line">d3.interpolateString - 插补嵌入数字的字符串。</div><div class="line">d3.interpolateTransformCss - 插补2D CSS变换。</div><div class="line">d3.interpolateTransformSvg - 插补2D SVG变换。</div><div class="line">d3.interpolateZoom - 两个视图之间平移和缩放。</div><div class="line">d3.interpolateRgb - 插补RGB颜色。</div><div class="line">d3.interpolateHsl - 插补HSL颜色。</div><div class="line">d3.interpolateHslLong - 插补HSL颜色（长整型）。</div><div class="line">d3.interpolateLab - 插补Lab颜色。</div><div class="line">d3.interpolateHcl - 插补HCL颜色。</div><div class="line">d3.interpolateHclLong - 插补HCL颜色（长整型）。</div><div class="line">d3.interpolateCubehelix - 插补Cubehelix颜色。</div><div class="line">d3.interpolateCubehelixLong - 插补Cubehelix颜色（长整型）。</div><div class="line">interpolate.gamma - 在插值过程中使用γ矫正。</div></pre></td></tr></table></figure></p>
 <h2 id="数字格式化"><a href="#数字格式化" class="headerlink" title="数字格式化"></a>数字格式化</h2><p>将数字格式化为人类可读的形式。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">d3.format - enUs.format的别名。</div><div class="line">d3.formatPrefix - enUs.formatPrefix的别名。</div><div class="line">d3.formatSpecifier - 解析数字格式说明符。</div><div class="line">d3.formatLocale - 定义一个自定义的本地化。</div><div class="line">locale.format - 创建一个数字格式。</div><div class="line">locale.formatPrefix - 创建一个SI-前缀数字格式化。</div><div class="line">d3.formatCaEs - Catalan (西班牙) 本地化。</div><div class="line">d3.formatCsCz - Czech (捷克) 本地化。</div><div class="line">d3.formatDeCh - German (瑞士) 本地化。</div><div class="line">d3.formatDeDe - German (德国) 本地化。</div><div class="line">d3.formatEnCa - English (加拿大) 本地化。</div><div class="line">d3.formatEnGb - English (英国) 本地化。</div><div class="line">d3.formatEnUs - English (美国 ) 本地化。</div><div class="line">d3.formatEsEs - Spanish (西班牙) 本地化。</div><div class="line">d3.formatFiFi - Finnish (芬兰) 本地化。</div><div class="line">d3.formatFrCa - French (加拿大) 本地化。</div><div class="line">d3.formatFrFr - French (法国) 本地化。</div><div class="line">d3.formatHeIl - Hebrew (以色列) 本地化。</div><div class="line">d3.formatHuHu - Hungarian (匈牙利) 本地化。</div><div class="line">d3.formatItIt - Italian (意大利) 本地化。</div><div class="line">d3.formatJaJp - Japanese (日本) 本地化。</div><div class="line">d3.formatKoKr - Korean (韩国) 本地化。</div><div class="line">d3.formatMkMk - Macedonian (马其顿) 本地化。</div><div class="line">d3.formatNlNl - Dutch (荷兰) 本地化。</div><div class="line">d3.formatPlPl - Polish (波兰) 本地化。</div><div class="line">d3.formatPtBr - Portuguese (巴西) 本地化。</div><div class="line">d3.formatRuRu - Russian (俄罗斯) 本地化。</div><div class="line">d3.formatSvSe - Swedish (瑞典) 本地化。</div><div class="line">d3.formatZhCn - Chinese (中国) 本地化。</div><div class="line">d3.precisionFixed - 计算定点表示法的小数精度。</div><div class="line">d3.precisionPrefix - 计算SI-前缀记号法的小数精度。</div><div class="line">d3.precisionRound - 计算有效数字。</div></pre></td></tr></table></figure></p>
-<h2 id="路径-1"><a href="#路径-1" class="headerlink" title="路径"></a>路径</h2><p>序列化Canvas路径命令为SVG。</p>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>序列化Canvas路径命令为SVG。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">d3.path - 创建一个新的路径序列化。</div><div class="line">path.moveTo - 移动到给定的点。</div><div class="line">path.closePath - 关闭当前的子路径。</div><div class="line">path.lineTo - 画一条直线段。</div><div class="line">path.quadraticCurveTo - 画一条二次贝塞尔曲线段。</div><div class="line">path.bezierCurveTo - 画一条三次贝塞尔曲线段。</div><div class="line">path.arcTo - 画一条三次贝塞尔曲线弧。</div><div class="line">path.arc - 画一条三次贝塞尔曲线弧。</div><div class="line">path.rect - 画一个矩形。</div><div class="line">path.toString - 序列化为SVG路径的data属性字符串。</div></pre></td></tr></table></figure>
-<h2 id="多边形-1"><a href="#多边形-1" class="headerlink" title="多边形"></a>多边形</h2><p>二维多边形的几何操作。</p>
+<h2 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h2><p>二维多边形的几何操作。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">d3.polygonArea - 计算给定多边形的面积。</div><div class="line">d3.polygonCentroid - 计算给定多边形的中心。</div><div class="line">d3.polygonHull - 计算给定点集的凸包。</div><div class="line">d3.polygonContains - 测试点是否在多边形内。</div><div class="line">d3.polygonLength - 计算给定多边形的周长的长度。</div></pre></td></tr></table></figure>
-<h2 id="四叉树-1"><a href="#四叉树-1" class="headerlink" title="四叉树"></a>四叉树</h2><p>二维递归空间细分。</p>
+<h2 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h2><p>二维递归空间细分。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d3.quadtree - 创建一个新的空的四叉树。</div><div class="line">quadtree.x - 设置x访问器。</div><div class="line">quadtree.y - 设置y访问器。</div><div class="line">quadtree.add - 添加数据到四叉树中。</div><div class="line">quadtree.remove - 删除四叉树中的数据。</div><div class="line">quadtree.copy - 创建一个四叉树的副本。</div><div class="line">quadtree.root - 获取四叉树的根节点。</div><div class="line">quadtree.data - 从四叉树检索所有数据。</div><div class="line">quadtree.size - 计算在四叉树中数据的数量。</div><div class="line">quadtree.find - 在四叉树快速找到最接近的数据。</div><div class="line">quadtree.visit - 选择性地访问四叉树中的节点。</div><div class="line">quadtree.visitAfter - 访问四叉树中的所有节点。</div><div class="line">quadtree.cover - 扩充四叉树覆盖一个点。</div><div class="line">quadtree.extent - 扩充四叉树覆盖一个范围。</div></pre></td></tr></table></figure>
-<h2 id="队列-1"><a href="#队列-1" class="headerlink" title="队列"></a>队列</h2><p>使用可配置的并发性评估异步任务。</p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>使用可配置的并发性评估异步任务。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">d3.queue - 管理异步任务的并发评估。</div><div class="line">queue.defer - 注册一个用来评估的任务。</div><div class="line">queue.abort - 中止任何活动任务,取消任何挂起任务。</div><div class="line">queue.await - 注册一个任务结束后的回调函数。</div><div class="line">queue.awaitAll - 注册一个所有任务结束后的回调函数。</div></pre></td></tr></table></figure>
 <h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><p>生成不同分布的随机数。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">d3.randomUniform - 均匀分布。</div><div class="line">d3.randomNormal - 正态分布。</div><div class="line">d3.randomLogNormal - 对数正态分布。</div><div class="line">d3.randomBates - 贝茨分布。</div><div class="line">d3.randomIrwinHall - Irwin-Hall分布。</div><div class="line">d3.randomExponential - 指数分布</div></pre></td></tr></table></figure>
-<h2 id="请求-1"><a href="#请求-1" class="headerlink" title="请求"></a>请求</h2><p>XMLHttpRequest的简便封装。</p>
+<h2 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h2><p>XMLHttpRequest的简便封装。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">d3.request - 创建一个异步请求。</div><div class="line">request.header - 设置请求头。</div><div class="line">request.user - 设置用来认证身份的用户名。</div><div class="line">request.password - 设置用来认证身份的密码。</div><div class="line">request.mimeType - 设置MIME类型。</div><div class="line">request.timeout - 设置超时时长（以秒为单位）。</div><div class="line">request.responseType - 设置响应类型。</div><div class="line">request.response - 设置响应函数。</div><div class="line">request.get - 发送GET请求。</div><div class="line">request.post - 发送POST请求。</div><div class="line">request.send - 设置请求。</div><div class="line">request.abort - 中断请求。</div><div class="line">request.on - 监听请求事件。</div><div class="line">d3.csv - 获取CSV文件。</div><div class="line">d3.html - 获取HTML文件。</div><div class="line">d3.json - 获取JSON文件。</div><div class="line">d3.text - 获取文本文件。</div><div class="line">d3.tsv - 获取TSV文件。</div><div class="line">d3.xml - 获取XML文件。</div></pre></td></tr></table></figure>
 <h2 id="比例尺"><a href="#比例尺" class="headerlink" title="比例尺"></a>比例尺</h2><p>映射抽象数据为可视化表示所需要的形式。</p>
 <p>连续型比例尺</p>
@@ -96,10 +96,10 @@ DSV（分隔符分割的值）
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">d3.timeFormat - enUs.format别名。</div><div class="line">d3.timeParse - enUs.parse别名。</div><div class="line">d3.utcFormat - enUs.utcFormat别名。</div><div class="line">d3.utcFormat - enUs.utcParse别名。</div><div class="line">d3.isoFormat - ISO 8601 UTC格式化。</div><div class="line">d3.isoParse - ISO 8601 UTC解析器。</div><div class="line">d3.timeFormatLocale - 自定义本地化。</div><div class="line">locale.format - 创建一个时间格式化器。</div><div class="line">locale.parse - 创建一个时间解析器。</div><div class="line">locale.utcFormat - 创建一个UTC格式化器。</div><div class="line">locale.utcParse - 创建一个UTC解析器。</div></pre></td></tr></table></figure>
 <h2 id="时间间隔"><a href="#时间间隔" class="headerlink" title="时间间隔"></a>时间间隔</h2><p>时间计算。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">d3.timeInterval - 实现一个新的自定义时间间隔。</div><div class="line">interval - interval.floor的别名。</div><div class="line">interval.floor - 下取整到最近的边界。</div><div class="line">interval.round - 四舍五入到最近的边界。</div><div class="line">interval.ceil - 上取整到最近的边界。</div><div class="line">interval.offset - 抵消一些日期的间隔。</div><div class="line">interval.range - 生成的日期范围区间边界。</div><div class="line">interval.filter - 创建一个这个区间的过滤子集。</div><div class="line">interval.every - 创建一个这个区间的过滤子集。</div><div class="line">interval.count - 计算两个时间之间的间隔。</div><div class="line">d3.timeMillisecond, d3.utcMillisecond - 毫秒间隔。</div><div class="line">d3.timeMilliseconds, d3.utcMilliseconds - millisecond.range的别名。</div><div class="line">d3.timeSecond, d3.utcSecond - 秒间隔。</div><div class="line">d3.timeSeconds, d3.utcSeconds - second.range的别名。</div><div class="line">d3.timeMinute, d3.utcMinute - 分钟间隔。</div><div class="line">d3.timeMinutes, d3.utcMinutes - minute.range的别名。</div><div class="line">d3.timeHour, d3.utcHour - 小时间隔。</div><div class="line">d3.timeHours, d3.utcHours - hour.range的别名。</div><div class="line">d3.timeDay, d3.utcDay - 天间隔。</div><div class="line">d3.timeDays, d3.utcDays - day.range的别名。</div><div class="line">d3.timeWeek, d3.utcWeek - 星期天的别名。</div><div class="line">d3.timeWeeks, d3.utcWeeks - week.range的别名。</div><div class="line">d3.timeSunday, d3.utcSunday - 星期间隔（周日开始）。</div><div class="line">d3.timeSundays, d3.utcSundays - sunday.range的别名。</div><div class="line">d3.timeMonday, d3.utcMonday - 星期间隔（周一开始）。</div><div class="line">d3.timeMondays, d3.utcMondays - monday.range的别名。</div><div class="line">d3.timeTuesday, d3.utcTuesday - 星期间隔（周二开始）。</div><div class="line">d3.timeTuesdays, d3.utcTuesdays - tuesday.range的别名。</div><div class="line">d3.timeWednesday, d3.utcWednesday - 星期间隔（周三开始）。</div><div class="line">d3.timeWednesdays, d3.utcWednesdays - wednesday.range的别名。</div><div class="line">d3.timeThursday, d3.utcThursday - 星期间隔（周四开始）。</div><div class="line">d3.timeThursdays, d3.utcThursdays - thursday.range的别名。</div><div class="line">d3.timeFriday, d3.utcFriday - 星期间隔（周五开始）。</div><div class="line">d3.timeFridays, d3.utcFridays - friday.range的别名。</div><div class="line">d3.timeSaturday, d3.utcSaturday - 星期间隔（周六开始）。</div><div class="line">d3.timeSaturdays, d3.utcSaturdays - saturday.range的别名。</div><div class="line">d3.timeMonth, d3.utcMonth - 月间隔。</div><div class="line">d3.timeMonths, d3.utcMonths - month.range的别名。</div><div class="line">d3.timeYear, d3.utcYear - 年间隔。</div><div class="line">d3.timeYears, d3.utcYears - year.range的别名。</div></pre></td></tr></table></figure>
-<h2 id="定时器-1"><a href="#定时器-1" class="headerlink" title="定时器"></a>定时器</h2><p>管理成千上万的并发动画的队列。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">d3.now - 获取当前高分辨率时间。</div><div class="line">d3.timer - 安排一个新的定时器。</div><div class="line">timer.restart - 重置定时器的开始时间和回调。</div><div class="line">timer.stop - 停止定时器。</div><div class="line">d3.timerFlush - 立即执行任何合格的定时器。</div><div class="line">d3.timeout - 安排一个定时器在首次回调时停止。</div><div class="line">d3.interval - 安排一个可配置时期的定时器。</div><div class="line">过渡</div><div class="line"></div><div class="line">selections的动画过渡。</div><div class="line"></div><div class="line">selection.transition - 为选定的元素安排一个过渡。</div><div class="line">selection.interrupt - 中断和取消选定元素的过渡。</div><div class="line">d3.transition - 为文档根元素安排一个过渡。</div><div class="line">transition.select - 为选定的元素安排一个过渡。</div><div class="line">transition.selectAll - 为选定的所有元素安排一个过渡。</div><div class="line">transition.filter - 基于数据过滤元素。</div><div class="line">transition.merge - 两个过渡合并。</div><div class="line">transition.selection - 返回一个过渡选择。</div><div class="line">transition.transition - 链式过渡。</div><div class="line">transition.call - 过渡调用一个函数。</div><div class="line">transition.nodes - 返回选定元素数组。</div><div class="line">transition.node - 返回第一个非空元素。</div><div class="line">transition.size - 返回元素数。</div><div class="line">transition.empty - 如果过渡为空返回true。</div><div class="line">transition.each - 为每个元素调用一个函数。</div><div class="line">transition.on - 添加或删除过渡的事件侦听器。</div><div class="line">transition.attr - 使用默认插值器过渡属性。</div><div class="line">transition.attrTween - 使用自定义插值器过渡属性。</div><div class="line">transition.style - 使用默认插值器过渡样式。</div><div class="line">transition.styleTween - 使用自定义插值器过渡样式。</div><div class="line">transition.text - 在过渡开始时设置文本内容。</div><div class="line">transition.remove - 过渡结束后移除元素。</div><div class="line">transition.tween - 在过渡期间运行自定义代码。</div><div class="line">transition.delay - 指定每个元素的延迟时间（以毫米为单位）。</div><div class="line">transition.duration - 指定每个元素的持续时间（以毫米为单位）。</div><div class="line">transition.ease -指定缓动函数。</div><div class="line">d3.active - 对于一个给定的节点选择活跃中的过渡。</div><div class="line">d3.interrupt - 中断过渡？。</div></pre></td></tr></table></figure></p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>管理成千上万的并发动画的队列。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">d3.now - 获取当前高分辨率时间。</div><div class="line">d3.timer - 安排一个新的定时器。</div><div class="line">timer.restart - 重置定时器的开始时间和回调。</div><div class="line">timer.stop - 停止定时器。</div><div class="line">d3.timerFlush - 立即执行任何合格的定时器。</div><div class="line">d3.timeout - 安排一个定时器在首次回调时停止。</div><div class="line">d3.interval - 安排一个可配置时期的定时器。</div><div class="line">过渡</div><div class="line"></div><div class="line">selections的动画过渡。</div><div class="line"></div><div class="line">selection.transition - 为选定的元素安排一个过渡。</div><div class="line">selection.interrupt - 中断和取消选定元素的过渡。</div><div class="line">d3.transition - 为文档根元素安排一个过渡。</div><div class="line">transition.select - 为选定的元素安排一个过渡。</div><div class="line">transition.selectAll - 为选定的所有元素安排一个过渡。</div><div class="line">transition.filter - 基于数据过滤元素。</div><div class="line">transition.merge - 两个过渡合并。</div><div class="line">transition.selection - 返回一个过渡选择。</div><div class="line">transition.transition - 链式过渡。</div><div class="line">transition.call - 过渡调用一个函数。</div><div class="line">transition.nodes - 返回选定元素数组。</div><div class="line">transition.node - 返回第一个非空元素。</div><div class="line">transition.size - 返回元素数。</div><div class="line">transition.empty - 如果过渡为空返回true。</div><div class="line">transition.each - 为每个元素调用一个函数。</div><div class="line">transition.on - 添加或删除过渡的事件侦听器。</div><div class="line">transition.attr - 使用默认插值器过渡属性。</div><div class="line">transition.attrTween - 使用自定义插值器过渡属性。</div><div class="line">transition.style - 使用默认插值器过渡样式。</div><div class="line">transition.styleTween - 使用自定义插值器过渡样式。</div><div class="line">transition.text - 在过渡开始时设置文本内容。</div><div class="line">transition.remove - 过渡结束后移除元素。</div><div class="line">transition.tween - 在过渡期间运行自定义代码。</div><div class="line">transition.delay - 指定每个元素的延迟时间（以毫米为单位）。</div><div class="line">transition.duration - 指定每个元素的持续时间（以毫米为单位）。</div><div class="line">transition.ease -指定缓动函数。</div><div class="line">d3.active - 对于一个给定的节点选择活跃中的过渡。</div><div class="line">d3.interrupt - 中断过渡？。</div></pre></td></tr></table></figure></p>
 <h2 id="冯罗诺"><a href="#冯罗诺" class="headerlink" title="冯罗诺"></a>冯罗诺</h2><p>为给定的点集计算冯罗诺图。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.voronoi - 创建一个新的冯罗诺生成器。</div><div class="line">voronoi - 为给定的点集计算泰森多边形。</div><div class="line">voronoi.polygons - 为给定的点集计算冯罗诺多边形</div><div class="line">voronoi.triangles - 为给定的点集计算Delaunay三角形。</div><div class="line">voronoi.links - 为给定的点集计算Delaunay连接。</div><div class="line">voronoi.x - 设置x访问器。</div><div class="line">voronoi.y - 设置y访问器。</div><div class="line">voronoi.extent - 设置点的观察范围。</div><div class="line">voronoi.size - 设置点的观察范围。</div></pre></td></tr></table></figure>
-<h2 id="缩放-1"><a href="#缩放-1" class="headerlink" title="缩放"></a>缩放</h2><p>使用鼠标或触摸平移和缩放SVG, HTML 或 Canvas。</p>
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p>使用鼠标或触摸平移和缩放SVG, HTML 或 Canvas。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">d3.zoom - 创建缩放行为。</div><div class="line">zoom - 将缩放行为应用到选中的元素上。</div><div class="line">zoom.transform - 改变选中元素的仿射变换。</div><div class="line">zoom.translateBy - 平移。</div><div class="line">zoom.scaleBy - 缩放。</div><div class="line">zoom.scaleTo - 缩放到。</div><div class="line">zoom.filter - 控制那个输入事件初始化缩放。</div><div class="line">zoom.extent - 设置viewport的尺寸。</div><div class="line">zoom.scaleExtent - 设置缩放范围。</div><div class="line">zoom.translateExtent - 设置平移范围。</div><div class="line">zoom.duration - 设置缩放过渡的延时时间。</div><div class="line">zoom.on - 监听缩放事件。</div><div class="line">d3.zoomTransform - 获取给定元素的仿射变换。</div><div class="line">transform.scale - 缩放指定大小。</div><div class="line">transform.translate - 平移指定大小。</div><div class="line">transform.apply - 将变换应用到给定的点。</div><div class="line">transform.applyX - 将变换应用到给定的x坐标。</div><div class="line">transform.applyY - 将变换应用到给定的y坐标。</div><div class="line">transform.invert - 解除给定点的变化。</div><div class="line">transform.invertX - 解除给定x坐标的变化。</div><div class="line">transform.invertY - 解除给定y坐标的变化。</div><div class="line">transform.rescaleX - 应用平移到指定的x比例尺的定义域。</div><div class="line">transform.rescaleY - 应用平移到指定的y比例尺的定义域。</div><div class="line">transform.toString - 将变换转换成SVG变换字符串。</div><div class="line">d3.zoomIdentity - 恒等变换。</div></pre></td></tr></table></figure>]]></content>
       
         <categories>
@@ -244,6 +244,37 @@ DSV（分隔符分割的值）
     </entry>
     
     <entry>
+      <title><![CDATA[关于angularjs用到的技术总结]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html</url>
+      <content type="html"><![CDATA[<ul>
+<li>1、bootstrap</li>
+<li>2、ui-root</li>
+<li>3、angularjs</li>
+<li>4、jquery</li>
+<li>5、requirejs</li>
+<li>6、nginx作为代理</li>
+<li>7、<a id="more"></a></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> AngularJS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> AngularJS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[SASS在webstrom下的安装]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</url>
       <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
@@ -283,37 +314,6 @@ DSV（分隔符分割的值）
         <tags>
             
             <tag> RequireJS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[关于angularjs用到的技术总结]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html</url>
-      <content type="html"><![CDATA[<ul>
-<li>1、bootstrap</li>
-<li>2、ui-root</li>
-<li>3、angularjs</li>
-<li>4、jquery</li>
-<li>5、requirejs</li>
-<li>6、nginx作为代理</li>
-<li>7、<a id="more"></a></li>
-</ul>
-]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> AngularJS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> AngularJS </tag>
             
         </tags>
         
@@ -663,6 +663,63 @@ linux
     </entry>
     
     <entry>
+      <title><![CDATA[JS问题汇总]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
+      <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[从输入url到浏览器显示页面发生了什么]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.html</url>
       <content type="html"><![CDATA[<p>#####这个过程大致分为两个部分：网络通信和页面渲染。</p>
@@ -706,63 +763,6 @@ linux
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">请求成功后，服务器会返回相应的HTML文件，接下来就到了页面的渲染</div><div class="line">阶段。</div></pre></td></tr></table></figure>
 <h6 id="2、页面渲染"><a href="#2、页面渲染" class="headerlink" title="2、页面渲染"></a>2、页面渲染</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">浏览器渲染页面的过程是这样的：</div><div class="line">解析HTML以构建DOM树----&gt;构建渲染树----&gt;布局渲染树----&gt;绘制渲染</div><div class="line">树。</div><div class="line">DOM树是由HTML文件中的标签排列组成，渲染树是在DOM树种加入css</div><div class="line">或者html种的style样式而形成的。渲染树只包含需要显示在页面中的DOM</div><div class="line">元素，像&lt;head&gt;元素或display属性值为none的元素都不在渲染树中。</div><div class="line">在浏览器还没有接收到完整的html文件时，他就开始渲染页面了。在遇到</div><div class="line">外部链入的脚本标签或样式标签或图片时，会再次发送HTTP请求重复上</div><div class="line">述步骤，在收到css文件后会对已经渲染的页面重新渲染，加入他们应有的</div><div class="line">样式，图片文件加载完立刻显示在相应位置。在这一过程中可能会触发页</div><div class="line">面的重绘或重排。</div></pre></td></tr></table></figure>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> JS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> JS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[JS问题汇总]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
-      <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
-<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
-<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
-<li>1、js动态加载dom元素</li>
-<li>2、onload异步加载</li>
-<li>3、使用requerjs这种，是属于异步加载。</li>
-</ul>
-<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
-<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
-<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
-</ul>
-<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
-<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
-</ul>
-<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
-<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
-<li><p>1、对象字面量的方式  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>2、用function来模拟无参的构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
-</li>
-<li><p>4、用工厂方式来创建（内置对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>5、用原型方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
-</li>
-<li><p>6、用混合方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
       
         <categories>
             
@@ -1960,29 +1960,6 @@ export PATH=$NODE_HOME/bin:$PATH
     </entry>
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/hello-world.html</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[nodejs多线程，真正的非阻塞]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Node/nodejs%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%8C%E7%9C%9F%E6%AD%A3%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E.html</url>
       <content type="html"><![CDATA[<p>node从他推出至今，充满赞美和饱受诟病的都是其单线程模型，所有的任务都在一个线程中完成（I/O等例外），优势的地方自然是免去了频繁切换线程的开销，以及减少资源互抢的问题等等，但是当nodejs面对cpu密集型模型的时候就力不从心了。尽管node拥有异步机制，可以把一些耗时算法丢入eventloop等待下个事件循环再做，但是因为其任然是单线程模型，所以终究会造成阻塞。<a id="more"></a></p>
@@ -2014,6 +1991,29 @@ export PATH=$NODE_HOME/bin:$PATH
         <tags>
             
             <tag> Node </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://blog.ypintao.com/hexo%E6%B5%8B%E8%AF%95/hello-world.html</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> test </tag>
             
         </tags>
         
@@ -2236,6 +2236,12 @@ export PATH=$NODE_HOME/bin:$PATH
   
     
     <entry>
+      <title><![CDATA[读书]]></title>
+      <url>http://blog.ypintao.com/reading/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于]]></title>
       <url>http://blog.ypintao.com/about/index.html</url>
       <content type="html"><![CDATA[<p>大家好，我是熊星。欢迎来到我的个人技术博客。</p>
@@ -2264,12 +2270,6 @@ export PATH=$NODE_HOME/bin:$PATH
 </li>
 </ul>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[读书]]></title>
-      <url>http://blog.ypintao.com/reading/index.html</url>
-      <content type="html"></content>
     </entry>
     
   

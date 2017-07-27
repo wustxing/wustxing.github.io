@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/D3/D3%20v4api%E4%B8%93%E8%BE%91.html</loc>
+    <lastmod>2017-07-27T15:49:01.233Z</lastmod>
+    <data>
+        <display>
+        <title>D3</title>
+        <pubTime>2017-07-26T16:00:00.000Z</pubTime>
+        
+        <tag>D3</tag>
+         
+         
+           
+             
+              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="D3" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/D3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/webRTC.html</loc>
     <lastmod>2017-07-27T15:47:26.102Z</lastmod>
     <data>
@@ -20,29 +43,6 @@
           
              
               <breadCrumb title="webRTC" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/webRTC/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/D3/D3%20v4api%E4%B8%93%E8%BE%91.html</loc>
-    <lastmod>2017-07-27T15:47:16.968Z</lastmod>
-    <data>
-        <display>
-        <title>D3</title>
-        <pubTime>2017-07-26T16:00:00.000Z</pubTime>
-        
-        <tag>D3</tag>
-         
-         
-           
-             
-              <breadCrumb title="web前端" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-          
-             
-              <breadCrumb title="D3" url="http://blog.ypintao.com/categories/web%E5%89%8D%E7%AB%AF/D3/"/>
           
         </display>
     </data>
