@@ -17,7 +17,8 @@ DSV（分隔符分割的值）
 时间格式化
 加载数据
 </code></pre><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><h2 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h2><h2 id="数据映射"><a href="#数据映射" class="headerlink" title="数据映射"></a>数据映射</h2><h2 id="比例尺-连续型-颜色序数型-数值型-序数型-分类颜色型"><a href="#比例尺-连续型-颜色序数型-数值型-序数型-分类颜色型" class="headerlink" title="比例尺 (连续型, 颜色序数型, 数值型, 序数型, 分类颜色型)"></a>比例尺 (连续型, 颜色序数型, 数值型, 序数型, 分类颜色型)</h2><h2 id="图形几何"><a href="#图形几何" class="headerlink" title="图形几何"></a>图形几何</h2><h2 id="形状-弧-饼-线-面积-曲线-符号-堆叠"><a href="#形状-弧-饼-线-面积-曲线-符号-堆叠" class="headerlink" title="形状 (弧, 饼, 线, 面积, 曲线, 符号, 堆叠)"></a>形状 (弧, 饼, 线, 面积, 曲线, 符号, 堆叠)</h2><h2 id="轴"><a href="#轴" class="headerlink" title="轴"></a>轴</h2><h2 id="泰森多边形"><a href="#泰森多边形" class="headerlink" title="泰森多边形"></a>泰森多边形</h2><h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><h2 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h2><h2 id="四叉树"><a href="#四叉树" class="headerlink" title="四叉树"></a>四叉树</h2><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h2 id="力布局"><a href="#力布局" class="headerlink" title="力布局"></a>力布局</h2><h2 id="层次布局"><a href="#层次布局" class="headerlink" title="层次布局"></a>层次布局</h2><h2 id="动态交互"><a href="#动态交互" class="headerlink" title="动态交互"></a>动态交互</h2><h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><h2 id="插值器"><a href="#插值器" class="headerlink" title="插值器"></a>插值器</h2><h2 id="缓动"><a href="#缓动" class="headerlink" title="缓动"></a>缓动</h2><h2 id="事件分派"><a href="#事件分派" class="headerlink" title="事件分派"></a>事件分派</h2><h2 id="拖动"><a href="#拖动" class="headerlink" title="拖动"></a>拖动</h2><h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><h2 id="D3-使用-语义命名。可使用d3-version获取当前版本号。"><a href="#D3-使用-语义命名。可使用d3-version获取当前版本号。" class="headerlink" title="D3 使用 语义命名。可使用d3.version获取当前版本号。"></a>D3 使用 语义命名。可使用d3.version获取当前版本号。</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><pre><code>数组操作，排序，查找，汇总等。
-</code></pre><h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>计算基本汇总统计的一些方法。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.min - 计算数组中的最小值。</div><div class="line">d3.max - 计算数组中的最大值。</div><div class="line">d3.extent - 计算数组的范围。</div><div class="line">d3.sum - 数组中所有元素求和。</div><div class="line">d3.mean - 计算数组的算术平均值。</div><div class="line">d3.median - 计算数组的中位数。</div><div class="line">d3.quantile - 计算一个数字数组排序后的分位数。R和Excel使用的R-7分位数计算法</div><div class="line">d3.variance - 数组中数字的方差。</div><div class="line">d3.deviation - 数组中数字的标准差。</div></pre></td></tr></table></figure></p>
+</code></pre><a id="more"></a>
+<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>计算基本汇总统计的一些方法。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.min - 计算数组中的最小值。</div><div class="line">d3.max - 计算数组中的最大值。</div><div class="line">d3.extent - 计算数组的范围。</div><div class="line">d3.sum - 数组中所有元素求和。</div><div class="line">d3.mean - 计算数组的算术平均值。</div><div class="line">d3.median - 计算数组的中位数。</div><div class="line">d3.quantile - 计算一个数字数组排序后的分位数。R和Excel使用的R-7分位数计算法</div><div class="line">d3.variance - 数组中数字的方差。</div><div class="line">d3.deviation - 数组中数字的标准差。</div></pre></td></tr></table></figure></p>
 <h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>将离散样本分成连续的无重叠的间隔。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">d3.histogram - 创建一个新的直方图生成器。</div><div class="line">histogram - 对给定的样本数组计算直方图。</div><div class="line">histogram.value - 为每个样本指定一个值访问器。</div><div class="line">histogram.domain - 指定可观测值的间隔。</div><div class="line">histogram.thresholds - 指定值划分成不同箱的方法。</div><div class="line">d3.thresholdFreedmanDiaconis - Freedman–Diaconis装箱规则。</div><div class="line">d3.thresholdScott - Scott’s normal reference装箱规则。</div><div class="line">d3.thresholdSturges - Sturges’装箱准则。</div></pre></td></tr></table></figure></p>
 <h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>检索数组中特定的值。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">d3.scan - 使用比较器线查找。</div><div class="line">d3.bisect - 二分查找排序数组中的值。</div><div class="line">d3.bisectRight - 二分查找排序数组中的值。</div><div class="line">d3.bisectLeft - 二分查找排序数组中的值。</div><div class="line">d3.bisector - 使用访问器和比较器二分查找。</div><div class="line">bisector.left - 使用给定的比较器的bisectLeft。</div><div class="line">bisector.right - 使用给定的比较器的bisectRight。</div><div class="line">d3.ascending - 升序排序。</div><div class="line">d3.descending - 降序排序。</div></pre></td></tr></table></figure>
@@ -169,7 +170,7 @@ DSV（分隔符分割的值）
       <title><![CDATA[HTML5调用摄像头]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/webRTC.html</url>
       <content type="html"><![CDATA[<p>##先直接上代码了##</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>webRTC<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"charset=utf-8"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"camera"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"video"</span>&gt;</span>Video stream not available.<span class="tag">&lt;/<span class="name">video</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"startbutton"</span>&gt;</span>Take photo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"output"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"photo"</span> <span class="attr">alt</span>=<span class="string">"The screen capture will appear in this box."</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">    var width = 320;    // We will scale the photo width to this</div><div class="line">    var height = 0;     // This will be computed based on the input stream</div><div class="line"></div><div class="line">    var streaming = false;</div><div class="line"></div><div class="line">    var video = null;</div><div class="line">    var canvas = null;</div><div class="line">    var photo = null;</div><div class="line">    var startbutton = null;</div><div class="line"></div><div class="line">    function startup() &#123;</div><div class="line">        video = document.getElementById('video');</div><div class="line">        canvas = document.getElementById('canvas');</div><div class="line">        photo = document.getElementById('photo');</div><div class="line">        startbutton = document.getElementById('startbutton');</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    startup();</div><div class="line">    navigator.mediaDevices.getUserMedia(&#123; video: true, audio: false &#125;)</div><div class="line">        .then(function(stream) &#123;</div><div class="line">            video.srcObject = stream;</div><div class="line">            video.play();</div><div class="line">        &#125;)</div><div class="line">        .catch(function(err) &#123;</div><div class="line">            console.log("An error occured! " + err);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    video.addEventListener('canplay', function(ev)&#123;</div><div class="line">        if (!streaming) &#123;</div><div class="line">            height = video.videoHeight / (video.videoWidth/width);</div><div class="line"></div><div class="line">            video.setAttribute('width', width);</div><div class="line">            video.setAttribute('height', height);</div><div class="line">            canvas.setAttribute('width', width);</div><div class="line">            canvas.setAttribute('height', height);</div><div class="line">            streaming = true;</div><div class="line">        &#125;</div><div class="line">    &#125;, false);</div><div class="line"></div><div class="line"></div><div class="line">    startbutton.addEventListener('click', function(ev)&#123;</div><div class="line">        takepicture();</div><div class="line">        ev.preventDefault();</div><div class="line">    &#125;, false);</div><div class="line"></div><div class="line"></div><div class="line">    function clearphoto() &#123;</div><div class="line">        var context = canvas.getContext('2d');</div><div class="line">        context.fillStyle = "#AAA";</div><div class="line">        context.fillRect(0, 0, canvas.width, canvas.height);</div><div class="line"></div><div class="line">        var data = canvas.toDataURL('image/png');</div><div class="line">        photo.setAttribute('src', data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//    clearphoto();</div><div class="line"></div><div class="line">    function takepicture() &#123;</div><div class="line">        var context = canvas.getContext('2d');</div><div class="line">        if (width &amp;&amp; height) &#123;</div><div class="line">            canvas.width = width;</div><div class="line">            canvas.height = height;</div><div class="line">            context.drawImage(video, 0, 0, width, height);</div><div class="line"></div><div class="line">//            var data = canvas.toDataURL('image/png');</div><div class="line">//            photo.setAttribute('src', data);</div><div class="line">        &#125; else &#123;</div><div class="line">            clearphoto();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>webRTC<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"charset=utf-8"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"camera"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"video"</span>&gt;</span>Video stream not available.<span class="tag">&lt;/<span class="name">video</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"startbutton"</span>&gt;</span>Take photo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"output"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"photo"</span> <span class="attr">alt</span>=<span class="string">"The screen capture will appear in this box."</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--more--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">    var width = 320;    // We will scale the photo width to this</div><div class="line">    var height = 0;     // This will be computed based on the input stream</div><div class="line"></div><div class="line">    var streaming = false;</div><div class="line"></div><div class="line">    var video = null;</div><div class="line">    var canvas = null;</div><div class="line">    var photo = null;</div><div class="line">    var startbutton = null;</div><div class="line"></div><div class="line">    function startup() &#123;</div><div class="line">        video = document.getElementById('video');</div><div class="line">        canvas = document.getElementById('canvas');</div><div class="line">        photo = document.getElementById('photo');</div><div class="line">        startbutton = document.getElementById('startbutton');</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    startup();</div><div class="line">    navigator.mediaDevices.getUserMedia(&#123; video: true, audio: false &#125;)</div><div class="line">        .then(function(stream) &#123;</div><div class="line">            video.srcObject = stream;</div><div class="line">            video.play();</div><div class="line">        &#125;)</div><div class="line">        .catch(function(err) &#123;</div><div class="line">            console.log("An error occured! " + err);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    video.addEventListener('canplay', function(ev)&#123;</div><div class="line">        if (!streaming) &#123;</div><div class="line">            height = video.videoHeight / (video.videoWidth/width);</div><div class="line"></div><div class="line">            video.setAttribute('width', width);</div><div class="line">            video.setAttribute('height', height);</div><div class="line">            canvas.setAttribute('width', width);</div><div class="line">            canvas.setAttribute('height', height);</div><div class="line">            streaming = true;</div><div class="line">        &#125;</div><div class="line">    &#125;, false);</div><div class="line"></div><div class="line"></div><div class="line">    startbutton.addEventListener('click', function(ev)&#123;</div><div class="line">        takepicture();</div><div class="line">        ev.preventDefault();</div><div class="line">    &#125;, false);</div><div class="line"></div><div class="line"></div><div class="line">    function clearphoto() &#123;</div><div class="line">        var context = canvas.getContext('2d');</div><div class="line">        context.fillStyle = "#AAA";</div><div class="line">        context.fillRect(0, 0, canvas.width, canvas.height);</div><div class="line"></div><div class="line">        var data = canvas.toDataURL('image/png');</div><div class="line">        photo.setAttribute('src', data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//    clearphoto();</div><div class="line"></div><div class="line">    function takepicture() &#123;</div><div class="line">        var context = canvas.getContext('2d');</div><div class="line">        if (width &amp;&amp; height) &#123;</div><div class="line">            canvas.width = width;</div><div class="line">            canvas.height = height;</div><div class="line">            context.drawImage(video, 0, 0, width, height);</div><div class="line"></div><div class="line">//            var data = canvas.toDataURL('image/png');</div><div class="line">//            photo.setAttribute('src', data);</div><div class="line">        &#125; else &#123;</div><div class="line">            clearphoto();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
       
         <categories>
             
@@ -243,6 +244,28 @@ DSV（分隔符分割的值）
     </entry>
     
     <entry>
+      <title><![CDATA[ionic的app目录约定]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/IONIC/ionic%E7%9A%84app%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A.html</url>
+      <content type="html"><![CDATA[<h3 id="IONIC-的目录约定以及一些基本用法"><a href="#IONIC-的目录约定以及一些基本用法" class="headerlink" title="IONIC 的目录约定以及一些基本用法"></a>IONIC 的目录约定以及一些基本用法</h3><a id="more"></a>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> IONIC </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> IONIC </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于angularjs用到的技术总结]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/AngularJS/AngularJS%E6%80%BB%E7%BB%93.html</url>
       <content type="html"><![CDATA[<ul>
@@ -274,28 +297,6 @@ DSV（分隔符分割的值）
     </entry>
     
     <entry>
-      <title><![CDATA[SASS在webstrom下的安装]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</url>
-      <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> SASS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> SASS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[RequireJS的使用结合angular]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/RequireJS/RequireJS%E7%9A%84%E4%BD%BF%E7%94%A8%E7%BB%93%E5%90%88angular.html</url>
       <content type="html"><![CDATA[<p>###Requirejs结合angular的使用<br><a id="more"></a></p>
@@ -319,22 +320,22 @@ DSV（分隔符分割的值）
     </entry>
     
     <entry>
-      <title><![CDATA[ionic的app目录约定]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/IONIC/ionic%E7%9A%84app%E7%9B%AE%E5%BD%95%E7%BA%A6%E5%AE%9A.html</url>
-      <content type="html"><![CDATA[<h3 id="IONIC-的目录约定以及一些基本用法"><a href="#IONIC-的目录约定以及一些基本用法" class="headerlink" title="IONIC 的目录约定以及一些基本用法"></a>IONIC 的目录约定以及一些基本用法</h3><a id="more"></a>]]></content>
+      <title><![CDATA[SASS在webstrom下的安装]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/SASS/SASS%E5%9C%A8webstrom%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85.html</url>
+      <content type="html"><![CDATA[<h2 id="sass在webstrom下的安装步骤"><a href="#sass在webstrom下的安装步骤" class="headerlink" title="sass在webstrom下的安装步骤"></a>sass在webstrom下的安装步骤</h2><a id="more"></a>]]></content>
       
         <categories>
             
             <category> web前端 </category>
             
-            <category> IONIC </category>
+            <category> SASS </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> IONIC </tag>
+            <tag> SASS </tag>
             
         </tags>
         
@@ -662,6 +663,63 @@ linux
     </entry>
     
     <entry>
+      <title><![CDATA[JS问题汇总]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
+      <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
+<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
+<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
+<li>1、js动态加载dom元素</li>
+<li>2、onload异步加载</li>
+<li>3、使用requerjs这种，是属于异步加载。</li>
+</ul>
+<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
+<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
+<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
+</ul>
+<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
+<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
+</ul>
+<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
+<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
+<li><p>1、对象字面量的方式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、用function来模拟无参的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>4、用工厂方式来创建（内置对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、用原型方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
+</li>
+<li><p>6、用混合方式来创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> JS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[从输入url到浏览器显示页面发生了什么]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.html</url>
       <content type="html"><![CDATA[<p>#####这个过程大致分为两个部分：网络通信和页面渲染。</p>
@@ -724,63 +782,6 @@ linux
     </entry>
     
     <entry>
-      <title><![CDATA[JS问题汇总]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/JS%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
-      <content type="html"><![CDATA[<h3 id="1、如何解决跨域问题"><a href="#1、如何解决跨域问题" class="headerlink" title="1、如何解决跨域问题"></a>1、如何解决跨域问题</h3><p>  nginx代理，或后端设置，</p>
-<h3 id="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"><a href="#2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）" class="headerlink" title="2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）"></a>2、移动端的点击事件有延迟，时间是多久，为什么会有，怎么解决这个延时（click有300ms延迟，为了实现Safari的双击时间的设计，浏览器要知道你是不是双击操作。）</h3><a id="more"></a>
-<h3 id="3、异步加载的方式有哪些"><a href="#3、异步加载的方式有哪些" class="headerlink" title="3、异步加载的方式有哪些"></a>3、异步加载的方式有哪些</h3><ul>
-<li>1、js动态加载dom元素</li>
-<li>2、onload异步加载</li>
-<li>3、使用requerjs这种，是属于异步加载。</li>
-</ul>
-<h3 id="4、javascript原型，原型链，？有什么特点？"><a href="#4、javascript原型，原型链，？有什么特点？" class="headerlink" title="4、javascript原型，原型链，？有什么特点？"></a>4、javascript原型，原型链，？有什么特点？</h3><p>*每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br>关系：instance.constructor.prototype = instance.__proto<em>\</em></p>
-<h3 id="5、Javascript作用链域"><a href="#5、Javascript作用链域" class="headerlink" title="5、Javascript作用链域?"></a>5、Javascript作用链域?</h3><ul>
-<li>全局函数无法查看局部函数的内部细节，但局部函数可以查看其上层的函数细节，直至全局细节。 当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</li>
-</ul>
-<h3 id="6、用原生javascript的实现过说明功能。"><a href="#6、用原生javascript的实现过说明功能。" class="headerlink" title="6、用原生javascript的实现过说明功能。"></a>6、用原生javascript的实现过说明功能。</h3><ul>
-<li>（如果会用node）知道route，middleware，cluster，nodemon,pm2,server-side rendering么解释一下backbone的mvc实现方式。</li>
-</ul>
-<h3 id="7、javascript对象的几种创建方式"><a href="#7、javascript对象的几种创建方式" class="headerlink" title="7、javascript对象的几种创建方式"></a>7、javascript对象的几种创建方式</h3><ul>
-<li>javascript创建对象简单的说,<br>无非就是使用内置对象或各种自定义对象，当然还可以用JSON；<br>但写法有很多种，也能混合使用。</li>
-<li><p>1、对象字面量的方式  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">person=&#123;firstname:&quot;Mark&quot;,lastname:&quot;Yun&quot;,age:25,eyecolor:&quot;black&quot;&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>2、用function来模拟无参的构造函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> person=<span class="keyword">new</span> Person();<span class="comment">//定义一个function，如果使用new"实例化",该function可以看作是一个Class</span></div><div class="line">person.name=<span class="string">"Mark"</span>;</div><div class="line">person.age=<span class="string">"25"</span>;</div><div class="line">person.work=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">alert(person.name+<span class="string">" hello..."</span>);</div><div class="line"> &#125;</div><div class="line">person.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>3、用function来模拟参构造函数来实现（用this关键字定义构造的上下文属性）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Pet(name,age,hobby)&#123;</div><div class="line">   this.name=name;//this作用域：当前对象</div><div class="line">   this.age=age;</div><div class="line">   this.hobby=hobby;</div><div class="line">   this.eat=function()&#123;</div><div class="line">      alert(&quot;我叫&quot;+this.name+&quot;,我喜欢&quot;+this.hobby+&quot;,是个程序员&quot;);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">var maidou =new Pet(&quot;麦兜&quot;,25,&quot;coding&quot;);//实例化、创建对象</div><div class="line">maidou.eat();//调用eat方法</div></pre></td></tr></table></figure>
-</li>
-<li><p>4、用工厂方式来创建（内置对象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var wcDog =new Object();</div><div class="line">wcDog.name=&quot;旺财&quot;;</div><div class="line">wcDog.age=3;</div><div class="line">wcDog.work=function()&#123;</div><div class="line">  alert(&quot;我是&quot;+wcDog.name+&quot;,汪汪汪......&quot;);</div><div class="line">&#125;</div><div class="line">wcDog.work();</div></pre></td></tr></table></figure>
-</li>
-<li><p>5、用原型方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function Dog()&#123;</div><div class="line"> &#125;</div><div class="line"> Dog.prototype.name=&quot;旺财&quot;;</div><div class="line"> Dog.prototype.eat=function()&#123;</div><div class="line"> alert(this.name+&quot;是个吃货&quot;);</div><div class="line"> &#125;</div><div class="line"> var wangcai =new Dog();</div><div class="line"> wangcai.eat();</div></pre></td></tr></table></figure>
-</li>
-<li><p>6、用混合方式来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   function Car(name,price)&#123;</div><div class="line">     this.name=name;</div><div class="line">     this.price=price;</div><div class="line">    &#125;</div><div class="line">    Car.prototype.sell=function()&#123;</div><div class="line">      alert(&quot;我是&quot;+this.name+&quot;，我现在卖&quot;+this.price+&quot;万元&quot;);</div><div class="line">     &#125;</div><div class="line">   var camry =new Car(&quot;凯美瑞&quot;,27);</div><div class="line">camry.sell();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="8、documen-write和innerHTML的区别"><a href="#8、documen-write和innerHTML的区别" class="headerlink" title="8、documen.write和innerHTML的区别"></a>8、documen.write和innerHTML的区别</h3><h3 id="9、简述一下handlebars的基本用法"><a href="#9、简述一下handlebars的基本用法" class="headerlink" title="9、简述一下handlebars的基本用法"></a>9、简述一下handlebars的基本用法</h3><h3 id="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"><a href="#10、jquery的源码看过吗？能不能简单的说下他的视线原理？" class="headerlink" title="10、jquery的源码看过吗？能不能简单的说下他的视线原理？"></a>10、jquery的源码看过吗？能不能简单的说下他的视线原理？</h3>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> JS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> JS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[关于单位px,rem,em]]></title>
       <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/JS/%E5%85%B3%E4%BA%8E%E5%8D%95%E4%BD%8Dpx,rem,em.html</url>
       <content type="html"><![CDATA[<ul>
@@ -809,37 +810,6 @@ linux
         <tags>
             
             <tag> JS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[HTML5问题汇总]]></title>
-      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
-      <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
-<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
-<ul>
-<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
-<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
-</ul>
-<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
-<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
-</ul>
-<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
-      
-        <categories>
-            
-            <category> web前端 </category>
-            
-            <category> HTML5 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> HTML5 </tag>
             
         </tags>
         
@@ -880,6 +850,37 @@ linux
         <tags>
             
             <tag> CSS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[HTML5问题汇总]]></title>
+      <url>http://blog.ypintao.com/%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/HTML5/HTML5%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB.html</url>
+      <content type="html"><![CDATA[<h3 id="简述一下你对html语义化的理解"><a href="#简述一下你对html语义化的理解" class="headerlink" title="简述一下你对html语义化的理解"></a>简述一下你对html语义化的理解</h3><p>网页验证码是干嘛的，是为了解决什么安全问题<br>html5有哪些新特性，移除了哪些元素，如何处理html5新标签的浏览器兼容问题，如何区分html和html5，</p>
+<h3 id="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"><a href="#浏览器是怎么对html5的离线存储资源进行管理和加载的呢" class="headerlink" title="浏览器是怎么对html5的离线存储资源进行管理和加载的呢"></a>浏览器是怎么对html5的离线存储资源进行管理和加载的呢</h3><h3 id="介绍下你对浏览器内核的理解"><a href="#介绍下你对浏览器内核的理解" class="headerlink" title="介绍下你对浏览器内核的理解"></a>介绍下你对浏览器内核的理解<a id="more"></a></h3><p>主要分成两部分：</p>
+<ul>
+<li>渲染引擎（layout engineer或rendering）和JS引擎<br>渲染引擎：负责取得网页的内容（html好，xml，图像等等）、整理讯息（例如加入css等），以及计算网页的显示方式，然后会输出至显示器，浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同，所有网页浏览器，电子邮件客户端以及其他需要编辑显示网络内容的应用程序。</li>
+<li>js引擎则：解析和执行javascript来实现网页的动态效果，最开始渲染引擎和js引擎并没有区分的很明确，后来js引擎越来越独立，内核就倾向于指渲染引擎。</li>
+</ul>
+<h3 id="html5为什么只需要些-lt-DOCTYPE-HTML-gt"><a href="#html5为什么只需要些-lt-DOCTYPE-HTML-gt" class="headerlink" title="html5为什么只需要些&lt;!DOCTYPE HTML&gt;"></a>html5为什么只需要些&lt;!DOCTYPE HTML&gt;</h3><ul>
+<li>HTML5不是基于SGML 因此不需要对DTD进行引用，但是余姚doctype来规范浏览器的行为（让牛栏器按照他们应该的方式运行，）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的的文档类型；</li>
+</ul>
+<h3 id="webSocket如何兼容低浏览器？（阿里）"><a href="#webSocket如何兼容低浏览器？（阿里）" class="headerlink" title="webSocket如何兼容低浏览器？（阿里）"></a>webSocket如何兼容低浏览器？（阿里）</h3><h3 id="label的作用是什么？是怎么用的（加for或包裹）"><a href="#label的作用是什么？是怎么用的（加for或包裹）" class="headerlink" title="label的作用是什么？是怎么用的（加for或包裹）"></a>label的作用是什么？是怎么用的（加for或包裹）</h3><h3 id="iframe有哪些缺点？"><a href="#iframe有哪些缺点？" class="headerlink" title="iframe有哪些缺点？"></a>iframe有哪些缺点？</h3><h3 id="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"><a href="#实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果" class="headerlink" title="实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果"></a>实现不适用border画出1px高的线，在不同的浏览器的怪异模式下都能保持统一效果</h3>]]></content>
+      
+        <categories>
+            
+            <category> web前端 </category>
+            
+            <category> HTML5 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> HTML5 </tag>
             
         </tags>
         
