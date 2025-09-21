@@ -4,15 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>wustxing&#39;s blog</title>
+  <title>Vue 2 源码解读 | wustxing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="wustxing&#39;s blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="目录结构Vue 2的源码采用典型的模块化结构，主要包含以下核心模块：  core: 核心代码，包含响应式系统、虚拟DOM、组件系统等 platforms: 平台特定代码，包括Web和Weex compiler: 模板编译器，将模板转换为渲染函数 server: 服务端渲染相关代码 sfc: 单文件组件(.vue文件)解析器 shared: 共享工具函数  一、响应式系统Vue 2的响应式系统是整个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 2 源码解读">
+<meta property="og:url" content="http://example.com/2021/06/01/vue2%E6%BA%90%E7%A0%81/index.html">
 <meta property="og:site_name" content="wustxing&#39;s blog">
+<meta property="og:description" content="目录结构Vue 2的源码采用典型的模块化结构，主要包含以下核心模块：  core: 核心代码，包含响应式系统、虚拟DOM、组件系统等 platforms: 平台特定代码，包括Web和Weex compiler: 模板编译器，将模板转换为渲染函数 server: 服务端渲染相关代码 sfc: 单文件组件(.vue文件)解析器 shared: 共享工具函数  一、响应式系统Vue 2的响应式系统是整个">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-01T04:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-21T17:12:58.095Z">
 <meta property="article:author" content="wustxing">
-<meta property="article:tag" content="探索前沿技术，分享个人心得，记录生活点滴">
+<meta property="article:tag" content="Vue 2 源码解读">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="wustxing's blog" type="application/atom+xml">
@@ -74,230 +78,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-vue3面试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/05/01/vue3%E9%9D%A2%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2024-05-01T04:00:00.000Z" itemprop="datePublished">2024-05-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Vue3%E9%87%8D%E7%82%B9/">Vue3重点</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/05/01/vue3%E9%9D%A2%E8%AF%95/">Vue3重点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue-3-面试题集"><a href="#Vue-3-面试题集" class="headerlink" title="Vue 3 面试题集"></a>Vue 3 面试题集</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="1-Vue-3-相比-Vue-2-有哪些重大变化？"><a href="#1-Vue-3-相比-Vue-2-有哪些重大变化？" class="headerlink" title="1. Vue 3 相比 Vue 2 有哪些重大变化？"></a>1. Vue 3 相比 Vue 2 有哪些重大变化？</h3><p><strong>答案</strong>：</p>
-<ul>
-<li><strong>性能提升</strong>：Vue 3 重写了虚拟 DOM 实现，渲染性能提升约 1.3~2 倍，内存占用减少约 50%</li>
-<li><strong>Composition API</strong>：新增组合式 API，提供更灵活的逻辑组织和复用方式</li>
-<li><strong>TypeScript 支持</strong>：Vue 3 是用 TypeScript 重写的，提供了更好的类型推断</li>
-<li><strong>Teleport 组件</strong>：允许将组件的内容传送到 DOM 的其他位置</li>
-<li><strong>Fragments</strong>：组件可以有多个根节点</li>
-<li><strong>Suspense</strong>：处理异步组件的新特性</li>
-<li><strong>响应式系统升级</strong>：使用 ES6 的 Proxy 代替 Object.defineProperty，解决了 Vue 2 中的数组和对象响应式问题</li>
-<li><strong>全局 API 改为应用实例调用</strong>：减少了全局污染</li>
-<li><strong>更好的 Tree-shaking 支持</strong>：减小打包体积</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2024/05/01/vue3%E9%9D%A2%E8%AF%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/05/01/vue3%E9%9D%A2%E8%AF%95/" data-id="cuidAcETxo3fl56anB88UH6i3" data-title="Vue3重点" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue3%E9%87%8D%E7%82%B9/" rel="tag">Vue3重点</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-vue3源码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/01/vue3%E6%BA%90%E7%A0%81/" class="article-date">
-  <time class="dt-published" datetime="2024-04-01T04:00:00.000Z" itemprop="datePublished">2024-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Vue-3-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/">Vue 3 源码解读</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/01/vue3%E6%BA%90%E7%A0%81/">Vue 3 源码解读</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>Vue 3的源码采用monorepo的方式组织，使用pnpm进行包管理，主要包含以下核心模块：</p>
-<ul>
-<li><strong>reactivity</strong>: 响应式系统</li>
-<li><strong>runtime-core</strong>: 与平台无关的运行时核心</li>
-<li><strong>runtime-dom</strong>: 浏览器平台特定的运行时</li>
-<li><strong>compiler-core</strong>: 与平台无关的编译器核心</li>
-<li><strong>compiler-dom</strong>: 浏览器平台特定的编译器实现</li>
-<li><strong>compiler-sfc</strong>: 单文件组件(.vue文件)编译器</li>
-<li><strong>shared</strong>: 共享工具函数</li>
-<li><strong>vue</strong>: 完整版本，包含运行时和编译器</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2024/04/01/vue3%E6%BA%90%E7%A0%81/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/01/vue3%E6%BA%90%E7%A0%81/" data-id="cuidUhdknq7-S3t6rBuJFPEUy" data-title="Vue 3 源码解读" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue-3-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" rel="tag">Vue 3 源码解读</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-前端面试题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
-  <time class="dt-published" datetime="2022-03-02T04:00:00.000Z" itemprop="datePublished">2022-03-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86/">前端面试题集</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">前端面试题集</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="JavaScript-基础"><a href="#JavaScript-基础" class="headerlink" title="JavaScript 基础"></a>JavaScript 基础</h2><h3 id="1-解释-JavaScript-中的原型和原型链"><a href="#1-解释-JavaScript-中的原型和原型链" class="headerlink" title="1. 解释 JavaScript 中的原型和原型链"></a>1. 解释 JavaScript 中的原型和原型链</h3><p><strong>答案</strong>：<br>JavaScript 中的每个对象都有一个原型（prototype），原型也是一个对象，对象可以从原型继承属性和方法。</p>
-<ul>
-<li><strong>原型</strong>：每个函数都有一个 <code>prototype</code> 属性，指向一个对象，这个对象就是该函数的实例的原型</li>
-<li><strong>原型链</strong>：当访问一个对象的属性时，如果对象本身没有这个属性，JavaScript 会沿着原型链向上查找，直到找到该属性或到达原型链的末端（<code>null</code>）</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="cuidE6yISjV9qdB2nLwOt6Jh7" data-title="前端面试题集" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86/" rel="tag">前端面试题集</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-react面试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/06/07/react%E9%9D%A2%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2021-06-07T04:00:00.000Z" itemprop="datePublished">2021-06-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/react%E9%87%8D%E7%82%B9/">react重点</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/06/07/react%E9%9D%A2%E8%AF%95/">react重点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1、react-父组件怎么调用子组件的方法"><a href="#1、react-父组件怎么调用子组件的方法" class="headerlink" title="1、react 父组件怎么调用子组件的方法"></a>1、react 父组件怎么调用子组件的方法</h2><p>‌函数组件使用 forwardRef+useImperativeHandle‌：子组件通过useImperativeHandle暴露方法，父组件通过ref调用</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/06/07/react%E9%9D%A2%E8%AF%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/06/07/react%E9%9D%A2%E8%AF%95/" data-id="cuidvPiiWSrfWZoC2CsTv4EDG" data-title="react重点" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react%E9%87%8D%E7%82%B9/" rel="tag">react重点</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-vue2源码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-vue2源码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/06/01/vue2%E6%BA%90%E7%A0%81/" class="article-date">
   <time class="dt-published" datetime="2021-06-01T04:00:00.000Z" itemprop="datePublished">2021-06-01</time>
@@ -314,8 +95,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/06/01/vue2%E6%BA%90%E7%A0%81/">Vue 2 源码解读</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Vue 2 源码解读
     </h1>
   
 
@@ -426,105 +207,28 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/01/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-01-01T04:00:00.000Z" itemprop="datePublished">2021-01-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2021/06/07/react%E9%9D%A2%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          react重点
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/01/hello-world/">测试</a>
-    </h1>
   
+    <a href="/2021/01/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">测试</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>helloworld</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/01/hello-world/" data-id="cuidRURU-o5JLghrYoJfO-gu5" data-title="测试" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-vue2面试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/01/vue2%E9%9D%A2%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2021-01-01T04:00:00.000Z" itemprop="datePublished">2021-01-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vue2%E9%87%8D%E7%82%B9/">vue2重点</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/01/vue2%E9%9D%A2%E8%AF%95/">vue2重点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Vue2响应式系统的工作原理"><a href="#Vue2响应式系统的工作原理" class="headerlink" title="Vue2响应式系统的工作原理"></a>Vue2响应式系统的工作原理</h2><p>Vue2响应式系统的核心实现机制<br>Vue2的响应式系统基于数据劫持与发布-订阅模式，通过<code>Object.defineProperty()</code> API拦截数据访问与修改，并结合依赖收集机制实现视图自动更新。其核心目标是建立数据与视图之间的联动关系，当数据变化时触发依赖组件的重新渲染。 </p>
-        
-          <p class="article-more-link">
-            <a href="/2021/01/01/vue2%E9%9D%A2%E8%AF%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/01/vue2%E9%9D%A2%E8%AF%95/" data-id="cuidj-gm5CjScj9KQYE8cq8iI" data-title="vue2重点" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue2%E9%87%8D%E7%82%B9/" rel="tag">vue2重点</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>

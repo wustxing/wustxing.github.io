@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>前端面试题集 | wustxing&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="JavaScript 基础1. 解释 JavaScript 中的原型和原型链答案：JavaScript 中的每个对象都有一个原型（prototype），原型也是一个对象，对象可以从原型继承属性和方法。  原型：每个函数都有一个 prototype 属性，指向一个对象，这个对象就是该函数的实例的原型 原型链：当访问一个对象的属性时，如果对象本身没有这个属性，JavaScript 会沿着原型链向上查找">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试题集">
+<meta property="og:url" content="http://example.com/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="wustxing&#39;s blog">
+<meta property="og:description" content="JavaScript 基础1. 解释 JavaScript 中的原型和原型链答案：JavaScript 中的每个对象都有一个原型（prototype），原型也是一个对象，对象可以从原型继承属性和方法。  原型：每个函数都有一个 prototype 属性，指向一个对象，这个对象就是该函数的实例的原型 原型链：当访问一个对象的属性时，如果对象本身没有这个属性，JavaScript 会沿着原型链向上查找">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-02T04:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-21T17:12:56.887Z">
+<meta property="article:author" content="wustxing">
+<meta property="article:tag" content="前端面试题集">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="wustxing's blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wustxing&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">星的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-前端面试题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2022-03-02T04:00:00.000Z" itemprop="datePublished">2022-03-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86/">前端面试题集</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      前端面试题集
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript-基础"><a href="#JavaScript-基础" class="headerlink" title="JavaScript 基础"></a>JavaScript 基础</h2><h3 id="1-解释-JavaScript-中的原型和原型链"><a href="#1-解释-JavaScript-中的原型和原型链" class="headerlink" title="1. 解释 JavaScript 中的原型和原型链"></a>1. 解释 JavaScript 中的原型和原型链</h3><p><strong>答案</strong>：<br>JavaScript 中的每个对象都有一个原型（prototype），原型也是一个对象，对象可以从原型继承属性和方法。</p>
+<ul>
+<li><strong>原型</strong>：每个函数都有一个 <code>prototype</code> 属性，指向一个对象，这个对象就是该函数的实例的原型</li>
+<li><strong>原型链</strong>：当访问一个对象的属性时，如果对象本身没有这个属性，JavaScript 会沿着原型链向上查找，直到找到该属性或到达原型链的末端（<code>null</code>）</li>
+</ul>
+<span id="more"></span>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">sayHello</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hello, my name is <span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>`</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> alice = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;Alice&#x27;</span>);</span><br><span class="line">alice.<span class="title function_">sayHello</span>(); <span class="comment">// &quot;Hello, my name is Alice&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型链示例</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(alice.<span class="property">__proto__</span> === <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">__proto__</span> === <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>); <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">__proto__</span> === <span class="literal">null</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-var、let-和-const-的区别是什么？"><a href="#2-var、let-和-const-的区别是什么？" class="headerlink" title="2. var、let 和 const 的区别是什么？"></a>2. var、let 和 const 的区别是什么？</h3><p><strong>答案</strong>：</p>
+<ul>
+<li><p><strong>var</strong>：</p>
+<ul>
+<li>函数作用域或全局作用域</li>
+<li>存在变量提升（可以在声明前使用，值为 undefined）</li>
+<li>可以重复声明同名变量</li>
+<li>可以重新赋值</li>
+</ul>
+</li>
+<li><p><strong>let</strong>：</p>
+<ul>
+<li>块级作用域</li>
+<li>存在暂时性死区（不能在声明前使用）</li>
+<li>不可以重复声明同名变量</li>
+<li>可以重新赋值</li>
+</ul>
+</li>
+<li><p><strong>const</strong>：</p>
+<ul>
+<li>块级作用域</li>
+<li>存在暂时性死区（不能在声明前使用）</li>
+<li>不可以重复声明同名变量</li>
+<li>不可以重新赋值（但对于引用类型，可以修改其属性）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var 示例</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">2</span>; <span class="comment">// 同一个变量</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// let 示例</span></span><br><span class="line"><span class="keyword">let</span> y = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">2</span>; <span class="comment">// 不同的变量</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(y); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// const 示例</span></span><br><span class="line"><span class="keyword">const</span> z = &#123; <span class="attr">value</span>: <span class="number">1</span> &#125;;</span><br><span class="line">z.<span class="property">value</span> = <span class="number">2</span>; <span class="comment">// 可以修改属性</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(z.<span class="property">value</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// z = &#123; value: 3 &#125;; // 错误：不能重新赋值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-解释事件循环（Event-Loop）机制"><a href="#3-解释事件循环（Event-Loop）机制" class="headerlink" title="3. 解释事件循环（Event Loop）机制"></a>3. 解释事件循环（Event Loop）机制</h3><p><strong>答案</strong>：<br>JavaScript 是单线程的，事件循环是 JavaScript 实现异步的核心机制，它由以下部分组成：</p>
+<ul>
+<li><strong>调用栈（Call Stack）</strong>：执行同步代码</li>
+<li><strong>任务队列（Task Queue）</strong>：<ul>
+<li><strong>宏任务（Macrotask）</strong>：setTimeout、setInterval、I&#x2F;O、UI 渲染等</li>
+<li><strong>微任务（Microtask）</strong>：Promise 回调、MutationObserver、queueMicrotask() 等</li>
+</ul>
+</li>
+</ul>
+<p>事件循环的执行顺序：</p>
+<ol>
+<li>执行同步代码（调用栈中的任务）</li>
+<li>执行所有微任务</li>
+<li>执行一个宏任务</li>
+<li>重复步骤 2-3</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1&#x27;</span>); <span class="comment">// 同步代码</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;2&#x27;</span>); <span class="comment">// 宏任务</span></span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;3&#x27;</span>); <span class="comment">// 微任务</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;4&#x27;</span>); <span class="comment">// 同步代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出顺序：1, 4, 3, 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-闭包是什么？有什么用途和潜在问题？"><a href="#4-闭包是什么？有什么用途和潜在问题？" class="headerlink" title="4. 闭包是什么？有什么用途和潜在问题？"></a>4. 闭包是什么？有什么用途和潜在问题？</h3><p><strong>答案</strong>：<br>闭包是指一个函数可以记住并访问其词法作用域，即使该函数在其词法作用域之外执行。</p>
+<p><strong>用途</strong>：</p>
+<ul>
+<li>数据私有化&#x2F;封装</li>
+<li>创建函数工厂</li>
+<li>实现模块模式</li>
+<li>维持状态</li>
+</ul>
+<p><strong>潜在问题</strong>：</p>
+<ul>
+<li>内存泄漏：闭包会保持对外部变量的引用，可能导致这些变量无法被垃圾回收</li>
+<li>性能问题：过度使用闭包可能影响性能</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 闭包示例 - 计数器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createCounter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> count = <span class="number">0</span>; <span class="comment">// 私有变量</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">increment</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      count++;</span><br><span class="line">      <span class="keyword">return</span> count;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">decrement</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      count--;</span><br><span class="line">      <span class="keyword">return</span> count;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">getCount</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> counter = <span class="title function_">createCounter</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(counter.<span class="title function_">increment</span>()); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(counter.<span class="title function_">increment</span>()); <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(counter.<span class="title function_">decrement</span>()); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Promise、async-await-的作用和区别"><a href="#5-Promise、async-await-的作用和区别" class="headerlink" title="5. Promise、async&#x2F;await 的作用和区别"></a>5. Promise、async&#x2F;await 的作用和区别</h3><p><strong>答案</strong>：<br>Promise 和 async&#x2F;await 都是用于处理 JavaScript 中的异步操作。</p>
+<p><strong>Promise</strong>：</p>
+<ul>
+<li>表示一个异步操作的最终完成（或失败）及其结果值</li>
+<li>有三种状态：pending（进行中）、fulfilled（已成功）、rejected（已失败）</li>
+<li>使用 <code>.then()</code> 和 <code>.catch()</code> 方法处理结果和错误</li>
+</ul>
+<p><strong>async&#x2F;await</strong>：</p>
+<ul>
+<li>是基于 Promise 的语法糖</li>
+<li><code>async</code> 函数返回一个 Promise</li>
+<li><code>await</code> 关键字只能在 <code>async</code> 函数内使用，用于等待 Promise 解决</li>
+<li>使代码看起来更像同步代码，更易读</li>
+</ul>
+<p><strong>区别</strong>：</p>
+<ul>
+<li>语法：async&#x2F;await 语法更简洁，更接近同步代码</li>
+<li>错误处理：Promise 使用 <code>.catch()</code>，async&#x2F;await 使用 try&#x2F;catch</li>
+<li>调试：async&#x2F;await 更容易调试</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Promise 示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fetchDataPromise</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">      <span class="keyword">return</span> data;</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error:&#x27;</span>, error);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// async/await 示例</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchDataAsync</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error:&#x27;</span>, error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h2><h3 id="6-语义化-HTML-的意义是什么？"><a href="#6-语义化-HTML-的意义是什么？" class="headerlink" title="6. 语义化 HTML 的意义是什么？"></a>6. 语义化 HTML 的意义是什么？</h3><p><strong>答案</strong>：<br>语义化 HTML 是指使用恰当的 HTML 标签来表示内容的结构和含义，而不仅仅是为了展示效果。</p>
+<p><strong>意义</strong>：</p>
+<ul>
+<li><strong>可访问性</strong>：屏幕阅读器等辅助技术可以更好地解释页面内容</li>
+<li><strong>SEO 优化</strong>：搜索引擎更容易理解页面内容和结构</li>
+<li><strong>可维护性</strong>：代码更清晰，易于理解和维护</li>
+<li><strong>设备兼容性</strong>：在不同设备上有更好的展示效果</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 非语义化的写法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span>网站名称<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;nav&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>关于<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 语义化的写法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>网站名称<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>关于<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-解释-CSS-盒模型及其不同类型"><a href="#7-解释-CSS-盒模型及其不同类型" class="headerlink" title="7. 解释 CSS 盒模型及其不同类型"></a>7. 解释 CSS 盒模型及其不同类型</h3><p><strong>答案</strong>：<br>CSS 盒模型描述了元素内容（content）、内边距（padding）、边框（border）和外边距（margin）如何一起决定元素的总尺寸。</p>
+<p><strong>两种盒模型</strong>：</p>
+<ul>
+<li><p><strong>标准盒模型（content-box）</strong>：</p>
+<ul>
+<li><code>width</code> 和 <code>height</code> 只包括内容区域</li>
+<li>总宽度 &#x3D; width + padding + border + margin</li>
+</ul>
+</li>
+<li><p><strong>替代盒模型（border-box）</strong>：</p>
+<ul>
+<li><code>width</code> 和 <code>height</code> 包括内容区域、内边距和边框</li>
+<li>总宽度 &#x3D; width + margin（width 已经包含了 padding 和 border）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 标准盒模型（默认） */</span></span><br><span class="line"><span class="selector-class">.box-content</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid black;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="comment">/* 总宽度 = 300px + 40px(padding) + 20px(border) + 30px(margin) = 390px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 替代盒模型 */</span></span><br><span class="line"><span class="selector-class">.box-border</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid black;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="comment">/* 总宽度 = 300px + 30px(margin) = 330px */</span></span><br><span class="line">  <span class="comment">/* 内容区实际宽度 = 300px - 40px(padding) - 20px(border) = 240px */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-CSS-选择器的优先级是如何计算的？"><a href="#8-CSS-选择器的优先级是如何计算的？" class="headerlink" title="8. CSS 选择器的优先级是如何计算的？"></a>8. CSS 选择器的优先级是如何计算的？</h3><p><strong>答案</strong>：<br>CSS 选择器的优先级按照以下规则计算：</p>
+<ol>
+<li><strong>内联样式</strong>：1000 分</li>
+<li><strong>ID 选择器</strong>：100 分</li>
+<li><strong>类选择器、属性选择器、伪类</strong>：10 分</li>
+<li><strong>元素选择器、伪元素</strong>：1 分</li>
+<li><strong>通配符（*）</strong>：0 分</li>
+<li><strong>继承的样式</strong>：无优先级</li>
+</ol>
+<p>当优先级相同时，后声明的样式会覆盖先声明的样式。<br>使用 <code>!important</code> 可以覆盖所有其他样式（除非对方也使用了 <code>!important</code>，此时仍按优先级计算）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 优先级: 1 (元素选择器) */</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 优先级: 10 (类选择器) */</span></span><br><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 优先级: 11 (类选择器 + 元素选择器) */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 优先级: 110 (ID选择器 + 元素选择器) */</span></span><br><span class="line"><span class="selector-id">#content</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 优先级: 10 (类选择器)，但使用 !important */</span></span><br><span class="line"><span class="selector-class">.highlight</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: yellow <span class="meta">!important</span>; <span class="comment">/* 会覆盖上面所有规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-响应式设计的核心原则和实现方法有哪些？"><a href="#9-响应式设计的核心原则和实现方法有哪些？" class="headerlink" title="9. 响应式设计的核心原则和实现方法有哪些？"></a>9. 响应式设计的核心原则和实现方法有哪些？</h3><p><strong>答案</strong>：<br>响应式设计是一种让网站能够适应不同设备和屏幕尺寸的设计方法。</p>
+<p><strong>核心原则</strong>：</p>
+<ul>
+<li><strong>流式布局</strong>：使用相对单位（%、em、rem）而非固定单位（px）</li>
+<li><strong>媒体查询</strong>：根据设备特性应用不同的样式</li>
+<li><strong>灵活的图片</strong>：确保图片能够缩放而不溢出容器</li>
+<li><strong>移动优先</strong>：先设计移动端界面，再逐步增强到大屏幕</li>
+</ul>
+<p><strong>实现方法</strong>：</p>
+<ul>
+<li>使用媒体查询（@media）</li>
+<li>使用 viewport 元标签</li>
+<li>使用 CSS Grid 和 Flexbox 布局</li>
+<li>使用相对单位（%、em、rem、vw、vh）</li>
+<li>使用响应式图片技术（srcset、sizes 属性）</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- viewport 设置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 流式布局 */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">90%</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1200px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 响应式图片 */</span></span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 媒体查询 */</span></span><br><span class="line"><span class="comment">/* 移动设备 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">767px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.main-content</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 平板设备 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">1023px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.main-content</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">70%</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 桌面设备 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1024px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">25%</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.main-content</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">75%</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-解释-CSS-Grid-和-Flexbox-的区别及适用场景"><a href="#10-解释-CSS-Grid-和-Flexbox-的区别及适用场景" class="headerlink" title="10. 解释 CSS Grid 和 Flexbox 的区别及适用场景"></a>10. 解释 CSS Grid 和 Flexbox 的区别及适用场景</h3><p><strong>答案</strong>：<br>CSS Grid 和 Flexbox 都是现代 CSS 布局技术，但它们有不同的设计目标和适用场景。</p>
+<p><strong>Flexbox（弹性盒子）</strong>：</p>
+<ul>
+<li><strong>一维布局系统</strong>：主要沿一个轴（主轴或交叉轴）进行布局</li>
+<li><strong>内容驱动</strong>：元素大小由其内容决定</li>
+<li><strong>适用场景</strong>：导航菜单、卡片布局、居中元素、简单的一维布局</li>
+</ul>
+<p><strong>CSS Grid（网格布局）</strong>：</p>
+<ul>
+<li><strong>二维布局系统</strong>：同时控制行和列</li>
+<li><strong>布局驱动</strong>：先定义布局结构，再放入元素</li>
+<li><strong>适用场景</strong>：整体页面布局、复杂的二维布局、不规则布局</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Flexbox 示例 - 导航菜单 */</span></span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.nav-item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">1</span> auto;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* CSS Grid 示例 - 页面布局 */</span></span><br><span class="line"><span class="selector-class">.page</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">3</span>fr <span class="number">1</span>fr;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: auto <span class="number">1</span>fr auto;</span><br><span class="line">  <span class="attribute">grid-template-areas</span>:</span><br><span class="line">    <span class="string">&quot;header header header&quot;</span></span><br><span class="line">    <span class="string">&quot;sidebar main aside&quot;</span></span><br><span class="line">    <span class="string">&quot;footer footer footer&quot;</span>;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123; <span class="attribute">grid-area</span>: header; &#125;</span><br><span class="line"><span class="selector-class">.sidebar</span> &#123; <span class="attribute">grid-area</span>: sidebar; &#125;</span><br><span class="line"><span class="selector-class">.main</span> &#123; <span class="attribute">grid-area</span>: main; &#125;</span><br><span class="line"><span class="selector-class">.aside</span> &#123; <span class="attribute">grid-area</span>: aside; &#125;</span><br><span class="line"><span class="selector-class">.footer</span> &#123; <span class="attribute">grid-area</span>: footer; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前端框架"><a href="#前端框架" class="headerlink" title="前端框架"></a>前端框架</h2><h3 id="11-React-中的虚拟-DOM-是什么？它有什么优势？"><a href="#11-React-中的虚拟-DOM-是什么？它有什么优势？" class="headerlink" title="11. React 中的虚拟 DOM 是什么？它有什么优势？"></a>11. React 中的虚拟 DOM 是什么？它有什么优势？</h3><p><strong>答案</strong>：<br>虚拟 DOM (Virtual DOM) 是 React 中的一个概念，它是真实 DOM 的一种轻量级的 JavaScript 对象表示。</p>
+<p><strong>工作原理</strong>：</p>
+<ol>
+<li>当组件状态改变时，React 创建一个新的虚拟 DOM 树</li>
+<li>将新的虚拟 DOM 树与之前的虚拟 DOM 树进行比较（Diffing 算法）</li>
+<li>计算出需要更新的部分</li>
+<li>只更新真实 DOM 中需要变化的部分</li>
+</ol>
+<p><strong>优势</strong>：</p>
+<ul>
+<li><strong>性能优化</strong>：减少直接操作 DOM 的次数，批量处理 DOM 更新</li>
+<li><strong>跨平台</strong>：虚拟 DOM 是平台无关的，可以渲染到不同环境（Web、Native、服务器等）</li>
+<li><strong>声明式编程</strong>：开发者只需关注状态和 UI 的映射关系，不需要手动操作 DOM</li>
+<li><strong>调试方便</strong>：可以追踪 DOM 变化的历史记录</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// React 组件示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Count: &#123;count&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;Increment<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当点击按钮时，React 会：</span></span><br><span class="line"><span class="comment">// 1. 创建新的虚拟 DOM 树（count 值更新）</span></span><br><span class="line"><span class="comment">// 2. 与旧的虚拟 DOM 树比较</span></span><br><span class="line"><span class="comment">// 3. 发现只有 &lt;p&gt; 中的文本内容需要更新</span></span><br><span class="line"><span class="comment">// 4. 只更新真实 DOM 中的那部分内容</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="12-Vue-的响应式原理是什么？"><a href="#12-Vue-的响应式原理是什么？" class="headerlink" title="12. Vue 的响应式原理是什么？"></a>12. Vue 的响应式原理是什么？</h3><p><strong>答案</strong>：<br>Vue 的响应式系统是其核心特性之一，它能够自动追踪依赖关系并在数据变化时更新视图。</p>
+<p><strong>Vue 2 响应式原理</strong>：</p>
+<ul>
+<li>使用 <code>Object.defineProperty()</code> 劫持对象的属性</li>
+<li>在 getter 中收集依赖（Watcher）</li>
+<li>在 setter 中通知依赖更新</li>
+<li>对于数组，通过重写数组方法（push、pop 等）实现响应式</li>
+</ul>
+<p><strong>Vue 3 响应式原理</strong>：</p>
+<ul>
+<li>使用 ES6 的 Proxy 代替 Object.defineProperty</li>
+<li>可以监听整个对象，包括属性的添加和删除</li>
+<li>可以监听数组的索引和长度变化</li>
+<li>性能更好，没有 Vue 2 中的一些限制</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vue 2 响应式系统简化示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">defineReactive</span>(<span class="params">obj, key, val</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> dep = <span class="keyword">new</span> <span class="title class_">Dep</span>(); <span class="comment">// 依赖收集器</span></span><br><span class="line">  </span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, key, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="title class_">Dep</span>.<span class="property">target</span>) &#123;</span><br><span class="line">        dep.<span class="title function_">depend</span>(); <span class="comment">// 收集依赖</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> val;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">set</span>(<span class="params">newVal</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (newVal === val) <span class="keyword">return</span>;</span><br><span class="line">      val = newVal;</span><br><span class="line">      dep.<span class="title function_">notify</span>(); <span class="comment">// 通知依赖更新</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Vue 3 响应式系统简化示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">reactive</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Proxy</span>(obj, &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params">target, key, receiver</span>) &#123;</span><br><span class="line">      <span class="title function_">track</span>(target, key); <span class="comment">// 收集依赖</span></span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(target, key, receiver);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">set</span>(<span class="params">target, key, value, receiver</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> result = <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target, key, value, receiver);</span><br><span class="line">      <span class="title function_">trigger</span>(target, key); <span class="comment">// 触发更新</span></span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="13-React-Hooks-的作用和常用-Hook-有哪些？"><a href="#13-React-Hooks-的作用和常用-Hook-有哪些？" class="headerlink" title="13. React Hooks 的作用和常用 Hook 有哪些？"></a>13. React Hooks 的作用和常用 Hook 有哪些？</h3><p><strong>答案</strong>：<br>React Hooks 是 React 16.8 引入的特性，允许在函数组件中使用状态和其他 React 特性，而不需要编写类组件。</p>
+<p><strong>作用</strong>：</p>
+<ul>
+<li>在函数组件中使用状态和生命周期特性</li>
+<li>复用状态逻辑，而不需要改变组件层次结构</li>
+<li>将相关逻辑组合在一起，而不是按生命周期方法分散</li>
+</ul>
+<p><strong>常用的 Hook</strong>：</p>
+<ul>
+<li><strong>useState</strong>：管理组件状态</li>
+<li><strong>useEffect</strong>：处理副作用（类似 componentDidMount、componentDidUpdate、componentWillUnmount）</li>
+<li><strong>useContext</strong>：访问 React Context</li>
+<li><strong>useReducer</strong>：使用 reducer 管理复杂状态逻辑</li>
+<li><strong>useCallback</strong>：记忆函数，避免不必要的重新渲染</li>
+<li><strong>useMemo</strong>：记忆计算结果，避免重复计算</li>
+<li><strong>useRef</strong>：保存可变值，不触发重新渲染</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// useState 示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Counter</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Count: &#123;count&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + 1)&#125;&gt;Increment<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// useEffect 示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">DataFetcher</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [data, setData] = <span class="title function_">useState</span>(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> [loading, setLoading] = <span class="title function_">useState</span>(<span class="literal">true</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchData</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>);</span><br><span class="line">        <span class="keyword">const</span> result = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">        <span class="title function_">setData</span>(result);</span><br><span class="line">      &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error fetching data:&#x27;</span>, error);</span><br><span class="line">      &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="title function_">setLoading</span>(<span class="literal">false</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="title function_">fetchData</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 清理函数（类似 componentWillUnmount）</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 取消请求或清理资源</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;, []); <span class="comment">// 空依赖数组表示只在组件挂载时执行</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (loading) <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;/* 渲染数据 */&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="14-前端路由的实现原理是什么？"><a href="#14-前端路由的实现原理是什么？" class="headerlink" title="14. 前端路由的实现原理是什么？"></a>14. 前端路由的实现原理是什么？</h3><p><strong>答案</strong>：<br>前端路由是指在单页应用（SPA）中，通过 JavaScript 控制页面内容的切换，而不刷新整个页面。主要有两种实现方式：</p>
+<p><strong>Hash 模式</strong>：</p>
+<ul>
+<li>基于 URL 的哈希部分（<code>#</code> 后面的部分）</li>
+<li>通过监听 <code>hashchange</code> 事件检测路由变化</li>
+<li>兼容性好，但 URL 不够美观</li>
+</ul>
+<p><strong>History 模式</strong>：</p>
+<ul>
+<li>基于 HTML5 History API（<code>pushState</code>、<code>replaceState</code>）</li>
+<li>通过监听 <code>popstate</code> 事件检测路由变化</li>
+<li>URL 更美观，但需要服务器配置支持</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hash 模式路由简单实现</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HashRouter</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">routes</span> = &#123;&#125;;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;hashchange&#x27;</span>, <span class="variable language_">this</span>.<span class="property">handleHashChange</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>));</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">handleHashChange</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">route</span>(<span class="params">path, callback</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">routes</span>[path] = callback;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">handleHashChange</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> hash = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">hash</span>.<span class="title function_">slice</span>(<span class="number">1</span>) || <span class="string">&#x27;/&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> handler = <span class="variable language_">this</span>.<span class="property">routes</span>[hash];</span><br><span class="line">    <span class="keyword">if</span> (handler) &#123;</span><br><span class="line">      <span class="title function_">handler</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// History 模式路由简单实现</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HistoryRouter</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">routes</span> = &#123;&#125;;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;popstate&#x27;</span>, <span class="variable language_">this</span>.<span class="property">handlePopState</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>));</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">handlePopState</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">route</span>(<span class="params">path, callback</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">routes</span>[path] = callback;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">navigate</span>(<span class="params">path</span>) &#123;</span><br><span class="line">    history.<span class="title function_">pushState</span>(<span class="literal">null</span>, <span class="literal">null</span>, path);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">handlePopState</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">handlePopState</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> path = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span>;</span><br><span class="line">    <span class="keyword">const</span> handler = <span class="variable language_">this</span>.<span class="property">routes</span>[path];</span><br><span class="line">    <span class="keyword">if</span> (handler) &#123;</span><br><span class="line">      <span class="title function_">handler</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-状态管理工具（Redux-Vuex-Pinia）的核心概念和工作原理"><a href="#15-状态管理工具（Redux-Vuex-Pinia）的核心概念和工作原理" class="headerlink" title="15. 状态管理工具（Redux&#x2F;Vuex&#x2F;Pinia）的核心概念和工作原理"></a>15. 状态管理工具（Redux&#x2F;Vuex&#x2F;Pinia）的核心概念和工作原理</h3><p><strong>答案</strong>：<br>状态管理工具用于集中管理应用的状态，使状态变化可预测和可追踪。</p>
+<p><strong>Redux（React）核心概念</strong>：</p>
+<ul>
+<li><strong>Store</strong>：存储应用的状态</li>
+<li><strong>Action</strong>：描述状态变化的普通对象</li>
+<li><strong>Reducer</strong>：纯函数，根据当前状态和 action 计算新状态</li>
+<li><strong>Dispatch</strong>：发送 action 的方法</li>
+<li><strong>Middleware</strong>：扩展 Redux 功能的中间件（如处理异步操作）</li>
+</ul>
+<p><strong>Vuex（Vue 2）核心概念</strong>：</p>
+<ul>
+<li><strong>State</strong>：应用的状态</li>
+<li><strong>Getters</strong>：从 state 派生的状态</li>
+<li><strong>Mutations</strong>：同步修改状态的方法</li>
+<li><strong>Actions</strong>：可包含异步操作，提交 mutation</li>
+<li><strong>Modules</strong>：将 store 分割成模块</li>
+</ul>
+<p><strong>Pinia（Vue 3）核心概念</strong>：</p>
+<ul>
+<li><strong>Store</strong>：定义状态和操作的容器</li>
+<li><strong>State</strong>：存储的响应式状态</li>
+<li><strong>Getters</strong>：类似计算属性，从 state 派生状态</li>
+<li><strong>Actions</strong>：修改状态的方法，可以是异步的</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Redux 示例</span></span><br><span class="line"><span class="comment">// 创建 reducer</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">counterReducer</span>(<span class="params">state = &#123; count: <span class="number">0</span> &#125;, action</span>) &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;INCREMENT&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">count</span>: state.<span class="property">count</span> + <span class="number">1</span> &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;DECREMENT&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">count</span>: state.<span class="property">count</span> - <span class="number">1</span> &#125;;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 store</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="title class_">Redux</span>.<span class="title function_">createStore</span>(counterReducer);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 订阅变化</span></span><br><span class="line">store.<span class="title function_">subscribe</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(store.<span class="title function_">getState</span>());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送 action</span></span><br><span class="line">store.<span class="title function_">dispatch</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;INCREMENT&#x27;</span> &#125;); <span class="comment">// &#123; count: 1 &#125;</span></span><br><span class="line">store.<span class="title function_">dispatch</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;INCREMENT&#x27;</span> &#125;); <span class="comment">// &#123; count: 2 &#125;</span></span><br><span class="line">store.<span class="title function_">dispatch</span>(&#123; <span class="attr">type</span>: <span class="string">&#x27;DECREMENT&#x27;</span> &#125;); <span class="comment">// &#123; count: 1 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Vuex 示例</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="title function_">increment</span>(<span class="params">state</span>) &#123;</span><br><span class="line">      state.<span class="property">count</span>++;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">decrement</span>(<span class="params">state</span>) &#123;</span><br><span class="line">      state.<span class="property">count</span>--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="title function_">incrementAsync</span>(<span class="params">&#123; commit &#125;</span>) &#123;</span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">commit</span>(<span class="string">&#x27;increment&#x27;</span>);</span><br><span class="line">      &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">    <span class="attr">doubleCount</span>: <span class="function"><span class="params">state</span> =&gt;</span> state.<span class="property">count</span> * <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Pinia 示例 (Vue 3)</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useCounterStore = <span class="title function_">defineStore</span>(<span class="string">&#x27;counter&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">state</span>: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">    <span class="attr">doubleCount</span>: <span class="function">(<span class="params">state</span>) =&gt;</span> state.<span class="property">count</span> * <span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="title function_">increment</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">count</span>++;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">incrementAsync</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>));</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">increment</span>();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="前端工程化与性能优化"><a href="#前端工程化与性能优化" class="headerlink" title="前端工程化与性能优化"></a>前端工程化与性能优化</h2><h3 id="16-前端模块化的发展历程和主要规范"><a href="#16-前端模块化的发展历程和主要规范" class="headerlink" title="16. 前端模块化的发展历程和主要规范"></a>16. 前端模块化的发展历程和主要规范</h3><p><strong>答案</strong>：<br>前端模块化是为了解决全局变量污染、代码复用、依赖管理等问题而发展起来的。</p>
+<p><strong>发展历程</strong>：</p>
+<ol>
+<li><strong>全局函数</strong>：最初的代码组织方式，容易造成命名冲突</li>
+<li><strong>命名空间</strong>：将相关功能封装在对象中，减少全局变量</li>
+<li><strong>IIFE（立即执行函数表达式）</strong>：创建私有作用域，避免变量泄露</li>
+<li><strong>CommonJS</strong>：Node.js 采用的模块规范，同步加载</li>
+<li><strong>AMD（Asynchronous Module Definition）</strong>：异步加载模块，适用于浏览器</li>
+<li><strong>UMD（Universal Module Definition）</strong>：兼容 CommonJS 和 AMD</li>
+<li><strong>ES Modules</strong>：ECMAScript 官方模块系统，现代浏览器原生支持</li>
+</ol>
+<p><strong>主要规范</strong>：</p>
+<p><strong>CommonJS</strong>：</p>
+<ul>
+<li>使用 <code>require()</code> 导入，<code>module.exports</code> 或 <code>exports</code> 导出</li>
+<li>同步加载，适合服务器环境</li>
+<li>Node.js 默认使用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导出 (math.js)</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">add</span>: <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b,</span><br><span class="line">  <span class="attr">subtract</span>: <span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入</span></span><br><span class="line"><span class="keyword">const</span> math = <span class="built_in">require</span>(<span class="string">&#x27;./math&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(math.<span class="title function_">add</span>(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>AMD</strong>：</p>
+<ul>
+<li>使用 <code>define()</code> 定义模块，<code>require()</code> 加载模块</li>
+<li>异步加载，适合浏览器环境</li>
+<li>RequireJS 是其实现</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义模块</span></span><br><span class="line"><span class="title function_">define</span>(<span class="string">&#x27;math&#x27;</span>, [], <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">add</span>: <span class="keyword">function</span>(<span class="params">a, b</span>) &#123; <span class="keyword">return</span> a + b; &#125;,</span><br><span class="line">    <span class="attr">subtract</span>: <span class="keyword">function</span>(<span class="params">a, b</span>) &#123; <span class="keyword">return</span> a - b; &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用模块</span></span><br><span class="line"><span class="built_in">require</span>([<span class="string">&#x27;math&#x27;</span>], <span class="keyword">function</span>(<span class="params">math</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(math.<span class="title function_">add</span>(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 5</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>ES Modules</strong>：</p>
+<ul>
+<li>使用 <code>import</code> 导入，<code>export</code> 导出</li>
+<li>静态分析，支持 tree-shaking</li>
+<li>现代浏览器原生支持</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导出 (math.js)</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">subtract</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入</span></span><br><span class="line"><span class="keyword">import</span> &#123; add, subtract &#125; <span class="keyword">from</span> <span class="string">&#x27;./math.js&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="17-Webpack-的核心概念和工作原理"><a href="#17-Webpack-的核心概念和工作原理" class="headerlink" title="17. Webpack 的核心概念和工作原理"></a>17. Webpack 的核心概念和工作原理</h3><p><strong>答案</strong>：<br>Webpack 是一个现代 JavaScript 应用程序的静态模块打包工具，它将项目中的各种资源（JS、CSS、图片等）视为模块，根据模块的依赖关系进行打包。</p>
+<p><strong>核心概念</strong>：</p>
+<ul>
+<li><strong>Entry</strong>：入口，指定 webpack 开始构建的起点</li>
+<li><strong>Output</strong>：输出，指定打包后的资源输出到哪里</li>
+<li><strong>Loaders</strong>：加载器，处理非 JavaScript 文件（如 CSS、图片）</li>
+<li><strong>Plugins</strong>：插件，执行范围更广的任务（如打包优化、资源管理）</li>
+<li><strong>Mode</strong>：模式，指定开发环境或生产环境</li>
+<li><strong>Chunks</strong>：代码块，打包过程中的代码单元</li>
+</ul>
+<p><strong>工作原理</strong>：</p>
+<ol>
+<li><strong>初始化参数</strong>：从配置文件和命令行参数中读取配置</li>
+<li><strong>开始编译</strong>：初始化 Compiler 对象，加载所有配置的插件</li>
+<li><strong>确定入口</strong>：根据配置中的 entry 找出所有入口文件</li>
+<li><strong>编译模块</strong>：从入口文件出发，调用所有配置的 Loader 对模块进行转换，再递归处理依赖的模块</li>
+<li><strong>完成模块编译</strong>：得到每个模块被转换后的最终内容和它们之间的依赖关系</li>
+<li><strong>输出资源</strong>：根据依赖关系，组装成一个个包含多个模块的 Chunk</li>
+<li><strong>输出完成</strong>：根据配置确定输出路径和文件名，将文件内容写入文件系统</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js 示例</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// 入口</span></span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 输出</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.[contenthash].js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 模式</span></span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;production&#x27;</span>,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 模块处理</span></span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      <span class="comment">// 处理 JavaScript</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        <span class="attr">use</span>: &#123;</span><br><span class="line">          <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">          <span class="attr">options</span>: &#123;</span><br><span class="line">            <span class="attr">presets</span>: [<span class="string">&#x27;@babel/preset-env&#x27;</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 处理 CSS</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 处理图片</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.(png|svg|jpg|jpeg|gif)$/i</span>,</span><br><span class="line">        <span class="attr">type</span>: <span class="string">&#x27;asset/resource&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 插件</span></span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">      <span class="attr">template</span>: <span class="string">&#x27;./src/index.html&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 优化</span></span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">      <span class="attr">chunks</span>: <span class="string">&#x27;all&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="18-前端性能优化的主要方法和指标"><a href="#18-前端性能优化的主要方法和指标" class="headerlink" title="18. 前端性能优化的主要方法和指标"></a>18. 前端性能优化的主要方法和指标</h3><p><strong>答案</strong>：<br>前端性能优化是提升用户体验的关键，包括多个方面的优化策略。</p>
+<p><strong>主要优化方法</strong>：</p>
+<p><strong>网络优化</strong>：</p>
+<ul>
+<li>减少 HTTP 请求数（合并文件、CSS Sprites、Base64 编码）</li>
+<li>使用 HTTP&#x2F;2</li>
+<li>使用 CDN 加速</li>
+<li>启用 Gzip 压缩</li>
+<li>使用浏览器缓存（Cache-Control、ETag）</li>
+<li>懒加载和预加载资源</li>
+</ul>
+<p><strong>资源优化</strong>：</p>
+<ul>
+<li>压缩代码（JS、CSS、HTML）</li>
+<li>压缩和优化图片（WebP、SVG、响应式图片）</li>
+<li>Tree-shaking 移除未使用的代码</li>
+<li>代码分割（Code Splitting）</li>
+<li>使用现代格式的图片</li>
+</ul>
+<p><strong>渲染优化</strong>：</p>
+<ul>
+<li>避免重排（reflow）和重绘（repaint）</li>
+<li>使用 CSS 动画代替 JavaScript 动画</li>
+<li>使用 <code>requestAnimationFrame</code> 处理动画</li>
+<li>使用 Web Workers 处理复杂计算</li>
+<li>虚拟滚动处理长列表</li>
+</ul>
+<p><strong>应用优化</strong>：</p>
+<ul>
+<li>服务端渲染（SSR）或静态站点生成（SSG）</li>
+<li>应用 PWA 技术</li>
+<li>使用 Web 缓存 API</li>
+<li>实现骨架屏（Skeleton Screen）</li>
+<li>优化首次内容绘制（FCP）</li>
+</ul>
+<p><strong>主要性能指标</strong>：</p>
+<ul>
+<li><strong>FCP (First Contentful Paint)</strong>：首次内容绘制，页面上首次绘制任何文本、图像、非空白 canvas 或 SVG 的时间</li>
+<li><strong>LCP (Largest Contentful Paint)</strong>：最大内容绘制，视口中最大的内容元素绘制完成的时间</li>
+<li><strong>FID (First Input Delay)</strong>：首次输入延迟，用户首次与页面交互到浏览器响应的时间</li>
+<li><strong>CLS (Cumulative Layout Shift)</strong>：累积布局偏移，页面加载过程中元素意外移动的程度</li>
+<li><strong>TTI (Time to Interactive)</strong>：可交互时间，页面完全可交互所需的时间</li>
+<li><strong>TBT (Total Blocking Time)</strong>：总阻塞时间，FCP 和 TTI 之间主线程被阻塞的总时间</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 性能监测示例</span></span><br><span class="line"><span class="comment">// 使用 Performance API 测量关键指标</span></span><br><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> <span class="title class_">PerformanceObserver</span>(<span class="function">(<span class="params">list</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> entry <span class="keyword">of</span> list.<span class="title function_">getEntries</span>()) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;entry.name&#125;</span>: <span class="subst">$&#123;entry.startTime&#125;</span>ms`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听各种性能指标</span></span><br><span class="line">observer.<span class="title function_">observe</span>(&#123; <span class="attr">entryTypes</span>: [<span class="string">&#x27;paint&#x27;</span>, <span class="string">&#x27;largest-contentful-paint&#x27;</span>, <span class="string">&#x27;layout-shift&#x27;</span>] &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义性能标记</span></span><br><span class="line">performance.<span class="title function_">mark</span>(<span class="string">&#x27;app-init-start&#x27;</span>);</span><br><span class="line"><span class="comment">// ... 初始化应用 ...</span></span><br><span class="line">performance.<span class="title function_">mark</span>(<span class="string">&#x27;app-init-end&#x27;</span>);</span><br><span class="line">performance.<span class="title function_">measure</span>(<span class="string">&#x27;app-initialization&#x27;</span>, <span class="string">&#x27;app-init-start&#x27;</span>, <span class="string">&#x27;app-init-end&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="19-前端安全问题及防范措施"><a href="#19-前端安全问题及防范措施" class="headerlink" title="19. 前端安全问题及防范措施"></a>19. 前端安全问题及防范措施</h3><p><strong>答案</strong>：<br>前端安全是 Web 应用安全的重要组成部分，主要包括以下安全问题和防范措施：</p>
+<p><strong>XSS（跨站脚本攻击）</strong>：</p>
+<ul>
+<li><strong>问题</strong>：攻击者将恶意脚本注入到网页中，当用户浏览页面时执行</li>
+<li><strong>防范措施</strong>：<ul>
+<li>对输入输出进行转义和验证</li>
+<li>使用 Content-Security-Policy (CSP) 头</li>
+<li>使用 HttpOnly 和 Secure 标记保护 Cookie</li>
+<li>使用现代框架的内置 XSS 保护</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入转义示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">escapeHTML</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> str</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/&amp;/g</span>, <span class="string">&#x27;&amp;amp;&#x27;</span>)</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/&lt;/g</span>, <span class="string">&#x27;&amp;lt;&#x27;</span>)</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/&gt;/g</span>, <span class="string">&#x27;&amp;gt;&#x27;</span>)</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/&quot;/g</span>, <span class="string">&#x27;&amp;quot;&#x27;</span>)</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/&#x27;/g</span>, <span class="string">&#x27;&amp;#039;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CSP 示例</span></span><br><span class="line"><span class="comment">// 在 HTTP 头中设置</span></span><br><span class="line"><span class="comment">// Content-Security-Policy: default-src &#x27;self&#x27;; script-src &#x27;self&#x27; https://trusted-cdn.com;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>CSRF（跨站请求伪造）</strong>：</p>
+<ul>
+<li><strong>问题</strong>：攻击者诱导用户在已认证的网站上执行非预期操作</li>
+<li><strong>防范措施</strong>：<ul>
+<li>使用 CSRF Token</li>
+<li>验证 Origin 和 Referer 头</li>
+<li>使用 SameSite Cookie 属性</li>
+<li>对敏感操作要求重新认证</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CSRF Token 示例</span></span><br><span class="line"><span class="comment">// 服务端生成 token 并在表单中包含</span></span><br><span class="line"><span class="keyword">const</span> csrfToken = <span class="title function_">generateRandomToken</span>();</span><br><span class="line">session.<span class="property">csrfToken</span> = csrfToken;</span><br><span class="line"></span><br><span class="line"><span class="comment">// HTML 表单</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/api/update&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;csrf_token&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;csrfToken&#125;&#125;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="comment">&lt;!-- 其他表单字段 --&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">// 服务端验证</span></span><br><span class="line"><span class="language-xml">if (request.body.csrf_token !== session.csrfToken) &#123;</span></span><br><span class="line"><span class="language-xml">  return response.status(403).send(&#x27;CSRF token 验证失败&#x27;);</span></span><br><span class="line"><span class="language-xml">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>点击劫持</strong>：</p>
+<ul>
+<li><strong>问题</strong>：攻击者将透明的目标网站覆盖在另一个网站上，诱导用户点击</li>
+<li><strong>防范措施</strong>：<ul>
+<li>使用 X-Frame-Options 头</li>
+<li>使用 CSP 的 frame-ancestors 指令</li>
+<li>JavaScript 框架防御</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// X-Frame-Options 示例</span></span><br><span class="line"><span class="comment">// 在 HTTP 头中设置</span></span><br><span class="line"><span class="comment">// X-Frame-Options: DENY</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="comment">// X-Frame-Options: SAMEORIGIN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// CSP frame-ancestors 示例</span></span><br><span class="line"><span class="comment">// Content-Security-Policy: frame-ancestors &#x27;none&#x27;;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>其他安全问题</strong>：</p>
+<ul>
+<li><strong>中间人攻击</strong>：使用 HTTPS 防范</li>
+<li><strong>不安全的依赖</strong>：定期更新依赖，使用安全扫描工具</li>
+<li><strong>敏感信息泄露</strong>：避免在前端存储敏感信息，使用环境变量</li>
+<li><strong>服务器端请求伪造 (SSRF)</strong>：验证和限制 URL，使用白名单</li>
+<li><strong>本地存储安全</strong>：不在 localStorage&#x2F;sessionStorage 中存储敏感数据</li>
+</ul>
+<h3 id="20-微前端架构的原理和实现方式"><a href="#20-微前端架构的原理和实现方式" class="headerlink" title="20. 微前端架构的原理和实现方式"></a>20. 微前端架构的原理和实现方式</h3><p><strong>答案</strong>：<br>微前端是一种将前端应用分解为更小、更易于管理的部分的架构风格，每个部分可以独立开发、测试和部署。</p>
+<p><strong>核心原则</strong>：</p>
+<ul>
+<li><strong>技术栈无关</strong>：每个微前端可以使用不同的技术栈</li>
+<li><strong>独立开发部署</strong>：团队可以独立工作，不影响其他团队</li>
+<li><strong>运行时集成</strong>：微前端在浏览器中组合，而不是构建时</li>
+<li><strong>隔离</strong>：微前端之间不应相互影响</li>
+</ul>
+<p><strong>实现方式</strong>：</p>
+<p><strong>1. 基于路由的分发</strong>：</p>
+<ul>
+<li>不同路由对应不同的微应用</li>
+<li>简单易实现，但页面间集成度低</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简单的路由分发示例</span></span><br><span class="line"><span class="keyword">const</span> routes = &#123;</span><br><span class="line">  <span class="string">&#x27;/app1&#x27;</span>: loadApp1,</span><br><span class="line">  <span class="string">&#x27;/app2&#x27;</span>: loadApp2,</span><br><span class="line">  <span class="string">&#x27;/app3&#x27;</span>: loadApp3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">router</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> path = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span>;</span><br><span class="line">  <span class="keyword">const</span> route = <span class="title class_">Object</span>.<span class="title function_">keys</span>(routes).<span class="title function_">find</span>(<span class="function"><span class="params">route</span> =&gt;</span> path.<span class="title function_">startsWith</span>(route));</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (route) &#123;</span><br><span class="line">    routes[route]();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">loadDefaultApp</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;popstate&#x27;</span>, router);</span><br><span class="line"><span class="title function_">router</span>();</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 使用 iframe</strong>：</p>
+<ul>
+<li>完全隔离各个应用</li>
+<li>但存在通信困难、样式不一致等问题</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- iframe 集成示例 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">&quot;micro-frontend&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://app1.example.com&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 根据某些条件切换 iframe 的 src</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">loadApp</span>(<span class="params">appUrl</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;micro-frontend&#x27;</span>).<span class="property">src</span> = appUrl;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">  </span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 应用间通信</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span> (event.<span class="property">origin</span> === <span class="string">&#x27;https://app1.example.com&#x27;</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Received message:&#x27;</span>, event.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3. Web Components</strong>：</p>
+<ul>
+<li>使用自定义元素封装微前端</li>
+<li>提供良好的封装性和互操作性</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Web Components 示例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MicroApp</span> <span class="keyword">extends</span> <span class="title class_ inherited__">HTMLElement</span> &#123;</span><br><span class="line">  <span class="title function_">connectedCallback</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> appName = <span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> appUrl = <span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&#x27;url&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 加载微应用</span></span><br><span class="line">    <span class="title function_">fetch</span>(<span class="string">`<span class="subst">$&#123;appUrl&#125;</span>/asset-manifest.json`</span>)</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> res.<span class="title function_">json</span>())</span><br><span class="line">      .<span class="title function_">then</span>(<span class="function"><span class="params">manifest</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 加载 JS 和 CSS</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">loadResources</span>(manifest, appUrl);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">loadResources</span>(<span class="params">manifest, baseUrl</span>) &#123;</span><br><span class="line">    <span class="comment">// 加载 CSS</span></span><br><span class="line">    <span class="keyword">if</span> (manifest.<span class="property">css</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;link&#x27;</span>);</span><br><span class="line">      link.<span class="property">rel</span> = <span class="string">&#x27;stylesheet&#x27;</span>;</span><br><span class="line">      link.<span class="property">href</span> = <span class="string">`<span class="subst">$&#123;baseUrl&#125;</span>/<span class="subst">$&#123;manifest.css&#125;</span>`</span>;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">appendChild</span>(link);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 加载 JS</span></span><br><span class="line">    <span class="keyword">if</span> (manifest.<span class="property">js</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">      script.<span class="property">src</span> = <span class="string">`<span class="subst">$&#123;baseUrl&#125;</span>/<span class="subst">$&#123;manifest.js&#125;</span>`</span>;</span><br><span class="line">      script.<span class="property">onload</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 调用微应用的挂载函数</span></span><br><span class="line">        <span class="variable language_">window</span>[<span class="string">`mount<span class="subst">$&#123;<span class="variable language_">this</span>.getAttribute(<span class="string">&#x27;name&#x27;</span>)&#125;</span>`</span>](<span class="variable language_">this</span>);</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">appendChild</span>(script);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">disconnectedCallback</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 调用微应用的卸载函数</span></span><br><span class="line">    <span class="keyword">const</span> appName = <span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">window</span>[<span class="string">`unmount<span class="subst">$&#123;appName&#125;</span>`</span>]) &#123;</span><br><span class="line">      <span class="variable language_">window</span>[<span class="string">`unmount<span class="subst">$&#123;appName&#125;</span>`</span>]();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">customElements.<span class="title function_">define</span>(<span class="string">&#x27;micro-app&#x27;</span>, <span class="title class_">MicroApp</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. JavaScript 模块加载</strong>：</p>
+<ul>
+<li>动态加载 JavaScript 模块</li>
+<li>灵活性高，但需要处理好依赖和冲突</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动态加载模块示例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadApp</span>(<span class="params">name, url</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    script.<span class="property">src</span> = url;</span><br><span class="line">    script.<span class="property">onload</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">resolve</span>(<span class="variable language_">window</span>[name]);</span><br><span class="line">    &#125;;</span><br><span class="line">    script.<span class="property">onerror</span> = reject;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">head</span>.<span class="title function_">appendChild</span>(script);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="title function_">loadApp</span>(<span class="string">&#x27;app1&#x27;</span>, <span class="string">&#x27;https://app1.example.com/bundle.js&#x27;</span>)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">app</span> =&gt;</span> &#123;</span><br><span class="line">    app.<span class="title function_">mount</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app1-container&#x27;</span>));</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>5. 使用微前端框架</strong>：</p>
+<ul>
+<li><strong>single-spa</strong>：JavaScript 微前端框架</li>
+<li><strong>qiankun</strong>：基于 single-spa 的增强框架</li>
+<li><strong>Module Federation</strong>：Webpack 5 提供的模块联邦功能</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// single-spa 示例</span></span><br><span class="line"><span class="keyword">import</span> &#123; registerApplication, start &#125; <span class="keyword">from</span> <span class="string">&#x27;single-spa&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册应用</span></span><br><span class="line"><span class="title function_">registerApplication</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;app1&#x27;</span>,</span><br><span class="line">  <span class="attr">app</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;app1&#x27;</span>),</span><br><span class="line">  <span class="attr">activeWhen</span>: <span class="string">&#x27;/app1&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="title function_">registerApplication</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;app2&#x27;</span>,</span><br><span class="line">  <span class="attr">app</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;app2&#x27;</span>),</span><br><span class="line">  <span class="attr">activeWhen</span>: <span class="string">&#x27;/app2&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动</span></span><br><span class="line"><span class="title function_">start</span>();</span><br></pre></td></tr></table></figure>
+
+<p><strong>挑战与解决方案</strong>：</p>
+<ul>
+<li><strong>样式隔离</strong>：使用 CSS Modules、CSS-in-JS 或 Shadow DOM</li>
+<li><strong>共享依赖</strong>：使用 Webpack 的 Module Federation 或 import maps</li>
+<li><strong>通信机制</strong>：使用自定义事件、发布订阅模式或全局状态管理</li>
+<li><strong>认证授权</strong>：使用 SSO 或 token 共享</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="cuidE6yISjV9qdB2nLwOt6Jh7" data-title="前端面试题集" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86/" rel="tag">前端面试题集</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/04/01/vue3%E6%BA%90%E7%A0%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Vue 3 源码解读
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/07/react%E9%9D%A2%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">react重点</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-2-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/">Vue 2 源码解读</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-3-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/">Vue 3 源码解读</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3%E9%87%8D%E7%82%B9/">Vue3重点</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react%E9%87%8D%E7%82%B9/">react重点</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue2%E9%87%8D%E7%82%B9/">vue2重点</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86/">前端面试题集</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-2-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" rel="tag">Vue 2 源码解读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-3-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" rel="tag">Vue 3 源码解读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3%E9%87%8D%E7%82%B9/" rel="tag">Vue3重点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react%E9%87%8D%E7%82%B9/" rel="tag">react重点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2%E9%87%8D%E7%82%B9/" rel="tag">vue2重点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86/" rel="tag">前端面试题集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Vue-2-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" style="font-size: 10px;">Vue 2 源码解读</a> <a href="/tags/Vue-3-%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/" style="font-size: 10px;">Vue 3 源码解读</a> <a href="/tags/Vue3%E9%87%8D%E7%82%B9/" style="font-size: 10px;">Vue3重点</a> <a href="/tags/react%E9%87%8D%E7%82%B9/" style="font-size: 10px;">react重点</a> <a href="/tags/vue2%E9%87%8D%E7%82%B9/" style="font-size: 10px;">vue2重点</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86/" style="font-size: 10px;">前端面试题集</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/01/vue3%E9%9D%A2%E8%AF%95/">Vue3重点</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/01/vue3%E6%BA%90%E7%A0%81/">Vue 3 源码解读</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">前端面试题集</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/07/react%E9%9D%A2%E8%AF%95/">react重点</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/01/vue2%E6%BA%90%E7%A0%81/">Vue 2 源码解读</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 wustxing<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
