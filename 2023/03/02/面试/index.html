@@ -6,15 +6,15 @@
   
   <title>前端面试题集 | wustxing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="适配问题react相关问题网络问题性能问题兼容性问题工程化问题安全问题移动端适配问题。1、react 父组件怎么调用子组件的方法‌函数组件使用 forwardRef+useImperativeHandle‌：子组件通过useImperativeHandle暴露方法，父组件通过ref调用 2、react useEffect 依赖项数组为空 或者不写数组有啥区别空数组[]‌：仅在挂载时执行一次，卸载时">
+  <meta name="description" content="适配问题react相关问题网络问题性能问题兼容性问题工程化问题安全问题移动端适配问题。createElement 和 cloneElement 有什么区别？传入的第一个参数不同 React.createElement():JSX 语法就是用 React.createElement()来构建 React 元素的。 它接受三个参数，第一个参数可以是一个标签名。如 div、span，或者 React 组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试题集">
 <meta property="og:url" content="http://blog.ypintao.com/2023/03/02/%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="wustxing&#39;s blog">
-<meta property="og:description" content="适配问题react相关问题网络问题性能问题兼容性问题工程化问题安全问题移动端适配问题。1、react 父组件怎么调用子组件的方法‌函数组件使用 forwardRef+useImperativeHandle‌：子组件通过useImperativeHandle暴露方法，父组件通过ref调用 2、react useEffect 依赖项数组为空 或者不写数组有啥区别空数组[]‌：仅在挂载时执行一次，卸载时">
+<meta property="og:description" content="适配问题react相关问题网络问题性能问题兼容性问题工程化问题安全问题移动端适配问题。createElement 和 cloneElement 有什么区别？传入的第一个参数不同 React.createElement():JSX 语法就是用 React.createElement()来构建 React 元素的。 它接受三个参数，第一个参数可以是一个标签名。如 div、span，或者 React 组">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-02T04:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-24T03:52:30.980Z">
+<meta property="article:modified_time" content="2025-09-24T06:37:57.331Z">
 <meta property="article:author" content="wustxing">
 <meta property="article:tag" content="前端面试题集">
 <meta name="twitter:card" content="summary">
@@ -104,7 +104,17 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="适配问题"><a href="#适配问题" class="headerlink" title="适配问题"></a>适配问题</h2><h2 id="react相关问题"><a href="#react相关问题" class="headerlink" title="react相关问题"></a>react相关问题</h2><h2 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h2><h2 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h2><h2 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h2><h2 id="工程化问题"><a href="#工程化问题" class="headerlink" title="工程化问题"></a>工程化问题</h2><h2 id="安全问题"><a href="#安全问题" class="headerlink" title="安全问题"></a>安全问题</h2><h3 id="移动端适配问题。"><a href="#移动端适配问题。" class="headerlink" title="移动端适配问题。"></a>移动端适配问题。</h3><h2 id="1、react-父组件怎么调用子组件的方法"><a href="#1、react-父组件怎么调用子组件的方法" class="headerlink" title="1、react 父组件怎么调用子组件的方法"></a>1、react 父组件怎么调用子组件的方法</h2><p>‌函数组件使用 forwardRef+useImperativeHandle‌：子组件通过useImperativeHandle暴露方法，父组件通过ref调用</p>
+        <h2 id="适配问题"><a href="#适配问题" class="headerlink" title="适配问题"></a>适配问题</h2><h2 id="react相关问题"><a href="#react相关问题" class="headerlink" title="react相关问题"></a>react相关问题</h2><h2 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h2><h2 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h2><h2 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h2><h2 id="工程化问题"><a href="#工程化问题" class="headerlink" title="工程化问题"></a>工程化问题</h2><h2 id="安全问题"><a href="#安全问题" class="headerlink" title="安全问题"></a>安全问题</h2><h3 id="移动端适配问题。"><a href="#移动端适配问题。" class="headerlink" title="移动端适配问题。"></a>移动端适配问题。</h3><h2 id="createElement-和-cloneElement-有什么区别？"><a href="#createElement-和-cloneElement-有什么区别？" class="headerlink" title="createElement 和 cloneElement 有什么区别？"></a>createElement 和 cloneElement 有什么区别？</h2><p>传入的第一个参数不同</p>
+<p>React.createElement():JSX 语法就是用 React.createElement()来构建 React 元素的。</p>
+<p>它接受三个参数，第一个参数可以是一个标签名。如 div、span，或者 React 组件。第二个参数为传入的属性。第三个以及之后的参数，皆作为组件的子组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">React</span>.<span class="title function_">createElement</span>(type, [props], [...children]);</span><br></pre></td></tr></table></figure>
+<p>React.cloneElement()与 React.createElement()相似，不同的是它传入的第一个参数是一个 React 元素，而不是标签名或组件。新添加的属性会并入原有的属性，传入到返回的新元素中，而旧的子元素将被替换。将保留原始元素的键和引用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">React</span>.<span class="title function_">cloneElement</span>(element, [props], [...children]);</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+
+<h2 id="1、react-父组件怎么调用子组件的方法"><a href="#1、react-父组件怎么调用子组件的方法" class="headerlink" title="1、react 父组件怎么调用子组件的方法"></a>1、react 父组件怎么调用子组件的方法</h2><p>‌函数组件使用 forwardRef+useImperativeHandle‌：子组件通过useImperativeHandle暴露方法，父组件通过ref调用</p>
 <h2 id="2、react-useEffect-依赖项数组为空-或者不写数组有啥区别"><a href="#2、react-useEffect-依赖项数组为空-或者不写数组有啥区别" class="headerlink" title="2、react useEffect 依赖项数组为空 或者不写数组有啥区别"></a>2、react useEffect 依赖项数组为空 或者不写数组有啥区别</h2><p>空数组[]‌：仅在挂载时执行一次，卸载时清理<br>‌不传数组‌：每次渲染后都会执行<br>‌含依赖项‌：依赖变化时执行MCP_3]^</p>
 <p>1、react性能优化<br>1.1、useMemo<br>1.2、useCallback</p>
 <p>useLayoutEffect会阻塞浏览器渲染，useEffect不会</p>
