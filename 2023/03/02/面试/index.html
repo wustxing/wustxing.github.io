@@ -14,7 +14,7 @@
 <meta property="og:description" content="适配问题react相关问题网络问题性能问题兼容性问题工程化问题安全问题移动端适配问题。createElement 和 cloneElement 有什么区别？传入的第一个参数不同 React.createElement():JSX 语法就是用 React.createElement()来构建 React 元素的。 它接受三个参数，第一个参数可以是一个标签名。如 div、span，或者 React 组">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-02T04:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-24T06:37:57.331Z">
+<meta property="article:modified_time" content="2025-09-24T07:43:10.035Z">
 <meta property="article:author" content="wustxing">
 <meta property="article:tag" content="前端面试题集">
 <meta name="twitter:card" content="summary">
@@ -113,11 +113,13 @@
 
 <span id="more"></span>
 
-
 <h2 id="1、react-父组件怎么调用子组件的方法"><a href="#1、react-父组件怎么调用子组件的方法" class="headerlink" title="1、react 父组件怎么调用子组件的方法"></a>1、react 父组件怎么调用子组件的方法</h2><p>‌函数组件使用 forwardRef+useImperativeHandle‌：子组件通过useImperativeHandle暴露方法，父组件通过ref调用</p>
 <h2 id="2、react-useEffect-依赖项数组为空-或者不写数组有啥区别"><a href="#2、react-useEffect-依赖项数组为空-或者不写数组有啥区别" class="headerlink" title="2、react useEffect 依赖项数组为空 或者不写数组有啥区别"></a>2、react useEffect 依赖项数组为空 或者不写数组有啥区别</h2><p>空数组[]‌：仅在挂载时执行一次，卸载时清理<br>‌不传数组‌：每次渲染后都会执行<br>‌含依赖项‌：依赖变化时执行MCP_3]^</p>
 <p>1、react性能优化<br>1.1、useMemo<br>1.2、useCallback</p>
-<p>useLayoutEffect会阻塞浏览器渲染，useEffect不会</p>
+<ol start="2">
+<li>useLayoutEffect () 与 useEffect () 的区别<br>useLayoutEffect会阻塞浏览器渲染，useEffect不会<br>useEffect()：异步执行，DOM 更新后触发（适合大多数副作用）。<br>useLayoutEffect()：同步执行，DOM 更新前触发（适合需要测量 DOM 的场景）。</li>
+</ol>
+<p>React.memo	缓存组件，避免无意义重新渲染<br>useMemo&#x2F;useCallback	缓存函数或计算结果</p>
 <h2 id="3、usecontext-有什么作用和缺点"><a href="#3、usecontext-有什么作用和缺点" class="headerlink" title="3、usecontext,有什么作用和缺点"></a>3、usecontext,有什么作用和缺点</h2><p>优点‌：<br>跨组件层级共享状态<br>避免prop drilling<br>‌缺点‌：<br>状态更新会导致所有消费者重新渲染<br>不适合高频更新的场景MCP_3]^</p>
 <h2 id="4、react组件逻辑服用怎么弄。"><a href="#4、react组件逻辑服用怎么弄。" class="headerlink" title="4、react组件逻辑服用怎么弄。"></a>4、react组件逻辑服用怎么弄。</h2><p>React组件逻辑复用<br>‌自定义Hooks‌：提取通用逻辑为可复用函数<br>‌HOC高阶组件‌：通过组件包装增强功能<br>‌Render Props‌：通过函数prop共享代码<br>‌Context API‌：跨层级状态共享MCP_3]^</p>
 <h3 id="5、React-Hooks-的作用和常用-Hook-有哪些？"><a href="#5、React-Hooks-的作用和常用-Hook-有哪些？" class="headerlink" title="5、React Hooks 的作用和常用 Hook 有哪些？"></a>5、React Hooks 的作用和常用 Hook 有哪些？</h3><p><strong>答案</strong>：<br>React Hooks 是 React 16.8 引入的特性，允许在函数组件中使用状态和其他 React 特性，而不需要编写类组件。</p>
@@ -269,6 +271,10 @@
       <ul>
         
           <li>
+            <a href="/2025/09/24/cocos%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2025/09/23/vue2%E7%BB%84%E4%BB%B6%E5%BA%93/">(no title)</a>
           </li>
         
@@ -282,10 +288,6 @@
         
           <li>
             <a href="/2023/03/02/%E9%9D%A2%E8%AF%95/">前端面试题集</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/02/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">前端面试题集</a>
           </li>
         
       </ul>
