@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>vite注意事项</title>
+      <link href="/2025/03/01/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/vite/"/>
+      <url>/2025/03/01/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/vite/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Vite-是如何实现快速开发的？它的原理是什么？"><a href="#Vite-是如何实现快速开发的？它的原理是什么？" class="headerlink" title="Vite 是如何实现快速开发的？它的原理是什么？"></a>Vite 是如何实现快速开发的？它的原理是什么？</h2><p>Vite的快速开发体验是通过以下原理实现的：</p><p>使用原生ES模块化，无需预打包。<br>利用服务端渲染（SSR）将源代码转换为浏览器可识别的模块。<br>在开发模式下，按需编译和提供模块，实现快速的冷启动和热模块替换（HMR）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vite </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webpack打包工具注意事项</title>
+      <link href="/2025/03/01/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/webpack/"/>
+      <url>/2025/03/01/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/webpack/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Webpack-的四个核心概念是什么？"><a href="#Webpack-的四个核心概念是什么？" class="headerlink" title="Webpack 的四个核心概念是什么？"></a>Webpack 的四个核心概念是什么？</h2><p>列举并简述 Webpack 的四大核心配置项。<br>概念描述<br>entry入口文件，指定 Webpack 开始构建的位置<br>output输出路径与文件名配置<br>loader处理非 JS 文件（如 CSS、图片、TypeScript）<br>plugin扩展 Webpack 功能（如压缩、优化、注入变量）</p><h2 id="如何配置多个入口（entry）？"><a href="#如何配置多个入口（entry）？" class="headerlink" title="如何配置多个入口（entry）？"></a>如何配置多个入口（entry）？</h2><p>配置 Webpack 同时打包两个独立页面（如 index 和 about 页面）。</p><h2 id="如何配置环境变量？"><a href="#如何配置环境变量？" class="headerlink" title="如何配置环境变量？"></a>如何配置环境变量？</h2><p> 在不同环境中注入不同的 API 地址。<br> 使用 DefinePlugin 定义全局变量。</p><h2 id="什么是-Tree-Shaking？如何启用？"><a href="#什么是-Tree-Shaking？如何启用？" class="headerlink" title="什么是 Tree Shaking？如何启用？"></a>什么是 Tree Shaking？如何启用？</h2><p> 只打包实际使用的代码，减少体积。<br> Tree Shaking 是通过 ES Module 静态分析删除未使用代码的技术。</p> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">usedExports</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">minimize</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// package.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;sideEffects&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="如何优化打包体积？"><a href="#如何优化打包体积？" class="headerlink" title="如何优化打包体积？"></a>如何优化打包体积？</h2><p>减少最终打包文件大小的方法有哪些？</p><p>使用 TerserPlugin 压缩 JS。<br>使用 MiniCssExtractPlugin 提取 CSS。<br>使用 SplitChunksPlugin 分包。<br>移除无用代码（Tree Shaking）。<br>使用 externals 排除第三方库（如 React）。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="attr">optimization</span>: &#123;</span><br><span class="line">  <span class="attr">minimize</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">minimizer</span>: [<span class="keyword">new</span> <span class="title class_">TerserPlugin</span>()],</span><br><span class="line">  <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">    <span class="attr">chunks</span>: <span class="string">&#x27;all&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="如何配置-Webpack-构建多页应用（MPA）？"><a href="#如何配置-Webpack-构建多页应用（MPA）？" class="headerlink" title="如何配置 Webpack 构建多页应用（MPA）？"></a>如何配置 Webpack 构建多页应用（MPA）？</h2><p>同时打包多个 HTML 页面，每个页面对应一个入口文件。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">entry</span>: &#123;</span><br><span class="line">    <span class="attr">home</span>: <span class="string">&#x27;./src/home.js&#x27;</span>,</span><br><span class="line">    <span class="attr">about</span>: <span class="string">&#x27;./src/about.js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].bundle.js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123; <span class="attr">filename</span>: <span class="string">&#x27;home.html&#x27;</span>, <span class="attr">template</span>: <span class="string">&#x27;./src/home.html&#x27;</span>, <span class="attr">chunks</span>: [<span class="string">&#x27;home&#x27;</span>] &#125;),</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123; <span class="attr">filename</span>: <span class="string">&#x27;about.html&#x27;</span>, <span class="attr">template</span>: <span class="string">&#x27;./src/about.html&#x27;</span>, <span class="attr">chunks</span>: [<span class="string">&#x27;about&#x27;</span>] &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> webpack </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webpack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>cocos小游戏开发</title>
       <link href="/2025/01/01/cocos%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/"/>
       <url>/2025/01/01/cocos%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/</url>
