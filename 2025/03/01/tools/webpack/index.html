@@ -7,13 +7,15 @@
 
     
 
-    <title>webpack | 星的博客</title>
+    <title>webpack打包工具注意事项 | 星的博客</title>
     <meta name="author" content="wustxing">
+    
+    <meta name="description" content="Webpack 的四个核心概念是什么？列举并简述 Webpack 的四大核心配置项。概念	描述entry	入口文件，指定 Webpack 开始构建的位置output	输出路径与文件名配置loader	处理非 JS 文件（如 CSS、图片、TypeScript）plugin	扩展 Webpack 功能">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="webpack打包工具注意事项"/>
     <meta property="og:site_name" content="wustxing&#39;s blog"/>
 
     
@@ -279,36 +281,93 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">Current page(Tags)</span>
+        <span class="breadcrumb">Current page(Categories)</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/webpack/">webpack</a>
+
 
         
-            <a class="breadcrumb" href="/tags/webpack/">webpack</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>webpack打包工具注意事项</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="pink-link-context" datetime="2025-03-01T04:00:00.000Z"><a href="/2025/03/01/tools/webpack/">2025-03-01</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
-            <a href="/2025/03/01/tools/webpack/" class="collection-item grey-text text-darken-1">
-                <time datetime="2025-03-01T04:00:00.000Z">2025-03-01</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                webpack打包工具注意事项
-            </a>
-        
-            <a href="/2024/04/01/webpack%20%E6%8F%92%E4%BB%B6%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99/" class="collection-item grey-text text-darken-1">
-                <time datetime="2024-04-01T04:00:00.000Z">2024-04-01</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                webpack 插件如何编写
-            </a>
+            <a href="/tags/webpack/" class="chip pink lighten-1">webpack</a>
         
     </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#Webpack-%E7%9A%84%E5%9B%9B%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="section table-of-contents-text">Webpack 的四个核心概念是什么？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E5%85%A5%E5%8F%A3%EF%BC%88entry%EF%BC%89%EF%BC%9F"><span class="section table-of-contents-text">如何配置多个入口（entry）？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="section table-of-contents-text">如何配置环境变量？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Tree-Shaking%EF%BC%9F%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8%EF%BC%9F"><span class="section table-of-contents-text">什么是 Tree Shaking？如何启用？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E6%89%93%E5%8C%85%E4%BD%93%E7%A7%AF%EF%BC%9F"><span class="section table-of-contents-text">如何优化打包体积？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE-Webpack-%E6%9E%84%E5%BB%BA%E5%A4%9A%E9%A1%B5%E5%BA%94%E7%94%A8%EF%BC%88MPA%EF%BC%89%EF%BC%9F"><span class="section table-of-contents-text">如何配置 Webpack 构建多页应用（MPA）？</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="Webpack-的四个核心概念是什么？"><a href="#Webpack-的四个核心概念是什么？" class="headerlink" title="Webpack 的四个核心概念是什么？"></a>Webpack 的四个核心概念是什么？</h2><p>列举并简述 Webpack 的四大核心配置项。<br>概念	描述<br>entry	入口文件，指定 Webpack 开始构建的位置<br>output	输出路径与文件名配置<br>loader	处理非 JS 文件（如 CSS、图片、TypeScript）<br>plugin	扩展 Webpack 功能（如压缩、优化、注入变量）</p>
+<h2 id="如何配置多个入口（entry）？"><a href="#如何配置多个入口（entry）？" class="headerlink" title="如何配置多个入口（entry）？"></a>如何配置多个入口（entry）？</h2><p>配置 Webpack 同时打包两个独立页面（如 index 和 about 页面）。</p>
+<h2 id="如何配置环境变量？"><a href="#如何配置环境变量？" class="headerlink" title="如何配置环境变量？"></a>如何配置环境变量？</h2><p> 在不同环境中注入不同的 API 地址。<br> 使用 DefinePlugin 定义全局变量。</p>
+<h2 id="什么是-Tree-Shaking？如何启用？"><a href="#什么是-Tree-Shaking？如何启用？" class="headerlink" title="什么是 Tree Shaking？如何启用？"></a>什么是 Tree Shaking？如何启用？</h2><p> 只打包实际使用的代码，减少体积。<br> Tree Shaking 是通过 ES Module 静态分析删除未使用代码的技术。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">usedExports</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">minimize</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// package.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;sideEffects&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何优化打包体积？"><a href="#如何优化打包体积？" class="headerlink" title="如何优化打包体积？"></a>如何优化打包体积？</h2><p>减少最终打包文件大小的方法有哪些？</p>
+<p>使用 TerserPlugin 压缩 JS。<br>使用 MiniCssExtractPlugin 提取 CSS。<br>使用 SplitChunksPlugin 分包。<br>移除无用代码（Tree Shaking）。<br>使用 externals 排除第三方库（如 React）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="attr">optimization</span>: &#123;</span><br><span class="line">  <span class="attr">minimize</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">minimizer</span>: [<span class="keyword">new</span> <span class="title class_">TerserPlugin</span>()],</span><br><span class="line">  <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">    <span class="attr">chunks</span>: <span class="string">&#x27;all&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何配置-Webpack-构建多页应用（MPA）？"><a href="#如何配置-Webpack-构建多页应用（MPA）？" class="headerlink" title="如何配置 Webpack 构建多页应用（MPA）？"></a>如何配置 Webpack 构建多页应用（MPA）？</h2><p>同时打包多个 HTML 页面，每个页面对应一个入口文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">entry</span>: &#123;</span><br><span class="line">    <span class="attr">home</span>: <span class="string">&#x27;./src/home.js&#x27;</span>,</span><br><span class="line">    <span class="attr">about</span>: <span class="string">&#x27;./src/about.js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].bundle.js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123; <span class="attr">filename</span>: <span class="string">&#x27;home.html&#x27;</span>, <span class="attr">template</span>: <span class="string">&#x27;./src/home.html&#x27;</span>, <span class="attr">chunks</span>: [<span class="string">&#x27;home&#x27;</span>] &#125;),</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123; <span class="attr">filename</span>: <span class="string">&#x27;about.html&#x27;</span>, <span class="attr">template</span>: <span class="string">&#x27;./src/about.html&#x27;</span>, <span class="attr">chunks</span>: [<span class="string">&#x27;about&#x27;</span>] &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                
+<p class="pink-link-context">
+    <a href="/2025/03/01/tools/vite/" rel="next" title="vite注意事项">
+    Prev: vite注意事项
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2025/01/01/cocos%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3/" rel="next" title="cocos小游戏开发">
+    Next: cocos小游戏开发
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>
