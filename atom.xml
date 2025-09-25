@@ -6,7 +6,7 @@
   <link href="http://blog.ypintao.com/atom.xml" rel="self"/>
   
   <link href="http://blog.ypintao.com/"/>
-  <updated>2025-09-23T08:17:33.997Z</updated>
+  <updated>2025-09-25T02:31:15.893Z</updated>
   <id>http://blog.ypintao.com/</id>
   
   <author>
@@ -15,19 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="http://blog.ypintao.com/2025/09/23/vue2%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
-    <id>http://blog.ypintao.com/2025/09/23/vue2%E7%BB%84%E4%BB%B6%E5%BA%93/</id>
-    <published>2025-09-23T08:17:33.997Z</published>
-    <updated>2025-09-23T08:17:33.997Z</updated>
-    
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>cocos小游戏开发</title>
@@ -43,6 +30,23 @@
     
     
     <category term="cocos" scheme="http://blog.ypintao.com/tags/cocos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue2组件库开发</title>
+    <link href="http://blog.ypintao.com/2024/06/01/vue2%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
+    <id>http://blog.ypintao.com/2024/06/01/vue2%E7%BB%84%E4%BB%B6%E5%BA%93/</id>
+    <published>2024-06-01T04:00:00.000Z</published>
+    <updated>2025-09-25T02:35:22.808Z</updated>
+    
+    
+    
+    
+    <category term="Vue2" scheme="http://blog.ypintao.com/categories/Vue2/"/>
+    
+    
+    <category term="Vue2" scheme="http://blog.ypintao.com/tags/Vue2/"/>
     
   </entry>
   
