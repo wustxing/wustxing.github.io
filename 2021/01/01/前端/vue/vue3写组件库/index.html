@@ -1,0 +1,765 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>vue3组件库 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="环境搭建目前流行的组件库搭建方式都是使用monorepo的方式，好处很多，可以在一个代码仓库中管理多个项目，可以达到项目之间的资源共享。这里也是使用这种方式。
+以 pnpm 构建 monorepo首先全局安装pnpm">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="vue3组件库"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react重点/">
+                    react重点 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2重点/">
+                    vue2重点 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Vue3重点/">
+                    Vue3重点 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Vue-3-源码解读/">
+                    Vue-3-源码解读 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Vue-2-源码解读/">
+                    Vue-2-源码解读 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Vue2/">
+                    Vue2 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/vue3/">vue3</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>vue3组件库</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2021-01-01T04:00:00.000Z"><a href="/2021/01/01/%E5%89%8D%E7%AB%AF/vue/vue3%E5%86%99%E7%BB%84%E4%BB%B6%E5%BA%93/">2021-01-01</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/vue3/" class="chip pink lighten-1">vue3</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="section table-of-contents-text">环境搭建</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%BB%A5-pnpm-%E6%9E%84%E5%BB%BA-monorepo"><span class="section table-of-contents-text">以 pnpm 构建 monorepo</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E9%85%8D%E7%BD%AE-pnpm-%E7%9A%84-monorepo-%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="section table-of-contents-text">配置 pnpm 的 monorepo 工作区</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%BB%93%E5%BA%93%E9%A1%B9%E7%9B%AE%E5%86%85%E7%9A%84%E5%8C%85%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8"><span class="section table-of-contents-text">仓库项目内的包相互调用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E7%BB%84%E4%BB%B6%E7%BC%96%E5%86%99"><span class="section table-of-contents-text">组件编写</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E7%BB%84%E4%BB%B6%E6%89%93%E5%8C%85"><span class="section table-of-contents-text">组件打包</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%EF%BC%9A%E5%85%A8%E9%87%8F%E4%BD%BF%E7%94%A8-main-js%E4%B8%AD%E5%AF%BC%E5%85%A5"><span class="section table-of-contents-text">第一种：全量使用 main.js中导入</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%EF%BC%9A%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5-%E5%9C%A8main-js%E4%B8%AD%E5%BC%95%E5%85%A5%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="section table-of-contents-text">第二种：按需导入 在main.js中引入样式文件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E6%B7%BB%E5%8A%A0LICENSE"><span class="section table-of-contents-text">添加LICENSE</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#npm%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95"><span class="section table-of-contents-text">npm账号注册登录</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E8%B0%83%E8%AF%95npm"><span class="section table-of-contents-text">调试npm</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E5%8F%91%E5%B8%83%E7%BB%84%E4%BB%B6"><span class="section table-of-contents-text">发布组件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%91%E5%B8%83%E7%9A%84%E4%B8%80%E4%BA%9B%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB"><span class="section table-of-contents-text">关于发布的一些错误汇总</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E5%8F%91%E5%B8%83%E7%A7%81%E6%9C%89%E5%8C%85"><span class="section table-of-contents-text">发布私有包</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E6%9B%B4%E6%96%B0%E7%BB%84%E4%BB%B6"><span class="section table-of-contents-text">更新组件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E6%96%87%E6%A1%A3%E7%BC%96%E5%86%99"><span class="section table-of-contents-text">文档编写</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>目前流行的组件库搭建方式都是使用monorepo的方式，好处很多，可以在一个代码仓库中管理多个项目，可以达到项目之间的资源共享。这里也是使用这种方式。</p>
+<h2 id="以-pnpm-构建-monorepo"><a href="#以-pnpm-构建-monorepo" class="headerlink" title="以 pnpm 构建 monorepo"></a>以 pnpm 构建 monorepo</h2><p>首先全局安装pnpm</p>
+<span id="more"></span>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install pnpm -g</span><br></pre></td></tr></table></figure>
+
+<p>pnpm初始化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pnpm init</span><br><span class="line"><span class="string">``</span><span class="string">`     </span></span><br><span class="line"><span class="string">得到 package.json 的初始内容后删除 package.json 中的 name ，添加 &quot;private&quot;: true 属性，因为这个作为一个整体是不需要发布的。组件都是写在packages中。</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;private&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;echo &quot;</span><span class="title class_">Error</span>: no test specified<span class="string">&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;keywords&quot;</span>: [],</span><br><span class="line">  <span class="string">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="string">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="配置-pnpm-的-monorepo-工作区"><a href="#配置-pnpm-的-monorepo-工作区" class="headerlink" title="配置 pnpm 的 monorepo 工作区"></a>配置 pnpm 的 monorepo 工作区</h2><p>这是我目前的结构目录，docs用来存放组件库文档，examples用于调试编写好的组件，packages里的compnents用于存放自己的组件。<br><img src="/img/1.jpg"><br>比如我使用到packages和examples这两个，那么就将这两个都配置进去,在pnpm-workspace.yaml中配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">packages</span>:</span><br><span class="line">  - <span class="string">&#x27;packages/*&#x27;</span></span><br><span class="line">  - <span class="string">&#x27;examples/*&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>每个子模块都有属于自己的package.json文件</p>
+<p><img src="/img/2.jpg"></p>
+<p>以components包的package.json举例，其中”@uv-ui&#x2F;hooks”: “workspace:^1.0.0”和 “@uv-ui&#x2F;utils”: “workspace:^1.0.0”是依赖于其他目录的包，如果这个components包需要用到这两个包，需要在这个目录下也安装上，之后发布npm包的时候将workspace:^去掉即可，这两个依赖的包也需要独立发布npm包，这些在发布组件中有详细描述。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;uv-ui&quot;</span>,</span><br><span class="line">  <span class="string">&quot;private&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.11&quot;</span>,</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;dist/es/index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;module&quot;</span>: <span class="string">&quot;dist/es/index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;style&quot;</span>: <span class="string">&quot;dist/es/style.css&quot;</span>,</span><br><span class="line">  <span class="string">&quot;description&quot;</span>: <span class="string">&quot;基于vue3的移动端组件库&quot;</span>,</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;vite build&quot;</span>,</span><br><span class="line">    <span class="string">&quot;lint&quot;</span>: <span class="string">&quot;eslint ./src/**/*.&#123;js,jsx,vue,ts,tsx&#125; --fix&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;repository&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;git&quot;</span>,</span><br><span class="line">    <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://github.com/monsterxwx/uv-ui&quot;</span>,</span><br><span class="line">    <span class="string">&quot;directory&quot;</span>: <span class="string">&quot;packages/uv-ui&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;keywords&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;uv-ui&quot;</span>,</span><br><span class="line">    <span class="string">&quot;vue3组件库&quot;</span>,</span><br><span class="line">    <span class="string">&quot;mobile&quot;</span>,</span><br><span class="line">    <span class="string">&quot;frontend&quot;</span>,</span><br><span class="line">    <span class="string">&quot;components&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;files&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;dist&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;author&quot;</span>: <span class="string">&quot;coderxwx&quot;</span>,</span><br><span class="line">  <span class="string">&quot;license&quot;</span>: <span class="string">&quot;MIT&quot;</span>,</span><br><span class="line">  <span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;@uv-ui/hooks&quot;</span>: <span class="string">&quot;workspace:^1.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;@uv-ui/utils&quot;</span>: <span class="string">&quot;workspace:^1.0.0&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他两个的包名则分别为：@uv-ui&#x2F;hooks 和 @uv-ui&#x2F;utils，创建过程同上。</p>
+<h2 id="仓库项目内的包相互调用"><a href="#仓库项目内的包相互调用" class="headerlink" title="仓库项目内的包相互调用"></a>仓库项目内的包相互调用</h2><p>如何对hooks、utils和components这三个包进行互相调用呢？我们只需要把这三个包都安装到仓库根目录下的 node_modules 目录中即可。所有的依赖都在根目录下安装，安装到根目录需要加上-w ，表示安装到公共模块的 packages.json 中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pnpm install uv-ui -w</span><br><span class="line">pnpm install @uv-ui/hooks -w</span><br><span class="line">pnpm install @uv-ui/utils -w</span><br></pre></td></tr></table></figure>
+
+<p>根目录的package.json将会出现如下依赖，这三个就是我们刚刚安装的包<br><img src="/img/3.jpg"></p>
+<h2 id="组件编写"><a href="#组件编写" class="headerlink" title="组件编写"></a>组件编写</h2><p>如果我们的组件库包需要支持按需引入，那么每个组件都需要进行vue的注册app.component(comp.name,comp)。每个都写一遍会比较麻烦，可以封装成一个函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">withInstall</span> = (<span class="params">comp</span>) =&gt; &#123;</span><br><span class="line">  comp.<span class="property">install</span> = <span class="function">(<span class="params">app</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 注册组件</span></span><br><span class="line">    app.<span class="title function_">component</span>(comp.<span class="property">name</span>, comp)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> comp</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>以button组件为例，首先目录结构如下，在src目录下编写各个组件，在components目录下有一个index用于将所有的组件导出<br><img src="/img/4.jpg"><br>button的index.js代码如下：将编写的button组件导进来，然后导出去即可实现组件每个都是按需加载</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Button</span> <span class="keyword">from</span> <span class="string">&#x27;./button.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;withInstall&#125; <span class="keyword">from</span> <span class="string">&#x27;@uv-ui/utils&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">UvButton</span> = <span class="title function_">withInstall</span>(<span class="title class_">Button</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">UvButton</span></span><br></pre></td></tr></table></figure>
+
+<p>再来看看components目录下的index.js文件，写多少个组件就引入多少个，然后全部导出去，这么做的目的是在全量导入的时候，可以直接引入组件，然后vue.use(uv-ui)即可将全部的组件注册</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uvButton <span class="keyword">from</span> <span class="string">&#x27;./button&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> components = [</span><br><span class="line">  uvButton</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">install</span> = (<span class="params">Vue</span>) =&gt; &#123;</span><br><span class="line">  components.<span class="title function_">forEach</span>(<span class="function"><span class="params">component</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="title class_">Vue</span>.<span class="title function_">component</span>(component.<span class="property">name</span>, component)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  uvButton</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> install</span><br></pre></td></tr></table></figure>
+
+<p>再来看看button.vue文件,由于写的比较多，这里直接省略部分代码，只保留关键代码。</p>
+<p>可以看到每个组件都需要给他一个名字方便在vue中注册，export default { name: ‘UvButton’ }， 其次样式通过css变量抽离出来，方便样式的更改，样式不用加scoped作用域，只要命名好样式名称即可。其他组件同理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;uv-button&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="comment">// 代码</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">name</span>: <span class="string">&#x27;UvButton&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">:root &#123;</span></span><br><span class="line"><span class="language-xml">  --uv-button-primary: #409eff;</span></span><br><span class="line"><span class="language-xml">  --uv-button-success: #67c23a;</span></span><br><span class="line"><span class="language-xml">  --uv-button-warning: #e6a23c;</span></span><br><span class="line"><span class="language-xml">  --uv-button-error: #f56c6c;</span></span><br><span class="line"><span class="language-xml">  --uv-button-info: #909399;</span></span><br><span class="line"><span class="language-xml">  --uv-button-text: #303133;</span></span><br><span class="line"><span class="language-xml">&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">$primary: var(--uv-button-primary);</span></span><br><span class="line"><span class="language-xml">$success: var(--uv-button-success);</span></span><br><span class="line"><span class="language-xml">$warning: var(--uv-button-warning) ;</span></span><br><span class="line"><span class="language-xml">$error: var(--uv-button-error) ;</span></span><br><span class="line"><span class="language-xml">$info: var(--uv-button-info) ;</span></span><br><span class="line"><span class="language-xml">$text: var(--uv-button-text) ;</span></span><br><span class="line"><span class="language-xml">.uv-button &#123;</span></span><br><span class="line"><span class="language-xml">  font-size: var(--uv-button-font-size);</span></span><br><span class="line"><span class="language-xml">  border: 0;</span></span><br><span class="line"><span class="language-xml">  border-radius: var(--uv-button-border-radius);</span></span><br><span class="line"><span class="language-xml">  white-space: nowrap;</span></span><br><span class="line"><span class="language-xml">  color: #ffffff;</span></span><br><span class="line"><span class="language-xml">  background: none;</span></span><br><span class="line"><span class="language-xml">  outline: none;</span></span><br><span class="line"><span class="language-xml">  cursor: pointer;</span></span><br><span class="line"><span class="language-xml">&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="组件打包"><a href="#组件打包" class="headerlink" title="组件打包"></a>组件打包</h2><p>组件打包采用的是vite的库模式打包，没有使用gulp这些工具，是比较简单的打包方式，只需要简单配置即可实现每个组件都单独打包，目前打包后所有组件样式会合成一个style.css文件，样式需要全部引入，组件是按需引入的方式，如果样式也想做分离就需要使用到gulp等这些工具，将样式全部拆分出来作为一个包theme-chalk,然后引入就类似element-ui那种方式，比较麻烦这里就不详细描述了，可以找找相关的文章了解。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">build</span>: &#123;</span><br><span class="line">    <span class="attr">target</span>: <span class="string">&#x27;modules&#x27;</span>,</span><br><span class="line">    <span class="comment">// 压缩</span></span><br><span class="line">    <span class="attr">minify</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">rollupOptions</span>: &#123;</span><br><span class="line">      <span class="comment">// 忽略打包vue文件</span></span><br><span class="line">      <span class="attr">external</span>: [<span class="string">&#x27;vue&#x27;</span>],</span><br><span class="line">      <span class="attr">input</span>: [<span class="string">&#x27;src/index.js&#x27;</span>],</span><br><span class="line">      <span class="attr">output</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">format</span>: <span class="string">&#x27;es&#x27;</span>,</span><br><span class="line">          <span class="attr">entryFileNames</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">          <span class="attr">preserveModules</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="comment">// 配置打包根目录</span></span><br><span class="line">          <span class="attr">dir</span>: <span class="string">&#x27;dist/es&#x27;</span>,</span><br><span class="line">          <span class="attr">preserveModulesRoot</span>: <span class="string">&#x27;src&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">format</span>: <span class="string">&#x27;cjs&#x27;</span>,</span><br><span class="line">          <span class="attr">entryFileNames</span>: <span class="string">&#x27;[name].js&#x27;</span>,</span><br><span class="line">          <span class="attr">preserveModules</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="attr">dir</span>: <span class="string">&#x27;dist/lib&#x27;</span>,</span><br><span class="line">          <span class="attr">preserveModulesRoot</span>: <span class="string">&#x27;src&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">lib</span>: &#123;</span><br><span class="line">      <span class="attr">entry</span>: <span class="string">&#x27;./index.js&#x27;</span>,</span><br><span class="line">      <span class="attr">formats</span>: [<span class="string">&#x27;es&#x27;</span>, <span class="string">&#x27;cjs&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">vue</span>()</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>下面是打包后的结构，分别拆成es和lib，样式在es目录下的style.css</p>
+<p><img src="/img/5.jpg"></p>
+<p>使用方式就比较简单了</p>
+<h3 id="第一种：全量使用-main-js中导入"><a href="#第一种：全量使用-main-js中导入" class="headerlink" title="第一种：全量使用 main.js中导入"></a>第一种：全量使用 main.js中导入</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uvUI <span class="keyword">from</span> <span class="string">&#x27;uv-ui&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;uv-ui/dist/es/style.css&#x27;</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(uvUI)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第二种：按需导入-在main-js中引入样式文件"><a href="#第二种：按需导入-在main-js中引入样式文件" class="headerlink" title="第二种：按需导入 在main.js中引入样式文件"></a>第二种：按需导入 在main.js中引入样式文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;uv-ui/dist/es/style.css&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>其他用到的地方引入相关组件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">uvButton</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>切换<span class="tag">&lt;/<span class="name">uvButton</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; uvButton &#125; <span class="keyword">from</span> <span class="string">&#x27;uv-ui&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>组件发布<br>编写package.json<br>package.json重要字段说明：</p>
+<p>name 即npm项目包名，发布到npm时就是取的这个name名，你自己取个语义化的名字，和已有的npm库不能重复；<br>private 是否私有包，要发布到npm需要关闭<br>version 版本号，更新npm包时必须修改一个更高的版本号后才能成功发布到npm，版本号最好遵循npm版本管理规范；<br>description 包的描述，发布到npm后你搜索该npm包时，在搜索联想列表里会显示在包名的下方，作为描述说明；<br>main 入口文件路径，在你通过import或require引用该npm包时就是引入的该路径的文件<br>keywords 该包的关键词<br>files 白名单目录，配置哪些文件会上传到npm包中。有些文件是必定会上传的，无法控制，例如package.json、LICENSE、README.md等等<br>repository 关联github地址</p>
+<p>package.json完整代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;uv-ui&quot;</span>,</span><br><span class="line">  <span class="string">&quot;private&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.11&quot;</span>,</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;dist/es/index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;module&quot;</span>: <span class="string">&quot;dist/es/index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;style&quot;</span>: <span class="string">&quot;dist/es/style.css&quot;</span>,</span><br><span class="line">  <span class="string">&quot;description&quot;</span>: <span class="string">&quot;基于vue3的移动端组件库&quot;</span>,</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;vite build&quot;</span>,</span><br><span class="line">    <span class="string">&quot;lint&quot;</span>: <span class="string">&quot;eslint ./src/**/*.&#123;js,jsx,vue,ts,tsx&#125; --fix&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;repository&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;git&quot;</span>,</span><br><span class="line">    <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://github.com/monsterxwx/uv-ui&quot;</span>,</span><br><span class="line">    <span class="string">&quot;directory&quot;</span>: <span class="string">&quot;packages/uv-ui&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;keywords&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;uv-ui&quot;</span>,</span><br><span class="line">    <span class="string">&quot;vue3组件库&quot;</span>,</span><br><span class="line">    <span class="string">&quot;mobile&quot;</span>,</span><br><span class="line">    <span class="string">&quot;frontend&quot;</span>,</span><br><span class="line">    <span class="string">&quot;components&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;files&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;dist&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;author&quot;</span>: <span class="string">&quot;coderxwx&quot;</span>,</span><br><span class="line">  <span class="string">&quot;license&quot;</span>: <span class="string">&quot;MIT&quot;</span>,</span><br><span class="line">  <span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;@coderxwx/uv-ui-hooks&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;@coderxwx/uv-ui-utils&quot;</span>: <span class="string">&quot;1.0.0&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加LICENSE"><a href="#添加LICENSE" class="headerlink" title="添加LICENSE"></a>添加LICENSE</h3><p>Copyright (c) 2023代表年份，coderxwx替换成自己的名字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">MIT</span> <span class="title class_">License</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Copyright</span> (c) <span class="number">2023</span> coderxwx</span><br><span class="line"></span><br><span class="line"><span class="title class_">Permission</span> is hereby granted, free <span class="keyword">of</span> charge, to any person obtaining a copy</span><br><span class="line"><span class="keyword">of</span> <span class="variable language_">this</span> software and associated documentation <span class="title function_">files</span> (the <span class="string">&quot;Software&quot;</span>), to deal</span><br><span class="line"><span class="keyword">in</span> the <span class="title class_">Software</span> without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span><br><span class="line">copies <span class="keyword">of</span> the <span class="title class_">Software</span>, and to permit persons to whom the <span class="title class_">Software</span> is</span><br><span class="line">furnished to <span class="keyword">do</span> so, subject to the following <span class="attr">conditions</span>:</span><br><span class="line"></span><br><span class="line"><span class="title class_">The</span> above copyright notice and <span class="variable language_">this</span> permission notice shall be included <span class="keyword">in</span> all</span><br><span class="line">copies or substantial portions <span class="keyword">of</span> the <span class="title class_">Software</span>.</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">THE</span> <span class="variable constant_">SOFTWARE</span> <span class="variable constant_">IS</span> <span class="variable constant_">PROVIDED</span> <span class="string">&quot;AS IS&quot;</span>, <span class="variable constant_">WITHOUT</span> <span class="variable constant_">WARRANTY</span> <span class="variable constant_">OF</span> <span class="variable constant_">ANY</span> <span class="variable constant_">KIND</span>, <span class="variable constant_">EXPRESS</span> <span class="variable constant_">OR</span></span><br><span class="line"><span class="variable constant_">IMPLIED</span>, <span class="variable constant_">INCLUDING</span> <span class="variable constant_">BUT</span> <span class="variable constant_">NOT</span> <span class="variable constant_">LIMITED</span> <span class="variable constant_">TO</span> <span class="variable constant_">THE</span> <span class="variable constant_">WARRANTIES</span> <span class="variable constant_">OF</span> <span class="variable constant_">MERCHANTABILITY</span>,</span><br><span class="line"><span class="variable constant_">FITNESS</span> <span class="variable constant_">FOR</span> A <span class="variable constant_">PARTICULAR</span> <span class="variable constant_">PURPOSE</span> <span class="variable constant_">AND</span> <span class="variable constant_">NONINFRINGEMENT</span>. <span class="variable constant_">IN</span> <span class="variable constant_">NO</span> <span class="variable constant_">EVENT</span> <span class="variable constant_">SHALL</span> <span class="variable constant_">THE</span></span><br><span class="line"><span class="variable constant_">AUTHORS</span> <span class="variable constant_">OR</span> <span class="variable constant_">COPYRIGHT</span> <span class="variable constant_">HOLDERS</span> <span class="variable constant_">BE</span> <span class="variable constant_">LIABLE</span> <span class="variable constant_">FOR</span> <span class="variable constant_">ANY</span> <span class="variable constant_">CLAIM</span>, <span class="variable constant_">DAMAGES</span> <span class="variable constant_">OR</span> <span class="variable constant_">OTHER</span></span><br><span class="line"><span class="variable constant_">LIABILITY</span>, <span class="variable constant_">WHETHER</span> <span class="variable constant_">IN</span> <span class="variable constant_">AN</span> <span class="variable constant_">ACTION</span> <span class="variable constant_">OF</span> <span class="variable constant_">CONTRACT</span>, <span class="variable constant_">TORT</span> <span class="variable constant_">OR</span> <span class="variable constant_">OTHERWISE</span>, <span class="variable constant_">ARISING</span> <span class="variable constant_">FROM</span>,</span><br><span class="line"><span class="variable constant_">OUT</span> <span class="variable constant_">OF</span> <span class="variable constant_">OR</span> <span class="variable constant_">IN</span> <span class="variable constant_">CONNECTION</span> <span class="variable constant_">WITH</span> <span class="variable constant_">THE</span> <span class="variable constant_">SOFTWARE</span> <span class="variable constant_">OR</span> <span class="variable constant_">THE</span> <span class="variable constant_">USE</span> <span class="variable constant_">OR</span> <span class="variable constant_">OTHER</span> <span class="variable constant_">DEALINGS</span> <span class="variable constant_">IN</span> <span class="variable constant_">THE</span></span><br><span class="line"><span class="variable constant_">SOFTWARE</span>.</span><br></pre></td></tr></table></figure>
+
+<h3 id="npm账号注册登录"><a href="#npm账号注册登录" class="headerlink" title="npm账号注册登录"></a>npm账号注册登录</h3><p>要发布到npm上首先就要注册npm账号，通过官网进行账号注册：<a target="_blank" rel="noopener" href="http://www.npmjs.com/[1]">www.npmjs.com/[1]</a> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+<p>登录npm,输入账号和密码，密码输入不会有显示，正常输入即可，然后输入自己的邮箱，邮箱验证码验证通过后即成功登录，后续不需要重复登录。</p>
+<h3 id="调试npm"><a href="#调试npm" class="headerlink" title="调试npm"></a>调试npm</h3><p>如果不需要调试，可以跳过调试步骤，直接发布。</p>
+<p>npm项目根目录运行终端命令：运行后该npm包会放进本地npm缓存</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link</span><br></pre></td></tr></table></figure>
+<p>如果要在其他项目（例如项目名叫aaa）里引用调试，只需要在aaa里运行命令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm link 包名</span><br></pre></td></tr></table></figure>
+
+<p>为了防止本地调试npm与发布后的npm混淆冲突，在调试完成后一定记得手动取消项目关联。</p>
+<h3 id="发布组件"><a href="#发布组件" class="headerlink" title="发布组件"></a>发布组件</h3><p>在npm包项目根目录运行命令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<p>运行完稍等一段时间即可在npm官网搜索到发布的npm包。</p>
+<h3 id="关于发布的一些错误汇总"><a href="#关于发布的一些错误汇总" class="headerlink" title="关于发布的一些错误汇总"></a>关于发布的一些错误汇总</h3><p>403错误</p>
+<p>检查npm源是否是官方源registry.npmjs.org&#x2F;[2]，比如之前是淘宝的源则需要切换回官方源，否则发布失败；<br>是否登录成功（npm login 或者npm adduser 登录）；<br>是否已有重复的包名（修改package.json里的name或者使用scope）。<br>402错误</p>
+<p>当使用npm publish发布带有scope作用域的包时，会出现402错误；<br>需使用npm publish –access&#x3D;public；<br>详细发布请看下面的发布私有包。<br>404错误</p>
+<p>没有找到对应的路径，其实跟402错误差不多，基本都是作用域的问题</p>
+<h3 id="发布私有包"><a href="#发布私有包" class="headerlink" title="发布私有包"></a>发布私有包</h3><p>我们在写组件库的时候会用到一些函数，这些都可以作为一个包进行发布，但是这些不需要发布为正式的包，只需要给组件库的主包使用，比如：</p>
+<p><img src="/img/6.jpg"></p>
+<p>package.json中如果name 是使用@xx来表示的则代表私有包，如果发布npm为私有包则需要收费，我们可以通过配置publishConfig字段将其表示为共有包，然后进行npm publish进行发布，如果不想写这个可以直接输入npm publish –access&#x3D;public 比如我的私有包的前缀是这个@coderxwx，@后面跟的是你npm的账号名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;@coderxwx/uv-ui-hooks&quot;</span>,</span><br><span class="line">  <span class="string">&quot;private&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;echo &quot;</span><span class="title class_">Error</span>: no test specified<span class="string">&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;publishConfig&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;access&quot;</span>: <span class="string">&quot;public&quot;</span>,</span><br><span class="line">    <span class="string">&quot;registry&quot;</span>: <span class="string">&quot;https://registry.npmjs.org/&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;keywords&quot;</span>: [],</span><br><span class="line">  <span class="string">&quot;author&quot;</span>: <span class="string">&quot;coderxwx&quot;</span>,</span><br><span class="line">  <span class="string">&quot;license&quot;</span>: <span class="string">&quot;MIT&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果不想使用自己的账号名作为私有包的前缀，可以创建一个组织<br><img src="/img/7.jpg"><br>创建完成后就可以使用这个名字来当前缀了，比如我创建的是uv-ui,之后就可以使用@uv-ui进行发布了。</p>
+<h3 id="更新组件"><a href="#更新组件" class="headerlink" title="更新组件"></a>更新组件</h3><p>当完成组件的修改后需要重新发布更新组件，这里有两种方式，一种是直接修改package.json中的version信息，然后进行npm publish</p>
+<p>还有一种更规范的方式是使用npm的指令。</p>
+<p>其中type有这些：</p>
+<p>patch：小变动，比如修复bug等 版本号变动 v1.0.0-&gt;v1.0.1</p>
+<p>minor：增加新功能，不影响现有功能 版本号变动 v1.0.0-&gt;v1.1.0</p>
+<p>major：破坏模块对向后的兼容性，大版本更新 版本号变动 v1.0.0-&gt;v2.0.0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm version [type]</span><br><span class="line"></span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<h3 id="文档编写"><a href="#文档编写" class="headerlink" title="文档编写"></a>文档编写</h3><p>我用的是vitepress来构建文档，基本没啥难度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vitepress -D</span><br></pre></td></tr></table></figure>
+
+                
+<p class="pink-link-context">
+    <a href="/2021/01/01/%E5%89%8D%E7%AB%AF/vue/render%E6%96%B9%E6%B3%95%E7%9A%84%E5%85%B7%E4%BD%93%E5%90%AB%E4%B9%89/" rel="next" title="render方法的具体含义">
+    Prev: render方法的具体含义
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2021/01/01/%E5%89%8D%E7%AB%AF/vue/vue2%E9%9D%A2%E8%AF%95/" rel="next" title="vue2重点">
+    Next: vue2重点
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
