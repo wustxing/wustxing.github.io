@@ -1,0 +1,1 @@
+window._CCSettings={platform:"web-mobile",groupList:["default","wall","fruit"],collisionMatrix:[[true],[false,false,true],[false,true,true]],hasResourcesBundle:false,hasStartSceneBundle:false,remoteBundles:[],subpackages:[],launchScene:"db://assets/Scene/helloworld.fire",orientation:"",jsList:[],bundleVers:{internal:"52d36",main:"4f4df"}};

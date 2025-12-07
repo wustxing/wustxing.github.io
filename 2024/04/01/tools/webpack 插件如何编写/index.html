@@ -10,7 +10,7 @@
     <title>webpack 插件如何编写 | 星的博客</title>
     <meta name="author" content="wustxing">
     
-    <meta name="description" content="编写 Webpack 插件可以帮助你在 Webpack 构建过程中添加自定义行为。Webpack 插件是一个具有 apply 方法的 JavaScript 对象。这个 apply 方法会在 Webpack 编译器实例上被调用，并且你可以通过这个方法来访问 Webpack 的编译器对象，从而在特定的编">
+    <meta name="description" content="编写 Webpack 插件可以帮助你在 Webpack 构建过程中添加自定义行为。Webpack 插件是一个具有 apply 方法的 JavaScript 对象。这个 apply 方法会在 Webpack 编译器实例上被调用，并且你可以通过这个方法来访问 Webpack 的编译器对象，从而在特定的编译阶段插入自定义逻辑。   下面是一个简单的步骤指南和示例代码，帮助你编写一个基本的 Webpack 插件。步骤指南创建插件对象：创建一个 JavaScript 对象，并定义一个 apply 方法。访问编译器对象：在 apply 方法中，通过参数访问 Webpack 编译器对象。绑定钩子：使用编译器对象提供的钩子来绑定你的插件逻辑。导出插件：将你的插件对象导出，以便在 Webpack 配置中使用。示例代码假设我们要编写一个简单的插件，在 Webpack 构建完成后输出一条消息到控制台。创建插件文件   首先，创建一个文件 MyWebpackPlugin.js，内容如下：">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -164,7 +164,15 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/vue3/">
-                    vue3 <span class="right">3</span></a>
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
                 </a>
             </li>
 
@@ -204,7 +212,15 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/vite/">
-                    vite <span class="right">1</span></a>
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">1</span></a>
                 </a>
             </li>
 
@@ -284,6 +300,7 @@
 
             <div class="entry pink-link-context">
                 <p>编写 Webpack 插件可以帮助你在 Webpack 构建过程中添加自定义行为。Webpack 插件是一个具有 apply 方法的 JavaScript 对象。这个 apply 方法会在 Webpack 编译器实例上被调用，并且你可以通过这个方法来访问 Webpack 的编译器对象，从而在特定的编译阶段插入自定义逻辑。   下面是一个简单的步骤指南和示例代码，帮助你编写一个基本的 Webpack 插件。<br>步骤指南<br>创建插件对象：创建一个 JavaScript 对象，并定义一个 apply 方法。<br>访问编译器对象：在 apply 方法中，通过参数访问 Webpack 编译器对象。<br>绑定钩子：使用编译器对象提供的钩子来绑定你的插件逻辑。<br>导出插件：将你的插件对象导出，以便在 Webpack 配置中使用。<br>示例代码<br>假设我们要编写一个简单的插件，在 Webpack 构建完成后输出一条消息到控制台。<br>创建插件文件   首先，创建一个文件 MyWebpackPlugin.js，内容如下：</p>
+<span id="more"></span>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;./MyWebpackPlugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">entry</span>: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span>,</span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">MyWebpackPlugin</span>(&#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&#x27;自定义构建消息：构建成功！&#x27;</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>详细说明<br>插件对象</p>

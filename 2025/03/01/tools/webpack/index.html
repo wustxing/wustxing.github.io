@@ -10,7 +10,7 @@
     <title>webpack打包工具注意事项 | 星的博客</title>
     <meta name="author" content="wustxing">
     
-    <meta name="description" content="Webpack 的四个核心概念是什么？列举并简述 Webpack 的四大核心配置项。概念	描述entry	入口文件，指定 Webpack 开始构建的位置output	输出路径与文件名配置loader	处理非 JS 文件（如 CSS、图片、TypeScript）plugin	扩展 Webpack 功能">
+    <meta name="description" content="Webpack 的四个核心概念是什么？列举并简述 Webpack 的四大核心配置项。概念	描述entry	入口文件，指定 Webpack 开始构建的位置output	输出路径与文件名配置loader	处理非 JS 文件（如 CSS、图片、TypeScript）plugin	扩展 Webpack 功能（如压缩、优化、注入变量）">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -164,7 +164,15 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/vue3/">
-                    vue3 <span class="right">3</span></a>
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
                 </a>
             </li>
 
@@ -204,7 +212,15 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/vite/">
-                    vite <span class="right">1</span></a>
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">1</span></a>
                 </a>
             </li>
 
@@ -284,6 +300,7 @@
 
             <div class="entry pink-link-context">
                 <h2 id="Webpack-的四个核心概念是什么？"><a href="#Webpack-的四个核心概念是什么？" class="headerlink" title="Webpack 的四个核心概念是什么？"></a>Webpack 的四个核心概念是什么？</h2><p>列举并简述 Webpack 的四大核心配置项。<br>概念	描述<br>entry	入口文件，指定 Webpack 开始构建的位置<br>output	输出路径与文件名配置<br>loader	处理非 JS 文件（如 CSS、图片、TypeScript）<br>plugin	扩展 Webpack 功能（如压缩、优化、注入变量）</p>
+<span id="more"></span>
 <h2 id="如何配置多个入口（entry）？"><a href="#如何配置多个入口（entry）？" class="headerlink" title="如何配置多个入口（entry）？"></a>如何配置多个入口（entry）？</h2><p>配置 Webpack 同时打包两个独立页面（如 index 和 about 页面）。</p>
 <h2 id="如何配置环境变量？"><a href="#如何配置环境变量？" class="headerlink" title="如何配置环境变量？"></a>如何配置环境变量？</h2><p> 在不同环境中注入不同的 API 地址。<br> 使用 DefinePlugin 定义全局变量。</p>
 <h2 id="什么是-Tree-Shaking？如何启用？"><a href="#什么是-Tree-Shaking？如何启用？" class="headerlink" title="什么是 Tree Shaking？如何启用？"></a>什么是 Tree Shaking？如何启用？</h2><p> 只打包实际使用的代码，减少体积。<br> Tree Shaking 是通过 ES Module 静态分析删除未使用代码的技术。</p>

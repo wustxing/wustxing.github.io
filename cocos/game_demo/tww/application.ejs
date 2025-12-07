@@ -1,0 +1,57 @@
+let cc;
+export class Application {
+constructor () {
+this.settingsPath = '<%= settingsJsonPath %>'; // settings.json 文件路径，通常由编辑器构建时传入，你也可以指定自己的路径
+this.showFPS = <%= showFPS %>; // 是否打开 profiler, 通常由编辑器构建时传入，你也可以指定你需要的值
+}
+
+init (engine) {
+cc = engine;
+cc.game.onPostBaseInitDelegate.add(this.onPostInitBase.bind(this)); // 监听引擎启动流程事件 onPostBaseInitDelegate
+cc.game.onPostSubsystemInitDelegate.add(this.onPostSystemInit.bind(this)); // 监听引擎启动流程事件 onPostSubsystemInitDelegate
+}
+
+onPostInitBase () {
+//-基础模块初始化(logging, sys, settings)
+// cc.settings.overrideSettings('assets', 'server', '');
+// 实现一些自定义的逻辑
+}
+
+onPostSystemInit () {
+//-子系统模块初始化(animation, physics, tween, ui, middleware 等)
+// 实现一些自定义的逻辑
+}
+
+start () {
+return cc.game.init({ // 以需要的参数运行引擎
+debugMode: <%= debugMode %> ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
+settingsPath: this.settingsPath, // 传入 settings.json 路径
+overrideSettings: { // 对配置文件中的部分数据进行覆盖，第二部分会详细介绍这个字段
+// assets: {
+// preloadBundles: [{ bundle: 'main', version: 'xxx' }],
+// }
+profiling: {
+showFPS: this.showFPS,
+}
+}
+}).then(() => cc.game.run());
+}
+}
+
+
+
+
+//-PreBaseInitEvent，不可以使用任何引擎能力
+//-基础模块初始化(logging, sys, settings)
+//-PostBaseInitEvent，可使用基础模块中的能力
+//-PreInfrastructureInitEvent，可使用基础模块中的能力
+//-基础设施模块的初始化(assetManager, builtinResMgr, gfxDevice, screen, Layer, macro)
+//-PostInfrastructureInitEvent，可使用基础模块，基础设施模块中的能力
+//-PreSubsystemInitEvent，可使用基础模块，基础设施模块中的能力
+//-子系统模块初始化(animation, physics, tween, ui, middleware 等)
+//-PostSubsystemInitEvent，可使用基础模块，基础设施模块，子系统模块中的能力
+//-EngineInitedEvent，可使用基础模块，基础设施模块，子系统模块中的能力
+//-PreProjectDataInitEvent，可使用基础模块，基础设施模块，子系统模块中的能力
+//-项目数据初始化(GamePlayScripts, resources, etc)
+//-PostProjectDataInitEvent，可使用基础模块，基础设施模块，子系统模块，项目数据中的能力
+//-GameInitedEvent，可使用引擎所有能力
