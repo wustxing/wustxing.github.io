@@ -1,0 +1,680 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>electron-vite相关 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="1. electron-vite相关的问题汇总https://github.com/alex8088/electron-vitehttps://cn.electron-vite.org/">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="electron-vite相关"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/electron/">electron</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>electron-vite相关</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2025-12-07T16:00:00.000Z"><a href="/2025/12/08/%E5%89%8D%E7%AB%AF/electron/electron-vite%E7%9B%B8%E5%85%B3/">2025-12-08</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#1-electron-vite%E7%9B%B8%E5%85%B3%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="section table-of-contents-text">1. electron-vite相关的问题汇总</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-electron-vite%E5%A6%82%E4%BD%95%E9%9B%86%E6%88%90-Dockview"><span class="section table-of-contents-text">2. electron-vite如何集成 Dockview</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="1-electron-vite相关的问题汇总"><a href="#1-electron-vite相关的问题汇总" class="headerlink" title="1. electron-vite相关的问题汇总"></a>1. electron-vite相关的问题汇总</h2><p><a target="_blank" rel="noopener" href="https://github.com/alex8088/electron-vite">https://github.com/alex8088/electron-vite</a><br><a target="_blank" rel="noopener" href="https://cn.electron-vite.org/">https://cn.electron-vite.org/</a></p>
+<span id="more"></span>
+
+<h2 id="2-electron-vite如何集成-Dockview"><a href="#2-electron-vite如何集成-Dockview" class="headerlink" title="2. electron-vite如何集成 Dockview"></a>2. electron-vite如何集成 Dockview</h2><p><a target="_blank" rel="noopener" href="https://dockview.dev/templates/">https://dockview.dev/templates/</a><br>完整 Dockview 浮动窗口示例 (Electron-Vite)</p>
+<ol>
+<li>⚙️ 主进程 (Main Process) 设置<br>在你的 Electron 主进程文件（通常是 src&#x2F;main&#x2F;index.ts 或 src&#x2F;main&#x2F;main.ts）中，你需要添加代码来监听渲染进程发出的创建新窗口的请求。</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="title class_">TypeScript</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// src/main/index.ts (或类似的主进程文件)</span></span><br><span class="line"><span class="keyword">import</span> &#123; app, <span class="title class_">BrowserWindow</span>, ipcMain &#125; <span class="keyword">from</span> <span class="string">&#x27;electron&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; join &#125; <span class="keyword">from</span> <span class="string">&#x27;path&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ... (省略了 createWindow 等初始化代码)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> externalWindows = <span class="keyword">new</span> <span class="title class_">Map</span>&lt;<span class="built_in">string</span>, <span class="title class_">BrowserWindow</span>&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听渲染进程请求创建浮动面板窗口</span></span><br><span class="line">ipcMain.<span class="title function_">on</span>(<span class="string">&#x27;create-external-panel-window&#x27;</span>, <span class="function">(<span class="params">_, <span class="attr">data</span>: &#123; groupId: <span class="built_in">string</span>, initialBounds: <span class="built_in">any</span>, url: <span class="built_in">string</span> &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; groupId, initialBounds, url &#125; = data;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (externalWindows.<span class="title function_">has</span>(groupId)) &#123;</span><br><span class="line">    externalWindows.<span class="title function_">get</span>(groupId)?.<span class="title function_">focus</span>();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 创建一个新的 Electron 浏览器窗口</span></span><br><span class="line">  <span class="keyword">const</span> externalWindow = <span class="keyword">new</span> <span class="title class_">BrowserWindow</span>(&#123;</span><br><span class="line">    <span class="attr">x</span>: initialBounds.<span class="property">x</span>,</span><br><span class="line">    <span class="attr">y</span>: initialBounds.<span class="property">y</span>,</span><br><span class="line">    <span class="attr">width</span>: initialBounds.<span class="property">width</span>,</span><br><span class="line">    <span class="attr">height</span>: initialBounds.<span class="property">height</span>,</span><br><span class="line">    <span class="attr">show</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">webPreferences</span>: &#123;</span><br><span class="line">      <span class="attr">preload</span>: <span class="title function_">join</span>(__dirname, <span class="string">&#x27;../preload/index.js&#x27;</span>),</span><br><span class="line">      <span class="comment">// 注意：这里需要启用 sandbox，然后通过 preload 暴露安全 API</span></span><br><span class="line">      <span class="attr">sandbox</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">contextIsolation</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  externalWindow.<span class="title function_">on</span>(<span class="string">&#x27;closed&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    externalWindows.<span class="title function_">delete</span>(groupId);</span><br><span class="line">    <span class="comment">// 通知主窗口面板已关闭</span></span><br><span class="line">    <span class="title class_">BrowserWindow</span>.<span class="title function_">getAllWindows</span>().<span class="title function_">forEach</span>(<span class="function"><span class="params">win</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (win !== externalWindow) &#123;</span><br><span class="line">            win.<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">&#x27;external-panel-closed&#x27;</span>, groupId);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 加载 Dockview 外部窗口的特定 URL</span></span><br><span class="line">  <span class="comment">// 我们将使用主窗口的 URL，但带上查询参数来指示它是外部窗口</span></span><br><span class="line">  externalWindow.<span class="title function_">loadURL</span>(<span class="string">`<span class="subst">$&#123;url&#125;</span>?groupId=<span class="subst">$&#123;groupId&#125;</span>&amp;external=true`</span>);</span><br><span class="line">  </span><br><span class="line">  externalWindow.<span class="title function_">once</span>(<span class="string">&#x27;ready-to-show&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    externalWindow.<span class="title function_">show</span>();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  externalWindows.<span class="title function_">set</span>(groupId, externalWindow);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听并转发来自主窗口的消息到特定的外部窗口</span></span><br><span class="line">ipcMain.<span class="title function_">on</span>(<span class="string">&#x27;external-panel-message&#x27;</span>, <span class="function">(<span class="params">_, <span class="attr">groupId</span>: <span class="built_in">string</span>, <span class="attr">message</span>: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> win = externalWindows.<span class="title function_">get</span>(groupId);</span><br><span class="line">    <span class="keyword">if</span> (win) &#123;</span><br><span class="line">        win.<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">&#x27;dockview-message&#x27;</span>, message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Preload 脚本设置<br>为了在渲染进程中安全地使用 IPC，你需要通过 contextBridge 在 Preload 脚本中暴露必要的 IPC 功能。</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">TypeScript</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// src/preload/index.ts (或类似的 Preload 文件)</span></span><br><span class="line"><span class="keyword">import</span> &#123; contextBridge, ipcRenderer &#125; <span class="keyword">from</span> <span class="string">&#x27;electron&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ... (省略了其他 IPC 暴露)</span></span><br><span class="line"></span><br><span class="line">contextBridge.<span class="title function_">exposeInMainWorld</span>(<span class="string">&#x27;electron&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">ipcRenderer</span>: &#123;</span><br><span class="line">    <span class="comment">// Dockview 外部化功能所需的 IPC</span></span><br><span class="line">    <span class="attr">send</span>: <span class="function">(<span class="params"><span class="attr">channel</span>: <span class="built_in">string</span>, ...<span class="attr">args</span>: <span class="built_in">any</span>[]</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> validChannels = [</span><br><span class="line">          <span class="string">&#x27;create-external-panel-window&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;external-panel-message&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;dispose-external-panel-window&#x27;</span></span><br><span class="line">      ];</span><br><span class="line">      <span class="keyword">if</span> (validChannels.<span class="title function_">includes</span>(channel)) &#123;</span><br><span class="line">        ipcRenderer.<span class="title function_">send</span>(channel, ...args);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">on</span>: <span class="function">(<span class="params"><span class="attr">channel</span>: <span class="built_in">string</span>, <span class="attr">func</span>: (...args: <span class="built_in">any</span>[]) =&gt; <span class="built_in">void</span></span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> validChannels = [</span><br><span class="line">          <span class="string">&#x27;dockview-message&#x27;</span>, <span class="comment">// 接收来自主进程的消息</span></span><br><span class="line">          <span class="string">&#x27;external-panel-closed&#x27;</span></span><br><span class="line">      ];</span><br><span class="line">      <span class="keyword">if</span> (validChannels.<span class="title function_">includes</span>(channel)) &#123;</span><br><span class="line">        <span class="comment">// ... (省略了类型检查和 IPC 监听的实现细节)</span></span><br><span class="line">        ipcRenderer.<span class="title function_">on</span>(channel, <span class="function">(<span class="params">_event, ...args</span>) =&gt;</span> <span class="title function_">func</span>(...args));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// ... 其他必要的 IPC 方法</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>🖼️ 渲染进程 (Renderer Process) - Dockview 组件修改<br>你需要修改 DockviewContainer.vue，实现 createExternalWindow 钩子。</li>
+</ol>
+<p>代码段</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ref</span>=<span class="string">&quot;containerRef&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;&#123; &#x27;dockview-external-host&#x27;: isExternal &#125;&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height: 100vh; width: 100vw;&quot;</span>/&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span> <span class="attr">lang</span>=<span class="string">&quot;ts&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">import &#123; ref, onMounted, shallowRef &#125; from &#x27;vue&#x27;;</span></span><br><span class="line"><span class="language-xml">import &#123; createApp, type App &#125; from &#x27;vue&#x27;;</span></span><br><span class="line"><span class="language-xml">import &#123; DockviewComponent, IDockviewPanel, DockviewExternalWindow &#125; from &#x27;dockview&#x27;;</span></span><br><span class="line"><span class="language-xml">import PanelContent from &#x27;./PanelContent.vue&#x27;;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">// --- 检查是否为外部窗口 ---</span></span><br><span class="line"><span class="language-xml">// 简单方法：检查 URL 是否有 `?external=true` 查询参数</span></span><br><span class="line"><span class="language-xml">const isExternal = window.location.search.includes(&#x27;external=true&#x27;);</span></span><br><span class="line"><span class="language-xml">const urlParams = new URLSearchParams(window.location.search);</span></span><br><span class="line"><span class="language-xml">const groupId = urlParams.get(&#x27;groupId&#x27;) || &#x27;&#x27;;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">// ... (省略 PanelContent 挂载和 vueApps Map 的代码，见上一个回答)</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">// --- Dockview 外部化配置 ---</span></span><br><span class="line"><span class="language-xml">const createExternalWindow = (event: &#123;</span></span><br><span class="line"><span class="language-xml">    groupId: string;</span></span><br><span class="line"><span class="language-xml">    bounds: &#123; x: number; y: number; width: number; height: number &#125;;</span></span><br><span class="line"><span class="language-xml">&#125;): DockviewExternalWindow =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">    // 1. 通知主进程创建新窗口</span></span><br><span class="line"><span class="language-xml">    window.electron.ipcRenderer.send(&#x27;create-external-panel-window&#x27;, &#123;</span></span><br><span class="line"><span class="language-xml">        groupId: event.groupId,</span></span><br><span class="line"><span class="language-xml">        initialBounds: event.bounds,</span></span><br><span class="line"><span class="language-xml">        // 传递当前 URL，让新窗口知道加载什么</span></span><br><span class="line"><span class="language-xml">        url: window.location.href.split(&#x27;?&#x27;)[0] </span></span><br><span class="line"><span class="language-xml">    &#125;);</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">    // 2. 返回 Dockview 需要的 PostMessage 接口</span></span><br><span class="line"><span class="language-xml">    return &#123;</span></span><br><span class="line"><span class="language-xml">        // 用于向新窗口发送数据 (由 Dockview 内部调用)</span></span><br><span class="line"><span class="language-xml">        postMessage: (message) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">            window.electron.ipcRenderer.send(&#x27;external-panel-message&#x27;, event.groupId, message);</span></span><br><span class="line"><span class="language-xml">        &#125;,</span></span><br><span class="line"><span class="language-xml">        // 当浮动面板关闭或被重新拖回主窗口时调用</span></span><br><span class="line"><span class="language-xml">        dispose: () =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">            window.electron.ipcRenderer.send(&#x27;dispose-external-panel-window&#x27;, event.groupId);</span></span><br><span class="line"><span class="language-xml">        &#125;</span></span><br><span class="line"><span class="language-xml">    &#125;;</span></span><br><span class="line"><span class="language-xml">&#125;;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">// --- Dockview 实例化 ---</span></span><br><span class="line"><span class="language-xml">onMounted(() =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">  if (!containerRef.value) return;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  const dockview = new DockviewComponent(&#123;</span></span><br><span class="line"><span class="language-xml">    parentElement: containerRef.value,</span></span><br><span class="line"><span class="language-xml">    createComponent: createVueComponent,</span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">    // 启用外部拖拽</span></span><br><span class="line"><span class="language-xml">    allowExternalDrag: true, </span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">    // 实现创建外部窗口的钩子</span></span><br><span class="line"><span class="language-xml">    createExternalWindow: createExternalWindow, </span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">    // 如果是外部窗口，需要传入 groupdId 来恢复布局</span></span><br><span class="line"><span class="language-xml">    is\&#x27;external\&#x27; = isExternal,</span></span><br><span class="line"><span class="language-xml">    externalGroupId: groupId || undefined</span></span><br><span class="line"><span class="language-xml">  &#125;);</span></span><br><span class="line"><span class="language-xml">  dockviewRef.value = dockview;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  // --- 外部窗口的特殊处理 ---</span></span><br><span class="line"><span class="language-xml">  if (isExternal) &#123;</span></span><br><span class="line"><span class="language-xml">    // 1. 监听来自主窗口的消息，并转发给 Dockview 实例</span></span><br><span class="line"><span class="language-xml">    window.electron.ipcRenderer.on(&#x27;dockview-message&#x27;, (message) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">        dockview.processExternalWindowMessage(message);</span></span><br><span class="line"><span class="language-xml">    &#125;);</span></span><br><span class="line"><span class="language-xml">  &#125; else &#123;</span></span><br><span class="line"><span class="language-xml">    // 2. 主窗口初始化布局</span></span><br><span class="line"><span class="language-xml">    dockview.addPanel(&#123; id: &#x27;panel-1&#x27;, component: &#x27;vue-panel&#x27;, title: &#x27;主窗口面板 1&#x27; &#125;);</span></span><br><span class="line"><span class="language-xml">    dockview.addPanel(&#123; id: &#x27;panel-2&#x27;, component: &#x27;vue-panel&#x27;, title: &#x27;主窗口面板 2&#x27; &#125;);</span></span><br><span class="line"><span class="language-xml">    </span></span><br><span class="line"><span class="language-xml">    // 3. 监听外部窗口关闭事件</span></span><br><span class="line"><span class="language-xml">    window.electron.ipcRenderer.on(&#x27;external-panel-closed&#x27;, (closedGroupId) =&gt; &#123;</span></span><br><span class="line"><span class="language-xml">        // 通知 Dockview 外部组已关闭，以便它可以清理内部状态</span></span><br><span class="line"><span class="language-xml">        dockview.removeExternalComponent(closedGroupId);</span></span><br><span class="line"><span class="language-xml">    &#125;);</span></span><br><span class="line"><span class="language-xml">  &#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  // ... (省略 resize 监听代码)</span></span><br><span class="line"><span class="language-xml">&#125;);</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="comment">/* 可选：为外部窗口提供一个不同的背景或边框 */</span></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"><span class="selector-class">.dockview-external-host</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">    <span class="comment">/* 外部窗口通常不需要边框 */</span></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>🔑 总结和操作步骤<br>设置 IPC (Preload &amp; Main): 在主进程中配置 ipcMain 来创建 BrowserWindow，并在 Preload 中通过 contextBridge 安全暴露 ipcRenderer 的 send 和 on 方法。</p>
+<p>实现 createExternalWindow: 在 DockviewContainer.vue 中，实现 createExternalWindow 钩子，它向主进程发送创建新窗口的请求，并返回 Dockview 所需的 postMessage 接口。</p>
+<p>处理外部窗口初始化:</p>
+<p>检查 URL 中的查询参数 (?external&#x3D;true) 来判断当前窗口是主窗口还是浮动面板窗口。</p>
+<p>如果是浮动面板窗口，在实例化 DockviewComponent 时传入 isExternal: true 和 externalGroupId，并监听主窗口发来的 dockview-message。</p>
+<p>操作步骤：</p>
+<p>运行你的 Electron-Vite 应用。</p>
+<p>点击一个面板的标题栏。</p>
+<p>将标题栏拖出主窗口的边界。</p>
+<p>释放鼠标，一个新的、独立的 Electron 窗口就会弹出，其中包含你拖出的面板</p>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2025/12/07/tools/vite%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="vite注意事项">
+    Next: vite注意事项
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
