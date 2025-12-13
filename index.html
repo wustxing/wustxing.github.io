@@ -218,7 +218,7 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/electron/">
-                    electron <span class="right">1</span></a>
+                    electron <span class="right">3</span></a>
                 </a>
             </li>
 
@@ -251,6 +251,81 @@
 
 
 <div id="article-list" class="container main-container">
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2025/12/13/%E5%89%8D%E7%AB%AF/electron/%E5%A6%82%E4%BD%95%E5%B0%86%E9%A1%B9%E7%9B%AE%E6%8F%92%E4%BB%B6%E4%BC%A0%E5%88%B0npm%E4%BB%93%E5%BA%93/">上传到npm仓库</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2025-12-13T14:05:39.322Z"><a href="/2025/12/13/%E5%89%8D%E7%AB%AF/electron/%E5%A6%82%E4%BD%95%E5%B0%86%E9%A1%B9%E7%9B%AE%E6%8F%92%E4%BB%B6%E4%BC%A0%E5%88%B0npm%E4%BB%93%E5%BA%93/">2025-12-13</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+
+            
+        </div>
+
+        
+    </div>
+</article>
+
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2025/12/13/%E5%89%8D%E7%AB%AF/electron/%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AApinia%E6%8F%92%E4%BB%B6/">electron多窗口状态同步 插件开发pinia-plugin-electron-share</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2025-12-13T14:02:22.024Z"><a href="/2025/12/13/%E5%89%8D%E7%AB%AF/electron/%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AApinia%E6%8F%92%E4%BB%B6/">2025-12-13</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+
+            
+                <div class="entry pink-link-context">
+                    <h2 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h2><ol>
+<li><strong>零主进程依赖</strong>：基于 <code>BroadcastChannel</code>，不需要修改 Electron 主进程代码，纯前端实现。</li>
+<li><strong>自动水合（Hydration）</strong>：新窗口（Dockview 弹出窗）打开时，会自动向老窗口“要”数据，解决初始化空白问题。</li>
+<li><strong>防死循环</strong>：内置互斥锁，防止 A -&gt; B -&gt; A 的无限更新。</li>
+<li><strong>按需同步</strong>：不是所有 Store 都会同步，你可以在定义 Store 时通过 <code>share: true</code> 开启。</li>
+</ol>
+                </div>
+            
+        </div>
+
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/13/前端/electron/开发一个pinia插件/">READ MORE</a>
+        </ div>
+        
+    </div>
+</article>
+
     
         <article class="simple-article">
     <div class="card">
@@ -530,95 +605,6 @@
             
         </div>
 
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2024/05/01/%E5%89%8D%E7%AB%AF/vue/vue3%E9%9D%A2%E8%AF%95/">Vue3重点</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2024-05-01T04:00:00.000Z"><a href="/2024/05/01/%E5%89%8D%E7%AB%AF/vue/vue3%E9%9D%A2%E8%AF%95/">2024-05-01</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/vue3/" class="chip pink lighten-1">vue3</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <h1 id="Vue-3-面试题集"><a href="#Vue-3-面试题集" class="headerlink" title="Vue 3 面试题集"></a>Vue 3 面试题集</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="1-Vue-3-相比-Vue-2-有哪些重大变化？"><a href="#1-Vue-3-相比-Vue-2-有哪些重大变化？" class="headerlink" title="1. Vue 3 相比 Vue 2 有哪些重大变化？"></a>1. Vue 3 相比 Vue 2 有哪些重大变化？</h3><p><strong>答案</strong>：</p>
-<ul>
-<li><strong>性能提升</strong>：Vue 3 重写了虚拟 DOM 实现，渲染性能提升约 1.3~2 倍，内存占用减少约 50%</li>
-<li><strong>Composition API</strong>：新增组合式 API，提供更灵活的逻辑组织和复用方式</li>
-<li><strong>TypeScript 支持</strong>：Vue 3 是用 TypeScript 重写的，提供了更好的类型推断</li>
-<li><strong>Teleport 组件</strong>：允许将组件的内容传送到 DOM 的其他位置</li>
-<li><strong>Fragments</strong>：组件可以有多个根节点</li>
-<li><strong>Suspense</strong>：处理异步组件的新特性</li>
-<li><strong>响应式系统升级</strong>：使用 ES6 的 Proxy 代替 Object.defineProperty，解决了 Vue 2 中的数组和对象响应式问题</li>
-<li><strong>全局 API 改为应用实例调用</strong>：减少了全局污染</li>
-<li><strong>更好的 Tree-shaking 支持</strong>：减小打包体积</li>
-</ul>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2024/05/01/前端/vue/vue3面试/">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2024/04/01/tools/webpack%20%E6%8F%92%E4%BB%B6%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99/">webpack 插件如何编写</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2024-04-01T04:00:00.000Z"><a href="/2024/04/01/tools/webpack%20%E6%8F%92%E4%BB%B6%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99/">2024-04-01</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/webpack/" class="chip pink lighten-1">webpack</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <p>编写 Webpack 插件可以帮助你在 Webpack 构建过程中添加自定义行为。Webpack 插件是一个具有 apply 方法的 JavaScript 对象。这个 apply 方法会在 Webpack 编译器实例上被调用，并且你可以通过这个方法来访问 Webpack 的编译器对象，从而在特定的编译阶段插入自定义逻辑。   下面是一个简单的步骤指南和示例代码，帮助你编写一个基本的 Webpack 插件。<br>步骤指南<br>创建插件对象：创建一个 JavaScript 对象，并定义一个 apply 方法。<br>访问编译器对象：在 apply 方法中，通过参数访问 Webpack 编译器对象。<br>绑定钩子：使用编译器对象提供的钩子来绑定你的插件逻辑。<br>导出插件：将你的插件对象导出，以便在 Webpack 配置中使用。<br>示例代码<br>假设我们要编写一个简单的插件，在 Webpack 构建完成后输出一条消息到控制台。<br>创建插件文件   首先，创建一个文件 MyWebpackPlugin.js，内容如下：</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2024/04/01/tools/webpack 插件如何编写/">READ MORE</a>
-        </ div>
         
     </div>
 </article>
