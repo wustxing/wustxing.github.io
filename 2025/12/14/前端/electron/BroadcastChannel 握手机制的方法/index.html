@@ -1,0 +1,677 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>BroadcastChannel 握手机制的方法 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="BroadcastChannel 握手机制的方法实现使用场景，dokeview tab拖出来窗口外第一次创建窗口的时候传递参数。
+将这种“握手”逻辑封装成通用的工具函数，可以大大减少重复代码，并保证逻辑的健壮性。
+封装了一个类型安全、支持超时控制的 WindowSync 工具库。
+1. 创建工具文件">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="BroadcastChannel 握手机制的方法"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/electron/">electron</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>BroadcastChannel 握手机制的方法</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2025-12-14T09:26:57.271Z"><a href="/2025/12/14/%E5%89%8D%E7%AB%AF/electron/BroadcastChannel%20%E6%8F%A1%E6%89%8B%E6%9C%BA%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95/">2025-12-14</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#BroadcastChannel-%E6%8F%A1%E6%89%8B%E6%9C%BA%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="section table-of-contents-text">BroadcastChannel 握手机制的方法实现</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-%E5%88%9B%E5%BB%BA%E5%B7%A5%E5%85%B7%E6%96%87%E4%BB%B6-src-utils-window-sync-ts"><span class="section table-of-contents-text">1. 创建工具文件 (src&#x2F;utils&#x2F;window-sync.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-%E5%9C%A8%E7%88%B6%E7%AA%97%E5%8F%A3%E4%B8%AD%E4%BD%BF%E7%94%A8-CustomTab-vue"><span class="section table-of-contents-text">2. 在父窗口中使用 (CustomTab.vue)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-%E5%9C%A8%E5%AD%90%E7%AA%97%E5%8F%A3%E4%B8%AD%E4%BD%BF%E7%94%A8-App-vue"><span class="section table-of-contents-text">3. 在子窗口中使用 (App.vue)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E5%B0%81%E8%A3%85%E5%90%8E%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="section table-of-contents-text">封装后的优势</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="BroadcastChannel-握手机制的方法实现"><a href="#BroadcastChannel-握手机制的方法实现" class="headerlink" title="BroadcastChannel 握手机制的方法实现"></a>BroadcastChannel 握手机制的方法实现</h2><p>使用场景，dokeview tab拖出来窗口外第一次创建窗口的时候传递参数。</p>
+<p>将这种“握手”逻辑封装成通用的工具函数，可以大大减少重复代码，并保证逻辑的健壮性。</p>
+<p>封装了一个类型安全、支持超时控制的 <strong><code>WindowSync</code></strong> 工具库。</p>
+<h3 id="1-创建工具文件-src-utils-window-sync-ts"><a href="#1-创建工具文件-src-utils-window-sync-ts" class="headerlink" title="1. 创建工具文件 (src/utils/window-sync.ts)"></a>1. 创建工具文件 (<code>src/utils/window-sync.ts</code>)</h3><p>这个工具包含两个核心函数：</p>
+<ol>
+<li><code>sendToChild</code>: 父窗口调用，等待子窗口就绪后发送数据。</li>
+<li><code>receiveFromParent</code>: 子窗口调用，发送就绪信号并等待数据。</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/utils/window-sync.ts</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义消息协议</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">SyncMessage</span>&lt;T = <span class="built_in">any</span>&gt; = </span><br><span class="line">  | &#123; <span class="attr">type</span>: <span class="string">&#x27;CHILD_READY&#x27;</span>; <span class="attr">id</span>: <span class="built_in">string</span> &#125;</span><br><span class="line">  | &#123; <span class="attr">type</span>: <span class="string">&#x27;PARENT_DATA&#x27;</span>; <span class="attr">id</span>: <span class="built_in">string</span>; <span class="attr">payload</span>: T &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">SyncOptions</span> &#123;</span><br><span class="line">  <span class="attr">timeout</span>?: <span class="built_in">number</span>; <span class="comment">// 超时时间，默认 5000ms</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 【父窗口用】发送数据给新开的子窗口</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> channelName 频道名称 (必须与子窗口一致)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> targetId 目标窗口/面板的唯一ID (用于过滤)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data 要发送的数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> options 配置项</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> sendToChild&lt;T&gt;(</span><br><span class="line">  <span class="attr">channelName</span>: <span class="built_in">string</span>,</span><br><span class="line">  <span class="attr">targetId</span>: <span class="built_in">string</span>,</span><br><span class="line">  <span class="attr">data</span>: T,</span><br><span class="line">  <span class="attr">options</span>: <span class="title class_">SyncOptions</span> = &#123;&#125;</span><br><span class="line">): <span class="title class_">Promise</span>&lt;<span class="built_in">void</span>&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; timeout = <span class="number">5000</span> &#125; = options;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> channel = <span class="keyword">new</span> <span class="title class_">BroadcastChannel</span>(channelName);</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">timer</span>: <span class="built_in">any</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理函数</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">cleanup</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">      channel.<span class="title function_">close</span>();</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 设置超时机制 (防止子窗口没打开，一直卡死在这里)</span></span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">cleanup</span>();</span><br><span class="line">      <span class="title function_">reject</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`[WindowSync] Send timeout: Child window &quot;<span class="subst">$&#123;targetId&#125;</span>&quot; did not respond in <span class="subst">$&#123;timeout&#125;</span>ms`</span>));</span><br><span class="line">    &#125;, timeout);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 监听消息</span></span><br><span class="line">    channel.<span class="property">onmessage</span> = <span class="function">(<span class="params"><span class="attr">event</span>: <span class="title class_">MessageEvent</span>&lt;<span class="title class_">SyncMessage</span>&gt;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; <span class="keyword">type</span>, id &#125; = event.<span class="property">data</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 等待 &quot;CHILD_READY&quot; 信号，且 ID 必须匹配</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">&#x27;CHILD_READY&#x27;</span> &amp;&amp; id === targetId) &#123;</span><br><span class="line">        <span class="comment">// 3. 发送数据</span></span><br><span class="line">        channel.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;PARENT_DATA&#x27;</span>,</span><br><span class="line">          <span class="attr">id</span>: targetId,</span><br><span class="line">          <span class="attr">payload</span>: data,</span><br><span class="line">        &#125; <span class="keyword">as</span> <span class="title class_">SyncMessage</span>&lt;T&gt;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 完成</span></span><br><span class="line">        <span class="title function_">cleanup</span>();</span><br><span class="line">        <span class="title function_">resolve</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 【子窗口用】接收来自父窗口的数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> channelName 频道名称</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> myId 自己的唯一ID</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> options 配置项</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> receiveFromParent&lt;T&gt;(</span><br><span class="line">  <span class="attr">channelName</span>: <span class="built_in">string</span>,</span><br><span class="line">  <span class="attr">myId</span>: <span class="built_in">string</span>,</span><br><span class="line">  <span class="attr">options</span>: <span class="title class_">SyncOptions</span> = &#123;&#125;</span><br><span class="line">): <span class="title class_">Promise</span>&lt;T&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; timeout = <span class="number">5000</span> &#125; = options;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> channel = <span class="keyword">new</span> <span class="title class_">BroadcastChannel</span>(channelName);</span><br><span class="line">    <span class="keyword">let</span> <span class="attr">timer</span>: <span class="built_in">any</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">cleanup</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">      channel.<span class="title function_">close</span>();</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 设置超时</span></span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">cleanup</span>();</span><br><span class="line">      <span class="title function_">reject</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">`[WindowSync] Receive timeout: Parent did not send data for &quot;<span class="subst">$&#123;myId&#125;</span>&quot;`</span>));</span><br><span class="line">    &#125;, timeout);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 监听父窗口发来的数据</span></span><br><span class="line">    channel.<span class="property">onmessage</span> = <span class="function">(<span class="params"><span class="attr">event</span>: <span class="title class_">MessageEvent</span>&lt;<span class="title class_">SyncMessage</span>&lt;T&gt;&gt;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; <span class="keyword">type</span>, id, payload &#125; = event.<span class="property">data</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">&#x27;PARENT_DATA&#x27;</span> &amp;&amp; id === myId &amp;&amp; payload !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="title function_">cleanup</span>();</span><br><span class="line">        <span class="title function_">resolve</span>(payload);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 主动发送 &quot;我准备好了&quot; 信号</span></span><br><span class="line">    <span class="comment">// 稍微延迟一点，确保父窗口的监听器已经 ready (虽然通常父窗口早就 ready 了)</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      channel.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">        <span class="attr">type</span>: <span class="string">&#x27;CHILD_READY&#x27;</span>,</span><br><span class="line">        <span class="attr">id</span>: myId,</span><br><span class="line">      &#125; <span class="keyword">as</span> <span class="title class_">SyncMessage</span>);</span><br><span class="line">    &#125;, <span class="number">50</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-在父窗口中使用-CustomTab-vue"><a href="#2-在父窗口中使用-CustomTab-vue" class="headerlink" title="2. 在父窗口中使用 (CustomTab.vue)"></a>2. 在父窗口中使用 (<code>CustomTab.vue</code>)</h3><p>现在你的业务代码会变得非常简洁。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; sendToChild &#125; from &#x27;../utils/window-sync&#x27; // 引入工具</span><br><span class="line"></span><br><span class="line">// ... </span><br><span class="line"></span><br><span class="line">const performPopout = async () =&gt; &#123;</span><br><span class="line">  const panelId = props.params.api.id</span><br><span class="line">  const title = props.params.api.title</span><br><span class="line"></span><br><span class="line">  // 1. 准备大对象数据</span><br><span class="line">  const bigData = &#123;</span><br><span class="line">    panelId,</span><br><span class="line">    title,</span><br><span class="line">    userInfo: &#123; name: &#x27;Admin&#x27;, role: &#x27;SuperUser&#x27; &#125;,</span><br><span class="line">    heavyList: Array.from(&#123; length: 1000 &#125;, (_, i) =&gt; i)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 2. 打开窗口 (只传基本 ID)</span><br><span class="line">  const url = `?popout=true&amp;panelId=$&#123;panelId&#125;&amp;title=$&#123;encodeURIComponent(title)&#125;`</span><br><span class="line">  window.open(url, &#x27;_blank&#x27;)</span><br><span class="line"></span><br><span class="line">  // 3. 关闭当前面板 (UI上立即响应)</span><br><span class="line">  props.params.api.group.api.closePanel(props.params.api.panel)</span><br><span class="line"></span><br><span class="line">  // 4. 【关键】调用封装好的发送方法</span><br><span class="line">  // 不用管什么 addEventListener，一行代码搞定</span><br><span class="line">  try &#123;</span><br><span class="line">    await sendToChild(&#x27;dockview-popout&#x27;, panelId, bigData)</span><br><span class="line">    console.log(&#x27;✅ 数据发送成功！&#x27;)</span><br><span class="line">  &#125; catch (err) &#123;</span><br><span class="line">    console.error(&#x27;❌ 发送失败 (可能是窗口被拦截或关闭了):&#x27;, err)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-在子窗口中使用-App-vue"><a href="#3-在子窗口中使用-App-vue" class="headerlink" title="3. 在子窗口中使用 (App.vue)"></a>3. 在子窗口中使用 (<code>App.vue</code>)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; receiveFromParent &#125; from &#x27;./utils/window-sync&#x27; // 引入工具</span><br><span class="line"></span><br><span class="line">const onReady = async (event: DockviewReadyEvent) =&gt; &#123;</span><br><span class="line">  const api = event.api</span><br><span class="line">  const urlParams = new URLSearchParams(window.location.search)</span><br><span class="line">  const isPopout = urlParams.get(&#x27;popout&#x27;) === &#x27;true&#x27;</span><br><span class="line">  const myPanelId = urlParams.get(&#x27;panelId&#x27;)</span><br><span class="line"></span><br><span class="line">  if (isPopout &amp;&amp; myPanelId) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">      // 1. 【关键】调用封装好的接收方法</span><br><span class="line">      // 这里支持泛型，会有代码提示</span><br><span class="line">      const data = await receiveFromParent&lt;any&gt;(&#x27;dockview-popout&#x27;, myPanelId)</span><br><span class="line">      </span><br><span class="line">      console.log(&#x27;👶 收到父窗口投喂:&#x27;, data)</span><br><span class="line"></span><br><span class="line">      // 2. 创建面板</span><br><span class="line">      api.addPanel(&#123;</span><br><span class="line">        id: myPanelId,</span><br><span class="line">        component: &#x27;default&#x27;,</span><br><span class="line">        tabComponent: &#x27;myTab&#x27;,</span><br><span class="line">        params: &#123; </span><br><span class="line">          title: data.title,</span><br><span class="line">          extra: data.userInfo // 使用接收到的数据</span><br><span class="line">        &#125;,</span><br><span class="line">        title: data.title</span><br><span class="line">      &#125;)</span><br><span class="line">      </span><br><span class="line">    &#125; catch (err) &#123;</span><br><span class="line">      console.error(&#x27;❌ 获取数据失败:&#x27;, err)</span><br><span class="line">      // 降级处理：比如显示一个错误提示或者默认空面板</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 主窗口逻辑...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="封装后的优势"><a href="#封装后的优势" class="headerlink" title="封装后的优势"></a>封装后的优势</h3><ol>
+<li><strong>代码解耦</strong>：业务组件不需要关心 <code>BroadcastChannel</code> 的创建、销毁、事件监听逻辑。</li>
+<li><strong>资源自动回收</strong>：封装内自动调用了 <code>channel.close()</code>，防止开发者忘记关闭导致内存泄漏。</li>
+<li><strong>健壮性</strong>：增加了 <code>timeout</code> 超时处理。如果新窗口被浏览器拦截了，或者加载失败了，父窗口的 <code>await</code> 不会一直卡死。</li>
+<li><strong>类型安全</strong>：支持 TypeScript 泛型，接收到的 data 直接有类型提示。</li>
+</ol>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2025/12/14/%E5%89%8D%E7%AB%AF/electron/%E5%8D%95%E4%BE%8B%20Tab%20%E7%AD%96%E7%95%A5/" rel="next" title="单例 Tab 策略” (Singleton Tab Strategy)">
+    Next: 单例 Tab 策略” (Singleton Tab Strategy)
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>

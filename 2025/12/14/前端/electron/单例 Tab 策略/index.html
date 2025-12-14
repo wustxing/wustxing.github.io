@@ -1,0 +1,718 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>单例 Tab 策略” (Singleton Tab Strategy) | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="单例 Tab 策略” (Singleton Tab Strategy)核心逻辑可以概括为：“先问一圈，有人有吗？有就让他弹出来，没人有我就自己造。”
+我们需要解决三个技术点：
+
+全局查询：利用 BroadcastChannel 询问所有窗口（包括自己）。
+窗口激活：如果别的窗口有，那个窗口需要把自己">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="单例 Tab 策略” (Singleton Tab Strategy)"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/electron/">electron</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>单例 Tab 策略” (Singleton Tab Strategy)</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2025-12-14T09:24:15.644Z"><a href="/2025/12/14/%E5%89%8D%E7%AB%AF/electron/%E5%8D%95%E4%BE%8B%20Tab%20%E7%AD%96%E7%95%A5/">2025-12-14</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#%E5%8D%95%E4%BE%8B-Tab-%E7%AD%96%E7%95%A5%E2%80%9D-Singleton-Tab-Strategy"><span class="section table-of-contents-text">单例 Tab 策略” (Singleton Tab Strategy)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E4%B8%BB%E8%BF%9B%E7%A8%8B%E6%94%AF%E6%8C%81%E2%80%9C%E7%AA%97%E5%8F%A3%E6%BF%80%E6%B4%BB%E2%80%9D-src-main-ipc-window-ipc-ts"><span class="section table-of-contents-text">第一步：主进程支持“窗口激活” (src&#x2F;main&#x2F;ipc&#x2F;window-ipc.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%B0%81%E8%A3%85%E2%80%9CTab-%E6%9F%A5%E8%AF%A2%E5%B7%A5%E5%85%B7%E2%80%9D-src-utils-tab-manager-ts"><span class="section table-of-contents-text">第二步：封装“Tab 查询工具” (src&#x2F;utils&#x2F;tab-manager.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9APreload-%E8%A1%A5%E5%85%85-src-preload-index-ts"><span class="section table-of-contents-text">第三步：Preload 补充 (src&#x2F;preload&#x2F;index.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E5%9C%A8-App-vue-%E6%B3%A8%E5%86%8C%E7%9B%91%E5%90%AC-src-App-vue"><span class="section table-of-contents-text">第四步：在 App.vue 注册监听 (src&#x2F;App.vue)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%8A%9F%E8%83%BD-%E5%9C%A8%E5%88%9B%E5%BB%BA-Tab-%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="section table-of-contents-text">第五步：使用功能 (在创建 Tab 的地方)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E5%9C%BA%E6%99%AF%E6%BC%94%E7%A4%BA"><span class="section table-of-contents-text">场景演示</span></a></li></ol></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="单例-Tab-策略”-Singleton-Tab-Strategy"><a href="#单例-Tab-策略”-Singleton-Tab-Strategy" class="headerlink" title="单例 Tab 策略” (Singleton Tab Strategy)"></a>单例 Tab 策略” (Singleton Tab Strategy)</h1><p>核心逻辑可以概括为：<strong>“先问一圈，有人有吗？有就让他弹出来，没人有我就自己造。”</strong></p>
+<p>我们需要解决三个技术点：</p>
+<ol>
+<li><strong>全局查询</strong>：利用 <code>BroadcastChannel</code> 询问所有窗口（包括自己）。</li>
+<li><strong>窗口激活</strong>：如果别的窗口有，那个窗口需要把自己置顶（Focus）。</li>
+<li><strong>Tab 激活</strong>：那个窗口需要把对应的 Tab 设为当前活动 Tab。</li>
+</ol>
+<p>下面是系统性的实现方案。</p>
+<hr>
+<h3 id="第一步：主进程支持“窗口激活”-src-main-ipc-window-ipc-ts"><a href="#第一步：主进程支持“窗口激活”-src-main-ipc-window-ipc-ts" class="headerlink" title="第一步：主进程支持“窗口激活” (src/main/ipc/window-ipc.ts)"></a>第一步：主进程支持“窗口激活” (<code>src/main/ipc/window-ipc.ts</code>)</h3><p>前端渲染进程不能直接强制操作系统把窗口置顶，这必须由主进程（Main Process）来做。</p>
+<p>修改 <code>src/main/ipc/window-ipc.ts</code>，增加一个让窗口“激活自己”的 IPC 接口。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main/ipc/window-ipc.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; ipcMain, <span class="title class_">BrowserWindow</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;electron&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">setupWindowIPC</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// ... 之前的 check-cursor-outside-window 代码 ...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// ✅ 新增：激活（置顶/聚焦）发送请求的那个窗口</span></span><br><span class="line">  ipcMain.<span class="title function_">handle</span>(<span class="string">&#x27;activate-current-window&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 找到触发事件的窗口</span></span><br><span class="line">    <span class="keyword">const</span> win = <span class="title class_">BrowserWindow</span>.<span class="title function_">fromWebContents</span>(event.<span class="property">sender</span>)</span><br><span class="line">    <span class="keyword">if</span> (win) &#123;</span><br><span class="line">      <span class="comment">// 如果最小化了，先还原</span></span><br><span class="line">      <span class="keyword">if</span> (win.<span class="title function_">isMinimized</span>()) win.<span class="title function_">restore</span>()</span><br><span class="line">      <span class="comment">// 聚焦窗口 (Windows/Mac/Linux 通用)</span></span><br><span class="line">      win.<span class="title function_">show</span>()</span><br><span class="line">      win.<span class="title function_">focus</span>()</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>(别忘了在 <code>src/preload/index.ts</code> 里把这个方法暴露给前端，类似于之前的 <code>checkCursorOutside</code>)</em></p>
+<hr>
+<h3 id="第二步：封装“Tab-查询工具”-src-utils-tab-manager-ts"><a href="#第二步：封装“Tab-查询工具”-src-utils-tab-manager-ts" class="headerlink" title="第二步：封装“Tab 查询工具” (src/utils/tab-manager.ts)"></a>第二步：封装“Tab 查询工具” (<code>src/utils/tab-manager.ts</code>)</h3><p>我们需要一个工具函数，利用 <code>BroadcastChannel</code> 发出询问，并等待回复。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/utils/tab-manager.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">TAB_CHANNEL_NAME</span> = <span class="string">&#x27;dockview-tab-manager&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">TabMessage</span> &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;CHECK_TAB_EXIST&#x27;</span> | <span class="string">&#x27;TAB_FOUND&#x27;</span></span><br><span class="line">  <span class="attr">tabId</span>: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 尝试查找并激活已存在的 Tab</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> tabId 要查找的 Tab ID</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> Promise&lt;boolean&gt; true 表示找到了并已激活，false 表示没找到</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">findAndActivateTab</span>(<span class="params"><span class="attr">tabId</span>: <span class="built_in">string</span></span>): <span class="title class_">Promise</span>&lt;<span class="built_in">boolean</span>&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> channel = <span class="keyword">new</span> <span class="title class_">BroadcastChannel</span>(<span class="variable constant_">TAB_CHANNEL_NAME</span>)</span><br><span class="line">    <span class="keyword">let</span> isFound = <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1. 监听回复</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">handler</span> = (<span class="params"><span class="attr">event</span>: <span class="title class_">MessageEvent</span>&lt;<span class="title class_">TabMessage</span>&gt;</span>) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (event.<span class="property">data</span>.<span class="property">type</span> === <span class="string">&#x27;TAB_FOUND&#x27;</span> &amp;&amp; event.<span class="property">data</span>.<span class="property">tabId</span> === tabId) &#123;</span><br><span class="line">        isFound = <span class="literal">true</span></span><br><span class="line">        <span class="title function_">cleanup</span>()</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="literal">true</span>) <span class="comment">// 找到了！</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">cleanup</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">      channel.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;message&#x27;</span>, handler)</span><br><span class="line">      channel.<span class="title function_">close</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    channel.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, handler)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 发出询问广播</span></span><br><span class="line">    <span class="comment">// &quot;嘿！大家注意，有人有点名要找 [tabId]，有的请吱一声并跳出来！&quot;</span></span><br><span class="line">    channel.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;CHECK_TAB_EXIST&#x27;</span>,</span><br><span class="line">      tabId</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 设置超时</span></span><br><span class="line">    <span class="comment">// 如果 200ms 内没人回复，就认为不存在</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (!isFound) &#123;</span><br><span class="line">        <span class="title function_">cleanup</span>()</span><br><span class="line">        <span class="title function_">resolve</span>(<span class="literal">false</span>) <span class="comment">// 没找到</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">200</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 【在 App.vue 初始化时调用】</span></span><br><span class="line"><span class="comment"> * 注册监听器：响应别人的查询</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> dockAPI Dockview 的 API 实例</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">registerTabManager</span>(<span class="params"><span class="attr">dockAPI</span>: <span class="built_in">any</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> channel = <span class="keyword">new</span> <span class="title class_">BroadcastChannel</span>(<span class="variable constant_">TAB_CHANNEL_NAME</span>)</span><br><span class="line"></span><br><span class="line">  channel.<span class="property">onmessage</span> = <span class="title function_">async</span> (<span class="attr">event</span>: <span class="title class_">MessageEvent</span>&lt;<span class="title class_">TabMessage</span>&gt;) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="property">data</span>.<span class="property">type</span> === <span class="string">&#x27;CHECK_TAB_EXIST&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> targetId = event.<span class="property">data</span>.<span class="property">tabId</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 1. 检查我这个窗口有没有这个 Tab</span></span><br><span class="line">      <span class="keyword">const</span> panel = dockAPI.<span class="title function_">getPanel</span>(targetId)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (panel) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`🙋‍♂️ 我这里有 Tab [<span class="subst">$&#123;targetId&#125;</span>]，正在激活...`</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 告诉发起者：我找到了！</span></span><br><span class="line">        channel.<span class="title function_">postMessage</span>(&#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;TAB_FOUND&#x27;</span>,</span><br><span class="line">          <span class="attr">tabId</span>: targetId</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 激活 Dockview 里的 Tab (让它显示出来)</span></span><br><span class="line">        panel.<span class="property">api</span>.<span class="title function_">setActive</span>()</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 调用主进程：把自己这个窗口置顶</span></span><br><span class="line">        <span class="comment">// 假设你在 preload 里暴露了 activateWindow</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">electronAPI</span> &amp;&amp; (<span class="variable language_">window</span>.<span class="property">electronAPI</span> <span class="keyword">as</span> <span class="built_in">any</span>).<span class="property">activateWindow</span>) &#123;</span><br><span class="line">           <span class="title function_">await</span> (<span class="variable language_">window</span>.<span class="property">electronAPI</span> <span class="keyword">as</span> <span class="built_in">any</span>).<span class="title function_">activateWindow</span>()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="comment">// 兼容写法，如果 preload 没配好，用 window.focus 试试 (有时候会被浏览器拦截)</span></span><br><span class="line">           <span class="variable language_">window</span>.<span class="title function_">focus</span>() </span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回清理函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> channel.<span class="title function_">close</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="第三步：Preload-补充-src-preload-index-ts"><a href="#第三步：Preload-补充-src-preload-index-ts" class="headerlink" title="第三步：Preload 补充 (src/preload/index.ts)"></a>第三步：Preload 补充 (<code>src/preload/index.ts</code>)</h3><p>为了让 <code>activateWindow</code> 生效，我们需要在 preload 里补上这个 API。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/preload/index.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; contextBridge, ipcRenderer &#125; <span class="keyword">from</span> <span class="string">&#x27;electron&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> api = &#123;</span><br><span class="line">  <span class="attr">checkCursorOutside</span>: <span class="function">() =&gt;</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;check-cursor-outside-window&#x27;</span>),</span><br><span class="line">  <span class="comment">// ✅ 新增：请求主进程激活当前窗口</span></span><br><span class="line">  <span class="attr">activateWindow</span>: <span class="function">() =&gt;</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;activate-current-window&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ... exposeInMainWorld 逻辑同前 ...</span></span><br></pre></td></tr></table></figure>
+<p><em>(记得更新 <code>src/env.d.ts</code> 或 <code>window</code> 类型定义，加上 <code>activateWindow</code>)</em></p>
+<hr>
+<h3 id="第四步：在-App-vue-注册监听-src-App-vue"><a href="#第四步：在-App-vue-注册监听-src-App-vue" class="headerlink" title="第四步：在 App.vue 注册监听 (src/App.vue)"></a>第四步：在 App.vue 注册监听 (<code>src/App.vue</code>)</h3><p>所有窗口（主窗口和子窗口）都运行 <code>App.vue</code>，所以它们都需要“监听别人的查询”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- src/App.vue --&gt;</span><br><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; onUnmounted &#125; from &#x27;vue&#x27;</span><br><span class="line">import &#123; registerTabManager &#125; from &#x27;./utils/tab-manager&#x27; // 引入刚才写的工具</span><br><span class="line"></span><br><span class="line">// ... 你的其他代码 ...</span><br><span class="line"></span><br><span class="line">let cleanupTabManager: Function | null = null</span><br><span class="line"></span><br><span class="line">const onReady = (event: DockviewReadyEvent) =&gt; &#123;</span><br><span class="line">  const api = event.api</span><br><span class="line">  </span><br><span class="line">  // ✅ 1. 注册全局 Tab 管理器</span><br><span class="line">  // 一旦 dockview 准备好，我就开始监听 &quot;有没有人找 Tab&quot;</span><br><span class="line">  cleanupTabManager = registerTabManager(api)</span><br><span class="line"></span><br><span class="line">  // ... 原有的逻辑 ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onUnmounted(() =&gt; &#123;</span><br><span class="line">  // 销毁时清理监听</span><br><span class="line">  if (cleanupTabManager) cleanupTabManager()</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="第五步：使用功能-在创建-Tab-的地方"><a href="#第五步：使用功能-在创建-Tab-的地方" class="headerlink" title="第五步：使用功能 (在创建 Tab 的地方)"></a>第五步：使用功能 (在创建 Tab 的地方)</h3><p>假设你有一个侧边栏菜单或者按钮用来打开 Tab，现在把 <code>dockAPI.addPanel</code> 替换为下面的逻辑。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 假设这是你的 Sidebar.vue 或者某个业务组件 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;openSettings&quot;&gt;打开设置 (唯一)&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; findAndActivateTab &#125; from &#x27;../utils/tab-manager&#x27;</span><br><span class="line"></span><br><span class="line">// 假设你能获取到 dockAPI (通过 Provide/Inject 或者 Store)</span><br><span class="line">// 如果是在 App.vue 内部直接调用就更简单了</span><br><span class="line">const props = defineProps&lt;&#123; dockAPI: any &#125;&gt;() </span><br><span class="line"></span><br><span class="line">const openSettings = async () =&gt; &#123;</span><br><span class="line">  const tabId = &#x27;settings_panel&#x27;</span><br><span class="line">  const tabTitle = &#x27;设置中心&#x27;</span><br><span class="line"></span><br><span class="line">  // 1. ✨ 核心步骤：先问一圈</span><br><span class="line">  const exists = await findAndActivateTab(tabId)</span><br><span class="line"></span><br><span class="line">  if (exists) &#123;</span><br><span class="line">    console.log(&#x27;✅ Tab 已存在于某个窗口，已自动激活，无需创建。&#x27;)</span><br><span class="line">    return // 直接结束</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 2. 如果没找到，就在当前窗口创建</span><br><span class="line">  console.log(&#x27;✨ Tab 不存在，正在当前窗口创建...&#x27;)</span><br><span class="line">  props.dockAPI.addPanel(&#123;</span><br><span class="line">    id: tabId,</span><br><span class="line">    component: &#x27;default&#x27;, // 替换为你的组件名</span><br><span class="line">    tabComponent: &#x27;myTab&#x27;,</span><br><span class="line">    params: &#123; title: tabTitle &#125;,</span><br><span class="line">    title: tabTitle</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="场景演示"><a href="#场景演示" class="headerlink" title="场景演示"></a>场景演示</h3><ol>
+<li><p><strong>场景 A：同窗口切换</strong></p>
+<ul>
+<li><strong>现状</strong>：主窗口有“设置”Tab，但被“首页”Tab 挡住了。</li>
+<li><strong>操作</strong>：点击“打开设置”。</li>
+<li><strong>流程</strong>：<code>findAndActivateTab</code> 广播 -&gt; 主窗口收到 -&gt; 发现自己有 -&gt; <code>panel.api.setActive()</code> 切换到设置 Tab -&gt; 激活窗口 -&gt; 回复 <code>TAB_FOUND</code>。</li>
+<li><strong>结果</strong>：主窗口直接切到了设置页。</li>
+</ul>
+</li>
+<li><p><strong>场景 B：跨窗口激活</strong></p>
+<ul>
+<li><strong>现状</strong>：你把“设置”Tab 拖拽到了一个<strong>独立的新窗口</strong>（子窗口），并且把这个子窗口最小化了。</li>
+<li><strong>操作</strong>：在<strong>主窗口</strong>点击“打开设置”。</li>
+<li><strong>流程</strong>：主窗口广播 -&gt; 子窗口收到 -&gt; 发现自己有 -&gt; 调用 <code>ipc: activate-current-window</code> -&gt; <strong>主进程把子窗口还原并置顶</strong> -&gt; 子窗口回复 <code>TAB_FOUND</code>。</li>
+<li><strong>结果</strong>：原本最小化的子窗口弹到了屏幕最前面，显示着设置页。主窗口不会创建重复的 Tab。</li>
+</ul>
+</li>
+<li><p><strong>场景 C：不存在</strong></p>
+<ul>
+<li><strong>现状</strong>：所有窗口都关闭了“设置”。</li>
+<li><strong>操作</strong>：点击“打开设置”。</li>
+<li><strong>流程</strong>：广播 -&gt; 200ms 内没人回 -&gt; 返回 <code>false</code> -&gt; 执行 <code>addPanel</code>。</li>
+<li><strong>结果</strong>：在当前窗口新开一个设置 Tab。</li>
+</ul>
+</li>
+</ol>
+<p>这个方案利用了你现有的 <code>BroadcastChannel</code> 架构，非常轻量且高效。</p>
+
+                
+<p class="pink-link-context">
+    <a href="/2025/12/14/%E5%89%8D%E7%AB%AF/electron/BroadcastChannel%20%E6%8F%A1%E6%89%8B%E6%9C%BA%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95/" rel="next" title="BroadcastChannel 握手机制的方法">
+    Prev: BroadcastChannel 握手机制的方法
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2025/12/13/%E5%89%8D%E7%AB%AF/electron/%E7%9B%91%E5%90%AC%E7%AA%97%E5%8F%A3%E5%88%9B%E5%BB%BA%E5%AE%8C%E6%88%90/" rel="next" title="监听窗口创建完成">
+    Next: 监听窗口创建完成
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
