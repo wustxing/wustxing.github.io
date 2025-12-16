@@ -10,11 +10,7 @@
     <title>electron多窗口状态同步 插件开发pinia-plugin-electron-share | 星的博客</title>
     <meta name="author" content="wustxing">
     
-    <meta name="description" content="设计方案
-零主进程依赖：基于 BroadcastChannel，不需要修改 Electron 主进程代码，纯前端实现。
-自动水合（Hydration）：新窗口（Dockview 弹出窗）打开时，会自动向老窗口“要”数据，解决初始化空白问题。
-防死循环：内置互斥锁，防止 A -&amp;gt; B -&amp;gt; A 的无限更新。
-按需同步：不是所有 Store 都会同步，你可以在定义 Store 时通过 share: true 开启。">
+    <meta name="description" content="问题如何开发一个electron多窗口状态同步的插件，让Dockview弹出窗之间的数据同步？">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -298,18 +294,22 @@
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88"><span class="section table-of-contents-text">设计方案</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6%E4%BB%A3%E7%A0%81"><span class="section table-of-contents-text">1. 核心插件代码</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-%E5%9C%A8-Pinia-%E4%B8%AD%E6%B3%A8%E5%86%8C%E6%8F%92%E4%BB%B6"><span class="section table-of-contents-text">2. 在 Pinia 中注册插件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-%E5%A6%82%E4%BD%95%E5%9C%A8-Store-%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="section table-of-contents-text">3. 如何在 Store 中使用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-%E9%AA%8C%E8%AF%81%E4%B8%8E%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="section table-of-contents-text">4. 验证与调试方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-Senior-Tips"><span class="section table-of-contents-text">5. 注意事项 (Senior Tips)</span></a></li></ol></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E9%97%AE%E9%A2%98"><span class="section table-of-contents-text">问题</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88"><span class="section table-of-contents-text">设计方案</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6%E4%BB%A3%E7%A0%81"><span class="section table-of-contents-text">1. 核心插件代码</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-%E5%9C%A8-Pinia-%E4%B8%AD%E6%B3%A8%E5%86%8C%E6%8F%92%E4%BB%B6"><span class="section table-of-contents-text">2. 在 Pinia 中注册插件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-%E5%A6%82%E4%BD%95%E5%9C%A8-Store-%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="section table-of-contents-text">3. 如何在 Store 中使用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-%E9%AA%8C%E8%AF%81%E4%B8%8E%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="section table-of-contents-text">4. 验证与调试方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-Senior-Tips"><span class="section table-of-contents-text">5. 注意事项 (Senior Tips)</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <h2 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h2><ol>
+                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>如何开发一个electron多窗口状态同步的插件，让Dockview弹出窗之间的数据同步？</p>
+<span id="more"></span>
+
+
+<h2 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h2><ol>
 <li><strong>零主进程依赖</strong>：基于 <code>BroadcastChannel</code>，不需要修改 Electron 主进程代码，纯前端实现。</li>
 <li><strong>自动水合（Hydration）</strong>：新窗口（Dockview 弹出窗）打开时，会自动向老窗口“要”数据，解决初始化空白问题。</li>
 <li><strong>防死循环</strong>：内置互斥锁，防止 A -&gt; B -&gt; A 的无限更新。</li>
 <li><strong>按需同步</strong>：不是所有 Store 都会同步，你可以在定义 Store 时通过 <code>share: true</code> 开启。</li>
 </ol>
-<span id="more"></span>
+<!-- more -->
 
 <hr>
 <h3 id="1-核心插件代码"><a href="#1-核心插件代码" class="headerlink" title="1. 核心插件代码"></a>1. 核心插件代码</h3><p>请在项目中新建文件 <code>src/plugins/pinia-plugin-electron-share.ts</code>。</p>

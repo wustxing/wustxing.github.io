@@ -276,8 +276,16 @@
 
 
             
+                <div class="entry pink-link-context">
+                    <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我现在做的是多窗口应用（基于electron-vite,vue3,和dokeview），现在有一个场景：我们原项目里面多出地方使用的事件总线模式，在组件挂载的时候注册事件，在组件销毁的时候off事件，现在改成多窗口应用后，就出现了打开了多个注册事件的窗口，事件触发的时候会触发多次，事件关闭的时候就全都关闭了。这种情况 有什么好的解决方案吗？</p>
+                </div>
+            
         </div>
 
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/16/前端/electron/多窗口事件总线怎么处理/">READ MORE</a>
+        </ div>
         
     </div>
 </article>
@@ -307,8 +315,23 @@
 
 
             
+                <div class="entry pink-link-context">
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>通过indexDb存储pinia的相关数据。传输的时候不用传输整个数据</p>
+<p><strong>核心思想转变：</strong><br>之前的模式是 <strong>“数据跟随消息” (Push Data)</strong>，现在的模式是 <strong>“消息通知，数据自取” (Signal &amp; Pull)</strong>。</p>
+<ol>
+<li><strong>写入方</strong>：Store 变更 -&gt; 写入 IndexedDB -&gt; 发送 “数据已更新” 的信号（不带数据）。</li>
+<li><strong>接收方</strong>：收到信号 -&gt; 从 IndexedDB 读取最新数据 -&gt; 更新 Store。</li>
+<li><strong>初始化</strong>：新窗口启动 -&gt; 请求初始化 -&gt; 老窗口强制将内存数据刷入 IndexedDB -&gt; 发送 “准备好了” -&gt; 新窗口从 DB 读取。</li>
+</ol>
+<p>这样做的好处是 <code>BroadcastChannel</code> 极其轻量，不再受数据大小限制，且数据持久化由 IndexedDB 承担。</p>
+                </div>
+            
         </div>
 
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/16/前端/electron/pinia-plugin-electron-share升级版/">READ MORE</a>
+        </ div>
         
     </div>
 </article>
@@ -338,8 +361,18 @@
 
 
             
+                <div class="entry pink-link-context">
+                    <h2 id="BroadcastChannel-握手机制的方法实现"><a href="#BroadcastChannel-握手机制的方法实现" class="headerlink" title="BroadcastChannel 握手机制的方法实现"></a>BroadcastChannel 握手机制的方法实现</h2><p>使用场景，dokeview tab拖出来窗口外第一次创建窗口的时候传递参数。</p>
+<p>将这种“握手”逻辑封装成通用的工具函数，可以大大减少重复代码，并保证逻辑的健壮性。</p>
+<p>封装了一个类型安全、支持超时控制的 <strong><code>WindowSync</code></strong> 工具库。</p>
+                </div>
+            
         </div>
 
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/14/前端/electron/BroadcastChannel 握手机制的方法/">READ MORE</a>
+        </ div>
         
     </div>
 </article>
@@ -400,8 +433,16 @@
 
 
             
+                <div class="entry pink-link-context">
+                    <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main/index.ts</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 监听新窗口创建请求 (拦截层)</span></span><br><span class="line">mainWindow.<span class="property">webContents</span>.<span class="title function_">setWindowOpenHandler</span>(<span class="function">(<span class="params">details</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// details.url 包含了新窗口的 URL</span></span><br><span class="line">  <span class="comment">// details.frameName 可能是 dockview 指定的名字</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;⚡️ 检测到 Tab 被拖出，正在请求创建窗口:&#x27;</span>, details.<span class="property">url</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 你可以在这里判断 url 是否包含特定的 query 参数，来确定这是 dockview 的弹窗</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123; </span><br><span class="line">    <span class="attr">action</span>: <span class="string">&#x27;allow&#x27;</span>,</span><br><span class="line">    <span class="attr">overrideBrowserWindowOptions</span>: &#123;</span><br><span class="line">      <span class="comment">// 在这里强制指定新窗口的样式</span></span><br><span class="line">      <span class="attr">autoHideMenuBar</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">webPreferences</span>: &#123;</span><br><span class="line">        <span class="attr">preload</span>: <span class="title function_">join</span>(__dirname, <span class="string">&#x27;../preload/index.js&#x27;</span>), <span class="comment">// 别忘了 preload</span></span><br><span class="line">        <span class="attr">backgroundThrottling</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="comment">// ...其他配置</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 监听窗口创建完成 (结果层)</span></span><br><span class="line">mainWindow.<span class="property">webContents</span>.<span class="title function_">on</span>(<span class="string">&#x27;did-create-window&#x27;</span>, <span class="function">(<span class="params">childWindow, details</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;✅ 新窗口实例已创建 (Tab 弹出成功)&#x27;</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 业务场景：你可能想告诉主渲染进程“有个子窗口诞生了”</span></span><br><span class="line">  mainWindow.<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">&#x27;popout-window-created&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">id</span>: childWindow.<span class="property">id</span>,</span><br><span class="line">    <span class="attr">title</span>: childWindow.<span class="title function_">getTitle</span>()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 业务场景：监听子窗口的关闭，做一些清理工作</span></span><br><span class="line">  childWindow.<span class="title function_">on</span>(<span class="string">&#x27;closed&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;❌ 子窗口已关闭&#x27;</span>)</span><br><span class="line">    mainWindow.<span class="property">webContents</span>.<span class="title function_">send</span>(<span class="string">&#x27;popout-window-closed&#x27;</span>, &#123; <span class="attr">id</span>: childWindow.<span class="property">id</span> &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+                </div>
+            
         </div>
 
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/13/前端/electron/监听窗口创建完成/">READ MORE</a>
+        </ div>
         
     </div>
 </article>
@@ -431,8 +472,18 @@
 
 
             
+                <div class="entry pink-link-context">
+                    <p>发布 npm 包不仅仅是把代码放上去，还需要考虑 <strong>构建规范 (ESM&#x2F;CJS)</strong>、<strong>类型定义 (TypeScript .d.ts)</strong>、<strong>Peer Dependencies</strong> 以及 <strong>扩展性</strong>。</p>
+<p>既然我们要把它做成一个通用的 <code>pinia-plugin-electron-share</code>，我们需要让它支持配置（比如自定义 Channel 名称），并且具备完善的工程化结构。</p>
+<p>这里是<strong>可以直接 <code>npm publish</code> 的完整工程代码结构</strong>。</p>
+                </div>
+            
         </div>
 
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/13/前端/electron/如何将项目插件传到npm仓库/">READ MORE</a>
+        </ div>
         
     </div>
 </article>
@@ -463,12 +514,7 @@
 
             
                 <div class="entry pink-link-context">
-                    <h2 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h2><ol>
-<li><strong>零主进程依赖</strong>：基于 <code>BroadcastChannel</code>，不需要修改 Electron 主进程代码，纯前端实现。</li>
-<li><strong>自动水合（Hydration）</strong>：新窗口（Dockview 弹出窗）打开时，会自动向老窗口“要”数据，解决初始化空白问题。</li>
-<li><strong>防死循环</strong>：内置互斥锁，防止 A -&gt; B -&gt; A 的无限更新。</li>
-<li><strong>按需同步</strong>：不是所有 Store 都会同步，你可以在定义 Store 时通过 <code>share: true</code> 开启。</li>
-</ol>
+                    <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>如何开发一个electron多窗口状态同步的插件，让Dockview弹出窗之间的数据同步？</p>
                 </div>
             
         </div>

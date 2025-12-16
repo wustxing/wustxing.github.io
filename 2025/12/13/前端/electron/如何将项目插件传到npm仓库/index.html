@@ -11,7 +11,8 @@
     <meta name="author" content="wustxing">
     
     <meta name="description" content="发布 npm 包不仅仅是把代码放上去，还需要考虑 构建规范 (ESM&amp;#x2F;CJS)、类型定义 (TypeScript .d.ts)、Peer Dependencies 以及 扩展性。
-既然我们要把它做成一个通用的 pinia-plugin-electron-share，我们需要让它支持配置（比">
+既然我们要把它做成一个通用的 pinia-plugin-electron-share，我们需要让它支持配置（比如自定义 Channel 名称），并且具备完善的工程化结构。
+这里是可以直接 npm publish 的完整工程代码结构。">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -303,6 +304,7 @@
                 <p>发布 npm 包不仅仅是把代码放上去，还需要考虑 <strong>构建规范 (ESM&#x2F;CJS)</strong>、<strong>类型定义 (TypeScript .d.ts)</strong>、<strong>Peer Dependencies</strong> 以及 <strong>扩展性</strong>。</p>
 <p>既然我们要把它做成一个通用的 <code>pinia-plugin-electron-share</code>，我们需要让它支持配置（比如自定义 Channel 名称），并且具备完善的工程化结构。</p>
 <p>这里是<strong>可以直接 <code>npm publish</code> 的完整工程代码结构</strong>。</p>
+<span id="more"></span>
 <hr>
 <h3 id="1-项目目录结构"><a href="#1-项目目录结构" class="headerlink" title="1. 项目目录结构"></a>1. 项目目录结构</h3><p>你需要创建一个新的文件夹（例如 <code>pinia-plugin-electron-share</code>），结构如下：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pinia-plugin-electron-share/</span><br><span class="line">├── src/</span><br><span class="line">│   └── index.ts        # 核心源码</span><br><span class="line">├── dist/               # 构建产物 (自动生成)</span><br><span class="line">├── package.json        # 依赖与元数据</span><br><span class="line">├── tsconfig.json       # TS 配置</span><br><span class="line">├── vite.config.ts      # 构建脚本 (使用 Vite 库模式)</span><br><span class="line">└── README.md           # 说明文档</span><br></pre></td></tr></table></figure>

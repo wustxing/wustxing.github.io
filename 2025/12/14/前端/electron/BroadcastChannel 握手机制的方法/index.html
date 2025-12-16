@@ -12,8 +12,7 @@
     
     <meta name="description" content="BroadcastChannel 握手机制的方法实现使用场景，dokeview tab拖出来窗口外第一次创建窗口的时候传递参数。
 将这种“握手”逻辑封装成通用的工具函数，可以大大减少重复代码，并保证逻辑的健壮性。
-封装了一个类型安全、支持超时控制的 WindowSync 工具库。
-1. 创建工具文件">
+封装了一个类型安全、支持超时控制的 WindowSync 工具库。">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -305,6 +304,7 @@
                 <h2 id="BroadcastChannel-握手机制的方法实现"><a href="#BroadcastChannel-握手机制的方法实现" class="headerlink" title="BroadcastChannel 握手机制的方法实现"></a>BroadcastChannel 握手机制的方法实现</h2><p>使用场景，dokeview tab拖出来窗口外第一次创建窗口的时候传递参数。</p>
 <p>将这种“握手”逻辑封装成通用的工具函数，可以大大减少重复代码，并保证逻辑的健壮性。</p>
 <p>封装了一个类型安全、支持超时控制的 <strong><code>WindowSync</code></strong> 工具库。</p>
+<span id="more"></span>
 <h3 id="1-创建工具文件-src-utils-window-sync-ts"><a href="#1-创建工具文件-src-utils-window-sync-ts" class="headerlink" title="1. 创建工具文件 (src/utils/window-sync.ts)"></a>1. 创建工具文件 (<code>src/utils/window-sync.ts</code>)</h3><p>这个工具包含两个核心函数：</p>
 <ol>
 <li><code>sendToChild</code>: 父窗口调用，等待子窗口就绪后发送数据。</li>

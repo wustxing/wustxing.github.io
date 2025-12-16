@@ -10,7 +10,7 @@
     <title>监听窗口创建完成 | 星的博客</title>
     <meta name="author" content="wustxing">
     
-    <meta name="description" content="问题我现在做的是多窗口应用（基于electron-vite,vue3,和dokeview），现在有一个场景：我们原项目里面多出地方使用的事件总线模式，在组件挂载的时候注册事件，在组件销毁的时候off事件，现在改成多窗口应用后，就出现了打开了多个注册事件的窗口，事件触发的时候会触发多次，事件关闭的时候">
+    <meta name="description" content="问题我现在做的是多窗口应用（基于electron-vite,vue3,和dokeview），现在有一个场景：我们原项目里面多出地方使用的事件总线模式，在组件挂载的时候注册事件，在组件销毁的时候off事件，现在改成多窗口应用后，就出现了打开了多个注册事件的窗口，事件触发的时候会触发多次，事件关闭的时候就全都关闭了。这种情况 有什么好的解决方案吗？">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -300,6 +300,8 @@
 
             <div class="entry pink-link-context">
                 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我现在做的是多窗口应用（基于electron-vite,vue3,和dokeview），现在有一个场景：我们原项目里面多出地方使用的事件总线模式，在组件挂载的时候注册事件，在组件销毁的时候off事件，现在改成多窗口应用后，就出现了打开了多个注册事件的窗口，事件触发的时候会触发多次，事件关闭的时候就全都关闭了。这种情况 有什么好的解决方案吗？</p>
+<span id="more"></span>
+
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这是一个非常经典的架构演进问题。当你从“单页面应用 (SPA)”转变为“多窗口应用 (Multi-Window)”时，传统的事件总线（EventBus）模式如果不加改造，必然会遇到**“广播风暴”<strong>（触发多次）和</strong>“误杀”**（关一个全关了）的问题。</p>
 <h3 id="问题根源分析"><a href="#问题根源分析" class="headerlink" title="问题根源分析"></a>问题根源分析</h3><ol>
 <li><p><strong>触发多次 (Broadcast Storm)</strong>：</p>
