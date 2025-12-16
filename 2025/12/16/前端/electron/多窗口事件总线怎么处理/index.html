@@ -1,0 +1,721 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>监听窗口创建完成 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="问题我现在做的是多窗口应用（基于electron-vite,vue3,和dokeview），现在有一个场景：我们原项目里面多出地方使用的事件总线模式，在组件挂载的时候注册事件，在组件销毁的时候off事件，现在改成多窗口应用后，就出现了打开了多个注册事件的窗口，事件触发的时候会触发多次，事件关闭的时候">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="监听窗口创建完成"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">8</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/electron/">electron</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>监听窗口创建完成</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2025-12-16T13:52:57.677Z"><a href="/2025/12/16/%E5%89%8D%E7%AB%AF/electron/%E5%A4%9A%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/">2025-12-16</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E9%97%AE%E9%A2%98"><span class="section table-of-contents-text">问题</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="section table-of-contents-text">解决方案</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E9%97%AE%E9%A2%98%E6%A0%B9%E6%BA%90%E5%88%86%E6%9E%90"><span class="section table-of-contents-text">问题根源分析</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1"><span class="section table-of-contents-text">解决方案</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#%E6%A0%B8%E5%BF%83%E7%AD%96%E7%95%A5"><span class="section table-of-contents-text">核心策略</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9ADistributedEventBus"><span class="section table-of-contents-text">代码实现：DistributedEventBus</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B0%81%E8%A3%85-src-utils-event-bus-ts"><span class="section table-of-contents-text">1. 工具类封装 (src&#x2F;utils&#x2F;event-bus.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-%E5%9C%A8-Vue-%E7%BB%84%E4%BB%B6%E4%B8%AD%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8-%E8%A7%A3%E5%86%B3%E2%80%9C%E5%85%A8%E5%85%B3%E9%97%AD%E2%80%9D%E9%97%AE%E9%A2%98"><span class="section table-of-contents-text">2. 在 Vue 组件中如何正确使用 (解决“全关闭”问题)</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E6%96%B9%E6%A1%88%E4%BC%98%E7%BC%BA%E7%82%B9%E6%80%BB%E7%BB%93"><span class="section table-of-contents-text">方案优缺点总结</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E8%BF%81%E7%A7%BB%E5%BB%BA%E8%AE%AE"><span class="section table-of-contents-text">迁移建议</span></a></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我现在做的是多窗口应用（基于electron-vite,vue3,和dokeview），现在有一个场景：我们原项目里面多出地方使用的事件总线模式，在组件挂载的时候注册事件，在组件销毁的时候off事件，现在改成多窗口应用后，就出现了打开了多个注册事件的窗口，事件触发的时候会触发多次，事件关闭的时候就全都关闭了。这种情况 有什么好的解决方案吗？</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这是一个非常经典的架构演进问题。当你从“单页面应用 (SPA)”转变为“多窗口应用 (Multi-Window)”时，传统的事件总线（EventBus）模式如果不加改造，必然会遇到**“广播风暴”<strong>（触发多次）和</strong>“误杀”**（关一个全关了）的问题。</p>
+<h3 id="问题根源分析"><a href="#问题根源分析" class="headerlink" title="问题根源分析"></a>问题根源分析</h3><ol>
+<li><p><strong>触发多次 (Broadcast Storm)</strong>：</p>
+<ul>
+<li>如果你的事件总线是基于 IPC（<code>ipcRenderer</code>）或 <code>BroadcastChannel</code> 的，消息是广播的。</li>
+<li>你有 3 个窗口，每个窗口里的组件都监听了 <code>refresh-data</code>。</li>
+<li>当一个事件发出时，3 个窗口都收到了，导致代码执行了 3 次。</li>
+<li><em>但在旧的单页应用思维里，通常预期是谁发出的，或者谁在当前视野里，谁才响应。</em></li>
+</ul>
+</li>
+<li><p><strong>全都不触发了 (Premature Unsubscription)</strong>：</p>
+<ul>
+<li>这是最常见的问题。你的代码可能写的是 <code>bus.off(&#39;event-name&#39;)</code>。</li>
+<li>这会移除<strong>该事件的所有监听器</strong>。</li>
+<li>在多窗口（或同一窗口多 Tab）场景下，窗口 A 销毁组件时调用了 <code>off</code>，结果把窗口 B（甚至同窗口下的 Tab B）正在用的监听器也给删掉了。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>你需要将事件总线升级为 <strong>“多级分发策略”</strong>。我们需要明确区分：<strong>这是给谁的消息？</strong></p>
+<p>我为你提供一套 <strong>“带作用域的分布式事件总线”</strong> 解决方案。</p>
+<h4 id="核心策略"><a href="#核心策略" class="headerlink" title="核心策略"></a>核心策略</h4><ol>
+<li><strong>精确销毁</strong>：绝对禁止使用 <code>bus.off(&#39;name&#39;)</code>（清空所有），必须使用 <code>bus.off(&#39;name&#39;, handler)</code>（只移除当前函数的引用）。</li>
+<li><strong>作用域区分 (Scoping)</strong>：<ul>
+<li><strong>Local (本地)</strong>：只在当前窗口&#x2F;当前组件内生效（使用 <code>mitt</code> 或简单的回调）。</li>
+<li><strong>Global (全局)</strong>：所有窗口都生效（例如：用户退出登录）。</li>
+<li><strong>Targeted (定向)</strong>：只发给特定的 <code>panelId</code> 或 <code>windowId</code>（例如：刷新表格，只刷新 ID 为 <code>user-table</code> 的那个）。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="代码实现：DistributedEventBus"><a href="#代码实现：DistributedEventBus" class="headerlink" title="代码实现：DistributedEventBus"></a>代码实现：<code>DistributedEventBus</code></h3><p>我们将封装一个智能的 EventBus，它底层结合了 <code>mitt</code> (本地) 和 <code>BroadcastChannel</code> (跨窗口)。</p>
+<h4 id="1-工具类封装-src-utils-event-bus-ts"><a href="#1-工具类封装-src-utils-event-bus-ts" class="headerlink" title="1. 工具类封装 (src/utils/event-bus.ts)"></a>1. 工具类封装 (<code>src/utils/event-bus.ts</code>)</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mitt, &#123; <span class="title class_">Handler</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;mitt&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义消息结构</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">BusPayload</span> = &#123;</span><br><span class="line">  <span class="attr">event</span>: <span class="built_in">string</span></span><br><span class="line">  <span class="attr">data</span>: <span class="built_in">any</span></span><br><span class="line">  <span class="attr">targetId</span>?: <span class="built_in">string</span> <span class="comment">// 指定接收目标的 ID (PanelId 或 WindowId)</span></span><br><span class="line">  <span class="attr">sourceId</span>?: <span class="built_in">string</span> <span class="comment">// 发送者的 ID</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">DistributedEventBus</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> localBus = <span class="title function_">mitt</span>() <span class="comment">// 本地事件中心</span></span><br><span class="line">  <span class="keyword">private</span> <span class="attr">channel</span>: <span class="title class_">BroadcastChannel</span></span><br><span class="line">  <span class="keyword">private</span> <span class="attr">myId</span>: <span class="built_in">string</span> <span class="comment">// 当前实例/窗口的 ID</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"><span class="attr">channelName</span>: <span class="built_in">string</span> = <span class="string">&#x27;app-global-bus&#x27;</span></span>) &#123;</span><br><span class="line">    <span class="comment">// 生成或获取当前环境 ID (可以使用之前 Pinia 插件里的 generateId 逻辑)</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">myId</span> = <span class="title class_">Math</span>.<span class="title function_">random</span>().<span class="title function_">toString</span>(<span class="number">36</span>).<span class="title function_">substr</span>(<span class="number">2</span>, <span class="number">9</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1. 初始化跨窗口通道</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">channel</span> = <span class="keyword">new</span> <span class="title class_">BroadcastChannel</span>(channelName)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 监听来自其他窗口的消息</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">channel</span>.<span class="property">onmessage</span> = <span class="function">(<span class="params"><span class="attr">msg</span>: <span class="title class_">MessageEvent</span>&lt;<span class="title class_">BusPayload</span>&gt;</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; event, data, targetId, sourceId &#125; = msg.<span class="property">data</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// A. 如果指定了 targetId，且不是发给我的 -&gt; 忽略</span></span><br><span class="line">      <span class="comment">// (这里假设 myId 是窗口ID，或者是你传入的 panelId)</span></span><br><span class="line">      <span class="keyword">if</span> (targetId &amp;&amp; targetId !== <span class="variable language_">this</span>.<span class="property">myId</span>) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// B. 触发本地监听器</span></span><br><span class="line">      <span class="comment">// 注意：我们在本地触发时，标记它来自&quot;外部&quot;，避免死循环</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">localBus</span>.<span class="title function_">emit</span>(event, &#123; ...data, <span class="attr">_fromRemote</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 注册监听 (用法和以前一样)</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="title function_">on</span>(<span class="params"><span class="attr">event</span>: <span class="built_in">string</span>, <span class="attr">handler</span>: <span class="title class_">Handler</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">localBus</span>.<span class="title function_">on</span>(event, handler)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 移除监听 (必须传入 handler 引用！)</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="title function_">off</span>(<span class="params"><span class="attr">event</span>: <span class="built_in">string</span>, <span class="attr">handler</span>: <span class="title class_">Handler</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">localBus</span>.<span class="title function_">off</span>(event, handler)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 发送事件</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> event 事件名</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> data 数据</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> scope 发送范围</span></span><br><span class="line"><span class="comment">   *    - &#x27;local&#x27;: 只在当前窗口触发 (默认)</span></span><br><span class="line"><span class="comment">   *    - &#x27;global&#x27;: 所有窗口都触发</span></span><br><span class="line"><span class="comment">   *    - string: 指定 ID (只发给特定 ID 的实例)</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="title function_">emit</span>(<span class="params"><span class="attr">event</span>: <span class="built_in">string</span>, <span class="attr">data</span>: <span class="built_in">any</span> = &#123;&#125;, <span class="attr">scope</span>: <span class="string">&#x27;local&#x27;</span> | <span class="string">&#x27;global&#x27;</span> | <span class="built_in">string</span> = <span class="string">&#x27;local&#x27;</span></span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 总是触发本地 (除非有特殊需求)</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">localBus</span>.<span class="title function_">emit</span>(event, data)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 根据范围决定是否广播</span></span><br><span class="line">    <span class="keyword">if</span> (scope === <span class="string">&#x27;local&#x27;</span>) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 构造广播包</span></span><br><span class="line">    <span class="keyword">const</span> <span class="attr">payload</span>: <span class="title class_">BusPayload</span> = &#123;</span><br><span class="line">      event,</span><br><span class="line">      data,</span><br><span class="line">      <span class="attr">sourceId</span>: <span class="variable language_">this</span>.<span class="property">myId</span>,</span><br><span class="line">      <span class="attr">targetId</span>: scope === <span class="string">&#x27;global&#x27;</span> ? <span class="literal">undefined</span> : scope <span class="comment">// 如果是 global 则 targetId 为空</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">channel</span>.<span class="title function_">postMessage</span>(payload)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置当前实例的 ID (用于 Dockview 的 Panel ID 绑定)</span></span><br><span class="line">  <span class="title function_">setId</span>(<span class="params"><span class="attr">id</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">myId</span> = id</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">destroy</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">localBus</span>.<span class="property">all</span>.<span class="title function_">clear</span>()</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">channel</span>.<span class="title function_">close</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导出单例 (或者在组件里 new)</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> bus = <span class="keyword">new</span> <span class="title class_">DistributedEventBus</span>()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="2-在-Vue-组件中如何正确使用-解决“全关闭”问题"><a href="#2-在-Vue-组件中如何正确使用-解决“全关闭”问题" class="headerlink" title="2. 在 Vue 组件中如何正确使用 (解决“全关闭”问题)"></a>2. 在 Vue 组件中如何正确使用 (解决“全关闭”问题)</h4><p>关键在于：<strong>在 <code>onUnmounted</code> 时，只移除自己的那个回调函数</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; onMounted, onUnmounted &#125; from &#x27;vue&#x27;</span><br><span class="line">import &#123; bus &#125; from &#x27;./utils/event-bus&#x27;</span><br><span class="line"></span><br><span class="line">// 假设这是 Dockview 里的一个 Panel</span><br><span class="line">const props = defineProps&lt;&#123; params: any &#125;&gt;()</span><br><span class="line">const myPanelId = props.params.api.id</span><br><span class="line"></span><br><span class="line">// 1. 设置 ID，以便能接收定向消息</span><br><span class="line">bus.setId(myPanelId)</span><br><span class="line"></span><br><span class="line">// 2. 定义处理函数 (必须提取出来，不能写匿名函数！)</span><br><span class="line">// ❌ 错误：bus.on(&#x27;refresh&#x27;, () =&gt; &#123; ... &#125;)  &lt;- 匿名函数没法精确移除</span><br><span class="line">// ✅ 正确：</span><br><span class="line">const handleRefresh = (data: any) =&gt; &#123;</span><br><span class="line">  console.log(`[$&#123;myPanelId&#125;] 收到刷新请求:`, data)</span><br><span class="line">  // 业务逻辑...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">onMounted(() =&gt; &#123;</span><br><span class="line">  // 注册</span><br><span class="line">  bus.on(&#x27;refresh-grid&#x27;, handleRefresh)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">onUnmounted(() =&gt; &#123;</span><br><span class="line">  // 3. 销毁时，只移除当前的 handleRefresh</span><br><span class="line">  // 这样绝对不会影响其他窗口或 Tab 的 &#x27;refresh-grid&#x27; 监听</span><br><span class="line">  bus.off(&#x27;refresh-grid&#x27;, handleRefresh)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// --- 触发示例 ---</span><br><span class="line"></span><br><span class="line">const triggerLocal = () =&gt; &#123;</span><br><span class="line">  // 只刷新我自己这个窗口/Tab</span><br><span class="line">  bus.emit(&#x27;refresh-grid&#x27;, &#123; page: 1 &#125;, &#x27;local&#x27;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const triggerGlobal = () =&gt; &#123;</span><br><span class="line">  // 刷新所有打开这个页面的窗口 (比如用户修改了全局配置)</span><br><span class="line">  bus.emit(&#x27;refresh-grid&#x27;, &#123; theme: &#x27;dark&#x27; &#125;, &#x27;global&#x27;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const triggerTarget = () =&gt; &#123;</span><br><span class="line">  // 假设你想刷新 ID 为 &#x27;user-list-panel&#x27; 的那个 Tab (无论它在哪个窗口)</span><br><span class="line">  bus.emit(&#x27;refresh-grid&#x27;, &#123; reload: true &#125;, &#x27;user-list-panel&#x27;)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="方案优缺点总结"><a href="#方案优缺点总结" class="headerlink" title="方案优缺点总结"></a>方案优缺点总结</h3><ol>
+<li><p><strong>解决“触发多次”</strong>：</p>
+<ul>
+<li>默认 <code>scope: &#39;local&#39;</code>：大多数业务场景（比如点击按钮刷新当前表格）只需要本地触发。旧代码如果不改，默认就是 Local，行为和单页应用一致，不会广播风暴。</li>
+<li>需要同步时显式用 <code>&#39;global&#39;</code>。</li>
+</ul>
+</li>
+<li><p><strong>解决“全部关闭”</strong>：</p>
+<ul>
+<li>强制要求传入 <code>handler</code> 进行 <code>off</code>。这是编程习惯的矫正。</li>
+<li><code>mitt</code> 库本身就支持精确移除。</li>
+</ul>
+</li>
+<li><p><strong>适配 Dockview</strong>：</p>
+<ul>
+<li>通过 <code>setId(panelId)</code>，实现了基于 <strong>Panel ID</strong> 的定向通信。</li>
+<li>你可以实现：“在窗口 A 点击保存，自动刷新窗口 B 里的列表”这种高级功能。</li>
+</ul>
+</li>
+</ol>
+<h3 id="迁移建议"><a href="#迁移建议" class="headerlink" title="迁移建议"></a>迁移建议</h3><p>你现在的项目里可能充斥着 <code>bus.emit</code> 和 <code>bus.off</code>。</p>
+<ol>
+<li><strong>搜索替换</strong>：把引入的老 EventBus 换成这个新的 <code>DistributedEventBus</code>。</li>
+<li><strong>默认行为</strong>：由于默认是 <code>&#39;local&#39;</code>，你直接替换后，大部分功能会恢复正常（不再乱广播）。</li>
+<li><strong>修复销毁逻辑</strong>：你需要人工检查所有 <code>onUnmounted</code> 或 <code>beforeDestroy</code>，把 <code>bus.off(&#39;event&#39;)</code> 改成 <code>bus.off(&#39;event&#39;, myHandler)</code>。<ul>
+<li><em>如果老代码全是匿名函数怎么办？</em></li>
+<li><strong>临时补救</strong>：在 <code>DistributedEventBus</code> 里维护一个 <code>Map&lt;PanelId, List&lt;Handler&gt;&gt;</code>，在组件销毁时调用 <code>bus.clearCurrentScope()</code>。但这比较复杂，推荐还是重构为命名函数。</li>
+</ul>
+</li>
+</ol>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2025/12/16/%E5%89%8D%E7%AB%AF/electron/pinia-plugin-electron-share%E5%8D%87%E7%BA%A7%E7%89%88/" rel="next" title="electron多窗口状态同步 插件pinia-plugin-electron-share升级版">
+    Next: electron多窗口状态同步 插件pinia-plugin-electron-share升级版
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
