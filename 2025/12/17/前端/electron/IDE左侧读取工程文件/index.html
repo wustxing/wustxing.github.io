@@ -11,7 +11,7 @@
     <meta name="author" content="wustxing">
     
     <meta name="description" content="这是一个非常硬核且实用的需求。要实现类似 VS Code &amp;#x2F; Visual Studio 的工程文件资源管理器，我们需要打通 Electron 的 Main Process (Node.js fs 能力) 和 Renderer Process (Vue 组件交互)。
-由于代码量较大，我将分">
+由于代码量较大，我将分为 后端 (IPC&amp;#x2F;Node) 和 前端 (Vue 组件) 两部分来构建。">
     
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -221,7 +221,7 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/electron/">
-                    electron <span class="right">9</span></a>
+                    electron <span class="right">10</span></a>
                 </a>
             </li>
 
@@ -302,6 +302,7 @@
             <div class="entry pink-link-context">
                 <p>这是一个非常硬核且实用的需求。要实现类似 VS Code &#x2F; Visual Studio 的工程文件资源管理器，我们需要打通 Electron 的 <strong>Main Process (Node.js fs 能力)</strong> 和 <strong>Renderer Process (Vue 组件交互)</strong>。</p>
 <p>由于代码量较大，我将分为 <strong>后端 (IPC&#x2F;Node)</strong> 和 <strong>前端 (Vue 组件)</strong> 两部分来构建。</p>
+<span id="more"></span>
 <h3 id="核心功能规划"><a href="#核心功能规划" class="headerlink" title="核心功能规划"></a>核心功能规划</h3><ol>
 <li><strong>工程元数据</strong>：在根目录维护一个 <code>project.config.json</code>。</li>
 <li><strong>文件树生成</strong>：递归读取文件夹结构，过滤 <code>node_modules</code> 等。</li>
@@ -354,6 +355,12 @@
 <p>这基本上就是一个轻量级 IDE 资源管理器的雏形了。你可以把 <code>ProjectExplorer.vue</code> 复制进去直接运行。</p>
 
                 
+<p class="pink-link-context">
+    <a href="/2025/12/17/%E5%89%8D%E7%AB%AF/electron/%E6%96%87%E4%BB%B6%E6%AF%94%E5%AF%B9%E6%A0%87%E7%BA%A2%E6%98%BE%E7%A4%BA/" rel="next" title="文件比对标红显示">
+    Prev: 文件比对标红显示
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">
