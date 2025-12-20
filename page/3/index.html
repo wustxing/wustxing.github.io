@@ -218,7 +218,7 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/electron/">
-                    electron <span class="right">11</span></a>
+                    electron <span class="right">12</span></a>
                 </a>
             </li>
 
@@ -251,6 +251,45 @@
 
 
 <div id="article-list" class="container main-container">
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2024/04/01/tools/webpack%20%E6%8F%92%E4%BB%B6%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99/">webpack 插件如何编写</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2024-04-01T04:00:00.000Z"><a href="/2024/04/01/tools/webpack%20%E6%8F%92%E4%BB%B6%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99/">2024-04-01</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/webpack/" class="chip pink lighten-1">webpack</a>
+        
+    </div>
+
+
+
+            
+                <div class="entry pink-link-context">
+                    <p>编写 Webpack 插件可以帮助你在 Webpack 构建过程中添加自定义行为。Webpack 插件是一个具有 apply 方法的 JavaScript 对象。这个 apply 方法会在 Webpack 编译器实例上被调用，并且你可以通过这个方法来访问 Webpack 的编译器对象，从而在特定的编译阶段插入自定义逻辑。   下面是一个简单的步骤指南和示例代码，帮助你编写一个基本的 Webpack 插件。<br>步骤指南<br>创建插件对象：创建一个 JavaScript 对象，并定义一个 apply 方法。<br>访问编译器对象：在 apply 方法中，通过参数访问 Webpack 编译器对象。<br>绑定钩子：使用编译器对象提供的钩子来绑定你的插件逻辑。<br>导出插件：将你的插件对象导出，以便在 Webpack 配置中使用。<br>示例代码<br>假设我们要编写一个简单的插件，在 Webpack 构建完成后输出一条消息到控制台。<br>创建插件文件   首先，创建一个文件 MyWebpackPlugin.js，内容如下：</p>
+                </div>
+            
+        </div>
+
+        
+        <div class="card-action pink-link-context">
+            <a href="/2024/04/01/tools/webpack 插件如何编写/">READ MORE</a>
+        </ div>
+        
+    </div>
+</article>
+
     
         <article class="simple-article">
     <div class="card">
@@ -624,45 +663,6 @@
         
         <div class="card-action pink-link-context">
             <a href="/2021/01/01/前端/vue/vue3写组件库/">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2021/01/01/%E5%89%8D%E7%AB%AF/vue/vue2%E9%9D%A2%E8%AF%95/">vue2重点</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2021-01-01T04:00:00.000Z"><a href="/2021/01/01/%E5%89%8D%E7%AB%AF/vue/vue2%E9%9D%A2%E8%AF%95/">2021-01-01</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/vue2/" class="chip pink lighten-1">vue2</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <h2 id="Vue2响应式系统的工作原理"><a href="#Vue2响应式系统的工作原理" class="headerlink" title="Vue2响应式系统的工作原理"></a>Vue2响应式系统的工作原理</h2><p>Vue2响应式系统的核心实现机制<br>Vue2的响应式系统基于数据劫持与发布-订阅模式，通过<code>Object.defineProperty()</code> API拦截数据访问与修改，并结合依赖收集机制实现视图自动更新。其核心目标是建立数据与视图之间的联动关系，当数据变化时触发依赖组件的重新渲染。 </p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2021/01/01/前端/vue/vue2面试/">READ MORE</a>
         </ div>
         
     </div>

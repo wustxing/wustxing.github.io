@@ -1,0 +1,714 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>独占式文件锁定1 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="通常被称为**“独占式文件锁定” (Exclusive File Locking)**。不能完全控制 文件夹里面的文件，新建删除都可以">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="独占式文件锁定1"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">12</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/electron/">electron</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>独占式文件锁定1</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2025-12-20T15:36:27.385Z"><a href="/2025/12/20/%E5%89%8D%E7%AB%AF/electron/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%96%87%E4%BB%B6%E9%94%81%E5%AE%9A_%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84%E5%8D%A0%E7%94%A8/">2025-12-20</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="section table-of-contents-text">核心原理</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-%E5%90%8E%E7%AB%AF%E6%A0%B8%E5%BF%83%E9%80%BB%E8%BE%91-src-main-lock-manager-ts"><span class="section table-of-contents-text">1. 后端核心逻辑 (src&#x2F;main&#x2F;lock-manager.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-%E6%B3%A8%E5%86%8C-IPC-%E6%8E%A5%E5%8F%A3-src-main-ipc-lock-ipc-ts"><span class="section table-of-contents-text">2. 注册 IPC 接口 (src&#x2F;main&#x2F;ipc&#x2F;lock-ipc.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-Preload-%E6%9A%B4%E9%9C%B2-src-preload-index-ts"><span class="section table-of-contents-text">3. Preload 暴露 (src&#x2F;preload&#x2F;index.ts)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B-Editor-vue"><span class="section table-of-contents-text">4. 前端使用示例 (Editor.vue)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E2%9A%A0%EF%B8%8F-%E5%85%B3%E9%94%AE%E9%99%90%E5%88%B6%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-%E5%BF%85%E8%AF%BB"><span class="section table-of-contents-text">⚠️ 关键限制与注意事项 (必读)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E6%80%BB%E7%BB%93"><span class="section table-of-contents-text">总结</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>通常被称为**“独占式文件锁定” (Exclusive File Locking)**。<br>不能完全控制 文件夹里面的文件，新建删除都可以</p>
+<span id="more"></span>
+<p>实现这个功能的难点在于：</p>
+<ol>
+<li><strong>操作系统差异</strong>：Windows 的文件锁是强制的（Mandatory），而 Linux&#x2F;macOS 通常是建议性的（Advisory）。</li>
+<li><strong>句柄限制</strong>：操作系统对单个进程能打开的文件句柄数量（File Descriptors）有限制（通常几千个）。如果文件夹里有 <code>node_modules</code> 这种包含数万个文件的目录，直接全锁会导致应用崩溃。</li>
+<li><strong>自身的读写</strong>：锁住后，你自己的应用也需要特殊的写入方式（复用句柄），否则也会被拒绝访问。</li>
+</ol>
+<p>基于 Electron 环境，我为你设计一套基于 <strong>“文件句柄持有 (File Handle Holding)”</strong> + <strong>“Chokidar 监听”</strong> 的完整解决方案。这在 Windows 上效果极佳（完全无法删除&#x2F;重命名&#x2F;修改），在 macOS&#x2F;Linux 上也能阻止大部分操作。</p>
+<hr>
+<h3 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h3><ol>
+<li><strong>占用 (Lock)</strong>：主进程使用 <code>fs.open(path, &#39;r+&#39;)</code> 打开文件并<strong>不关闭</strong>，持有该文件的 <code>fd</code> (文件描述符)。在 Windows 上，只要句柄没关，资源管理器就无法删除或重命名该文件。</li>
+<li><strong>自身写入 (Write)</strong>：当你的 IDE 需要保存文件时，<strong>不重新打开文件</strong>，而是直接复用内存中持有的 <code>fd</code> 进行 <code>fs.write</code>。</li>
+<li><strong>自身删除&#x2F;重命名</strong>：先 <code>fs.close(fd)</code> 释放锁，执行操作，如果是重命名则再次锁定新路径。</li>
+</ol>
+<hr>
+<h3 id="1-后端核心逻辑-src-main-lock-manager-ts"><a href="#1-后端核心逻辑-src-main-lock-manager-ts" class="headerlink" title="1. 后端核心逻辑 (src/main/lock-manager.ts)"></a>1. 后端核心逻辑 (<code>src/main/lock-manager.ts</code>)</h3><p>这是整个方案的大脑。建议新建一个类来专门管理锁。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main/lock-manager.ts</span></span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&#x27;fs-extra&#x27;</span></span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&#x27;path&#x27;</span></span><br><span class="line"><span class="keyword">import</span> chokidar <span class="keyword">from</span> <span class="string">&#x27;chokidar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">LockManager</span> &#123;</span><br><span class="line">  <span class="comment">// 存储路径到文件描述符(fd)的映射</span></span><br><span class="line">  <span class="keyword">private</span> locks = <span class="keyword">new</span> <span class="title class_">Map</span>&lt;<span class="built_in">string</span>, <span class="built_in">number</span>&gt;()</span><br><span class="line">  <span class="keyword">private</span> <span class="attr">watcher</span>: chokidar.<span class="property">FSWatcher</span> | <span class="literal">null</span> = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">private</span> <span class="attr">rootPath</span>: <span class="built_in">string</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 锁定整个文件夹</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">lockDirectory</span>(<span class="params"><span class="attr">dirPath</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 先清理之前的锁</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">unlockAll</span>()</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">rootPath</span> = dirPath</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`🔒 开始锁定目录: <span class="subst">$&#123;dirPath&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 启动监听器，防止外部新建文件“逃逸”</span></span><br><span class="line">    <span class="comment">// (如果有人强行塞入新文件，我们立刻锁定它)</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">watcher</span> = chokidar.<span class="title function_">watch</span>(dirPath, &#123;</span><br><span class="line">      <span class="attr">ignored</span>: <span class="regexp">/(^|[\/\\])\../</span>, <span class="comment">// 忽略隐藏文件</span></span><br><span class="line">      <span class="attr">persistent</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">ignoreInitial</span>: <span class="literal">false</span>, <span class="comment">// 初始扫描也触发 add 事件</span></span><br><span class="line">      <span class="attr">awaitWriteFinish</span>: <span class="literal">true</span> <span class="comment">// 等待写入完成后再锁</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">watcher</span>.<span class="title function_">on</span>(<span class="string">&#x27;add&#x27;</span>, <span class="function">(<span class="params">filePath</span>) =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">lockFile</span>(filePath))</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">watcher</span>.<span class="title function_">on</span>(<span class="string">&#x27;addDir&#x27;</span>, <span class="function">(<span class="params">dirPath</span>) =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">lockFile</span>(dirPath, <span class="literal">true</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 监听解除锁定（比如被外部强制删除了）</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">watcher</span>.<span class="title function_">on</span>(<span class="string">&#x27;unlink&#x27;</span>, <span class="function">(<span class="params">filePath</span>) =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">releaseLock</span>(filePath))</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">watcher</span>.<span class="title function_">on</span>(<span class="string">&#x27;unlinkDir&#x27;</span>, <span class="function">(<span class="params">dirPath</span>) =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">releaseLock</span>(dirPath))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 释放所有锁 (通常在关闭项目或退出应用时调用)</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">unlockAll</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">watcher</span>) &#123;</span><br><span class="line">      <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">watcher</span>.<span class="title function_">close</span>()</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">watcher</span> = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> [filePath, fd] <span class="keyword">of</span> <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        fs.<span class="title function_">closeSync</span>(fd)</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="comment">// 忽略关闭错误的句柄</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">clear</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;🔓 已释放所有文件锁&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 核心：锁定单个文件/文件夹</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="title function_">lockFile</span>(<span class="params"><span class="attr">targetPath</span>: <span class="built_in">string</span>, isDir = <span class="literal">false</span></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">has</span>(targetPath)) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// ⚠️ 关键点：使用 &#x27;r+&#x27; (读写模式) 打开并不关闭</span></span><br><span class="line">      <span class="comment">// 对于目录，我们在 Windows 上打开句柄可以防止重命名/移动</span></span><br><span class="line">      <span class="comment">// Linux/Mac 对目录 open 的支持有限，通常只支持 &#x27;r&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> flags = isDir ? <span class="string">&#x27;r&#x27;</span> : <span class="string">&#x27;r+&#x27;</span> </span><br><span class="line">      </span><br><span class="line">      <span class="keyword">const</span> fd = fs.<span class="title function_">openSync</span>(targetPath, flags)</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">set</span>(targetPath, fd)</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// console.log(`Locked: $&#123;path.basename(targetPath)&#125;`)</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (<span class="attr">error</span>: <span class="built_in">any</span>) &#123;</span><br><span class="line">      <span class="comment">// 常见错误：EMFILE (句柄耗尽), EPERM (无权限)</span></span><br><span class="line">      <span class="keyword">if</span> (error.<span class="property">code</span> === <span class="string">&#x27;EMFILE&#x27;</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;❌ 错误：打开的文件太多，达到了系统上限！建议忽略 node_modules&#x27;</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">warn</span>(<span class="string">`无法锁定 <span class="subst">$&#123;targetPath&#125;</span>:`</span>, error.<span class="property">message</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="title function_">releaseLock</span>(<span class="params"><span class="attr">targetPath</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> fd = <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">get</span>(targetPath)</span><br><span class="line">    <span class="keyword">if</span> (fd !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        fs.<span class="title function_">closeSync</span>(fd)</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">delete</span>(targetPath)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ==========================================</span></span><br><span class="line">  <span class="comment">//  提供给 IDE 自身的特权操作 API</span></span><br><span class="line">  <span class="comment">// ==========================================</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 特权写入：复用 fd 进行写入</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">writeLockedFile</span>(<span class="params"><span class="attr">filePath</span>: <span class="built_in">string</span>, <span class="attr">content</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> fd = <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">get</span>(filePath)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// 如果还没锁（比如新创建的瞬间），尝试锁一下</span></span><br><span class="line">      <span class="keyword">if</span> (fd === <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">lockFile</span>(filePath)</span><br><span class="line">        fd = <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">get</span>(filePath)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (fd === <span class="literal">undefined</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;File not locked or accessible&#x27;</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Node.js 的 fs.writeFile 支持传入 fd ！！！</span></span><br><span class="line">      <span class="comment">// 但直接传 fd 可能会追加内容，所以我们需要先清空文件内容</span></span><br><span class="line">      <span class="keyword">await</span> fs.<span class="title function_">ftruncate</span>(fd, <span class="number">0</span>) <span class="comment">// 清空文件</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 将内容写入 buffer</span></span><br><span class="line">      <span class="keyword">const</span> buffer = <span class="title class_">Buffer</span>.<span class="title function_">from</span>(content, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 使用 writeSync 或 write 写入</span></span><br><span class="line">      <span class="comment">// position: 0 (从头开始写)</span></span><br><span class="line">      fs.<span class="title function_">writeSync</span>(fd, buffer, <span class="number">0</span>, buffer.<span class="property">length</span>, <span class="number">0</span>)</span><br><span class="line">      </span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`✅ 特权写入成功: <span class="subst">$&#123;filePath&#125;</span>`</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;写入失败:&#x27;</span>, error)</span><br><span class="line">      <span class="keyword">throw</span> error</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 特权重命名</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">renameLockedEntry</span>(<span class="params"><span class="attr">oldPath</span>: <span class="built_in">string</span>, <span class="attr">newName</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> dir = path.<span class="title function_">dirname</span>(oldPath)</span><br><span class="line">    <span class="keyword">const</span> newPath = path.<span class="title function_">join</span>(dir, newName)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 必须先释放锁，否则自己也无法重命名 (Windows特性)</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">releaseLock</span>(oldPath)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">await</span> fs.<span class="title function_">rename</span>(oldPath, newPath)</span><br><span class="line">      <span class="comment">// 2. 这里的锁会由 Chokidar 的 &#x27;add&#x27; 事件自动加上，或者手动加</span></span><br><span class="line">      <span class="comment">// this.lockFile(newPath) </span></span><br><span class="line">      <span class="keyword">return</span> newPath</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="comment">// 失败了尝试重新锁回去</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">lockFile</span>(oldPath)</span><br><span class="line">      <span class="keyword">throw</span> error</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 特权删除</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">deleteLockedEntry</span>(<span class="params"><span class="attr">targetPath</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 释放锁</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">releaseLock</span>(targetPath)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果是目录，可能需要递归释放子文件锁</span></span><br><span class="line">    <span class="comment">// 简单起见，这里假设外部调用逻辑会处理，或者依赖 Chokidar 的 unlink</span></span><br><span class="line">    <span class="comment">// 为了稳健，我们遍历一下 map 释放所有子路径</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">of</span> <span class="variable language_">this</span>.<span class="property">locks</span>.<span class="title function_">keys</span>()) &#123;</span><br><span class="line">      <span class="keyword">if</span> (key.<span class="title function_">startsWith</span>(targetPath)) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">releaseLock</span>(key)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">await</span> fs.<span class="title function_">remove</span>(targetPath)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="comment">// 恢复锁很难，因为可能删了一半</span></span><br><span class="line">      <span class="keyword">throw</span> error</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 特权创建文件</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">createLockedFile</span>(<span class="params"><span class="attr">folderPath</span>: <span class="built_in">string</span>, <span class="attr">name</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> fullPath = path.<span class="title function_">join</span>(folderPath, name)</span><br><span class="line">      <span class="keyword">await</span> fs.<span class="title function_">ensureFile</span>(fullPath)</span><br><span class="line">      <span class="comment">// 创建完立刻锁</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">lockFile</span>(fullPath)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导出单例</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> lockManager = <span class="keyword">new</span> <span class="title class_">LockManager</span>()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-注册-IPC-接口-src-main-ipc-lock-ipc-ts"><a href="#2-注册-IPC-接口-src-main-ipc-lock-ipc-ts" class="headerlink" title="2. 注册 IPC 接口 (src/main/ipc/lock-ipc.ts)"></a>2. 注册 IPC 接口 (<code>src/main/ipc/lock-ipc.ts</code>)</h3><p>将这些特权操作暴露给前端。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main/ipc/lock-ipc.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; ipcMain &#125; <span class="keyword">from</span> <span class="string">&#x27;electron&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; lockManager &#125; <span class="keyword">from</span> <span class="string">&#x27;../lock-manager&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">setupLockIPC</span>(<span class="params"></span>) &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 1. 打开并锁定工程</span></span><br><span class="line">  ipcMain.<span class="title function_">handle</span>(<span class="string">&#x27;lock-open-project&#x27;</span>, <span class="title function_">async</span> (_, <span class="attr">dirPath</span>: <span class="built_in">string</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> lockManager.<span class="title function_">lockDirectory</span>(dirPath)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 关闭工程（释放锁）</span></span><br><span class="line">  ipcMain.<span class="title function_">handle</span>(<span class="string">&#x27;lock-close-project&#x27;</span>, <span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> lockManager.<span class="title function_">unlockAll</span>()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 特权写入 (替代 fs.writeFile)</span></span><br><span class="line">  ipcMain.<span class="title function_">handle</span>(<span class="string">&#x27;lock-write-file&#x27;</span>, <span class="title function_">async</span> (_, &#123; filePath, content &#125;) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> lockManager.<span class="title function_">writeLockedFile</span>(filePath, content)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 特权删除</span></span><br><span class="line">  ipcMain.<span class="title function_">handle</span>(<span class="string">&#x27;lock-delete&#x27;</span>, <span class="title function_">async</span> (_, <span class="attr">filePath</span>: <span class="built_in">string</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> lockManager.<span class="title function_">deleteLockedEntry</span>(filePath)</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 5. 特权重命名</span></span><br><span class="line">  ipcMain.<span class="title function_">handle</span>(<span class="string">&#x27;lock-rename&#x27;</span>, <span class="title function_">async</span> (_, &#123; oldPath, newName &#125;) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> lockManager.<span class="title function_">renameLockedEntry</span>(oldPath, newName)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>并在 <code>src/main/index.ts</code> 中调用：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; setupLockIPC &#125; <span class="keyword">from</span> <span class="string">&#x27;./ipc/lock-ipc&#x27;</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="title function_">setupLockIPC</span>()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-Preload-暴露-src-preload-index-ts"><a href="#3-Preload-暴露-src-preload-index-ts" class="headerlink" title="3. Preload 暴露 (src/preload/index.ts)"></a>3. Preload 暴露 (<code>src/preload/index.ts</code>)</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> lockAPI = &#123;</span><br><span class="line">  <span class="attr">openProject</span>: <span class="function">(<span class="params"><span class="attr">path</span>: <span class="built_in">string</span></span>) =&gt;</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;lock-open-project&#x27;</span>, path),</span><br><span class="line">  <span class="attr">closeProject</span>: <span class="function">() =&gt;</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;lock-close-project&#x27;</span>),</span><br><span class="line">  <span class="attr">writeFile</span>: <span class="function">(<span class="params"><span class="attr">path</span>: <span class="built_in">string</span>, <span class="attr">content</span>: <span class="built_in">string</span></span>) =&gt;</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;lock-write-file&#x27;</span>, &#123; <span class="attr">filePath</span>: path, content &#125;),</span><br><span class="line">  <span class="attr">delete</span>: <span class="function">(<span class="params"><span class="attr">path</span>: <span class="built_in">string</span></span>) =&gt;</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;lock-delete&#x27;</span>, path),</span><br><span class="line">  <span class="attr">rename</span>: <span class="function">(<span class="params"><span class="attr">oldPath</span>: <span class="built_in">string</span>, <span class="attr">newName</span>: <span class="built_in">string</span></span>) =&gt;</span> ipcRenderer.<span class="title function_">invoke</span>(<span class="string">&#x27;lock-rename&#x27;</span>, &#123; oldPath, newName &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// expose ...</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-前端使用示例-Editor-vue"><a href="#4-前端使用示例-Editor-vue" class="headerlink" title="4. 前端使用示例 (Editor.vue)"></a>4. 前端使用示例 (<code>Editor.vue</code>)</h3><p>在前端，你不再使用普通的 <code>fsAPI.saveFile</code>，而是必须使用 <code>lockAPI.writeFile</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">// 打开项目时</span><br><span class="line">const openProject = async (path) =&gt; &#123;</span><br><span class="line">  // 这会触发后端递归锁定</span><br><span class="line">  await window.lockAPI.openProject(path)</span><br><span class="line">  console.log(&#x27;项目已打开且已独占锁定&#x27;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 保存文件时</span><br><span class="line">const saveDocument = async (currentFile, content) =&gt; &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    // 使用特权通道写入</span><br><span class="line">    await window.lockAPI.writeFile(currentFile.path, content)</span><br><span class="line">    console.log(&#x27;保存成功&#x27;)</span><br><span class="line">  &#125; catch (e) &#123;</span><br><span class="line">    console.error(&#x27;保存失败&#x27;, e)</span><br><span class="line">    alert(&#x27;无法保存，可能锁失效或权限不足&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 退出应用前</span><br><span class="line">window.onbeforeunload = () =&gt; &#123;</span><br><span class="line">  // 最好主动释放，虽然 Electron 进程结束 OS 会自动回收句柄，但主动清理更安全</span><br><span class="line">  window.lockAPI.closeProject()</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="⚠️-关键限制与注意事项-必读"><a href="#⚠️-关键限制与注意事项-必读" class="headerlink" title="⚠️ 关键限制与注意事项 (必读)"></a>⚠️ 关键限制与注意事项 (必读)</h3><ol>
+<li><p><strong>文件句柄上限 (EMFILE Error)</strong>：</p>
+<ul>
+<li><strong>现象</strong>：如果用户打开了一个包含 <code>node_modules</code> 的文件夹，里面可能有 30,000+ 个文件。操作系统通常默认限制单进程打开 1024 或 4096 个文件。尝试全锁会直接导致你的应用崩溃或报错。</li>
+<li><strong>解决方案</strong>：<ul>
+<li><strong>忽略策略</strong>：在 <code>LockManager</code> 的 <code>chokidar</code> 配置和递归逻辑中，<strong>必须</strong>忽略 <code>node_modules</code>, <code>.git</code>, <code>dist</code> 等构建目录。只锁定核心代码文件。</li>
+<li><strong>优雅降级</strong>：在 <code>lockFile</code> 方法中捕获 <code>EMFILE</code> 错误，如果句柄满了，停止锁定后续文件，并通知前端“部分文件未锁定”。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Windows vs POSIX</strong>：</p>
+<ul>
+<li><strong>Windows</strong>：此方案效果极佳。<code>fs.open</code> 默认会阻止删除和重命名。此时如果你尝试用资源管理器删文件，会提示“文件在 Electron 中已打开”。</li>
+<li><strong>macOS &#x2F; Linux</strong>：此方案效果<strong>有限</strong>。Unix 哲学允许删除正在被进程使用的文件（只删除引用，句柄依然有效）。要实现完全禁止修改，通常需要：<ul>
+<li>使用 <code>fs-ext</code> 原生模块调用 <code>flock(fd, LOCK_EX)</code>（排他锁）。但这增加了编译成本。</li>
+<li>或者简单地：在 Unix 上接受“软锁定”，即你的应用能正常跑，但用户如果在终端 <code>rm -rf</code>，你拦不住。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>性能开销</strong>：</p>
+<ul>
+<li>保持数千个文件句柄打开会消耗内存（虽然不多）。</li>
+<li><code>chokidar</code> 监听大量文件会消耗 CPU。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这个方案通过 <strong>“不释放句柄 (Leaking FDs intentionally)”</strong> 的方式实现了应用层面的独占。对于开发一个需要“独占模式”的 IDE 来说，这是最标准且纯 JS (Node) 能做到的极限。如果需要更强力的锁（如拦截系统级写入），则需要编写 C++ 驱动层，那将远超 Electron 的范畴。</p>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2025/12/18/%E5%89%8D%E7%AB%AF/electron/%E6%96%87%E4%BB%B6%E8%8F%9C%E5%8D%95%E6%98%BE%E7%A4%BA/" rel="next" title="文件菜单显示">
+    Next: 文件菜单显示
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>

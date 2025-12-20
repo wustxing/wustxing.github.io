@@ -1,0 +1,339 @@
+---
+title: 独占式文件锁定2
+categories: [electron]
+tags: [electron]
+---
+
+
+之前的方案基于“文件句柄占用”，在 Windows 上虽然能防删除，但防不住“新建文件”，且在 macOS/Linux 上效果较弱。
+
+要达到你要求的 **“完全占用（只能通过你的软件修改，系统或其他软件无法删除、改名、新建、修改）”**，我们需要使用操作系统底层的 **权限控制 (ACL / Permissions)** 方案。
+
+这相当于给文件夹加了一层“防盗门”，只有拿着钥匙（你的 App）的人才能进出。
+
+### 核心方案：权限控制 (ACL) + 哨兵模式
+
+我们将实现一个 `SecurityManager`，它会在打开项目时：
+1.  **Windows**: 使用 `icacls` 命令递归拒绝 (Deny) `Everyone` 的写入和删除权限。
+2.  **macOS/Linux**: 使用 `chmod` 命令递归移除写入权限 (`a-w`)。
+3.  **自身写入时**: 临时“解锁”单个文件 -> 写入 -> 立即“回锁”。
+4.  **哨兵 (Chokidar)**: 作为最后一道防线，如果有人通过更底层的手段强行塞入文件，立即对其进行隔离或删除。
+
+---
+
+### 1. 后端核心：`SecurityManager` (`src/main/security-manager.ts`)
+
+这个模块负责调用系统命令来修改文件夹权限。
+
+```typescript
+// src/main/security-manager.ts
+import { exec } from 'child_process'
+import { promisify } from 'util'
+import path from 'path'
+import fs from 'fs-extra'
+import chokidar from 'chokidar'
+
+const execAsync = promisify(exec)
+
+export class SecurityManager {
+  private rootPath = ''
+  private watcher: chokidar.FSWatcher | null = null
+  private isWindows = process.platform === 'win32'
+
+  /**
+   * 🔒 开启“完全独占模式”
+   */
+  async lockProject(dirPath: string) {
+    this.rootPath = dirPath
+    console.log(`🛡️ 正在开启独占模式: ${dirPath}`)
+
+    // 1. 系统级权限锁定 (递归)
+    await this.applySystemLock(dirPath, true)
+
+    // 2. 启动哨兵 (防止漏网之鱼)
+    this.startSentry(dirPath)
+  }
+
+  /**
+   * 🔓 关闭独占模式 (恢复权限)
+   */
+  async unlockProject() {
+    if (!this.rootPath) return
+
+    console.log(`🔓 正在解除独占模式...`)
+    
+    // 1. 关闭哨兵
+    if (this.watcher) {
+      await this.watcher.close()
+      this.watcher = null
+    }
+
+    // 2. 恢复系统权限
+    await this.applySystemLock(this.rootPath, false)
+    this.rootPath = ''
+  }
+
+  /**
+   * ✏️ 特权写入文件
+   */
+  async privilegedWrite(filePath: string, content: string) {
+    // 1. 临时解锁单个文件
+    await this.unlockSingleFile(filePath)
+
+    try {
+      // 2. 写入
+      await fs.writeFile(filePath, content, 'utf-8')
+    } finally {
+      // 3. 立即回锁
+      await this.lockSingleFile(filePath)
+    }
+  }
+
+  /**
+   * 📄 特权创建文件/文件夹
+   */
+  async privilegedCreate(targetPath: string, type: 'file' | 'directory') {
+    const parentDir = path.dirname(targetPath)
+    
+    // 1. 解锁父目录 (才有权限创建子项)
+    await this.unlockSingleFile(parentDir)
+
+    try {
+      if (type === 'directory') {
+        await fs.ensureDir(targetPath)
+      } else {
+        await fs.ensureFile(targetPath)
+      }
+    } finally {
+      // 3. 回锁父目录 & 锁定新文件
+      await this.lockSingleFile(parentDir)
+      await this.lockSingleFile(targetPath)
+    }
+  }
+
+  /**
+   * 🗑️ 特权删除
+   */
+  async privilegedDelete(targetPath: string) {
+    const parentDir = path.dirname(targetPath)
+    
+    // 1. 解锁父目录 (才有权限删除子项) 和 目标本身
+    await this.unlockSingleFile(parentDir)
+    await this.unlockSingleFile(targetPath) // 防止自身只读无法删除
+
+    try {
+      await fs.remove(targetPath)
+    } finally {
+      // 3. 回锁父目录
+      await this.lockSingleFile(parentDir)
+    }
+  }
+
+  // =========================================
+  //  底层系统命令实现
+  // =========================================
+
+  private async applySystemLock(targetPath: string, isLock: boolean) {
+    if (this.isWindows) {
+      // Windows: 使用 icacls 拒绝写入和删除
+      // /deny Everyone:(OI)(CI)(DE,DC,WD,AD,WEA,WA)
+      // OI: Object Inherit (对象继承)
+      // CI: Container Inherit (容器继承)
+      // DE: Delete, DC: Delete Child
+      // WD: Write Data, AD: Append Data
+      const cmd = isLock
+        ? `icacls "${targetPath}" /deny Everyone:(OI)(CI)(DE,DC,WD,AD,WEA,WA) /T /C /Q`
+        : `icacls "${targetPath}" /remove:d Everyone /T /C /Q`
+      
+      try { await execAsync(cmd) } catch (e) { /* 忽略部分权限错误 */ }
+
+    } else {
+      // Mac/Linux: 移除写权限 (chmod -R a-w)
+      // 注意：这在 Linux 上不能完全防止拥有者删除，但能防止修改
+      const cmd = isLock
+        ? `chmod -R a-w "${targetPath}"`
+        : `chmod -R u+w "${targetPath}"`
+      
+      try { await execAsync(cmd) } catch (e) {}
+    }
+  }
+
+  private async lockSingleFile(targetPath: string) {
+    if (this.isWindows) {
+      // 锁定单个文件 (不带 /T 递归)
+      await execAsync(`icacls "${targetPath}" /deny Everyone:(DE,DC,WD,AD,WEA,WA) /C /Q`)
+    } else {
+      await execAsync(`chmod a-w "${targetPath}"`)
+    }
+  }
+
+  private async unlockSingleFile(targetPath: string) {
+    if (this.isWindows) {
+      await execAsync(`icacls "${targetPath}" /remove:d Everyone /C /Q`)
+    } else {
+      await execAsync(`chmod u+w "${targetPath}"`)
+    }
+  }
+
+  // =========================================
+  //  哨兵模式：防止外部强行创建文件
+  // =========================================
+  private startSentry(dirPath: string) {
+    this.watcher = chokidar.watch(dirPath, {
+      ignored: /(^|[\/\\])\../,
+      ignoreInitial: true, // 不处理已存在的文件
+      persistent: true
+    })
+
+    // 如果检测到有新文件/文件夹被外部创建（此时我们没有调用 privilegedCreate）
+    // 说明用户可能通过更高权限强行塞了文件进来
+    // 策略：立即锁定它，或者根据需求直接删除它
+    this.watcher.on('add', async (filePath) => {
+        console.warn(`🚨 检测到外部新增文件: ${filePath}，正在强制锁定...`)
+        await this.lockSingleFile(filePath)
+    })
+    
+    this.watcher.on('addDir', async (p) => {
+        await this.lockSingleFile(p)
+    })
+  }
+}
+
+export const securityManager = new SecurityManager()
+```
+
+---
+
+### 2. 注册 IPC 接口 (`src/main/ipc/security-ipc.ts`)
+
+```typescript
+// src/main/ipc/security-ipc.ts
+import { ipcMain, dialog } from 'electron'
+import { securityManager } from '../security-manager'
+
+export function setupSecurityIPC() {
+  
+  // 1. 选择并锁定工程
+  ipcMain.handle('sec-open-project', async () => {
+    const { canceled, filePaths } = await dialog.showOpenDialog({
+      properties: ['openDirectory']
+    })
+    if (canceled || filePaths.length === 0) return null
+
+    const path = filePaths[0]
+    await securityManager.lockProject(path)
+    return path
+  })
+
+  // 2. 解锁并关闭
+  ipcMain.handle('sec-close-project', async () => {
+    await securityManager.unlockProject()
+  })
+
+  // 3. 特权操作
+  ipcMain.handle('sec-write-file', async (_, { path, content }) => {
+    await securityManager.privilegedWrite(path, content)
+    return true
+  })
+
+  ipcMain.handle('sec-create', async (_, { path, type }) => {
+    await securityManager.privilegedCreate(path, type)
+    return true
+  })
+
+  ipcMain.handle('sec-delete', async (_, path) => {
+    await securityManager.privilegedDelete(path)
+    return true
+  })
+}
+```
+
+**⚠️ 重要：** 请在 `src/main/index.ts` 的 `app.on('will-quit')` 中调用 `unlockProject`，防止开发调试时强退导致文件夹一直被锁，自己都打不开。
+
+```typescript
+// src/main/index.ts
+import { securityManager } from './security-manager'
+
+app.on('will-quit', async () => {
+  // 确保退出时解锁，否则你的文件夹会被锁死，需要管理员权限修复
+  await securityManager.unlockProject()
+})
+```
+
+---
+
+### 3. Preload (`src/preload/index.ts`)
+
+```typescript
+const securityAPI = {
+  openProject: () => ipcRenderer.invoke('sec-open-project'),
+  closeProject: () => ipcRenderer.invoke('sec-close-project'),
+  writeFile: (path: string, content: string) => ipcRenderer.invoke('sec-write-file', { path, content }),
+  create: (path: string, type: 'file' | 'directory') => ipcRenderer.invoke('sec-create', { path, type }),
+  delete: (path: string) => ipcRenderer.invoke('sec-delete', path)
+}
+
+// 记得 expose ...
+```
+
+---
+
+### 4. 前端使用验证 (`Editor.vue`)
+
+使用方式和之前类似，但这次调用的是 `securityAPI`。
+
+```vue
+<script setup lang="ts">
+// 打开
+const open = async () => {
+    const path = await window.securityAPI.openProject()
+    if(path) console.log('✅ 已开启最高级别独占锁')
+}
+
+// 保存
+const save = async () => {
+    // 即使文件在系统里是只读的，这个 API 也能写入
+    await window.securityAPI.writeFile(currentPath, content)
+}
+
+// 新建
+const createFile = async () => {
+    // 即使父文件夹拒绝写入，这个 API 也能创建
+    await window.securityAPI.create('D:/Project/new.ts', 'file')
+}
+
+// 删除
+const del = async () => {
+    await window.securityAPI.delete('D:/Project/old.ts')
+}
+</script>
+```
+
+---
+
+### 💡 方案原理解析 (为什么这个能行？)
+
+1.  **为什么之前的不行？**
+    *   之前用的是 `fs.open` (文件句柄)。在 Windows 上，持有文件句柄能防删除文件本身，但**防不住父文件夹的操作**。如果父文件夹允许“删除子文件”，那么文件名就可以被改掉或者被新文件替代。
+    *   且 Node.js 的文件锁在跨平台表现不一致。
+
+2.  **为什么这个能行？**
+    *   **Windows (`icacls`)**: 我们使用了 `/deny Everyone`。这是 NTFS 文件系统级别的拒绝。我们在 ACL（访问控制列表）中明确写了：**“任何人（包括当前用户）都不许写、不许删、不许改”**。
+    *   **系统资源管理器**：当你尝试在资源管理器里右键删除时，Windows 会检查 ACL，发现 explicit deny，直接弹窗“你需要权限才能执行此操作”。
+    *   **其他编辑器**：VS Code 打开该文件时，会发现它是只读的，无法保存。
+
+3.  **App 怎么自己改？**
+    *   因为你的 App 运行在用户权限下（或者管理员权限），它是权限的**拥有者**。
+    *   虽然我们设置了 Deny Everyone，但作为拥有者，我们可以随时修改规则。
+    *   `privilegedWrite` 的原理是：**“修改规则允许写入” -> “写入” -> “修改规则禁止写入”**。这个过程在毫秒级完成，用户几乎感觉不到空隙。
+
+### ⚠️ 风险提示 (必读)
+
+1.  **崩溃死锁**：
+    如果你的 App 在 `lockProject` 之后崩溃了（没有运行 `unlockProject`），那么这个文件夹在磁盘上就会**保持锁定状态**。
+    *   **后果**：你自己手动去删也删不掉，新建文件也不行。
+    *   **恢复方法**：你需要右键文件夹 -> 属性 -> 安全 -> 高级 -> 更改权限 -> 把那些“拒绝”的条目删掉。或者运行代码里的 `unlock` 命令。
+    *   **建议**：开发阶段，写一个独立的 `reset-lock.js` 脚本，万一崩溃了运行一下脚本来解锁。
+
+2.  **管理员权限**：
+    在 Windows 上，`icacls` 通常不需要管理员权限（只要文件夹是当前用户创建的）。但如果文件夹在 C 盘根目录或 Program Files，你的 Electron 应用需要以**管理员身份运行**。
