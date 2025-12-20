@@ -220,7 +220,7 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/electron/">
-                    electron <span class="right">12</span></a>
+                    electron <span class="right">13</span></a>
                 </a>
             </li>
 
@@ -364,6 +364,12 @@
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这个方案通过 <strong>“不释放句柄 (Leaking FDs intentionally)”</strong> 的方式实现了应用层面的独占。对于开发一个需要“独占模式”的 IDE 来说，这是最标准且纯 JS (Node) 能做到的极限。如果需要更强力的锁（如拦截系统级写入），则需要编写 C++ 驱动层，那将远超 Electron 的范畴。</p>
 
                 
+<p class="pink-link-context">
+    <a href="/2025/12/21/%E5%89%8D%E7%AB%AF/electron/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E5%B7%A5%E5%85%B7%E8%A7%A3%E9%94%81%E6%96%87%E4%BB%B6/" rel="next" title="独占式文件锁定_icacls">
+    Prev: 独占式文件锁定_icacls
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">
