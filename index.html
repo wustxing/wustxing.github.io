@@ -276,8 +276,17 @@
 
 
             
+                <div class="entry pink-link-context">
+                    <h2 id="之前介绍了两种锁定文件的形式，"><a href="#之前介绍了两种锁定文件的形式，" class="headerlink" title="之前介绍了两种锁定文件的形式，"></a>之前介绍了两种锁定文件的形式，</h2><p>1、句柄占用<br>2、icacls 权限管理<br>最后我选择了icacls权限管理，因为它更加灵活，可以针对文件夹和文件分别进行权限控制。</p>
+<p>问题，icacls管理 是可行的，但是我担心后面又不想要权限管理了（这个取决于需求）<br>研究后发现改动点其实主要在文件和文件夹的修改 保存 删除 重命名 的方式不一样。<br>icacls 都是先解锁 然后操作 然后上锁<br>正常模式就是没有解锁上锁的过程<br>目前就是要兼容这两种 一键切换。</p>
+                </div>
+            
         </div>
 
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/21/前端/electron/兼容一键切换是否锁定文件夹/">READ MORE</a>
+        </ div>
         
     </div>
 </article>
