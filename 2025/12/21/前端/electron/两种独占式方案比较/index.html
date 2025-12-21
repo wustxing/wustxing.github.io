@@ -1,0 +1,702 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Windows (icacls) 这个方案 有文件夹node_modle,.git这种限制吗 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="不会崩溃，没有“文件句柄耗尽”的限制，但是有“性能”和“业务逻辑”上的严重副作用。
+我们来对比一下两种方案的区别，你就能明白为什么了：
+1. 之前的方案 (fs.open &amp;#x2F; 文件句柄)
+原理：程序必须“抓住”每一个文件（占用 1 个句柄）。
+node_modules：如果有 30,000">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Windows (icacls) 这个方案 有文件夹node_modle,.git这种限制吗"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">15</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/electron/">electron</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Windows (icacls) 这个方案 有文件夹node_modle,.git这种限制吗</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2025-12-20T17:37:43.041Z"><a href="/2025/12/21/%E5%89%8D%E7%AB%AF/electron/%E4%B8%A4%E7%A7%8D%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%96%B9%E6%A1%88%E6%AF%94%E8%BE%83/">2025-12-21</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-%E4%B9%8B%E5%89%8D%E7%9A%84%E6%96%B9%E6%A1%88-fs-open-%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84"><span class="section table-of-contents-text">1. 之前的方案 (fs.open &#x2F; 文件句柄)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-%E7%8E%B0%E5%9C%A8%E7%9A%84%E6%96%B9%E6%A1%88-icacls-%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="section table-of-contents-text">2. 现在的方案 (icacls &#x2F; 权限控制)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E4%BD%86%E6%98%AF%EF%BC%81%E8%99%BD%E7%84%B6%E4%B8%8D%E4%BC%9A%E5%B4%A9%EF%BC%8C%E6%88%91%E5%BC%BA%E7%83%88%E5%BB%BA%E8%AE%AE%E4%BD%A0%E3%80%90%E4%BE%9D%E7%84%B6%E8%A6%81%E6%8E%92%E9%99%A4%E3%80%91%E5%AE%83%E4%BB%AC"><span class="section table-of-contents-text">但是！虽然不会崩，我强烈建议你【依然要排除】它们</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#1-%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98-%E6%97%B6%E9%97%B4%E6%88%90%E6%9C%AC"><span class="section table-of-contents-text">1. 性能问题 (时间成本)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#2-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E5%86%B2%E7%AA%81-Git-%E5%92%8C-NPM-%E7%98%AB%E7%97%AA"><span class="section table-of-contents-text">2. 业务逻辑冲突 (Git 和 NPM 瘫痪)</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%BC%98%E5%8C%96-SecurityManager-%E4%BB%A5%E8%B7%B3%E8%BF%87%E7%89%B9%E5%AE%9A%E7%9B%AE%E5%BD%95"><span class="section table-of-contents-text">解决方案：优化 SecurityManager 以跳过特定目录</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E6%80%BB%E7%BB%93"><span class="section table-of-contents-text">总结</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p><strong>不会崩溃，没有“文件句柄耗尽”的限制，但是有“性能”和“业务逻辑”上的严重副作用。</strong></p>
+<p>我们来对比一下两种方案的区别，你就能明白为什么了：</p>
+<h3 id="1-之前的方案-fs-open-文件句柄"><a href="#1-之前的方案-fs-open-文件句柄" class="headerlink" title="1. 之前的方案 (fs.open &#x2F; 文件句柄)"></a>1. 之前的方案 (fs.open &#x2F; 文件句柄)</h3><ul>
+<li><strong>原理</strong>：程序必须“抓住”每一个文件（占用 1 个句柄）。</li>
+<li><strong>node_modules</strong>：如果有 30,000 个文件，就要抓 30,000 次。</li>
+<li><strong>结果</strong>：<strong>崩溃</strong>。因为操作系统限制单个程序只能抓几千个。</li>
+</ul>
+<h3 id="2-现在的方案-icacls-权限控制"><a href="#2-现在的方案-icacls-权限控制" class="headerlink" title="2. 现在的方案 (icacls &#x2F; 权限控制)"></a>2. 现在的方案 (icacls &#x2F; 权限控制)</h3><ul>
+<li><strong>原理</strong>：程序只是对操作系统下达一个指令：“把这个文件夹及其子文件的属性改为不可写”。</li>
+<li><strong>node_modules</strong>：即使有 30,000 个文件，Electron 也只是发出了<strong>一条</strong>命令。操作系统负责在底层修改元数据（Metadata）。</li>
+<li><strong>结果</strong>：<strong>不会崩溃</strong>。Electron 进程甚至不需要读取这些文件。</li>
+</ul>
+<hr>
+<h3 id="但是！虽然不会崩，我强烈建议你【依然要排除】它们"><a href="#但是！虽然不会崩，我强烈建议你【依然要排除】它们" class="headerlink" title="但是！虽然不会崩，我强烈建议你【依然要排除】它们"></a>但是！虽然不会崩，我强烈建议你【依然要排除】它们</h3><p>原因如下：</p>
+<h4 id="1-性能问题-时间成本"><a href="#1-性能问题-时间成本" class="headerlink" title="1. 性能问题 (时间成本)"></a>1. 性能问题 (时间成本)</h4><p>虽然不会崩，但 <code>icacls</code> 递归修改 3 万个文件的权限需要时间。</p>
+<ul>
+<li><strong>现象</strong>：用户点击“打开工程”，界面可能会<strong>卡住 5~10 秒</strong>（视磁盘速度而定），直到命令执行完。这在用户体验上是不可接受的。</li>
+</ul>
+<h4 id="2-业务逻辑冲突-Git-和-NPM-瘫痪"><a href="#2-业务逻辑冲突-Git-和-NPM-瘫痪" class="headerlink" title="2. 业务逻辑冲突 (Git 和 NPM 瘫痪)"></a>2. 业务逻辑冲突 (Git 和 NPM 瘫痪)</h4><p>这是最致命的：</p>
+<ul>
+<li><strong>如果锁了 <code>.git</code></strong>：你的 Git 就会报错 <code>permission denied</code>，你无法 commit，无法 checkout，Git 状态全乱。</li>
+<li><strong>如果锁了 <code>node_modules</code></strong>：用户想运行 <code>npm install</code> 安装新包时，会直接报错，因为 NPM 无法写入那个文件夹。</li>
+<li><strong>如果锁了 <code>dist</code></strong>：Webpack&#x2F;Vite 无法打包，因为无法清理旧文件。</li>
+</ul>
+<hr>
+<h3 id="解决方案：优化-SecurityManager-以跳过特定目录"><a href="#解决方案：优化-SecurityManager-以跳过特定目录" class="headerlink" title="解决方案：优化 SecurityManager 以跳过特定目录"></a>解决方案：优化 <code>SecurityManager</code> 以跳过特定目录</h3><p><code>icacls</code> 命令本身不支持“排除文件夹”的参数（它要么锁单个，要么 <code>/T</code> 递归锁全部）。</p>
+<p>所以，我们需要在 Node.js 层面做一个**“智能遍历”**：</p>
+<ol>
+<li>读取根目录下的第一层文件&#x2F;文件夹。</li>
+<li>如果是 <code>node_modules</code> 或 <code>.git</code>，<strong>直接跳过</strong>，不执行 icacls。</li>
+<li>如果是其他文件夹（如 <code>src</code>），执行 <strong>递归 (<code>/T</code>)</strong> 锁定。</li>
+<li>如果是文件（如 <code>package.json</code>），执行 <strong>单文件</strong> 锁定。</li>
+</ol>
+<p>下面是优化后的 <code>src/main/security-manager.ts</code> 代码：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main/security-manager.ts</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ... 之前的 import ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 🚫 黑名单列表</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">IGNORE_DIRS</span> = [<span class="string">&#x27;.git&#x27;</span>, <span class="string">&#x27;node_modules&#x27;</span>, <span class="string">&#x27;dist&#x27;</span>, <span class="string">&#x27;build&#x27;</span>, <span class="string">&#x27;.vscode&#x27;</span>, <span class="string">&#x27;.idea&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">SecurityManager</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">lockProject</span>(<span class="params"><span class="attr">dirPath</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">rootPath</span> = dirPath</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`🛡️ 正在开启独占模式 (智能排除): <span class="subst">$&#123;dirPath&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 智能遍历并锁定</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">applySmartLock</span>(dirPath, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 启动哨兵</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">startSentry</span>(dirPath)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">async</span> <span class="title function_">unlockProject</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">rootPath</span>) <span class="keyword">return</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`🔓 正在解除独占模式...`</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 关闭哨兵</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">watcher</span>) &#123;</span><br><span class="line">      <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="property">watcher</span>.<span class="title function_">close</span>()</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">watcher</span> = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解锁时，为了省事且防止漏网之鱼，我们可以直接对根目录进行全量递归解锁</span></span><br><span class="line">    <span class="comment">// (解锁 node_modules 也没坏处，反正本来就该是解锁的)</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">applySystemLock</span>(<span class="variable language_">this</span>.<span class="property">rootPath</span>, <span class="literal">false</span>, <span class="literal">true</span>) <span class="comment">// true 表示强制递归</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">rootPath</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ... privilegedWrite 等方法保持不变 ...</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// =========================================</span></span><br><span class="line">  <span class="comment">//  核心优化：智能锁定逻辑</span></span><br><span class="line">  <span class="comment">// =========================================</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">async</span> <span class="title function_">applySmartLock</span>(<span class="params"><span class="attr">basePath</span>: <span class="built_in">string</span>, <span class="attr">isLock</span>: <span class="built_in">boolean</span></span>) &#123;</span><br><span class="line">    <span class="comment">// 读取根目录下的第一级内容</span></span><br><span class="line">    <span class="keyword">const</span> items = <span class="keyword">await</span> fs.<span class="title function_">readdir</span>(basePath, &#123; <span class="attr">withFileTypes</span>: <span class="literal">true</span> &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> items) &#123;</span><br><span class="line">      <span class="keyword">const</span> fullPath = path.<span class="title function_">join</span>(basePath, item.<span class="property">name</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 1. 检查是否在黑名单中</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="variable constant_">IGNORE_DIRS</span>.<span class="title function_">includes</span>(item.<span class="property">name</span>)) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`⏩ 跳过忽略目录: <span class="subst">$&#123;item.name&#125;</span>`</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 2. 执行锁定</span></span><br><span class="line">      <span class="keyword">if</span> (item.<span class="title function_">isDirectory</span>()) &#123;</span><br><span class="line">        <span class="comment">// 如果是普通文件夹 (如 src)，执行递归锁定 (/T)</span></span><br><span class="line">        <span class="comment">// 这样 src 下面有 1000 个文件也会被一次性锁住，效率很高</span></span><br><span class="line">        <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">applySystemLock</span>(fullPath, isLock, <span class="literal">true</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果是文件，直接锁</span></span><br><span class="line">        <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">lockSingleFile</span>(fullPath)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 最后，别忘了锁根目录本身（防止根目录被重命名），但不递归</span></span><br><span class="line">    <span class="comment">// 注意：这里我们只锁根目录的“属性”，不加 /T</span></span><br><span class="line">    <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">lockSingleFile</span>(basePath) </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 修改底层的命令执行方法，增加 recursive 参数</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">async</span> <span class="title function_">applySystemLock</span>(<span class="params"><span class="attr">targetPath</span>: <span class="built_in">string</span>, <span class="attr">isLock</span>: <span class="built_in">boolean</span>, <span class="attr">recursive</span>: <span class="built_in">boolean</span></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">isWindows</span>) &#123;</span><br><span class="line">      <span class="comment">// Windows</span></span><br><span class="line">      <span class="keyword">const</span> perm = isLock </span><br><span class="line">        ? <span class="string">&#x27;/deny Everyone:(OI)(CI)(DE,DC,WD,AD,WEA,WA)&#x27;</span> </span><br><span class="line">        : <span class="string">&#x27;/remove:d Everyone&#x27;</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 关键：只有 recursive 为 true 时才加 /T</span></span><br><span class="line">      <span class="keyword">const</span> recursiveFlag = recursive ? <span class="string">&#x27;/T&#x27;</span> : <span class="string">&#x27;&#x27;</span></span><br><span class="line">      </span><br><span class="line">      <span class="keyword">const</span> cmd = <span class="string">`icacls &quot;<span class="subst">$&#123;targetPath&#125;</span>&quot; <span class="subst">$&#123;perm&#125;</span> <span class="subst">$&#123;recursiveFlag&#125;</span> /C /Q`</span></span><br><span class="line">      <span class="keyword">try</span> &#123; <span class="keyword">await</span> <span class="title function_">execAsync</span>(cmd) &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Mac/Linux</span></span><br><span class="line">      <span class="keyword">const</span> perm = isLock ? <span class="string">&#x27;a-w&#x27;</span> : <span class="string">&#x27;u+w&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> recursiveFlag = recursive ? <span class="string">&#x27;-R&#x27;</span> : <span class="string">&#x27;&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> cmd = <span class="string">`chmod <span class="subst">$&#123;recursiveFlag&#125;</span> <span class="subst">$&#123;perm&#125;</span> &quot;<span class="subst">$&#123;targetPath&#125;</span>&quot;`</span></span><br><span class="line">      <span class="keyword">try</span> &#123; <span class="keyword">await</span> <span class="title function_">execAsync</span>(cmd) &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ... 之前的 lockSingleFile 等 ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><strong>技术上</strong>：<code>icacls</code> 方案<strong>没有</strong>文件数量限制，不会崩溃。</li>
+<li><strong>实际上</strong>：为了保证 Git 和 NPM 正常工作，以及打开工程时的速度，<strong>必须排除</strong> <code>node_modules</code> 和 <code>.git</code>。</li>
+<li><strong>实现策略</strong>：<strong>“首层遍历 + 针对性递归”</strong>。即遍历根目录，跳过黑名单，对剩下的文件夹（如 <code>src</code>）进行全量递归锁定。这样既快又安全。</li>
+</ol>
+
+                
+<p class="pink-link-context">
+    <a href="/2025/12/21/%E5%89%8D%E7%AB%AF/electron/%E5%85%BC%E5%AE%B9%E4%B8%80%E9%94%AE%E5%88%87%E6%8D%A2%E6%98%AF%E5%90%A6%E9%94%81%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9/" rel="next" title="兼容一键切换是否锁定文件夹">
+    Prev: 兼容一键切换是否锁定文件夹
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2025/12/21/%E5%89%8D%E7%AB%AF/electron/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E5%B7%A5%E5%85%B7%E8%A7%A3%E9%94%81%E6%96%87%E4%BB%B6/" rel="next" title="独占式文件锁定_icacls">
+    Next: 独占式文件锁定_icacls
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
