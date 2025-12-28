@@ -218,7 +218,7 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/electron/">
-                    electron <span class="right">15</span></a>
+                    electron <span class="right">18</span></a>
                 </a>
             </li>
 
@@ -251,6 +251,132 @@
 
 
 <div id="article-list" class="container main-container">
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2025/12/16/%E5%89%8D%E7%AB%AF/electron/%E5%A4%9A%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/">多窗口事件总线怎么处理</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2025-12-16T13:52:57.677Z"><a href="/2025/12/16/%E5%89%8D%E7%AB%AF/electron/%E5%A4%9A%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86/">2025-12-16</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+
+            
+                <div class="entry pink-link-context">
+                    <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我现在做的是多窗口应用（基于electron-vite,vue3,和dokeview），现在有一个场景：我们原项目里面多出地方使用的事件总线模式，在组件挂载的时候注册事件，在组件销毁的时候off事件，现在改成多窗口应用后，就出现了打开了多个注册事件的窗口，事件触发的时候会触发多次，事件关闭的时候就全都关闭了。这种情况 有什么好的解决方案吗？</p>
+                </div>
+            
+        </div>
+
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/16/前端/electron/多窗口事件总线怎么处理/">READ MORE</a>
+        </ div>
+        
+    </div>
+</article>
+
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2025/12/16/%E5%89%8D%E7%AB%AF/electron/pinia-plugin-electron-share%E5%8D%87%E7%BA%A7%E7%89%88/">electron多窗口状态同步 插件pinia-plugin-electron-share升级版</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2025-12-16T13:45:41.109Z"><a href="/2025/12/16/%E5%89%8D%E7%AB%AF/electron/pinia-plugin-electron-share%E5%8D%87%E7%BA%A7%E7%89%88/">2025-12-16</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+
+            
+                <div class="entry pink-link-context">
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>通过indexDb存储pinia的相关数据。传输的时候不用传输整个数据</p>
+<p><strong>核心思想转变：</strong><br>之前的模式是 <strong>“数据跟随消息” (Push Data)</strong>，现在的模式是 <strong>“消息通知，数据自取” (Signal &amp; Pull)</strong>。</p>
+<ol>
+<li><strong>写入方</strong>：Store 变更 -&gt; 写入 IndexedDB -&gt; 发送 “数据已更新” 的信号（不带数据）。</li>
+<li><strong>接收方</strong>：收到信号 -&gt; 从 IndexedDB 读取最新数据 -&gt; 更新 Store。</li>
+<li><strong>初始化</strong>：新窗口启动 -&gt; 请求初始化 -&gt; 老窗口强制将内存数据刷入 IndexedDB -&gt; 发送 “准备好了” -&gt; 新窗口从 DB 读取。</li>
+</ol>
+<p>这样做的好处是 <code>BroadcastChannel</code> 极其轻量，不再受数据大小限制，且数据持久化由 IndexedDB 承担。</p>
+                </div>
+            
+        </div>
+
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/16/前端/electron/pinia-plugin-electron-share升级版/">READ MORE</a>
+        </ div>
+        
+    </div>
+</article>
+
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2025/12/14/%E5%89%8D%E7%AB%AF/electron/BroadcastChannel%20%E6%8F%A1%E6%89%8B%E6%9C%BA%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95/">BroadcastChannel 握手机制的方法</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2025-12-14T09:26:57.271Z"><a href="/2025/12/14/%E5%89%8D%E7%AB%AF/electron/BroadcastChannel%20%E6%8F%A1%E6%89%8B%E6%9C%BA%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95/">2025-12-14</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+
+            
+                <div class="entry pink-link-context">
+                    <h2 id="BroadcastChannel-握手机制的方法实现"><a href="#BroadcastChannel-握手机制的方法实现" class="headerlink" title="BroadcastChannel 握手机制的方法实现"></a>BroadcastChannel 握手机制的方法实现</h2><p>使用场景，dokeview tab拖出来窗口外第一次创建窗口的时候传递参数。</p>
+<p>将这种“握手”逻辑封装成通用的工具函数，可以大大减少重复代码，并保证逻辑的健壮性。</p>
+<p>封装了一个类型安全、支持超时控制的 <strong><code>WindowSync</code></strong> 工具库。</p>
+                </div>
+            
+        </div>
+
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/14/前端/electron/BroadcastChannel 握手机制的方法/">READ MORE</a>
+        </ div>
+        
+    </div>
+</article>
+
     
         <article class="simple-article">
     <div class="card">
@@ -505,118 +631,6 @@
         
         <div class="card-action pink-link-context">
             <a href="/2025/12/07/tools/vite第三方库样式冲突解决方案/">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2025/12/07/%E5%89%8D%E7%AB%AF/vue/nuxt%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">nuxt相关问题</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2025-12-07T04:00:00.000Z"><a href="/2025/12/07/%E5%89%8D%E7%AB%AF/vue/nuxt%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">2025-12-07</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/vue3/" class="chip pink lighten-1">vue3</a>
-        
-            <a href="/tags/nuxt/" class="chip pink lighten-1">nuxt</a>
-        
-    </div>
-
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2025/03/01/tools/vite/">vite注意事项</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2025-03-01T04:00:00.000Z"><a href="/2025/03/01/tools/vite/">2025-03-01</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/vite/" class="chip pink lighten-1">vite</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <h2 id="Vite-是如何实现快速开发的？它的原理是什么？"><a href="#Vite-是如何实现快速开发的？它的原理是什么？" class="headerlink" title="Vite 是如何实现快速开发的？它的原理是什么？"></a>Vite 是如何实现快速开发的？它的原理是什么？</h2><p>Vite的快速开发体验是通过以下原理实现的：</p>
-<p>使用原生ES模块化，无需预打包。<br>利用服务端渲染（SSR）将源代码转换为浏览器可识别的模块。<br>在开发模式下，按需编译和提供模块，实现快速的冷启动和热模块替换（HMR）。</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2025/03/01/tools/vite/">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2025/03/01/tools/webpack/">webpack打包工具注意事项</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2025-03-01T04:00:00.000Z"><a href="/2025/03/01/tools/webpack/">2025-03-01</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/webpack/" class="chip pink lighten-1">webpack</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <h2 id="Webpack-的四个核心概念是什么？"><a href="#Webpack-的四个核心概念是什么？" class="headerlink" title="Webpack 的四个核心概念是什么？"></a>Webpack 的四个核心概念是什么？</h2><p>列举并简述 Webpack 的四大核心配置项。<br>概念	描述<br>entry	入口文件，指定 Webpack 开始构建的位置<br>output	输出路径与文件名配置<br>loader	处理非 JS 文件（如 CSS、图片、TypeScript）<br>plugin	扩展 Webpack 功能（如压缩、优化、注入变量）</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2025/03/01/tools/webpack/">READ MORE</a>
         </ div>
         
     </div>
