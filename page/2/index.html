@@ -224,6 +224,22 @@
 
         
 
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/云手机/">
+                    云手机 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/云手机/无人直播，代理/">
+                    无人直播，代理 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
     </ul>
 </div>
 
@@ -251,6 +267,87 @@
 
 
 <div id="article-list" class="container main-container">
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2025/12/17/%E5%89%8D%E7%AB%AF/electron/%E6%96%87%E4%BB%B6%E6%AF%94%E5%AF%B9%E6%A0%87%E7%BA%A2%E6%98%BE%E7%A4%BA/">文件比对标红显示</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2025-12-17T15:42:43.979Z"><a href="/2025/12/17/%E5%89%8D%E7%AB%AF/electron/%E6%96%87%E4%BB%B6%E6%AF%94%E5%AF%B9%E6%A0%87%E7%BA%A2%E6%98%BE%E7%A4%BA/">2025-12-17</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+
+            
+                <div class="entry pink-link-context">
+                    <p>既然你已经有了工程文件的结构数据（比如是从 <code>project.config.json</code> 读取出来的树形结构），现在的核心任务是：<strong>验证这些路径在磁盘上是否真的存在</strong>，并根据结果更新 UI。</p>
+<p>这是一个典型的 <strong>“元数据” vs “物理数据”</strong> 的校验场景。</p>
+<p>为了保证性能（避免成百上千次 IPC 通信），我们应该采用 <strong>“批量校验”</strong> 的策略。</p>
+                </div>
+            
+        </div>
+
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/17/前端/electron/文件比对标红显示/">READ MORE</a>
+        </ div>
+        
+    </div>
+</article>
+
+    
+        <article class="simple-article">
+    <div class="card">
+        <div class="card-content">
+            <div class="article-title">
+                
+    
+        <h1 class="indigo-link-context"><a href="/2025/12/17/%E5%89%8D%E7%AB%AF/electron/IDE%E5%B7%A6%E4%BE%A7%E8%AF%BB%E5%8F%96%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6/">electron-vite IDE左侧读取工程文件</a></h1>
+    
+
+
+            </div>
+
+            <time class="pink-link-context" datetime="2025-12-17T15:30:04.028Z"><a href="/2025/12/17/%E5%89%8D%E7%AB%AF/electron/IDE%E5%B7%A6%E4%BE%A7%E8%AF%BB%E5%8F%96%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6/">2025-12-17</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
+        
+    </div>
+
+
+
+            
+                <div class="entry pink-link-context">
+                    <p>这是一个非常硬核且实用的需求。要实现类似 VS Code &#x2F; Visual Studio 的工程文件资源管理器，我们需要打通 Electron 的 <strong>Main Process (Node.js fs 能力)</strong> 和 <strong>Renderer Process (Vue 组件交互)</strong>。</p>
+<p>由于代码量较大，我将分为 <strong>后端 (IPC&#x2F;Node)</strong> 和 <strong>前端 (Vue 组件)</strong> 两部分来构建。</p>
+                </div>
+            
+        </div>
+
+        
+        <div class="card-action pink-link-context">
+            <a href="/2025/12/17/前端/electron/IDE左侧读取工程文件/">READ MORE</a>
+        </ div>
+        
+    </div>
+</article>
+
     
         <article class="simple-article">
     <div class="card">
@@ -559,84 +656,6 @@
 </article>
 
     
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2025/12/07/%E5%89%8D%E7%AB%AF/electron/electron-vite%E7%9B%B8%E5%85%B3/">electron-vite相关</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2025-12-07T14:46:54.676Z"><a href="/2025/12/07/%E5%89%8D%E7%AB%AF/electron/electron-vite%E7%9B%B8%E5%85%B3/">2025-12-07</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/electron/" class="chip pink lighten-1">electron</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <h2 id="1-electron-vite相关的问题汇总"><a href="#1-electron-vite相关的问题汇总" class="headerlink" title="1. electron-vite相关的问题汇总"></a>1. electron-vite相关的问题汇总</h2><p><a target="_blank" rel="noopener" href="https://github.com/alex8088/electron-vite">https://github.com/alex8088/electron-vite</a><br><a target="_blank" rel="noopener" href="https://cn.electron-vite.org/">https://cn.electron-vite.org/</a></p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2025/12/07/前端/electron/electron-vite相关/">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2025/12/07/tools/vite%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">vite注意事项</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2025-12-07T04:00:00.000Z"><a href="/2025/12/07/tools/vite%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">2025-12-07</a></time>
-
-            
-    <div class="tags-row">
-        
-            <a href="/tags/vite/" class="chip pink lighten-1">vite</a>
-        
-    </div>
-
-
-
-            
-                <div class="entry pink-link-context">
-                    <h1 id="vite本地开发第三方库样式冲突解决方案"><a href="#vite本地开发第三方库样式冲突解决方案" class="headerlink" title="vite本地开发第三方库样式冲突解决方案"></a>vite本地开发第三方库样式冲突解决方案</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在使用vite开发vue项目时，<br>同时使用了 elementui-plus和 element-plus-x,<br>然后 在开发环境 里面有一些 element-plus-x 的特殊样式会污染elementui-plus的原有样式。</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2025/12/07/tools/vite第三方库样式冲突解决方案/">READ MORE</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
 
     <ul class="pagination center-align">
     <li class="">
@@ -651,6 +670,8 @@
         <li class="waves-effect"><a href="/page/3">3</a></li>
     
         <li class="waves-effect"><a href="/page/4">4</a></li>
+    
+        <li class="waves-effect"><a href="/page/5">5</a></li>
     
     
     <li class="">

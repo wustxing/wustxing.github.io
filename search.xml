@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>自有服务器VPS 3x-Ui面板搭建安装详细教程</title>
+      <link href="/2026/01/03/%E4%BA%91%E6%89%8B%E6%9C%BA-%E6%97%A0%E4%BA%BA%E7%9B%B4%E6%92%AD/%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BA/"/>
+      <url>/2026/01/03/%E4%BA%91%E6%89%8B%E6%9C%BA-%E6%97%A0%E4%BA%BA%E7%9B%B4%E6%92%AD/%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<p>自由超12&#x2F;06&#x2F;202512&#x2F;16&#x2F;2025科学上网<br>3X-Ui面板项目地址：<a href="https://github.com/MHSanaei/3x-ui">https://github.com/MHSanaei/3x-ui</a></p><span id="more"></span><p>自有服务器VPS 3x-Ui面板搭建安装详细教程01<br>准备<br>服务器：Ubuntu 22.04+&#x2F;Debian12+系统<br>域名：自购或免费域名<br>cloudflare账号<br>SSH工具：如Finalshell<br>域名解析</p><p>假设已经有域名，并且已经托管到cloudflare（推荐：Namesilo，后缀top&#x2F;xyz等2刀&#x2F;年左右，新用户优惠码：freechao，省1美元）</p><p>自有服务器VPS 3x-Ui面板搭建安装详细教程12<br>域名解析需要时间，我们优先把3x-Ui面板访问地址对应的域名在cloudflare添加DNS，推荐用二级域名</p><p>为面板访问地址开启SSL证书做准备，这样访问更加安全</p><p>①登录cloudflare：<a href="https://dash.cloudflare.com/">https://dash.cloudflare.com</a><br>②添加域名DNS指向服务器ip，关闭小云朵<br>自有服务器VPS 3x-Ui面板搭建安装详细教程02<br>④通过窗口+R，输入cmd，输入ping 域名，来查看是否解析成功</p><p>自有服务器VPS 3x-Ui面板搭建安装详细教程03</p><p>连接服务器<br>假设已经购买服务器，没有的话推荐性价比服务器Racknerd，最低10刀左右&#x2F;年：<a href="https://freechao.com/5857.html">https://freechao.com/5857.html</a></p><p>成立于 2017 年，美国老牌服务器供应商<br>优先选择洛杉矶Los Angeles DC02、圣何塞San Jose<br>终身续费同价<br>3天内免费更换1次IP，不用担心被墙<br>终身免费流量翻倍：RackNerd服务器免费流量翻倍申请教程，还没申请亏大了<br>支付方式灵活，支持 PayPal、信用卡、支付宝<br>7x24小时客服，支持中文<br>注册购买RackNerd服务器VPS账号注册购买流量翻倍详细教程<br>CPU内存SSD硬盘月流量带宽优惠价格点击购买<br>1 核1 G25 G2 TB @1Gbps$10.6&#x2F;年官网链接<br>2 核2.5 G45 G3 TB @1Gbps$18.66&#x2F;年官网链接<br>3 核4 G65 G6.5 TB @1Gbps$29.98&#x2F;年官网链接<br>5 核6 G100 G10 TB @1Gbps$44.98&#x2F;年官网链接<br>6 核8 G150 G20 TB @1Gbps$62.49&#x2F;年官网链接<br>①下载安装Finalshell：<a href="https://www.hostbuf.com/t/988.html">https://www.hostbuf.com/t/988.html</a><br>②Finalshell连接服务器<br>名称：任意自定义<br>主机：服务器的ip地址<br>端口：基本都是22<br>用户名：root<br>密码：服务器的root密码<br>自有服务器VPS 3x-Ui面板搭建安装详细教程04<br>③服务器系统更新及安装组件<br>apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat<br>自有服务器VPS 3x-Ui面板搭建安装详细教程05<br>3x-UI搭建安装部署<br>①安装3X-UI面板命令<br>bash &lt;(curl -Ls <a href="https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh">https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh</a>)<br>自有服务器VPS 3x-Ui面板搭建安装详细教程06<br>安装过程中询问设置面板端口</p><p>Would you like to customize the Panel Port settings?（If not , a random port will be applied) [y&#x2F;n]:<br>自有服务器VPS 3x-Ui面板搭建安装详细教程07<br>输入n，随机生成端口<br>输入y，自定义端口<br>如果后面无法打开面板地址，要放行端口：比如端口1234，输入命令：ufw allow 1234</p><p>②保存面板信息<br>Username：用户名<br>Password：密码<br>Port：端口<br>WebBasePath：路径<br>Aceess URL：面板访问地址<br>自有服务器VPS 3x-Ui面板搭建安装详细教程08<br>③生成面板SSL：输入命令x-ui，选择数字18<br>依次输入数字1》输入域名》》按提示输入y，绑定证书到面板</p><p>保存开启SSL之后的面板链接</p><p>自有服务器VPS 3x-Ui面板搭建安装详细教程10<br>⑤开启BBR加速<br>输入命令x-ui，选择数字23，选择两次1，Enable BBR</p><p>自有服务器VPS 3x-Ui面板搭建安装详细教程11<br>3x-UI面板设置<br>①登录面板：https:&#x2F;&#x2F;域名:端口&#x2F;根路径<br>如果没有创建SSL证书，会提示：安全警报，此连接不安全。在激活TLS进行数据保护之前，请勿输入敏感信息。</p><p>自有服务器VPS 3x-Ui面板搭建安装详细教程09<br>②点击【面板设置常规】<br>面板url根路径：让访问地址更短，前后要加&#x2F;<br>面板监听端口：可以更改<br>更改后重启面板生效</p><p>③点击【安全设定】<br>可以更改用户名和密码</p><p>④添加节点：点击入站列表》添加入站<br>组合1：vless+TCP+Reality</p><p>备注：随意<br>协议：选择vless<br>端口：随机<br>传输：选择TCP<br>安全：选reality<br>Dest（Target）&#x2F;SNI：改成yahoo.com、tesla.com、amd.com<br>点击【Get New Cert】获取公钥和私钥<br>组合2：vless+XHTTP+Reality</p><p>备注：随意<br>协议：选择vless<br>端口：随机<br>传输：选择XHTTP<br>路径：任意设置，英文<br>安全：选reality<br>Dest（Target）&#x2F;SNI：改成yahoo.com、tesla.com、amd.com<br>点击【Get New Cert】获取公钥和私钥<br>客户端配置<br>扫描二维码、或复制粘贴链接导入客户端</p><p>Windows（v2rayN）：<a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a> （下载v2rayN-windows-64-SelfContained.zip版）<br>Android（v2rayNG）：<a href="https://github.com/2dust/v2rayNG/releases">https://github.com/2dust/v2rayNG/releases</a><br>Mac（v2rayN）：<a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a><br>IOS（shadowrocket）：<a href="https://apps.apple.com/app/shadowrocket/id932747118">https://apps.apple.com/app/shadowrocket/id932747118</a><br>郑重声明：请合理使用科学上网，用于学习、科研、外贸等，严格遵守当地相关规定！</p><p><a href="https://youtu.be/WffyIuCy3Xw">https://youtu.be/WffyIuCy3Xw</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 云手机 </category>
+          
+          <category> 无人直播，代理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 云手机 </tag>
+            
+            <tag> 无人直播，代理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2026/01/03/%E4%BA%91%E6%89%8B%E6%9C%BA-%E6%97%A0%E4%BA%BA%E7%9B%B4%E6%92%AD/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <url>/2026/01/03/%E4%BA%91%E6%89%8B%E6%9C%BA-%E6%97%A0%E4%BA%BA%E7%9B%B4%E6%92%AD/%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>独占式文件锁定3</title>
       <link href="/2025/12/28/%E5%89%8D%E7%AB%AF/electron/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%96%87%E4%BB%B6%E9%94%81%E5%AE%9Awindowapi%E8%8E%B7%E5%8F%96%E5%8F%A5%E6%9F%84/"/>
       <url>/2025/12/28/%E5%89%8D%E7%AB%AF/electron/%E7%8B%AC%E5%8D%A0%E5%BC%8F%E6%96%87%E4%BB%B6%E9%94%81%E5%AE%9Awindowapi%E8%8E%B7%E5%8F%96%E5%8F%A5%E6%9F%84/</url>
