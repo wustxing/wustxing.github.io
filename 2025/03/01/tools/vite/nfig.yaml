@@ -1,0 +1,48 @@
+# 基础配置
+mixed-port: 7890
+allow-lan: true
+mode: rule # 规则模式
+log-level: info
+ipv6: false # 开发板建议关闭ipv6节省资源
+
+# 1. 节点定义
+proxies:
+  - name: "57nvs8co"
+    type: vless
+    server: 198.46.252.189
+    port: 34466
+    uuid: 31421709-c0e5-4b07-a181-c3e97e72d650
+    udp: true
+    tls: true
+    servername: tesla.com
+    network: xhttp
+    reality-opts:
+      public-key: 1euAv4HyrwEwBFAo8-BLcyalx2hBWBU7Nb-SLvmRYUU
+      short-id: dc
+    client-fingerprint: chrome # 建议设置，模拟浏览器特征
+
+proxy-groups:
+  - name: "🚀 节点选择"
+    type: select
+    proxies:
+      - "57nvs8co"
+# 3. 规则（决定哪些流量走代理）
+rules:
+  # 关键：确保 YouTube 流量走代理
+  - DOMAIN-SUFFIX,googlevideo.com,🚀 节点选择
+  - DOMAIN-SUFFIX,youtube.com,🚀 节点选择
+  - DOMAIN-SUFFIX,googleapis.com,🚀 节点选择
+  - DOMAIN-SUFFIX,google.com,🚀 节点选择
+  # 其他流量直连
+  - MATCH,DIRECT
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip  # 使用 fake-ip 模式可以绕过本地污染
+  # listen: 0.0.0.0:53      # 监听本地 DNS 端口
+  nameserver:
+    - 114.114.114.114      # 国内解析使用
+    - 8.8.8.8              # 国外解析使用
+#   fallback:
+#     - https://dns.google/dns-query
+#     - https://1.1.1.1/dns-query

@@ -1,0 +1,793 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>关于低代码DSL转vue3组件的实现 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="将 DSL（Domain-Specific Language，领域特定语言，通常在前端表现为 JSON 或 XML 格式的数据结构）渲染为 Vue 3 组件，是低代码（Low-Code）、动态表单、CMS 页面可视化搭建等场景的核心诉求。
+在 Vue 3 中，实现从 DSL 到组件渲染主要有以下几种">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="关于低代码DSL转vue3组件的实现"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">18</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/云手机/">
+                    云手机 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/云手机/无人直播，代理/">
+                    无人直播，代理 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/低代码/">
+                    低代码 <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/低代码/">低代码</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>关于低代码DSL转vue3组件的实现</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2026-05-08T16:00:00.000Z"><a href="/2026/05/09/%E5%89%8D%E7%AB%AF/%E4%BD%8E%E4%BB%A3%E7%A0%81/%E4%BB%8EDSL%20%E5%88%B0%E6%B8%B2%E6%9F%93%E5%87%BAvue3%E7%BB%84%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">2026-05-09</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/低代码/" class="chip pink lighten-1">低代码</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%E5%81%87%E8%AE%BE%E6%88%91%E4%BB%AC%E6%9C%89%E5%A6%82%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80-DSL-%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="section table-of-contents-text">假设我们有如下的基础 DSL 结构：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-%E9%80%92%E5%BD%92%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%EF%BC%88%EF%BC%89"><span class="section table-of-contents-text">1. 递归动态组件（&lt;component :is&#x3D;&quot;xxx&quot;&gt;）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-%E6%B8%B2%E6%9F%93%E5%87%BD%E6%95%B0%EF%BC%88Render-Function-h-%E5%87%BD%E6%95%B0%EF%BC%89"><span class="section table-of-contents-text">2. 渲染函数（Render Function &#x2F; h 函数）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-JSX-TSX-%E8%AF%AD%E6%B3%95"><span class="section table-of-contents-text">3. JSX &#x2F; TSX 语法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A8%A1%E6%9D%BF%E7%BC%96%E8%AF%91%EF%BC%88Runtime-Compiler%EF%BC%89"><span class="section table-of-contents-text">4. 运行时模板编译（Runtime Compiler）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-%E6%9E%84%E5%BB%BA%E6%97%B6%E7%BC%96%E8%AF%91%EF%BC%88AST-%E7%94%9F%E6%88%90-Vue-SFC%EF%BC%89"><span class="section table-of-contents-text">5. 构建时编译（AST 生成 Vue SFC）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#%F0%9F%92%A1-%E6%80%BB%E7%BB%93%E4%B8%8E%E5%BB%BA%E8%AE%AE%EF%BC%9A%E6%88%91%E8%AF%A5%E9%80%89%E5%93%AA%E7%A7%8D%EF%BC%9F"><span class="section table-of-contents-text">💡 总结与建议：我该选哪种？</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <p>将 DSL（Domain-Specific Language，领域特定语言，通常在前端表现为 JSON 或 XML 格式的数据结构）渲染为 Vue 3 组件，是<strong>低代码（Low-Code）、动态表单、CMS 页面可视化搭建</strong>等场景的核心诉求。</p>
+<p>在 Vue 3 中，实现从 DSL 到组件渲染主要有以下几种方式，按<strong>推荐程度和常用场景</strong>排序：</p>
+<hr>
+<h3 id="假设我们有如下的基础-DSL-结构："><a href="#假设我们有如下的基础-DSL-结构：" class="headerlink" title="假设我们有如下的基础 DSL 结构："></a>假设我们有如下的基础 DSL 结构：</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;div&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;props&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;class&quot;</span><span class="punctuation">:</span> <span class="string">&quot;container&quot;</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;children&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;MyButton&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;props&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span> <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;primary&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;点击我&quot;</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;children&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-递归动态组件（）"><a href="#1-递归动态组件（）" class="headerlink" title="1. 递归动态组件（&lt;component :is=&quot;xxx&quot;&gt;）"></a>1. 递归动态组件（<code>&lt;component :is=&quot;xxx&quot;&gt;</code>）</h3><p>这是<strong>最符合 Vue 模板开发直觉</strong>、使用最广泛的方式。通过编写一个递归的 Vue 组件，解析 DSL 的每一个节点。</p>
+<ul>
+<li><strong>实现原理</strong>：利用 Vue 的 <code>&lt;component :is=&quot;...&quot;&gt;</code> 动态挂载组件，并结合 <code>v-for</code> 和组件自身的递归调用来渲染子节点。</li>
+<li><strong>代码示例</strong>：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- DslRenderer.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;!-- 动态渲染当前节点 --&gt;</span><br><span class="line">  &lt;component :is=&quot;resolveTag(dsl.type)&quot; v-bind=&quot;dsl.props&quot;&gt;</span><br><span class="line">    &lt;!-- 如果有文本内容 --&gt;</span><br><span class="line">    &lt;template v-if=&quot;dsl.props.text&quot;&gt;&#123;&#123; dsl.props.text &#125;&#125;&lt;/template&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 递归渲染子节点 --&gt;</span><br><span class="line">    &lt;template v-if=&quot;dsl.children &amp;&amp; dsl.children.length&quot;&gt;</span><br><span class="line">      &lt;DslRenderer </span><br><span class="line">        v-for=&quot;(child, index) in dsl.children&quot; </span><br><span class="line">        :key=&quot;index&quot; </span><br><span class="line">        :dsl=&quot;child&quot; </span><br><span class="line">      /&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">  &lt;/component&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; resolveComponent &#125; from &#x27;vue&#x27;;</span><br><span class="line">// 预先引入自定义组件</span><br><span class="line">import MyButton from &#x27;./MyButton.vue&#x27;;</span><br><span class="line"></span><br><span class="line">const props = defineProps(&#123;</span><br><span class="line">  dsl: Object</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 解析标签（区分原生 HTML 标签和 Vue 组件）</span><br><span class="line">const resolveTag = (type) =&gt; &#123;</span><br><span class="line">  const htmlTags = [&#x27;div&#x27;, &#x27;span&#x27;, &#x27;p&#x27;, &#x27;h1&#x27;, &#x27;section&#x27;];</span><br><span class="line">  if (htmlTags.includes(type)) &#123;</span><br><span class="line">    return type;</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果全局注册过，也可以按需获取</span><br><span class="line">  const componentsMap = &#123; MyButton &#125;;</span><br><span class="line">  return componentsMap[type] || type;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>优点</strong>：纯模板语法，心智负担小；天然支持 Vue 的指令（<code>v-if</code>, <code>v-show</code>）；易于集成现有的 UI 组件库。</li>
+<li><strong>缺点</strong>：对于极其复杂的巨型 DOM 树，递归组件的实例开销较大。</li>
+</ul>
+<hr>
+<h3 id="2-渲染函数（Render-Function-h-函数）"><a href="#2-渲染函数（Render-Function-h-函数）" class="headerlink" title="2. 渲染函数（Render Function &#x2F; h 函数）"></a>2. 渲染函数（Render Function &#x2F; <code>h</code> 函数）</h3><p>直接跳过模板编译阶段，使用 Vue 3 的底层 API <code>h()</code> 生成虚拟 DOM (VNode)。这是<strong>性能最好、最灵活</strong>的方式，也是大多数成熟开源低代码引擎（如阿里 LowCodeEngine 的 Vue 渲染器）的底层选择。</p>
+<ul>
+<li><strong>实现原理</strong>：编写一个递归的 JavaScript 函数，遍历 DSL 并不断调用 <code>h()</code> 生成 VNode 树。</li>
+<li><strong>代码示例</strong>：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// renderDsl.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; h, resolveComponent, <span class="title class_">Text</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">MyButton</span> <span class="keyword">from</span> <span class="string">&#x27;./MyButton.vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> componentsMap = &#123; <span class="title class_">MyButton</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">renderDsl</span>(<span class="params">node</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!node) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 获取组件类型</span></span><br><span class="line">  <span class="keyword">let</span> tag = node.<span class="property">type</span>;</span><br><span class="line">  <span class="comment">// 如果不是原生标签，则从映射表或全局获取</span></span><br><span class="line">  <span class="keyword">if</span> (![<span class="string">&#x27;div&#x27;</span>, <span class="string">&#x27;span&#x27;</span>, <span class="string">&#x27;p&#x27;</span>].<span class="title function_">includes</span>(tag)) &#123;</span><br><span class="line">    tag = componentsMap[tag] || <span class="title function_">resolveComponent</span>(tag);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 处理子节点</span></span><br><span class="line">  <span class="keyword">const</span> children = [];</span><br><span class="line">  <span class="keyword">if</span> (node.<span class="property">props</span>?.<span class="property">text</span>) &#123;</span><br><span class="line">    children.<span class="title function_">push</span>(node.<span class="property">props</span>.<span class="property">text</span>); <span class="comment">// 纯文本节点</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (node.<span class="property">children</span> &amp;&amp; node.<span class="property">children</span>.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    children.<span class="title function_">push</span>(...node.<span class="property">children</span>.<span class="title function_">map</span>(<span class="function"><span class="params">child</span> =&gt;</span> <span class="title function_">renderDsl</span>(child)));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 返回 VNode</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">h</span>(tag, node.<span class="property">props</span>, children);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用时包装在一个函数式组件或普通组件的 <code>setup</code> 中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; defineComponent &#125; from &#x27;vue&#x27;;</span><br><span class="line">import &#123; renderDsl &#125; from &#x27;./renderDsl&#x27;;</span><br><span class="line"></span><br><span class="line">export default defineComponent(&#123;</span><br><span class="line">  props: [&#x27;dsl&#x27;],</span><br><span class="line">  setup(props) &#123;</span><br><span class="line">    return () =&gt; renderDsl(props.dsl);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>优点</strong>：性能极高（没有模板解析开销，直接生成 VNode）；极度灵活，可以轻松实现复杂的逻辑流转（如动态插槽、事件拦截）。</li>
+<li><strong>缺点</strong>：代码可读性稍差（尤其是多层嵌套时），需要开发者非常熟悉 Vue 的 VNode 设计规范。</li>
+</ul>
+<hr>
+<h3 id="3-JSX-TSX-语法"><a href="#3-JSX-TSX-语法" class="headerlink" title="3. JSX &#x2F; TSX 语法"></a>3. JSX &#x2F; TSX 语法</h3><p>本质上是第 2 种方案（渲染函数）的语法糖。利用 Babel 将 JSX 编译成 <code>h()</code> 函数，使代码看起来更像 HTML 结构。</p>
+<ul>
+<li><strong>代码示例</strong>：</li>
+</ul>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DslRenderer.tsx</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">MyButton</span> <span class="keyword">from</span> <span class="string">&#x27;./MyButton.vue&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">componentsMap</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; = &#123; <span class="title class_">MyButton</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">DslRenderer</span> = <span class="title function_">defineComponent</span>(&#123;</span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="attr">dsl</span>: &#123; <span class="attr">type</span>: <span class="title class_">Object</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">renderNode</span> = (<span class="params"><span class="attr">node</span>: <span class="built_in">any</span></span>) =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> <span class="title class_">Tag</span> = componentsMap[node.<span class="property">type</span>] || node.<span class="property">type</span>;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Tag</span> &#123;<span class="attr">...node.props</span>&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123;node.props.text &amp;&amp; node.props.text&#125;</span></span><br><span class="line"><span class="language-xml">          &#123;node.children?.map((child: any) =&gt; renderNode(child))&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Tag</span>&gt;</span></span></span><br><span class="line">      );</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="title function_">renderNode</span>(props.<span class="property">dsl</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>优点</strong>：比手写 <code>h()</code> 可读性好太多，React 开发者可以零成本平滑迁移。</li>
+<li><strong>缺点</strong>：需要配置构建工具（Vite&#x2F;Webpack）支持 JSX；部分 Vue 独有的模板指令（如 <code>v-model</code> 的修饰符、<code>v-slot</code>）在 JSX 中的写法较为反直觉。</li>
+</ul>
+<hr>
+<h3 id="4-运行时模板编译（Runtime-Compiler）"><a href="#4-运行时模板编译（Runtime-Compiler）" class="headerlink" title="4. 运行时模板编译（Runtime Compiler）"></a>4. 运行时模板编译（Runtime Compiler）</h3><p>将 DSL 解析并<strong>拼接成一段 Vue template 字符串</strong>，然后利用 Vue 的运行时编译器将字符串动态编译为组件。</p>
+<ul>
+<li><strong>实现原理</strong>：DSL -&gt; Template String -&gt; <code>compile()</code> -&gt; Component</li>
+<li><strong>代码示例</strong>：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineComponent &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="comment">// 注意：必须使用带有编译器的 Vue 构建版本 (vue.esm-browser.js 或配置 alias)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设我们写了一个将 DSL 转为 HTML 字符串的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">dslToTemplate</span>(<span class="params">dsl</span>) &#123;</span><br><span class="line">  <span class="comment">// 生成类似 &quot;&lt;div class=&#x27;container&#x27;&gt;&lt;MyButton type=&#x27;primary&#x27;&gt;点击我&lt;/MyButton&gt;&lt;/div&gt;&quot; 的字符串</span></span><br><span class="line">  <span class="comment">// 省略具体的字符串拼接逻辑</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`&lt;<span class="subst">$&#123;dsl.type&#125;</span> ...&gt;...&lt;/<span class="subst">$&#123;dsl.type&#125;</span>&gt;`</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">DynamicComponent</span> = <span class="title function_">defineComponent</span>(&#123;</span><br><span class="line">  <span class="attr">props</span>: [<span class="string">&#x27;dsl&#x27;</span>],</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="comment">// 动态生成 template 字符串</span></span><br><span class="line">    <span class="keyword">const</span> templateStr = <span class="title function_">dslToTemplate</span>(props.<span class="property">dsl</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回包含动态 template 的组件对象</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">template</span>: templateStr,</span><br><span class="line">      <span class="attr">components</span>: &#123; <span class="title class_">MyButton</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>优点</strong>：可以将传统的 HTML 字符串片段直接变活，对处理服务端下发的富文本&#x2F;旧版微前端架构比较有用。</li>
+<li><strong>缺点</strong>：<ul>
+<li><strong>严重警告</strong>：带来极大的安全风险（XSS 攻击），绝对不要渲染不可信的 DSL。</li>
+<li><strong>性能较差</strong>：在浏览器里运行完整的 Vue 编译器，非常消耗性能。</li>
+<li><strong>体积增加</strong>：打包时必须引入 Vue Compiler 版本，会增加约 100kb+ 的包体积。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-构建时编译（AST-生成-Vue-SFC）"><a href="#5-构建时编译（AST-生成-Vue-SFC）" class="headerlink" title="5. 构建时编译（AST 生成 Vue SFC）"></a>5. 构建时编译（AST 生成 Vue SFC）</h3><p>这种方式不属于“运行时渲染”，而是属于“代码生成（Code Generation）”。通常用于 D2C（Design to Code，设计稿转代码）工具中。</p>
+<ul>
+<li><strong>实现原理</strong>：在 Node.js 环境下，读取 JSON DSL，利用 Babel 或直接拼字符串的方式，生成 <code>.vue</code> 文件（单文件组件 SFC），然后交给 Vite&#x2F;Webpack 正常打包。</li>
+<li><strong>使用场景</strong>：比如各种低代码平台中的“导出 Vue 源码”功能，或者企业内部的 CLI 脚手架工具。</li>
+<li><strong>优点</strong>：运行时零负担，生成的代码可二次开发。</li>
+<li><strong>缺点</strong>：无法应对运行时 DSL 发生改变的场景（即无法做到配置即刻生效）。</li>
+</ul>
+<hr>
+<h3 id="💡-总结与建议：我该选哪种？"><a href="#💡-总结与建议：我该选哪种？" class="headerlink" title="💡 总结与建议：我该选哪种？"></a>💡 总结与建议：我该选哪种？</h3><table>
+<thead>
+<tr>
+<th align="left">方式</th>
+<th align="left">性能</th>
+<th align="left">灵活性</th>
+<th align="left">维护难度</th>
+<th align="left">适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. 递归动态组件</strong></td>
+<td align="left">中等</td>
+<td align="left">高</td>
+<td align="left"><strong>极低</strong>（推荐）</td>
+<td align="left">中后台动态表单、配置驱动的基础页面构建。</td>
+</tr>
+<tr>
+<td align="left"><strong>2. h 渲染函数</strong></td>
+<td align="left"><strong>最高</strong></td>
+<td align="left"><strong>最高</strong></td>
+<td align="left">高</td>
+<td align="left">大型低代码平台核心渲染器、需要极致性能的复杂树状组件。</td>
+</tr>
+<tr>
+<td align="left"><strong>3. JSX&#x2F;TSX</strong></td>
+<td align="left">高</td>
+<td align="left">高</td>
+<td align="left">中</td>
+<td align="left">团队有 React 背景，需要手写复杂渲染逻辑的场景。</td>
+</tr>
+<tr>
+<td align="left"><strong>4. 运行时编译</strong></td>
+<td align="left">极低</td>
+<td align="left">中</td>
+<td align="left">危险</td>
+<td align="left">极特殊的富文本解析、兼容老旧系统（强烈不推荐常规业务使用）。</td>
+</tr>
+<tr>
+<td align="left"><strong>5. 构建时编译</strong></td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">-</td>
+<td align="left">设计稿转源码工具（D2C）、自动生成样板代码。</td>
+</tr>
+</tbody></table>
+<p><strong>最佳实践闭环</strong>：<br>绝大多数现代前端业务中，如果你在做一个动态表单或中小型低代码系统，推荐使用 <strong>第1种（递归动态组件）</strong>；如果你在做一个商业级、面临复杂交互与插槽嵌套的低代码引擎，请毫不犹豫地选择 <strong>第2种（Render Function） 或 第3种（JSX）</strong>。</p>
+
+                
+<p class="pink-link-context">
+    <a href="/2026/05/09/%E5%89%8D%E7%AB%AF/%E4%BD%8E%E4%BB%A3%E7%A0%81/%E5%85%B3%E4%BA%8E%E4%BD%8E%E4%BB%A3%E7%A0%81/" rel="next" title="关于低代码相关的理解">
+    Prev: 关于低代码相关的理解
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2026/01/03/%E4%BA%91%E6%89%8B%E6%9C%BA-%E6%97%A0%E4%BA%BA%E7%9B%B4%E6%92%AD/%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BA/" rel="next" title="自有服务器VPS 3x-Ui面板搭建安装详细教程">
+    Next: 自有服务器VPS 3x-Ui面板搭建安装详细教程
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
