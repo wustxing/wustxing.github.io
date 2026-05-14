@@ -1,0 +1,909 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>渲染器方法详解 | 星的博客</title>
+    <meta name="author" content="wustxing">
+    
+    <meta name="description" content="DSL 渲染器方法详解
+基于当前项目 test/demo/src 源码，逐函数详细说明转换过程
+
+
+一、类型系统 (src/core/types.ts)1.1 JSExpression12345interface JSExpression &amp;#123;  type: &amp;#x27;JSExpressi">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="渲染器方法详解"/>
+    <meta property="og:site_name" content="wustxing&#39;s blog"/>
+
+    
+    <meta property="og:image" content=""/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="wustxing&#39;s blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="indigo">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">wustxing&#39;s blog</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            Home
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            Archives
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            Categories
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            About
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-search modal-trigger " href="#search" >
+                            <i class="fa fa-search "></i>
+                            
+                            Search
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav indigo darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">wustxing</p>
+                        <p class="desc">Web前端/技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    Home
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    Archives
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    Categories
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    About
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-search modal-trigger " href="#search" >
+                    <i class="fa fa-search "></i>
+                    
+                    Search
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav indigo darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端面试题集/">
+                    前端面试题集 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue3/">
+                    vue3 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/vue3/nuxt/">
+                    nuxt <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vue2/">
+                    vue2 <span class="right">6</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/react/">
+                    react <span class="right">3</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/webpack/">
+                    webpack <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/cocos/">
+                    cocos <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/vite/">
+                    vite <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/electron/">
+                    electron <span class="right">18</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/云手机/">
+                    云手机 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/云手机/无人直播，代理/">
+                    无人直播，代理 <span class="right">2</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/低代码/">
+                    低代码 <span class="right">4</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+<div id="search" class="modal search-modal">
+    <div class="row">
+        <div class="input-field col s12">
+              <input id="search-input" type="text">
+              <label for="search-input">Search</label>
+        </div>
+
+    </div>
+    <div id="search-result" class="search-result col s12">
+
+    </div>
+</div>
+
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper indigo">
+        <span class="breadcrumb">Current page(Categories)</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/低代码/">低代码</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>渲染器方法详解</h1>
+    
+
+
+            </div>
+            <time class="pink-link-context" datetime="2026-05-08T16:00:00.000Z"><a href="/2026/05/09/%E5%89%8D%E7%AB%AF/%E4%BD%8E%E4%BB%A3%E7%A0%81/DSL%20%E6%B8%B2%E6%9F%93%E5%99%A8%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3/">2026-05-09</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/低代码/" class="chip pink lighten-1">低代码</a>
+        
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#DSL-%E6%B8%B2%E6%9F%93%E5%99%A8%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3"><span class="section table-of-contents-text">DSL 渲染器方法详解</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%B8%80%E3%80%81%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F-src-core-types-ts"><span class="section table-of-contents-text">一、类型系统 (src&#x2F;core&#x2F;types.ts)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-1-JSExpression"><span class="section table-of-contents-text">1.1 JSExpression</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-2-JSFunction"><span class="section table-of-contents-text">1.2 JSFunction</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-3-NodeSchema"><span class="section table-of-contents-text">1.3 NodeSchema</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-4-BlockSchema"><span class="section table-of-contents-text">1.4 BlockSchema</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-5-NodeDirective"><span class="section table-of-contents-text">1.5 NodeDirective</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#1-6-%E7%B1%BB%E5%9E%8B%E5%AE%88%E5%8D%AB%E5%87%BD%E6%95%B0"><span class="section table-of-contents-text">1.6 类型守卫函数</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%BA%8C%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90-src-core-renderer-ts"><span class="section table-of-contents-text">二、表达式解析 (src&#x2F;core&#x2F;renderer.ts)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-1-parseExpression-str-self"><span class="section table-of-contents-text">2.1 parseExpression(str, self)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#2-2-parseFunction-str-self"><span class="section table-of-contents-text">2.2 parseFunction(str, self)</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%B8%89%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%8A%E4%B8%8B%E6%96%87-%E2%80%94-Context-%E7%B1%BB"><span class="section table-of-contents-text">三、运行时上下文 — Context 类</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-1-Context-%E6%9E%84%E9%80%A0"><span class="section table-of-contents-text">3.1 Context 构造</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-2-ctx-setup-attrs-V-%E2%80%94-%E7%BB%91%E5%AE%9A-Vue-%E5%AE%9E%E4%BE%8B"><span class="section table-of-contents-text">3.2 ctx.setup(attrs, V) — 绑定 Vue 实例</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-3-ctx-parseExpression-code-ctx-parseFunction-code"><span class="section table-of-contents-text">3.3 ctx.__parseExpression(code) &#x2F; ctx.__parseFunction(code)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-4-ctx-clone-context-%E2%80%94-%E5%85%8B%E9%9A%86%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="section table-of-contents-text">3.4 ctx.__clone(context) — 克隆上下文</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#3-5-ctx-ref-id-ref-%E2%80%94-%E5%A4%84%E7%90%86%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8"><span class="section table-of-contents-text">3.5 ctx.__ref(id, ref) — 处理模板引用</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E5%9B%9B%E3%80%81%E8%8A%82%E7%82%B9%E6%B8%B2%E6%9F%93-%E2%80%94-nodeRender-%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B"><span class="section table-of-contents-text">四、节点渲染 — nodeRender() 核心流程</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-1-%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D"><span class="section table-of-contents-text">4.1 函数签名</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-2-%E5%AE%8C%E6%95%B4%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="section table-of-contents-text">4.2 完整执行流程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-3-getDiretives-%E2%80%94-%E6%8C%87%E4%BB%A4%E5%88%86%E7%B1%BB"><span class="section table-of-contents-text">4.3 getDiretives() — 指令分类</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-4-deepParseNodeProps-%E2%80%94-%E6%B7%B1%E5%BA%A6%E5%B1%9E%E6%80%A7%E8%A7%A3%E6%9E%90"><span class="section table-of-contents-text">4.4 deepParseNodeProps() — 深度属性解析</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-5-parseNodeEvents-%E2%80%94-%E4%BA%8B%E4%BB%B6%E8%A7%A3%E6%9E%90"><span class="section table-of-contents-text">4.5 parseNodeEvents() — 事件解析</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-6-vForRender-%E2%80%94-v-for-%E5%BE%AA%E7%8E%AF%E6%B8%B2%E6%9F%93"><span class="section table-of-contents-text">4.6 vForRender() — v-for 循环渲染</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#4-7-childrenToSlots-%E2%80%94-%E5%AD%90%E8%8A%82%E7%82%B9%E8%BD%AC%E6%8F%92%E6%A7%BD"><span class="section table-of-contents-text">4.7 childrenToSlots() — 子节点转插槽</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%BA%94%E3%80%81%E7%8A%B6%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E5%87%BD%E6%95%B0"><span class="section table-of-contents-text">五、状态初始化函数</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-1-createState-%E2%80%94-%E5%88%9B%E5%BB%BA%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81"><span class="section table-of-contents-text">5.1 createState() — 创建响应式状态</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-2-createComputed-%E2%80%94-%E5%88%9B%E5%BB%BA%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="section table-of-contents-text">5.2 createComputed() — 创建计算属性</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-3-createMethods-%E2%80%94-%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95"><span class="section table-of-contents-text">5.3 createMethods() — 创建方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-4-createLifeCycles-%E2%80%94-%E5%88%9B%E5%BB%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90"><span class="section table-of-contents-text">5.4 createLifeCycles() — 创建生命周期钩子</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#5-5-setWatches-%E2%80%94-%E8%AE%BE%E7%BD%AE%E4%BE%A6%E5%90%AC%E5%99%A8"><span class="section table-of-contents-text">5.5 setWatches() — 设置侦听器</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E5%85%AD%E3%80%81createRenderer-%E2%80%94-%E6%B8%B2%E6%9F%93%E5%99%A8%E5%85%A5%E5%8F%A3"><span class="section table-of-contents-text">六、createRenderer() — 渲染器入口</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%B8%83%E3%80%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE-src-canvas-protocol-ts"><span class="section table-of-contents-text">七、通信协议 (src&#x2F;canvas&#x2F;protocol.ts)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#7-1-%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F"><span class="section table-of-contents-text">7.1 消息格式</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#7-2-%E6%B6%88%E6%81%AF%E7%B1%BB%E5%9E%8B"><span class="section table-of-contents-text">7.2 消息类型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#7-3-sendMessage-target-msg"><span class="section table-of-contents-text">7.3 sendMessage(target, msg)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#7-4-onMessage-fn-%E2%80%94-%E7%9B%91%E5%90%AC%E6%B6%88%E6%81%AF"><span class="section table-of-contents-text">7.4 onMessage(fn) — 监听消息</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E5%85%AB%E3%80%81%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-src-coder-index-ts"><span class="section table-of-contents-text">八、代码生成器 (src&#x2F;coder&#x2F;index.ts)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#8-1-generateVueSFC-dsl-%E2%80%94-DSL-%E2%86%92-Vue-SFC-%E6%BA%90%E7%A0%81"><span class="section table-of-contents-text">8.1 generateVueSFC(dsl) — DSL → Vue SFC 源码</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#8-2-genNode-node-indent-%E2%80%94-%E8%8A%82%E7%82%B9%E8%BD%AC%E6%A8%A1%E6%9D%BF"><span class="section table-of-contents-text">8.2 genNode(node, indent) — 节点转模板</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#8-3-generateJSON-dsl-%E2%80%94-DSL-%E2%86%92-%E6%A0%BC%E5%BC%8F%E5%8C%96-JSON"><span class="section table-of-contents-text">8.3 generateJSON(dsl) — DSL → 格式化 JSON</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#%E4%B9%9D%E3%80%81%E8%AE%BE%E8%AE%A1%E5%99%A8%E9%9B%86%E6%88%90"><span class="section table-of-contents-text">九、设计器集成</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#9-1-DesignerView-%E2%86%92-Canvas-%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B"><span class="section table-of-contents-text">9.1 DesignerView → Canvas 交互流程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#9-2-CanvasApp-%E5%86%85%E9%83%A8%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B"><span class="section table-of-contents-text">9.2 CanvasApp 内部渲染流程</span></a></li></ol></li></ol></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="DSL-渲染器方法详解"><a href="#DSL-渲染器方法详解" class="headerlink" title="DSL 渲染器方法详解"></a>DSL 渲染器方法详解</h1><blockquote>
+<p>基于当前项目 <code>test/demo/src</code> 源码，逐函数详细说明转换过程</p>
+</blockquote>
+<hr>
+<h2 id="一、类型系统-src-core-types-ts"><a href="#一、类型系统-src-core-types-ts" class="headerlink" title="一、类型系统 (src/core/types.ts)"></a>一、类型系统 (<code>src/core/types.ts</code>)</h2><h3 id="1-1-JSExpression"><a href="#1-1-JSExpression" class="headerlink" title="1.1 JSExpression"></a>1.1 JSExpression</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">JSExpression</span> &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;JSExpression&#x27;</span>;</span><br><span class="line">  <span class="attr">id</span>?: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">value</span>: <span class="built_in">string</span>;  <span class="comment">// 如 &quot;count + 1&quot;, &quot;items.length&quot;, &quot;visible ? &#x27;show&#x27; : &#x27;hide&#x27;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 表示一段需要在运行时动态求值的 JavaScript 表达式。<br><code>value</code> 是字符串形式的表达式代码，渲染时通过 <code>new Function</code> 执行得到实际值。</p>
+<p><strong>转换示例</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &#123; type: &#x27;JSExpression&#x27;, value: &#x27;count + 1&#x27; &#125;</span><br><span class="line">  ↓ parseExpression() 执行</span><br><span class="line">输出: number（如 count=5 时结果为 6）</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-JSFunction"><a href="#1-2-JSFunction" class="headerlink" title="1.2 JSFunction"></a>1.2 JSFunction</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">JSFunction</span> &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;JSFunction&#x27;</span>;</span><br><span class="line">  <span class="attr">id</span>?: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">value</span>: <span class="built_in">string</span>;  <span class="comment">// 如 &quot;function() &#123; return this.count + 1 &#125;&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 表示一段需要在运行时动态生成的 JavaScript 函数。<br><code>value</code> 是字符串形式的函数定义代码。</p>
+<p><strong>转换示例</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &#123; type: &#x27;JSFunction&#x27;, value: &#x27;function handleClick() &#123; this.count++ &#125;&#x27; &#125;</span><br><span class="line">  ↓ parseFunction() 执行</span><br><span class="line">输出: Function 对象，可直接调用</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-NodeSchema"><a href="#1-3-NodeSchema" class="headerlink" title="1.3 NodeSchema"></a>1.3 NodeSchema</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">NodeSchema</span> &#123;</span><br><span class="line">  <span class="attr">id</span>?: <span class="built_in">string</span>;           <span class="comment">// 节点唯一标识，设计器用</span></span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;          <span class="comment">// HTML 标签名或组件名，如 &#x27;div&#x27;, &#x27;button&#x27;, &#x27;MyComponent&#x27;</span></span><br><span class="line">  <span class="attr">from</span>?: <span class="built_in">string</span>;         <span class="comment">// 组件来源路径</span></span><br><span class="line">  <span class="attr">locked</span>?: <span class="built_in">boolean</span>;      <span class="comment">// 是否锁定（不可编辑）</span></span><br><span class="line">  <span class="attr">invisible</span>?: <span class="built_in">boolean</span>;   <span class="comment">// 是否隐藏（不渲染）</span></span><br><span class="line">  <span class="attr">props</span>?: <span class="title class_">NodeProps</span>;     <span class="comment">// 组件属性</span></span><br><span class="line">  <span class="attr">events</span>?: <span class="title class_">NodeEvents</span>;   <span class="comment">// 事件绑定</span></span><br><span class="line">  <span class="attr">directives</span>?: <span class="title class_">NodeDirective</span>[]; <span class="comment">// Vue 指令</span></span><br><span class="line">  <span class="attr">children</span>?: <span class="built_in">string</span> | <span class="title class_">JSExpression</span> | <span class="title class_">NodeSchema</span>[]; <span class="comment">// 子节点</span></span><br><span class="line">  <span class="attr">slot</span>?: <span class="built_in">string</span> | <span class="title class_">NodeSlot</span>;    <span class="comment">// 插槽信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 描述页面中的每一个组件节点。<code>children</code> 可以是：</p>
+<ul>
+<li><code>string</code> — 纯文本内容，如 <code>&quot;Hello World&quot;</code></li>
+<li><code>JSExpression</code> — 动态文本，如 <code>{ type: &#39;JSExpression&#39;, value: &#39;message&#39; }</code></li>
+<li><code>NodeSchema[]</code> — 子节点数组，递归嵌套</li>
+</ul>
+<h3 id="1-4-BlockSchema"><a href="#1-4-BlockSchema" class="headerlink" title="1.4 BlockSchema"></a>1.4 BlockSchema</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">BlockSchema</span> &#123;</span><br><span class="line">  <span class="attr">id</span>?: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;           <span class="comment">// 页面/区块名称</span></span><br><span class="line">  <span class="attr">state</span>?: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">JSExpression</span> | <span class="title class_">JSFunction</span>&gt;; <span class="comment">// 响应式状态</span></span><br><span class="line">  <span class="attr">computed</span>?: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">JSFunction</span>&gt;;              <span class="comment">// 计算属性</span></span><br><span class="line">  <span class="attr">methods</span>?: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">JSFunction</span>&gt;;               <span class="comment">// 方法</span></span><br><span class="line">  <span class="attr">watch</span>?: <span class="built_in">any</span>[];          <span class="comment">// 侦听器</span></span><br><span class="line">  <span class="attr">lifeCycles</span>?: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">JSFunction</span>&gt;;            <span class="comment">// 生命周期钩子</span></span><br><span class="line">  <span class="attr">nodes</span>?: <span class="title class_">NodeSchema</span>[];   <span class="comment">// 根节点列表</span></span><br><span class="line">  <span class="attr">css</span>?: <span class="built_in">string</span>;           <span class="comment">// CSS 样式字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 描述一个完整的页面或可复用区块，对应 Vue 的一个 SFC 组件。</p>
+<h3 id="1-5-NodeDirective"><a href="#1-5-NodeDirective" class="headerlink" title="1.5 NodeDirective"></a>1.5 NodeDirective</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">NodeDirective</span> &#123;</span><br><span class="line">  <span class="attr">id</span>?: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span> | <span class="title class_">JSExpression</span>;  <span class="comment">// 指令名：vIf, vFor, vShow, vModel, vBind, vHtml</span></span><br><span class="line">  <span class="attr">arg</span>?: <span class="built_in">string</span> | <span class="title class_">JSExpression</span>;  <span class="comment">// 指令参数：v-model:arg</span></span><br><span class="line">  <span class="attr">modifiers</span>?: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">boolean</span>&gt;; <span class="comment">// 修饰符</span></span><br><span class="line">  <span class="attr">value</span>?: <span class="title class_">JSExpression</span>;         <span class="comment">// 指令绑定值</span></span><br><span class="line">  <span class="attr">iterator</span>?: &#123; <span class="attr">item</span>: <span class="built_in">string</span>; <span class="attr">index</span>: <span class="built_in">string</span> &#125;; <span class="comment">// v-for 的迭代变量名</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-6-类型守卫函数"><a href="#1-6-类型守卫函数" class="headerlink" title="1.6 类型守卫函数"></a>1.6 类型守卫函数</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isJSExpression</span>(<span class="params"><span class="attr">data</span>: <span class="built_in">any</span></span>): data is <span class="title class_">JSExpression</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> data &amp;&amp; data.<span class="property">type</span> === <span class="string">&#x27;JSExpression&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isJSFunction</span>(<span class="params"><span class="attr">data</span>: <span class="built_in">any</span></span>): data is <span class="title class_">JSFunction</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> data === <span class="string">&#x27;object&#x27;</span> &amp;&amp; data &amp;&amp; data.<span class="property">type</span> === <span class="string">&#x27;JSFunction&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 在运行时判断一个值是否为动态表达式&#x2F;函数，用于递归遍历时区分静态值和动态值。</p>
+<hr>
+<h2 id="二、表达式解析-src-core-renderer-ts"><a href="#二、表达式解析-src-core-renderer-ts" class="headerlink" title="二、表达式解析 (src/core/renderer.ts)"></a>二、表达式解析 (<code>src/core/renderer.ts</code>)</h2><h3 id="2-1-parseExpression-str-self"><a href="#2-1-parseExpression-str-self" class="headerlink" title="2.1 parseExpression(str, self)"></a>2.1 parseExpression(str, self)</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">parseExpression</span>(<span class="params"><span class="attr">str</span>: <span class="title class_">JSExpression</span> | <span class="title class_">JSFunction</span>, <span class="attr">self</span>: <span class="built_in">any</span></span>) &#123;</span><br><span class="line">  <span class="comment">// 1. 获取表达式字符串</span></span><br><span class="line">  <span class="keyword">let</span> tarStr = (str.<span class="property">value</span> || <span class="string">&#x27;&#x27;</span>).<span class="title function_">trim</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 将 this 替换为 __self（因为 new Function 内不能用 this 访问上下文）</span></span><br><span class="line">  tarStr = tarStr.<span class="title function_">replace</span>(<span class="regexp">/this(\W|$)/g</span>, <span class="function">(<span class="params">_a, b</span>) =&gt;</span> <span class="string">`__self<span class="subst">$&#123;b&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 构建 with 语句，使 $scope 中的变量可以直接访问</span></span><br><span class="line">  <span class="keyword">const</span> code = <span class="string">`with($scope || &#123;&#125;) &#123; &quot;use strict&quot;; var __self = arguments[0]; return <span class="subst">$&#123;tarStr&#125;</span> &#125;`</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 用 new Function 创建函数并执行，传入 self 作为上下文</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Function</span>(<span class="string">&#x27;$scope&#x27;</span>, code)(self);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行原理</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>str.value</code></td>
+<td>原始表达式字符串，如 <code>&quot;count + 1&quot;</code></td>
+</tr>
+<tr>
+<td><code>this → __self</code></td>
+<td>替换 <code>this.count</code> 为 <code>__self.count</code></td>
+</tr>
+<tr>
+<td><code>with($scope)</code></td>
+<td>让 <code>$scope</code> 对象的属性可以直接用变量名访问</td>
+</tr>
+<tr>
+<td><code>new Function(&#39;$scope&#39;, code)(self)</code></td>
+<td>动态创建并立即执行函数</td>
+</tr>
+</tbody></table>
+<p><strong>self 参数是什么</strong>: 即 <code>Context</code> 实例。Context 上有 <code>state</code>、<code>props</code>、<code>methods</code> 等属性，<br>通过 <code>with</code> 语句，表达式中可以直接写 <code>count</code> 而不是 <code>this.state.count</code>。</p>
+<p><strong>完整执行示例</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">表达式: &#123; type: &#x27;JSExpression&#x27;, value: &#x27;count + 1&#x27; &#125;</span><br><span class="line">Context: &#123; state: &#123; count: 5 &#125;, ... &#125;</span><br><span class="line"></span><br><span class="line">执行代码:</span><br><span class="line">  with($scope || &#123;&#125;) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line">    var __self = arguments[0];</span><br><span class="line">    return count + 1</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">$scope = Context实例，state 通过 with 展开为可访问变量</span><br><span class="line">结果: 6</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-parseFunction-str-self"><a href="#2-2-parseFunction-str-self" class="headerlink" title="2.2 parseFunction(str, self)"></a>2.2 parseFunction(str, self)</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">parseFunction</span>(<span class="params"><span class="attr">str</span>: <span class="title class_">JSFunction</span>, <span class="attr">self</span>: <span class="built_in">any</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> fn = <span class="title function_">parseExpression</span>(str, self);  <span class="comment">// 复用 parseExpression</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> fn !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">warn</span>(<span class="string">&#x27;parseFunction.error: not a function&#x27;</span>, str.<span class="property">value</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fn <span class="keyword">as</span> <span class="title class_">Function</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 与 <code>parseExpression</code> 相同的执行机制，但期望返回值是一个 Function 对象。</p>
+<p><strong>示例</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: &#123; type: &#x27;JSFunction&#x27;, value: &#x27;function() &#123; this.count++ &#125;&#x27; &#125;</span><br><span class="line">  ↓ this → __self 替换</span><br><span class="line">  ↓ with($scope) 包裹</span><br><span class="line">  ↓ new Function 执行</span><br><span class="line">输出: Function 对象，调用时 count 会自增</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、运行时上下文-—-Context-类"><a href="#三、运行时上下文-—-Context-类" class="headerlink" title="三、运行时上下文 — Context 类"></a>三、运行时上下文 — Context 类</h2><h3 id="3-1-Context-构造"><a href="#3-1-Context-构造" class="headerlink" title="3.1 Context 构造"></a>3.1 Context 构造</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Context</span> &#123;</span><br><span class="line">  <span class="attr">state</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; = &#123;&#125;;    <span class="comment">// Vue reactive 状态</span></span><br><span class="line">  <span class="attr">props</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; = &#123;&#125;;    <span class="comment">// 组件 props</span></span><br><span class="line">  <span class="attr">$refs</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; = &#123;&#125;;    <span class="comment">// 模板 ref</span></span><br><span class="line">  <span class="attr">$emit</span>: <span class="built_in">any</span> = <span class="literal">null</span>;                  <span class="comment">// 触发事件</span></span><br><span class="line">  <span class="attr">$slots</span>: <span class="built_in">any</span> = <span class="literal">null</span>;                 <span class="comment">// 插槽</span></span><br><span class="line">  <span class="attr">$watch</span>: <span class="built_in">any</span> = <span class="literal">null</span>;                 <span class="comment">// 侦听器</span></span><br><span class="line">  <span class="comment">// ... 其他 Vue 实例代理属性</span></span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"><span class="keyword">private</span> <span class="attr">options</span>: &#123; dsl?: BlockSchema; attrs?: <span class="built_in">any</span> &#125;</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (options.<span class="property">dsl</span>) <span class="variable language_">this</span>.<span class="property">__id</span> = options.<span class="property">dsl</span>.<span class="property">id</span> || <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (options.<span class="property">attrs</span>) <span class="title class_">Object</span>.<span class="title function_">assign</span>(<span class="variable language_">this</span>, options.<span class="property">attrs</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: Context 是 DSL 表达式执行的”宿主环境”，代理了 Vue 组件实例的所有能力。<br>DSL 中的 <code>this.xxx</code> 实际上就是访问 Context 上的属性。</p>
+<h3 id="3-2-ctx-setup-attrs-V-—-绑定-Vue-实例"><a href="#3-2-ctx-setup-attrs-V-—-绑定-Vue-实例" class="headerlink" title="3.2 ctx.setup(attrs, V) — 绑定 Vue 实例"></a>3.2 ctx.setup(attrs, V) — 绑定 Vue 实例</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setup</span>(<span class="params"><span class="attr">attrs</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt;, <span class="attr">V</span>: <span class="built_in">any</span> = <span class="title class_">Vue</span></span>) &#123;</span><br><span class="line">  <span class="comment">// 1. 获取当前 Vue 组件实例</span></span><br><span class="line">  <span class="keyword">const</span> instance = V.<span class="title function_">getCurrentInstance</span>();</span><br><span class="line">  <span class="keyword">if</span> (!instance) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 重置缓存</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">__refs</span> = &#123;&#125;;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">__refCaches</span> = &#123;&#125;;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">$refs</span> = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 代理 Vue 实例</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">__instance</span> = instance.<span class="property">proxy</span>;</span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">assign</span>(<span class="variable language_">this</span>, instance.<span class="property">appContext</span>.<span class="property">config</span>.<span class="property">globalProperties</span>);</span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">assign</span>(<span class="variable language_">this</span>, attrs || &#123;&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. 代理 Vue 实例方法 ($emit, $nextTick, $watch 等)</span></span><br><span class="line">  <span class="variable constant_">CONTEXT_HOST</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">this</span>[name] = <span class="variable language_">this</span>.<span class="property">__instance</span>?.[name];</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 5. 生命周期内自动更新代理</span></span><br><span class="line">  V.<span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123; <span class="comment">/* 重新绑定 CONTEXT_HOST */</span> &#125;);</span><br><span class="line">  V.<span class="title function_">onUnmounted</span>(<span class="function">() =&gt;</span> &#123; <span class="comment">/* 清理引用 */</span> &#125;);</span><br><span class="line">  V.<span class="title function_">onBeforeUpdate</span>(<span class="function">() =&gt;</span> &#123; <span class="comment">/* 重置缓存 */</span> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>调用时机</strong>: 在 <code>createRenderer</code> 的 <code>setup()</code> 函数内调用，使 Context 与当前 Vue 组件实例绑定。</p>
+<h3 id="3-3-ctx-parseExpression-code-ctx-parseFunction-code"><a href="#3-3-ctx-parseExpression-code-ctx-parseFunction-code" class="headerlink" title="3.3 ctx.__parseExpression(code) &#x2F; ctx.__parseFunction(code)"></a>3.3 ctx.__parseExpression(code) &#x2F; ctx.__parseFunction(code)</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">__parseExpression</span>(<span class="params"><span class="attr">code</span>?: <span class="title class_">JSExpression</span> | <span class="title class_">JSFunction</span></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!code) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">parseExpression</span>(code, <span class="variable language_">this</span>);  <span class="comment">// this 就是 self 参数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">__parseFunction</span>(<span class="params"><span class="attr">code</span>?: <span class="title class_">JSFunction</span></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!code) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">parseFunction</span>(code, <span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: Context 实例方法，将自身作为执行上下文传给 parseExpression&#x2F;parseFunction。</p>
+<h3 id="3-4-ctx-clone-context-—-克隆上下文"><a href="#3-4-ctx-clone-context-—-克隆上下文" class="headerlink" title="3.4 ctx.__clone(context) — 克隆上下文"></a>3.4 ctx.__clone(context) — 克隆上下文</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">__clone</span>(<span class="params"><span class="attr">context</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt; = &#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> _context = &#123; ...<span class="variable language_">this</span>.<span class="property">context</span>, ...context &#125;;</span><br><span class="line">  <span class="keyword">const</span> <span class="attr">copy</span>: <span class="built_in">any</span> = &#123; ..._context, <span class="attr">context</span>: _context &#125;;</span><br><span class="line">  copy.<span class="property">context</span>.<span class="property">__proto__</span> = <span class="variable language_">this</span>.<span class="property">context</span>;</span><br><span class="line">  copy.<span class="property">__proto__</span> = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> copy <span class="keyword">as</span> <span class="title class_">Context</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 创建 Context 的浅克隆，用于 <strong>v-for 循环</strong>。每次迭代需要独立的上下文来存储 <code>item</code> 和 <code>index</code> 变量。</p>
+<p><strong>使用场景</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v-for=&quot;item in items&quot;</span><br><span class="line">  ↓ 每次迭代</span><br><span class="line">ctx.__clone(&#123; item: items[0], index: 0 &#125;)  // 子上下文 1</span><br><span class="line">ctx.__clone(&#123; item: items[1], index: 1 &#125;)  // 子上下文 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-ctx-ref-id-ref-—-处理模板引用"><a href="#3-5-ctx-ref-id-ref-—-处理模板引用" class="headerlink" title="3.5 ctx.__ref(id, ref) — 处理模板引用"></a>3.5 ctx.__ref(id, ref) — 处理模板引用</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">__ref</span>(<span class="params"><span class="attr">id</span>: <span class="built_in">string</span> | <span class="literal">null</span> = <span class="literal">null</span>, <span class="attr">ref</span>?: <span class="built_in">string</span> | <span class="title class_">Function</span></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!id) <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">  <span class="comment">// 缓存 ref 函数避免重复创建</span></span><br><span class="line">  <span class="keyword">let</span> refFunc = <span class="variable language_">this</span>.<span class="property">__refCaches</span>[id];</span><br><span class="line">  <span class="keyword">if</span> (refFunc) <span class="keyword">return</span> refFunc;</span><br><span class="line"></span><br><span class="line">  refFunc = <span class="title function_">async</span> (<span class="attr">el</span>: <span class="built_in">any</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">0</span>)); <span class="comment">// 等待 DOM 更新</span></span><br><span class="line">    <span class="keyword">let</span> dom = el?.<span class="property">$el</span> || el;</span><br><span class="line">    <span class="keyword">if</span> (id) <span class="variable language_">this</span>.<span class="property">__refs</span>[id] = el;     <span class="comment">// 存储到 Context.__refs</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> ref === <span class="string">&#x27;function&#x27;</span>) <span class="title function_">ref</span>(el);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (ref) <span class="variable language_">this</span>.<span class="property">$refs</span>[ref] = el; <span class="comment">// 存储到 Vue $refs</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">__refCaches</span>[id] = refFunc;</span><br><span class="line">  <span class="keyword">return</span> refFunc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>: 为每个 DSL 节点创建 Vue 的 <code>ref</code> 回调函数，用于获取 DOM 元素引用。</p>
+<hr>
+<h2 id="四、节点渲染-—-nodeRender-核心流程"><a href="#四、节点渲染-—-nodeRender-核心流程" class="headerlink" title="四、节点渲染 — nodeRender() 核心流程"></a>四、节点渲染 — nodeRender() 核心流程</h2><h3 id="4-1-函数签名"><a href="#4-1-函数签名" class="headerlink" title="4.1 函数签名"></a>4.1 函数签名</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">nodeRender</span>(<span class="params"></span></span><br><span class="line"><span class="params">  <span class="attr">dsl</span>: <span class="title class_">NodeSchema</span>,         <span class="comment">// 当前节点 Schema</span></span></span><br><span class="line"><span class="params">  <span class="attr">ctx</span>: <span class="title class_">Context</span>,            <span class="comment">// 运行时上下文</span></span></span><br><span class="line"><span class="params">  <span class="attr">V</span>: <span class="built_in">any</span> = <span class="title class_">Vue</span>,            <span class="comment">// Vue 运行时引用</span></span></span><br><span class="line"><span class="params">  <span class="attr">brothers</span>: <span class="title class_">NodeSchema</span>[],  <span class="comment">// 兄弟节点列表（用于 v-if/v-else 链）</span></span></span><br><span class="line"><span class="params">  <span class="attr">isBranch</span>: <span class="built_in">boolean</span>,       <span class="comment">// 是否是 v-else-if/v-else 分支渲染</span></span></span><br><span class="line"><span class="params">  <span class="attr">index</span>: <span class="built_in">number</span>            <span class="comment">// 节点在兄弟中的索引</span></span></span><br><span class="line"><span class="params"></span>): <span class="built_in">any</span>  <span class="comment">// 返回 VNode | VNode[] | null</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-完整执行流程"><a href="#4-2-完整执行流程" class="headerlink" title="4.2 完整执行流程"></a>4.2 完整执行流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">nodeRender(dsl, ctx, V, brothers, isBranch, index)</span><br><span class="line">  │</span><br><span class="line">  ├─ 1. 前置检查</span><br><span class="line">  │     ├─ dsl 为空或 invisible → 返回 null</span><br><span class="line">  │     └─ 非分支模式遇到 v-else-if/v-else → 返回 null（跳过）</span><br><span class="line">  │</span><br><span class="line">  ├─ 2. 提取指令</span><br><span class="line">  │     └─ getDiretives(directives) → &#123; vIf, vElseIf, vElse, vFor, vShow, vBind, vHtml, vModels &#125;</span><br><span class="line">  │</span><br><span class="line">  ├─ 3. 处理 v-if 条件链</span><br><span class="line">  │     ├─ vIf 条件为 false → 向后搜索兄弟节点的 v-else-if / v-else</span><br><span class="line">  │     ├─ 找到匹配的 v-else-if → 递归调用 nodeRender(brother, ctx, V, brothers, true)</span><br><span class="line">  │     └─ 找到 v-else → 递归调用 nodeRender(brother, ctx, V, brothers, true)</span><br><span class="line">  │</span><br><span class="line">  ├─ 4. 定义内部 render(c, seq) 函数</span><br><span class="line">  │     │</span><br><span class="line">  │     ├─ 4a. 解析属性</span><br><span class="line">  │     │     └─ parseNodeProps(id, dsl.props, c)</span><br><span class="line">  │     │         ├─ deepParseNodeProps(props, c)  // 递归处理 JSExpression</span><br><span class="line">  │     │         │   ├─ 遇到 JSExpression → c.__parseExpression() 求值</span><br><span class="line">  │     │         │   ├─ 遇到 JSFunction → c.__parseFunction() 生成函数</span><br><span class="line">  │     │         │   ├─ 遇到 Object → 递归处理每个值</span><br><span class="line">  │     │         │   └─ 遇到 Array → 递归处理每个元素</span><br><span class="line">  │     │         └─ 设置 ref 回调 c.__ref(id)</span><br><span class="line">  │     │</span><br><span class="line">  │     ├─ 4b. 解析事件</span><br><span class="line">  │     │     └─ parseNodeEvents(V, id, dsl.events, c)</span><br><span class="line">  │     │         ├─ 遍历每个事件 &#123; name, handler: JSFunction &#125;</span><br><span class="line">  │     │         ├─ c.__parseFunction(handler) → 得到实际函数</span><br><span class="line">  │     │         └─ 转为 Vue 格式: &#123; onClick: fn, onInput: fn &#125;</span><br><span class="line">  │     │</span><br><span class="line">  │     ├─ 4c. 处理特殊节点类型</span><br><span class="line">  │     │     └─ name === &#x27;slot&#x27; → 渲染 Vue slot</span><br><span class="line">  │     │</span><br><span class="line">  │     ├─ 4d. 处理指令效果</span><br><span class="line">  │     │     ├─ vBind → Object.assign(props, 解析值)  // 合并动态属性</span><br><span class="line">  │     │     ├─ vShow → 条件为 false 时设置 style.display = &#x27;none&#x27;</span><br><span class="line">  │     │     ├─ vHtml → 设置 props.innerHTML = 解析值</span><br><span class="line">  │     │     └─ vModel → 双向绑定处理（区分原生/组件）</span><br><span class="line">  │     │</span><br><span class="line">  │     ├─ 4e. 处理 v-model 双向绑定</span><br><span class="line">  │     │     ├─ 原生 HTML 标签:</span><br><span class="line">  │     │     │   props.value = 解析值</span><br><span class="line">  │     │     │   props.onInput = (v) =&gt; &#123; 变量 = v.target.value &#125;</span><br><span class="line">  │     │     └─ Vue 组件:</span><br><span class="line">  │     │         props.modelValue = 解析值</span><br><span class="line">  │     │         props[&#x27;onUpdate:modelValue&#x27;] = (v) =&gt; &#123; 变量 = v &#125;</span><br><span class="line">  │     │</span><br><span class="line">  │     ├─ 4f. 处理子节点</span><br><span class="line">  │     │     └─ childrenToSlots(V, dsl.children, c, dsl)</span><br><span class="line">  │     │         ├─ children 是 string → &#123; default: () =&gt; text &#125;</span><br><span class="line">  │     │         ├─ children 是 JSExpression → &#123; default: () =&gt; 动态文本 &#125;</span><br><span class="line">  │     │         └─ children 是 NodeSchema[] → createSlotsConfig() 分组</span><br><span class="line">  │     │             ├─ 按 slot 属性分组</span><br><span class="line">  │     │             └─ 每组递归调用 nodeRender()</span><br><span class="line">  │     │</span><br><span class="line">  │     └─ 4g. 创建 VNode</span><br><span class="line">  │           └─ Vue.createVNode(component, &#123; key, data-vtj, ...props, ...events &#125;, slots)</span><br><span class="line">  │</span><br><span class="line">  ├─ 5. 处理 v-for 循环</span><br><span class="line">  │     └─ vForRender(directive, render, ctx)</span><br><span class="line">  │         ├─ 解析数组: ctx.__parseExpression(value)</span><br><span class="line">  │         ├─ 遍历每个元素:</span><br><span class="line">  │         │   ctx.__clone(&#123; item, index &#125;) → 创建子上下文</span><br><span class="line">  │         │   render(子上下文, 序号) → 生成 VNode</span><br><span class="line">  │         └─ 返回 VNode 数组</span><br><span class="line">  │</span><br><span class="line">  └─ 6. 返回结果</span><br><span class="line">        ├─ 有 v-for → VNode 数组</span><br><span class="line">        └─ 无 v-for → 单个 VNode</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-getDiretives-—-指令分类"><a href="#4-3-getDiretives-—-指令分类" class="headerlink" title="4.3 getDiretives() — 指令分类"></a>4.3 getDiretives() — 指令分类</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getDiretives</span>(<span class="params"><span class="attr">directives</span>: <span class="title class_">NodeDirective</span>[] = []</span>) &#123;</span><br><span class="line">  <span class="comment">// 将驼峰指令名转为标准格式：vIf → &#x27;vIf&#x27;, vFor → &#x27;vFor&#x27;</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">camelCase</span> = (<span class="params"><span class="attr">s</span>: <span class="built_in">string</span></span>) =&gt; s.<span class="title function_">replace</span>(<span class="regexp">/([A-Z])/g</span>, <span class="function">(<span class="params">_, c, i</span>) =&gt;</span> i === <span class="number">0</span> ? c.<span class="title function_">toLowerCase</span>() : c);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">vIf</span>: directives.<span class="title function_">find</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vIf&#x27;</span>),</span><br><span class="line">    <span class="attr">vElseIf</span>: directives.<span class="title function_">find</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vElseIf&#x27;</span>),</span><br><span class="line">    <span class="attr">vElse</span>: directives.<span class="title function_">find</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vElse&#x27;</span>),</span><br><span class="line">    <span class="attr">vFor</span>: directives.<span class="title function_">find</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vFor&#x27;</span>),</span><br><span class="line">    <span class="attr">vShow</span>: directives.<span class="title function_">find</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vShow&#x27;</span>),</span><br><span class="line">    <span class="attr">vBind</span>: directives.<span class="title function_">find</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vBind&#x27;</span>),</span><br><span class="line">    <span class="attr">vHtml</span>: directives.<span class="title function_">find</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vHtml&#x27;</span>),</span><br><span class="line">    <span class="attr">vModels</span>: directives.<span class="title function_">filter</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="title function_">camelCase</span>(n.<span class="property">name</span>) === <span class="string">&#x27;vModel&#x27;</span>),  <span class="comment">// 注意是 filter，可以有多个</span></span><br><span class="line">    <span class="attr">others</span>: directives.<span class="title function_">filter</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="comment">/* 其他自定义指令 */</span>)</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回值</strong>: 将 directives 数组按类型分类，方便后续分别处理。</p>
+<h3 id="4-4-deepParseNodeProps-—-深度属性解析"><a href="#4-4-deepParseNodeProps-—-深度属性解析" class="headerlink" title="4.4 deepParseNodeProps() — 深度属性解析"></a>4.4 deepParseNodeProps() — 深度属性解析</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">deepParseNodeProps</span>(<span class="params"><span class="attr">props</span>: <span class="built_in">any</span>, <span class="attr">ctx</span>: <span class="title class_">Context</span></span>): <span class="built_in">any</span> &#123;</span><br><span class="line">  <span class="comment">// 递归终止条件</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">isJSExpression</span>(props)) <span class="keyword">return</span> ctx.<span class="title function_">__parseExpression</span>(props);  <span class="comment">// 表达式 → 求值</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">isJSFunction</span>(props)) <span class="keyword">return</span> ctx.<span class="title function_">__parseFunction</span>(props);      <span class="comment">// 函数 → 生成函数</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(props)) <span class="keyword">return</span> props.<span class="title function_">map</span>(<span class="function"><span class="params">i</span> =&gt;</span> <span class="title function_">deepParseNodeProps</span>(i, ctx)); <span class="comment">// 数组 → 递归</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> props === <span class="string">&#x27;object&#x27;</span> &amp;&amp; props !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="comment">// 对象 → 递归处理每个属性值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(props).<span class="title function_">reduce</span>(<span class="function">(<span class="params">r, k</span>) =&gt;</span> &#123;</span><br><span class="line">      r[k] = <span class="title function_">deepParseNodeProps</span>(props[k], ctx);</span><br><span class="line">      <span class="keyword">return</span> r;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> props;  <span class="comment">// 原始值直接返回</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>递归逻辑</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  class: &#123; type: &#x27;JSExpression&#x27;, value: &#x27;active ? &quot;active&quot; : &quot;&quot;&#x27; &#125;,</span><br><span class="line">  style: &#123; color: &#x27;red&#x27;, fontSize: &#123; type: &#x27;JSExpression&#x27;, value: &#x27;size + &quot;px&quot;&#x27; &#125; &#125;,</span><br><span class="line">  items: [</span><br><span class="line">    &#123; type: &#x27;JSExpression&#x27;, value: &#x27;list&#x27; &#125;,</span><br><span class="line">    &#x27;static&#x27;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">  ↓ deepParseNodeProps</span><br><span class="line">&#123;</span><br><span class="line">  class: &quot;active&quot;,              // JSExpression 求值</span><br><span class="line">  style: &#123; color: &#x27;red&#x27;, fontSize: &#x27;16px&#x27; &#125;,  // 嵌套递归</span><br><span class="line">  items: [[&#x27;a&#x27;,&#x27;b&#x27;], &#x27;static&#x27;]  // 数组递归</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-parseNodeEvents-—-事件解析"><a href="#4-5-parseNodeEvents-—-事件解析" class="headerlink" title="4.5 parseNodeEvents() — 事件解析"></a>4.5 parseNodeEvents() — 事件解析</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">parseNodeEvents</span>(<span class="params"><span class="attr">V</span>: <span class="built_in">any</span>, <span class="attr">_id</span>: <span class="built_in">string</span>, <span class="attr">events</span>: <span class="title class_">NodeEvents</span>, <span class="attr">ctx</span>: <span class="title class_">Context</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(events || &#123;&#125;).<span class="title function_">reduce</span>(<span class="function">(<span class="params">result, key</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> event = events[key];</span><br><span class="line">    <span class="keyword">const</span> handler = ctx.<span class="title function_">__parseFunction</span>(event.<span class="property">handler</span>); <span class="comment">// JSFunction → 真实函数</span></span><br><span class="line">    <span class="keyword">if</span> (handler) &#123;</span><br><span class="line">      <span class="comment">// click → onClick, input → onInput</span></span><br><span class="line">      result[<span class="string">&#x27;on&#x27;</span> + key.<span class="title function_">charAt</span>(<span class="number">0</span>).<span class="title function_">toUpperCase</span>() + key.<span class="title function_">slice</span>(<span class="number">1</span>)] = handler;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>转换规则</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DSL:  &#123; click: &#123; handler: JSFunction &#125; &#125;</span><br><span class="line">  ↓</span><br><span class="line">Vue:  &#123; onClick: Function &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-6-vForRender-—-v-for-循环渲染"><a href="#4-6-vForRender-—-v-for-循环渲染" class="headerlink" title="4.6 vForRender() — v-for 循环渲染"></a>4.6 vForRender() — v-for 循环渲染</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">vForRender</span>(<span class="params"><span class="attr">directive</span>: <span class="title class_">NodeDirective</span>, <span class="attr">render</span>: (ctx: Context, seq?: <span class="built_in">number</span>) =&gt; <span class="built_in">any</span>, <span class="attr">ctx</span>: <span class="title class_">Context</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; value, iterator &#125; = directive;</span><br><span class="line">  <span class="keyword">const</span> &#123; item = <span class="string">&#x27;item&#x27;</span>, index = <span class="string">&#x27;index&#x27;</span> &#125; = iterator || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 解析循环数据源</span></span><br><span class="line">  <span class="keyword">let</span> items = ctx.<span class="title function_">__parseExpression</span>(value) || [];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 数字也可以循环: v-for=&quot;(item, index) in 3&quot; → [1, 2, 3]</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Number</span>.<span class="title function_">isInteger</span>(items)) items = <span class="keyword">new</span> <span class="title class_">Array</span>(items).<span class="title function_">fill</span>(<span class="literal">true</span>).<span class="title function_">map</span>(<span class="function">(<span class="params">_, i</span>) =&gt;</span> i + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!<span class="title class_">Array</span>.<span class="title function_">isArray</span>(items)) <span class="keyword">return</span> [];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 遍历每个元素，克隆上下文并注入循环变量</span></span><br><span class="line">  <span class="keyword">return</span> items.<span class="title function_">map</span>(<span class="function">(<span class="params">_item, _index</span>) =&gt;</span></span><br><span class="line">    <span class="title function_">render</span>(ctx.<span class="title function_">__clone</span>(&#123; [item]: _item, [index]: _index &#125;), _index)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行示例</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">指令: &#123; name: &#x27;vFor&#x27;, value: &#123; type: &#x27;JSExpression&#x27;, value: &#x27;items&#x27; &#125;, iterator: &#123; item: &#x27;todo&#x27;, index: &#x27;i&#x27; &#125; &#125;</span><br><span class="line">items = [&#x27;吃饭&#x27;, &#x27;睡觉&#x27;, &#x27;写代码&#x27;]</span><br><span class="line"></span><br><span class="line">  ↓ 第1次迭代</span><br><span class="line">ctx.__clone(&#123; todo: &#x27;吃饭&#x27;, i: 0 &#125;) → render(clone, 0) → VNode(&#x27;li&#x27;, &#123;&#125;, &#x27;吃饭&#x27;)</span><br><span class="line"></span><br><span class="line">  ↓ 第2次迭代</span><br><span class="line">ctx.__clone(&#123; todo: &#x27;睡觉&#x27;, i: 1 &#125;) → render(clone, 1) → VNode(&#x27;li&#x27;, &#123;&#125;, &#x27;睡觉&#x27;)</span><br><span class="line"></span><br><span class="line">  ↓ 第3次迭代</span><br><span class="line">ctx.__clone(&#123; todo: &#x27;写代码&#x27;, i: 2 &#125;) → render(clone, 2) → VNode(&#x27;li&#x27;, &#123;&#125;, &#x27;写代码&#x27;)</span><br><span class="line"></span><br><span class="line">结果: [VNode, VNode, VNode]</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-7-childrenToSlots-—-子节点转插槽"><a href="#4-7-childrenToSlots-—-子节点转插槽" class="headerlink" title="4.7 childrenToSlots() — 子节点转插槽"></a>4.7 childrenToSlots() — 子节点转插槽</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">childrenToSlots</span>(<span class="params"><span class="attr">V</span>: <span class="built_in">any</span>, <span class="attr">children</span>: <span class="built_in">any</span>, <span class="attr">ctx</span>: <span class="title class_">Context</span>, <span class="attr">parent</span>?: <span class="title class_">NodeSchema</span></span>): <span class="built_in">any</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!children) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 纯文本 → 默认插槽</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> children === <span class="string">&#x27;string&#x27;</span>) <span class="keyword">return</span> &#123; <span class="attr">default</span>: <span class="function">() =&gt;</span> children &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 动态文本 → 默认插槽</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">isJSExpression</span>(children)) <span class="keyword">return</span> &#123; <span class="attr">default</span>: <span class="function">() =&gt;</span> <span class="title function_">toString</span>(ctx.<span class="title function_">__parseExpression</span>(children)) &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 节点数组 → 按 slot 属性分组为具名插槽</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(children) &amp;&amp; children.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> slots = <span class="title function_">createSlotsConfig</span>(children);</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">entries</span>(slots).<span class="title function_">reduce</span>(<span class="function">(<span class="params">result, [name, &#123; nodes &#125;]</span>) =&gt;</span> &#123;</span><br><span class="line">      result[name] = <span class="function">(<span class="params"><span class="attr">scope</span>: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> props = parent?.<span class="property">id</span> &amp;&amp; scope ? &#123; [<span class="string">`scope_<span class="subst">$&#123;parent.id&#125;</span>`</span>]: scope &#125; : &#123;&#125;;</span><br><span class="line">        <span class="comment">// 递归渲染每个子节点</span></span><br><span class="line">        <span class="keyword">return</span> nodes.<span class="title function_">map</span>(<span class="function">(<span class="params">node, index</span>) =&gt;</span> <span class="title function_">nodeRender</span>(node, ctx.<span class="title function_">__clone</span>(props), V, nodes, <span class="literal">false</span>, index));</span><br><span class="line">      &#125;;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>createSlotsConfig() 分组逻辑</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">children: [</span><br><span class="line">  &#123; name: &#x27;div&#x27;, slot: &#x27;header&#x27;, children: &#x27;标题&#x27; &#125;,    → slots.header</span><br><span class="line">  &#123; name: &#x27;p&#x27;, slot: &#x27;default&#x27;, children: &#x27;内容&#x27; &#125;,      → slots.default</span><br><span class="line">  &#123; name: &#x27;span&#x27;, slot: &#x27;footer&#x27;, children: &#x27;底部&#x27; &#125;     → slots.footer</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、状态初始化函数"><a href="#五、状态初始化函数" class="headerlink" title="五、状态初始化函数"></a>五、状态初始化函数</h2><h3 id="5-1-createState-—-创建响应式状态"><a href="#5-1-createState-—-创建响应式状态" class="headerlink" title="5.1 createState() — 创建响应式状态"></a>5.1 createState() — 创建响应式状态</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">createState</span>(<span class="params"><span class="attr">V</span>: <span class="built_in">any</span>, <span class="attr">state</span>: <span class="title class_">BlockSchema</span>[<span class="string">&#x27;state&#x27;</span>], <span class="attr">ctx</span>: <span class="title class_">Context</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> V.<span class="title function_">reactive</span>(</span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">keys</span>(state || &#123;&#125;).<span class="title function_">reduce</span>(<span class="function">(<span class="params">result, key</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> val = state[key];</span><br><span class="line">      <span class="keyword">if</span> (<span class="title function_">isJSExpression</span>(val)) val = ctx.<span class="title function_">__parseExpression</span>(val);  <span class="comment">// 表达式求值</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (<span class="title function_">isJSFunction</span>(val)) val = ctx.<span class="title function_">__parseFunction</span>(val); <span class="comment">// 函数生成</span></span><br><span class="line">      result[key] = val;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;, &#123;&#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>转换</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DSL state: &#123; count: &#123; type: &#x27;JSExpression&#x27;, value: &#x27;0&#x27; &#125;, name: &#123; type: &#x27;JSExpression&#x27;, value: &#x27;&quot;Hello&quot;&#x27; &#125; &#125;</span><br><span class="line">  ↓</span><br><span class="line">Vue.reactive(&#123; count: 0, name: &#x27;Hello&#x27; &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-createComputed-—-创建计算属性"><a href="#5-2-createComputed-—-创建计算属性" class="headerlink" title="5.2 createComputed() — 创建计算属性"></a>5.2 createComputed() — 创建计算属性</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">createComputed</span>(<span class="params"><span class="attr">V</span>: <span class="built_in">any</span>, <span class="attr">computed</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">JSFunction</span>&gt;, <span class="attr">ctx</span>: <span class="title class_">Context</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">entries</span>(computed ?? &#123;&#125;).<span class="title function_">reduce</span>(<span class="function">(<span class="params">result, [k, v]</span>) =&gt;</span> &#123;</span><br><span class="line">    result[k] = V.<span class="title function_">computed</span>(ctx.<span class="title function_">__parseFunction</span>(v) <span class="keyword">as</span> <span class="built_in">any</span>);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>转换</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DSL computed: &#123; double: &#123; type: &#x27;JSFunction&#x27;, value: &#x27;function() &#123; return this.count * 2 &#125;&#x27; &#125; &#125;</span><br><span class="line">  ↓</span><br><span class="line">&#123; double: Vue.computed(() =&gt; count * 2) &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-createMethods-—-创建方法"><a href="#5-3-createMethods-—-创建方法" class="headerlink" title="5.3 createMethods() — 创建方法"></a>5.3 createMethods() — 创建方法</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">createMethods</span>(<span class="params"><span class="attr">methods</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">JSFunction</span>&gt;, <span class="attr">ctx</span>: <span class="title class_">Context</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">entries</span>(methods ?? &#123;&#125;).<span class="title function_">reduce</span>(<span class="function">(<span class="params">result, [k, v]</span>) =&gt;</span> &#123;</span><br><span class="line">    result[k] = ctx.<span class="title function_">__parseFunction</span>(v);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>转换</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DSL methods: &#123; increment: &#123; type: &#x27;JSFunction&#x27;, value: &#x27;function() &#123; this.count++ &#125;&#x27; &#125; &#125;</span><br><span class="line">  ↓</span><br><span class="line">&#123; increment: Function &#125;  // 调用时 count 自增</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-createLifeCycles-—-创建生命周期钩子"><a href="#5-4-createLifeCycles-—-创建生命周期钩子" class="headerlink" title="5.4 createLifeCycles() — 创建生命周期钩子"></a>5.4 createLifeCycles() — 创建生命周期钩子</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">createLifeCycles</span>(<span class="params"><span class="attr">lifeCycle</span>: <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="title class_">JSFunction</span>&gt;, <span class="attr">ctx</span>: <span class="title class_">Context</span></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="title function_">entries</span>(lifeCycle ?? &#123;&#125;).<span class="title function_">reduce</span>(<span class="function">(<span class="params">result, [k, v]</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> func = ctx.<span class="title function_">__parseFunction</span>(v);</span><br><span class="line">    result[k] = <span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> func === <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">0</span>)); <span class="comment">// 延迟确保 Context 已绑定</span></span><br><span class="line">        <span class="keyword">await</span> <span class="title function_">func</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>支持的钩子</strong>: <code>onMounted</code>, <code>onUnmounted</code>, <code>onBeforeUpdate</code>, <code>onUpdated</code> 等。<br>这些会展开为 defineComponent 的选项式钩子。</p>
+<h3 id="5-5-setWatches-—-设置侦听器"><a href="#5-5-setWatches-—-设置侦听器" class="headerlink" title="5.5 setWatches() — 设置侦听器"></a>5.5 setWatches() — 设置侦听器</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">setWatches</span>(<span class="params"><span class="attr">V</span>: <span class="built_in">any</span>, <span class="attr">watches</span>: <span class="built_in">any</span>[], <span class="attr">ctx</span>: <span class="title class_">Context</span></span>) &#123;</span><br><span class="line">  watches.<span class="title function_">forEach</span>(<span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    V.<span class="title function_">watch</span>(</span><br><span class="line">      ctx.<span class="title function_">__parseExpression</span>(n.<span class="property">source</span>),     <span class="comment">// 监听源</span></span><br><span class="line">      ctx.<span class="title function_">__parseFunction</span>(n.<span class="property">handler</span>),       <span class="comment">// 回调函数</span></span><br><span class="line">      &#123; <span class="attr">deep</span>: n.<span class="property">deep</span>, <span class="attr">immediate</span>: n.<span class="property">immediate</span> &#125;  <span class="comment">// 选项</span></span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、createRenderer-—-渲染器入口"><a href="#六、createRenderer-—-渲染器入口" class="headerlink" title="六、createRenderer() — 渲染器入口"></a>六、createRenderer() — 渲染器入口</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">createRenderer</span>(<span class="params"><span class="attr">options</span>: <span class="title class_">CreateRendererOptions</span></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> V = <span class="title class_">Vue</span>;</span><br><span class="line">  <span class="keyword">const</span> ctx = <span class="keyword">new</span> <span class="title class_">Context</span>(&#123; <span class="attr">dsl</span>: options.<span class="property">dsl</span> &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> renderer = V.<span class="title function_">defineComponent</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: options.<span class="property">dsl</span>?.<span class="property">name</span> || <span class="string">&#x27;DslRenderer&#x27;</span>,</span><br><span class="line">    <span class="attr">props</span>: &#123;&#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// async setup → 外层必须用 &lt;Suspense&gt; 包裹</span></span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">      ctx.<span class="property">state</span> = <span class="title function_">createState</span>(V, options.<span class="property">dsl</span>?.<span class="property">state</span>, ctx);</span><br><span class="line">      <span class="keyword">const</span> computed = <span class="title function_">createComputed</span>(V, options.<span class="property">dsl</span>?.<span class="property">computed</span>, ctx);</span><br><span class="line">      <span class="keyword">const</span> methods = <span class="title function_">createMethods</span>(options.<span class="property">dsl</span>?.<span class="property">methods</span>, ctx);</span><br><span class="line">      ctx.<span class="title function_">setup</span>(&#123; ...computed, ...methods &#125;, V);</span><br><span class="line">      <span class="title function_">setWatches</span>(V, options.<span class="property">dsl</span>?.<span class="property">watch</span>, ctx);</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">state</span>: ctx.<span class="property">state</span>, ...computed, ...methods &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    ...<span class="title function_">createLifeCycles</span>(options.<span class="property">dsl</span>?.<span class="property">lifeCycles</span>, ctx),</span><br><span class="line"></span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!options.<span class="property">dsl</span>?.<span class="property">nodes</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">const</span> nodes = options.<span class="property">dsl</span>.<span class="property">nodes</span> || [];</span><br><span class="line">      <span class="keyword">if</span> (nodes.<span class="property">length</span> === <span class="number">1</span>) <span class="keyword">return</span> <span class="title function_">nodeRender</span>(nodes[<span class="number">0</span>], ctx, V, nodes);</span><br><span class="line">      <span class="keyword">return</span> V.<span class="title function_">createVNode</span>(<span class="string">&#x27;div&#x27;</span>, &#123;&#125;,</span><br><span class="line">        nodes.<span class="title function_">map</span>(<span class="function"><span class="params">child</span> =&gt;</span> <span class="title function_">nodeRender</span>(child, ctx, V, nodes))</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">renderer</span>: V.<span class="title function_">markRaw</span>(renderer), <span class="attr">context</span>: ctx &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>返回值</strong>:</p>
+<ul>
+<li><code>renderer</code> — 用 <code>markRaw</code> 标记的 Vue 组件（避免被 reactive 代理）</li>
+<li><code>context</code> — Context 实例（可用于外部操作）</li>
+</ul>
+<hr>
+<h2 id="七、通信协议-src-canvas-protocol-ts"><a href="#七、通信协议-src-canvas-protocol-ts" class="headerlink" title="七、通信协议 (src/canvas/protocol.ts)"></a>七、通信协议 (<code>src/canvas/protocol.ts</code>)</h2><h3 id="7-1-消息格式"><a href="#7-1-消息格式" class="headerlink" title="7.1 消息格式"></a>7.1 消息格式</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">DesignerMessage</span> &#123;</span><br><span class="line">  <span class="attr">channel</span>: <span class="string">&#x27;__VTJ_DESIGNER__&#x27;</span>;  <span class="comment">// 频道标识，过滤无关消息</span></span><br><span class="line">  <span class="attr">type</span>: <span class="title class_">MessageType</span>;             <span class="comment">// 消息类型</span></span><br><span class="line">  <span class="attr">payload</span>?: <span class="built_in">any</span>;                 <span class="comment">// 数据载荷</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-消息类型"><a href="#7-2-消息类型" class="headerlink" title="7.2 消息类型"></a>7.2 消息类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>方向</th>
+<th>说明</th>
+<th>payload</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>init</code></td>
+<td>Host → Canvas</td>
+<td>初始化 DSL</td>
+<td>BlockSchema</td>
+</tr>
+<tr>
+<td><code>updateDsl</code></td>
+<td>双向</td>
+<td>同步 DSL 变更</td>
+<td>BlockSchema</td>
+</tr>
+<tr>
+<td><code>select</code></td>
+<td>Host → Canvas</td>
+<td>设置选中节点</td>
+<td>nodeId | null</td>
+</tr>
+<tr>
+<td><code>nodeClick</code></td>
+<td>Canvas → Host</td>
+<td>用户点击节点</td>
+<td>nodeId | null</td>
+</tr>
+<tr>
+<td><code>dropNode</code></td>
+<td>Host → Canvas</td>
+<td>拖拽放置组件</td>
+<td>{ schema, x, y }</td>
+</tr>
+<tr>
+<td><code>ready</code></td>
+<td>Canvas → Host</td>
+<td>Canvas 就绪</td>
+<td>无</td>
+</tr>
+<tr>
+<td><code>selectedInfo</code></td>
+<td>Canvas → Host</td>
+<td>新增节点选中信息</td>
+<td>{ id, node }</td>
+</tr>
+</tbody></table>
+<h3 id="7-3-sendMessage-target-msg"><a href="#7-3-sendMessage-target-msg" class="headerlink" title="7.3 sendMessage(target, msg)"></a>7.3 sendMessage(target, msg)</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sendMessage</span>(<span class="params"><span class="attr">target</span>: <span class="title class_">Window</span>, <span class="attr">msg</span>: <span class="title class_">DesignerMessage</span></span>) &#123;</span><br><span class="line">  target.<span class="title function_">postMessage</span>(msg, <span class="string">&#x27;*&#x27;</span>);  <span class="comment">// 使用 window.postMessage API</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-onMessage-fn-—-监听消息"><a href="#7-4-onMessage-fn-—-监听消息" class="headerlink" title="7.4 onMessage(fn) — 监听消息"></a>7.4 onMessage(fn) — 监听消息</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">onMessage</span>(<span class="params"><span class="attr">fn</span>: (msg: DesignerMessage) =&gt; <span class="built_in">void</span></span>): <span class="function">() =&gt;</span> <span class="built_in">void</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handler</span> = (<span class="params"><span class="attr">e</span>: <span class="title class_">MessageEvent</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">data</span> &amp;&amp; e.<span class="property">data</span>.<span class="property">channel</span> === <span class="variable constant_">CHANNEL</span>) &#123;</span><br><span class="line">      <span class="title function_">fn</span>(e.<span class="property">data</span>);  <span class="comment">// 只处理本频道的消息</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;message&#x27;</span>, handler);</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="variable language_">window</span>.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;message&#x27;</span>, handler); <span class="comment">// 返回取消函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、代码生成器-src-coder-index-ts"><a href="#八、代码生成器-src-coder-index-ts" class="headerlink" title="八、代码生成器 (src/coder/index.ts)"></a>八、代码生成器 (<code>src/coder/index.ts</code>)</h2><h3 id="8-1-generateVueSFC-dsl-—-DSL-→-Vue-SFC-源码"><a href="#8-1-generateVueSFC-dsl-—-DSL-→-Vue-SFC-源码" class="headerlink" title="8.1 generateVueSFC(dsl) — DSL → Vue SFC 源码"></a>8.1 generateVueSFC(dsl) — DSL → Vue SFC 源码</h3><p>将 BlockSchema 转为 <code>.vue</code> 单文件组件字符串：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">BlockSchema</span><br><span class="line">  │</span><br><span class="line">  ├─ nodes → &lt;template&gt; 部分</span><br><span class="line">  │   └─ genNode() 递归生成 HTML 模板</span><br><span class="line">  │       ├─ props → HTML 属性</span><br><span class="line">  │       ├─ directives → v-if/v-for/v-model 等指令</span><br><span class="line">  │       ├─ events → @click/@input 等事件</span><br><span class="line">  │       └─ children → 递归子节点</span><br><span class="line">  │</span><br><span class="line">  ├─ state → &lt;script setup&gt; reactive()</span><br><span class="line">  ├─ computed → computed()</span><br><span class="line">  ├─ methods → 普通函数</span><br><span class="line">  │</span><br><span class="line">  └─ css → &lt;style scoped&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-2-genNode-node-indent-—-节点转模板"><a href="#8-2-genNode-node-indent-—-节点转模板" class="headerlink" title="8.2 genNode(node, indent) — 节点转模板"></a>8.2 genNode(node, indent) — 节点转模板</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NodeSchema: &#123; name: &#x27;button&#x27;, props: &#123; class: &#x27;btn&#x27; &#125;, children: &#x27;点击&#x27; &#125;</span><br><span class="line">  ↓ genNode</span><br><span class="line">&lt;button class=&quot;btn&quot;&gt;点击&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令转换</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123; name: &#x27;vFor&#x27;, value: &#x27;items&#x27;, iterator: &#123; item: &#x27;item&#x27;, index: &#x27;i&#x27; &#125; &#125;</span><br><span class="line">  ↓</span><br><span class="line">v-for=&quot;(item, i) in items&quot;</span><br><span class="line"></span><br><span class="line">&#123; name: &#x27;vIf&#x27;, value: &#x27;show&#x27; &#125;</span><br><span class="line">  ↓</span><br><span class="line">v-if=&quot;show&quot;</span><br><span class="line"></span><br><span class="line">&#123; name: &#x27;vModel&#x27;, value: &#x27;text&#x27; &#125;</span><br><span class="line">  ↓</span><br><span class="line">v-model=&quot;text&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>事件转换</strong>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; click: &#123; handler: &#123; type: &#x27;JSFunction&#x27;, value: &#x27;function() &#123; this.count++ &#125;&#x27; &#125; &#125; &#125;</span><br><span class="line">  ↓</span><br><span class="line">@click=&quot;() &#123; count++ &#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-3-generateJSON-dsl-—-DSL-→-格式化-JSON"><a href="#8-3-generateJSON-dsl-—-DSL-→-格式化-JSON" class="headerlink" title="8.3 generateJSON(dsl) — DSL → 格式化 JSON"></a>8.3 generateJSON(dsl) — DSL → 格式化 JSON</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">generateJSON</span>(<span class="params"><span class="attr">dsl</span>: <span class="title class_">BlockSchema</span></span>): <span class="built_in">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(dsl, <span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>直接格式化输出，用于 DSL 查看和导入导出。</p>
+<hr>
+<h2 id="九、设计器集成"><a href="#九、设计器集成" class="headerlink" title="九、设计器集成"></a>九、设计器集成</h2><h3 id="9-1-DesignerView-→-Canvas-交互流程"><a href="#9-1-DesignerView-→-Canvas-交互流程" class="headerlink" title="9.1 DesignerView → Canvas 交互流程"></a>9.1 DesignerView → Canvas 交互流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">DesignerView (主页面)                      CanvasApp (iframe)</span><br><span class="line">─────────────────────                      ───────────────────</span><br><span class="line">1. iframe 加载 canvas.html</span><br><span class="line">2. iframe load 事件</span><br><span class="line">3. sendToCanvas(&#x27;init&#x27;, dsl)  ─────────→  收到 init → renderDsl()</span><br><span class="line">4.                                           createRenderer(&#123; dsl &#125;)</span><br><span class="line">5.                                           &lt;Suspense&gt; 渲染</span><br><span class="line">6.                        ←───────────  sendToHost(&#x27;ready&#x27;)</span><br><span class="line">7. iframeReady = true</span><br><span class="line"></span><br><span class="line">用户拖拽物料:</span><br><span class="line">8. onDragStart(schema)                      显示蓝色虚线遮罩</span><br><span class="line">9. 鼠标移到画布上方松开</span><br><span class="line">10. onMaskMouseUp()</span><br><span class="line">11. sendToCanvas(&#x27;dropNode&#x27;, ...) ──────→  收到 dropNode</span><br><span class="line">12.                                         addNode() → renderDsl()</span><br><span class="line">13.                        ←───────────  sendToHost(&#x27;updateDsl&#x27;)</span><br><span class="line">14. eng.setDSL(dsl)</span><br><span class="line"></span><br><span class="line">用户点击节点:</span><br><span class="line">15.                                        onDocumentClick()</span><br><span class="line">16.                        ←───────────  sendToHost(&#x27;nodeClick&#x27;, id)</span><br><span class="line">17. selectedId = id</span><br><span class="line">18. 右侧 PropsPanel 显示节点配置</span><br><span class="line">19. 用户修改属性</span><br><span class="line">20. eng.updateNodeProp() → syncDslToCanvas()</span><br><span class="line">21. sendToCanvas(&#x27;updateDsl&#x27;)  ─────────→  收到 → renderDsl()</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-2-CanvasApp-内部渲染流程"><a href="#9-2-CanvasApp-内部渲染流程" class="headerlink" title="9.2 CanvasApp 内部渲染流程"></a>9.2 CanvasApp 内部渲染流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">CanvasApp.renderDsl()</span><br><span class="line">  │</span><br><span class="line">  ├─ JSON.parse(JSON.stringify(dsl))  // 深拷贝去除 reactive 代理</span><br><span class="line">  │</span><br><span class="line">  ├─ createRenderer(&#123; dsl &#125;)</span><br><span class="line">  │   ├─ new Context(&#123; dsl &#125;)</span><br><span class="line">  │   └─ defineComponent(&#123; setup, render &#125;)</span><br><span class="line">  │</span><br><span class="line">  ├─ renderer.value = result.renderer  // 触发 Vue 重新渲染</span><br><span class="line">  │</span><br><span class="line">  └─ &lt;Suspense&gt;</span><br><span class="line">      └─ &lt;component :is=&quot;renderer&quot; /&gt;</span><br><span class="line">          ├─ setup() 执行</span><br><span class="line">          │   ├─ createState() → reactive state</span><br><span class="line">          │   ├─ createComputed() → computed</span><br><span class="line">          │   ├─ createMethods() → methods</span><br><span class="line">          │   └─ ctx.setup() → 绑定 Vue 实例</span><br><span class="line">          │</span><br><span class="line">          └─ render() 执行</span><br><span class="line">              └─ nodes.map(n =&gt; nodeRender(n, ctx, V, nodes))</span><br><span class="line">                  ├─ 解析 props</span><br><span class="line">                  ├─ 解析 events</span><br><span class="line">                  ├─ 处理 directives</span><br><span class="line">                  ├─ 处理 children/slots</span><br><span class="line">                  └─ createVNode() → VNode 树</span><br></pre></td></tr></table></figure>
+
+                
+<p class="pink-link-context">
+    <a href="/2026/05/09/%E5%89%8D%E7%AB%AF/%E4%BD%8E%E4%BB%A3%E7%A0%81/%E4%BB%8EDSL%20%E5%88%B0%E6%B8%B2%E6%9F%93%E5%87%BAvue3%E7%BB%84%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" rel="next" title="从DSL 到渲染出vue3组件的几种方式">
+    Prev: 从DSL 到渲染出vue3组件的几种方式
+  </a>
+</p>
+
+
+
+<p class="pink-link-context">
+    <a href="/2026/01/03/%E4%BA%91%E6%89%8B%E6%9C%BA-%E6%97%A0%E4%BA%BA%E7%9B%B4%E6%92%AD/%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BA/" rel="next" title="自有服务器VPS 3x-Ui面板搭建安装详细教程">
+    Next: 自有服务器VPS 3x-Ui面板搭建安装详细教程
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large pink">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect green" title="Return to top"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="Menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer indigo darken-1">
+    
+    <div class="footer-container container">
+        <div class="row">
+            
+            <div class="social-group col m4 s12">
+                <h5 class="white-text">Social</h5>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+                
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="site-visitors-container white-text">
+        <span>
+            <i class="fa fa-user"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+        </span>
+        <span>&nbsp;|&nbsp;</span>
+        <span>
+            <i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+
+
+            </div>
+            
+
+            
+            <div class="col m8 s12">
+                <h5 class="white-text">Links</h5>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright pink-link-context">
+        <div class="container">
+            © 2015-2026 ypintao.com, All rights reserved.
+            <p class="right" style="margin-top: 0;">Blog powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+</div>
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // 隐藏禁用javascript（针对微信内置浏览器）的提示
+            $('.noscript').hide();
+
+            // 图片缩放效果
+            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+            // 给图片加上点击放大效果（materialbox插件）
+            $imgs.addClass('materialboxed').each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+            // 优化表格的显示
+            $('table').each(function() {
+                var $table = $(this);
+                // 除去多行代码的情况
+                if ($table.find('pre').length == 0) {
+                    $table.addClass('responsive-table striped bordered');
+                }
+            });
+
+            // 首页幻灯片
+            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
+
+            $(".button-collapse").sideNav();
+            $(".category-menu").sideNav();
+
+            // 针对gallery post
+            $('.carousel').carousel({full_width: true});
+            $('.carousel-control.prev').click(function() {
+                $('.carousel').carousel('prev');
+            });
+            $('.carousel-control.next').click(function() {
+                $('.carousel').carousel('next');
+            });
+
+            // 文章目录
+            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+
+            // 目录随屏幕滚动（防止目录过长越过footer）
+            var $toc = $('.toc');
+            var scrollTargetTop = 0;
+            $(window).scroll(function() {
+                var $activeLink = $toc.find('a.active.section');
+                if ($(window).scrollTop() < 100) {
+                    scrollTargetTop = 0;
+                } else {
+                    if ($activeLink[0]) {
+                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
+                    }
+                }
+                $toc.css('top', '-' + scrollTargetTop + 'px');
+            });
+
+            // 修正文章目录的left-border颜色
+            var color = $('.table-of-contents-text').css('color');
+            $('.table-of-contents-link').css('border-left-color', color);
+
+            // 针对移动端做的优化：FAB按钮点击一下收回
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $('.fixed-action-btn').addClass('click-to-toggle');
+            }
+            // 回到顶部
+            $('.btn-return-top').click(function() {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+
+            // 重置读书页面的Tab标签页的颜色
+            $('li.tab a').hover(function() {
+                $(this).toggleClass('text-lighten-4');
+            });
+            $('.indicator').addClass('pink lighten-2');
+
+            
+            // 添加new标签
+            $('.menu-reading, .menu-about').append('<span class="new badge pink"></span>');
+            
+
+            // 搜索功能
+            $('.modal-trigger').leanModal({
+                // 打开搜索框时自动聚焦
+                ready: function() {
+                    if ($('#search').is(":visible")) {
+                        $('#search-input').focus();
+                    }
+                }
+            });
+            var searchXml = "search.xml";
+            if (searchXml.length == 0) {
+             	searchXml = "search.xml";
+            }
+            var searchPath = "/" + searchXml;
+            initSearch(searchPath, 'search-input', 'search-result');
+        });
+
+        // 初始化搜索与匹配函数
+        var initSearch = function(path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function() {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function() {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function(data) {
+                            var isMatch = true;
+                            var content_index = [];
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title != '' && data_content != '') {
+                                keywords.forEach(function(keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i == 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                keywords.forEach(function(keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                });
+
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start == 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substring(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function(keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
+                                    });
+
+                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        }
+    })(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+<!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'G-PV4DSBLNBV', 'auto');
+    ga('send', 'pageview');
+
+</script> -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PV4DSBLNBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PV4DSBLNBV');
+</script>
+
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b83071413c9fe0c6a7af18e6cbaa34ff";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
