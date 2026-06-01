@@ -250,6 +250,30 @@
 
         
 
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/逆向/">
+                    逆向 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/前端/">
+                    前端 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/前端/逆向/">
+                    逆向 <span class="right">1</span></a>
+                </a>
+            </li>
+
+        
+
     </ul>
 </div>
 
@@ -478,6 +502,12 @@
 <h2 id="完整数据流图"><a href="#完整数据流图" class="headerlink" title="完整数据流图"></a>完整数据流图</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">用户拖拽物料</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">DesignerView.onDragStart()  ──→ dragSchema = schema</span><br><span class="line">    │ (鼠标松开在画布遮罩上)</span><br><span class="line">    ▼</span><br><span class="line">DesignerView.onMaskMouseUp()</span><br><span class="line">    │ postMessage(&#x27;dropNode&#x27;, &#123; schema, x, y &#125;)</span><br><span class="line">    ▼</span><br><span class="line">CanvasApp 收到 dropNode</span><br><span class="line">    │ addNode(parentId, schema)</span><br><span class="line">    │   ├─ dsl.nodes.push(node)</span><br><span class="line">    │   ├─ renderDsl() → createRenderer(&#123; dsl &#125;)</span><br><span class="line">    │   │   ├─ new Context(&#123; dsl &#125;)</span><br><span class="line">    │   │   ├─ defineComponent(&#123;</span><br><span class="line">    │   │   │     setup: createState + createComputed + createMethods</span><br><span class="line">    │   │   │     render: nodes.map(n =&gt; nodeRender(n, ctx))</span><br><span class="line">    │   │   │       ├─ parseNodeProps()   解析属性</span><br><span class="line">    │   │   │       ├─ parseNodeEvents()  解析事件</span><br><span class="line">    │   │   │       ├─ getDiretives()     处理指令</span><br><span class="line">    │   │   │       ├─ childrenToSlots()  处理子节点</span><br><span class="line">    │   │   │       └─ Vue.createVNode()  创建 VNode</span><br><span class="line">    │   │   │   &#125;)</span><br><span class="line">    │   │   └─ markRaw(renderer)</span><br><span class="line">    │   └─ renderer.value = result.renderer</span><br><span class="line">    ▼</span><br><span class="line">&lt;Suspense&gt;&lt;component :is=&quot;renderer&quot; /&gt;&lt;/Suspense&gt;</span><br><span class="line">    │</span><br><span class="line">    ▼</span><br><span class="line">页面渲染出组件</span><br><span class="line">    │ postMessage(&#x27;updateDsl&#x27;, dsl)  ←── 同步回主页面</span><br><span class="line">    ▼</span><br><span class="line">DesignerView 收到 updateDsl</span><br><span class="line">    │ eng.setDSL(dsl)  ←── 更新引擎状态</span><br><span class="line">    ▼</span><br><span class="line">右侧 PropsPanel 显示选中节点配置</span><br></pre></td></tr></table></figure>
 
                 
+<p class="pink-link-context">
+    <a href="/2026/05/14/%E5%89%8D%E7%AB%AF/AI/task/" rel="next" title="">
+    Prev: 
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">
